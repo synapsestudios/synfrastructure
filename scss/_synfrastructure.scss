@@ -1,0 +1,13 @@
+// Make sure the charset is set appropriately
+@charset "UTF-8";
+
+// Behold, here are all the Syndation components.
+@import
+  "vendor/synfrastructure/flex-video",
+  "vendor/synfrastructure/functions",
+  "vendor/synfrastructure/global",
+  "vendor/synfrastructure/grid",
+  "vendor/synfrastructure/placeholder",
+  "vendor/synfrastructure/timing-functions",
+  "vendor/synfrastructure/tint-shade",
+  "vendor/synfrastructure/visibility";

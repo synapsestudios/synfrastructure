@@ -1,0 +1,12 @@
+{
+  "name"           : "synfrastructure",
+  "version"        : "0.0.0",
+  "description"    : "Lightweight Sass utility library inspired by Foundation and Bourbon",
+  "author"         : "Synapse Studios",
+  "main"           : "index.js",
+  "readmeFilename" : "README.md",
+  "repository"     : {
+    "type" : "git",
+    "url"  : "git://github.com/synapsestudios/synfrastructure.git"
+  }
+}
