@@ -1,14 +1,14 @@
-// Make sure the charset is set appropriately
+// make sure the charset is set appropriately
 @charset "UTF-8";
 
-// Import default settings
+// import default settings
 @import "settings";
 
 // Eric Meyer's Reset
 // http://meyerweb.com/eric/tools/css/reset/
 @import "reset";
 
-// Import base from Foundation 5.5
+// import base from Foundation 5.5
 // http://foundation.zurb.com/docs/
 @import "foundation/flex-video";
 @import "foundation/functions";
@@ -17,12 +17,13 @@
 @import "foundation/visibility";
 
 
-// Imports from Bourbon
+// imports from Bourbon
 // http://bourbon.io/docs/
 @import "bourbon/timing-functions";
 @import "bourbon/placeholder";
 @import "bourbon/tint-shade";
 
+// utils
 @import "util/mixins";
 @import "util/margin";
 @import "util/padding";
