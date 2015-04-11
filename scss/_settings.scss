@@ -16,7 +16,7 @@ $line-height-base : 1.5 !default;
 // Grid
 $row-width     : rem-calc(1280) !default;
 $column-gutter : rem-calc(20)   !default;
-// $total-columns: 12;
+$total-columns : 12             !default;
 
 // Media Query Ranges
 $small-range   : (0, 30em)        !default; // 0px to 480px
