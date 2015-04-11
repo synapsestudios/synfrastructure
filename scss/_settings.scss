@@ -1,16 +1,20 @@
-//
+// @vars
 // SYNFRASTRUCTURE SETTINGS
 //
 // Comment to remove rem-calc() from your settings
 @import "foundation/functions";
 
+// Set this to true to include default component classes
+// Ex: .button, etc.
+$include-component-classes : true !default;
+
 // This is the default html and body font-size for the base rem value.
 $rem-base : 16px !default;
 
-// font-size base
+// Font-size base
 $font-size-base : rem-calc(16) !default;
 
-// base line height
+// Base line height
 $line-height-base : 1.5 !default;
 
 // Grid
@@ -32,3 +36,9 @@ $margin-spacing-threshhold : 3  !default; // Ex: l--m-0, l--m-3, l--m-6
 // Padding utility helpers
 $max-padding-spacing        : 30 !default; // Ex: max l--p-30
 $padding-spacing-threshhold : 3  !default; // Ex: l--p-0, l--p-3, l--p-6
+
+// Color vars
+$white     : #fff !default;
+$black     : #000 !default;
+$syn-color : #25c0d7 !default;
+

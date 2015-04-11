@@ -1,0 +1,168 @@
+
+// Bring in default settings
+@import "../../scss/settings";
+
+// ? export default classes
+$include-button-component-classes : $include-component-classes !default;
+
+//
+// @vars
+$button-display     : inline-block                  !default;
+$button-min-width   : 0                             !default;
+$button-margin      : 0 0 15px 0                    !default;
+$button-padding     : 15px                          !default;
+$button-bx-shadow   : none                          !default;
+$button-bdr-style   : 1px solid                     !default;
+$button-bdr-color   : $syn-color                    !default;
+$button-bdr-rad     : 3px                           !default;
+$button-bg          : $syn-color                    !default;
+$button-bg-img      : transparent                   !default;
+$button-font-family : 'Helvetica Neue', 'Helvetica' !default;
+$button-font-size   : 16px                          !default;
+$button-font-color  : $white                        !default;
+$button-text-shadow : 1px 1px 0 rgba($black, .15)   !default;
+$button-transition  : background-color 300ms ease   !default;
+
+// @MIXIN
+// Normalize button to our base styles
+// resets form and anchor styles
+@mixin button-normalize {
+     border-radius      : 0;
+     line-height        : normal;
+     text-decoration    : none;
+     cursor             : pointer;
+     -webkit-appearance : none;
+     -moz-appearance    : none;
+}
+
+// @MIXIN
+// Add specified button styles
+@mixin button-layout(
+    $display   : $button-display,
+    $min-width : $button-min-width,
+    $margin    : $button-margin
+) {
+    display   : $display;
+    min-width : $min-width;
+    margin    : $margin;
+}
+
+// @MIXIN
+// Size button and font
+@mixin button-size(
+    $padding   : $button-padding,
+    $font-size : $button-font-size
+) {
+    padding   : $padding;
+    font-size : $font-size;
+}
+
+// @MIXIN
+// Add specified button styles
+@mixin button-typography(
+    $font-family : $button-font-family,
+    $font-size   : $button-font-size,
+    $font-color  : $button-font-color,
+    $text-shadow : $button-text-shadow
+) {
+    font-family : $font-family;
+    font-size   : $font-size;
+    color       : $font-color;
+    text-shadow : $text-shadow;
+}
+
+// @MIXIN
+// Add specified button styles
+@mixin button-style(
+    $box-shadow       : $button-bx-shadow,
+    $border-style     : $button-bdr-style,
+    $border-color     : $button-bdr-color,
+    $border-radius    : $button-bdr-rad,
+    $background-color : $button-bg,
+    $background-image : $button-bg-img,
+    $transition       : $button-transition
+) {
+    box-shadow        : $box-shadow;
+    border            : $border-style;
+    border-color      : $border-color;
+    border-radius     : $border-radius;
+    background-color  : $background-color;
+    background-image  : $background-image;
+    transition        : $transition;
+}
+
+// @MIXIN
+// Create a default button component
+@mixin button(
+    $display          : $button-display,
+    $min-width        : $button-min-width,
+    $margin           : $button-margin,
+    $padding          : $button-padding,
+    $box-shadow       : $button-bx-shadow,
+    $border-style     : $button-bdr-style,
+    $border-color     : $button-bdr-color,
+    $border-radius    : $button-bdr-rad,
+    $background-color : $button-bg,
+    $background-image : $button-bg-img,
+    $font-family      : $button-font-family,
+    $font-size        : $button-font-size,
+    $font-color       : $button-font-color,
+    $text-shadow      : $button-text-shadow,
+    $transition       : $button-transition
+) {
+
+    @include button-normalize;
+    @include button-layout(
+        $display,
+        $min-width,
+        $margin
+    );
+    @include button-size(
+        $padding,
+        $font-size
+    );
+    @include button-typography(
+        $font-family,
+        $font-size,
+        $font-color,
+        $text-shadow
+    );
+    @include button-style(
+        $box-shadow,
+        $border-style,
+        $border-color,
+        $border-radius,
+        $background-color,
+        $background-image
+    );
+
+}
+
+// export these default classes
+// if set to true
+// check synfrastructure settings
+@if $include-button-component-classes {
+
+    .button {
+        @include button;
+
+        &:hover,
+        &:focus {
+            @include button-style(
+                $box-shadow       : 0px 0px 3px rgba($black, .2),
+                $border-color     : darken($button-bg, 5%),
+                $background-color : darken($button-bg, 5%)
+            );
+        }
+
+        &.disabled,
+        &[disabled] {
+            @include button-style(
+                $border-color     : rgba($button-bg, .5),
+                $background-color : rgba($button-bg, .5)
+            );
+        }
+
+    }
+
+}
