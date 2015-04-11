@@ -12,10 +12,17 @@ module.exports = React.createClass({
     mixins : [SynfrastructureHelperMixin],
 
     propTypes : {
-        element    : React.PropTypes.any,
-        attributes : React.PropTypes.object,
-        size       : React.PropTypes.string,
-        modifier   : React.PropTypes.oneOfType([
+        element : React.PropTypes.oneOf([
+            'a',
+            'button',
+            'input',
+            'span',
+            'div'
+        ]),
+        attributes            : React.PropTypes.object,
+        componentCSSClassName : React.PropTypes.string,
+        size                  : React.PropTypes.string,
+        modifier              : React.PropTypes.oneOfType([
             React.PropTypes.string,
             React.PropTypes.array
         ]),
@@ -27,32 +34,31 @@ module.exports = React.createClass({
     getDefaultProps : function()
     {
         return {
-            element    : 'a',
-            attributes : {},
-            size       : null,
-            modifier   : null,
-            disabled   : false,
-            className  : null,
-            onClick    : null
+            element               : 'a',
+            attributes            : {},
+            componentCSSClassName : 'button',
+            size                  : null,
+            modifier              : null,
+            disabled              : false,
+            className             : null,
+            onClick               : null
         };
     },
 
     render : function()
     {
         var Component,
+            ComponentChildren,
             classes,
-            optionalClasses,
+            childClassName,
             attributes = {};
 
-        optionalClasses = classSet({
-            'button--disabled' : this.props.disabled
-        });
-
         classes = [
-            'button',
-            this.props.modifier,
+            this.props.componentCSSClassName,
+            this.props.modifier.join(' '),
             this.props.className,
-            optionalClasses
+            this.props.disabled ?
+                this.props.componentCSSClassName + '--disabled' : null
         ].join(' ');
 
         attributes = {
@@ -61,10 +67,21 @@ module.exports = React.createClass({
             disabled  : this.props.disabled
         };
 
+        childClassName = this.props.componentCSSClassName + '__children';
+
+        ComponentChildren = React.createElement(
+            'span',
+            {className : childClassName},
+            this.props.children
+        );
+
         Component = React.createElement(
             this.props.element,
-            this.mergeAttributes(attributes, this.props.attributes),
-            this.props.children
+            this.mergeAttributes(
+                attributes,
+                this.props.attributes
+            ),
+            ComponentChildren
         );
 
         return Component;
