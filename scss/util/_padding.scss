@@ -1,0 +1,40 @@
+////////////////////////
+// Padding
+// generation functions
+////////////////////////
+
+// @vars
+// directional values
+$directions                 : top right bottom left;
+$max-padding-spacing        : 30 !default;
+$padding-spacing-threshhold : 3 !default;
+$padding-spacing-buffer     : $max-padding-spacing * $padding-spacing-threshhold;
+
+// Padding Function
+// Outputs .l--p-x {padding:2px & even #s through padding:10px}
+@for $i from 0 through $max-padding-spacing {
+    $value : (($padding-spacing-buffer / $max-padding-spacing) * $i) * 1;
+
+    .l--p-#{$i * $padding-spacing-threshhold} {
+        padding : rem-calc($value) !important;
+    }
+
+}
+
+// Single Side Padding Function
+// Outputs .l--p-top-x {padding-top:2px & even #s through padding-top:20px}
+// Outputs .l--p-right-x {padding-right:2px & even #s through padding-right:20px}
+// Outputs .l--p-bottom-x {padding-bottom:2px & even #s through padding-bottom:20px}
+// Outputs .l--p-left-x {padding-left:2px & even #s through padding-left:20px}
+@each $direction in $directions {
+
+    @for $i from 0 through $max-padding-spacing {
+        $value : (($padding-spacing-buffer / $max-padding-spacing) * $i) * 1;
+
+        .l--p-#{$direction}-#{$i * $padding-spacing-threshhold} {
+            padding-#{$direction} : rem-calc($value) !important;
+        }
+
+    }
+
+}

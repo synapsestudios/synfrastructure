@@ -1,0 +1,48 @@
+////////////////////////
+// Margin
+// generation functions
+////////////////////////
+
+// @vars
+// directional values
+$directions                : top right bottom left;
+$max-margin-spacing        : 30 !default;
+$margin-spacing-threshhold : 3 !default;
+$margin-spacing-buffer     : $max-margin-spacing * $margin-spacing-threshhold;
+
+// Margin Function
+// Outputs .l--m-x {margin:1px through margin:10px}
+@for $i from 0 through $max-margin-spacing {
+    $value : (($margin-spacing-buffer / $max-margin-spacing) * $i) * 1;
+
+    .l--m-#{$i * $margin-spacing-threshhold} {
+        margin : rem-calc($value) !important;
+    }
+
+}
+
+// Single Side Margin Function
+// Outputs .l--m-top-x {margin-top:1px through margin-top:20px}
+// Outputs .l--m-right-x {margin-right:1px through margin-right:20px}
+// Outputs .l--m-bottom-x {margin-bottom:1px through margin-bottom:20px}
+// Outputs .l--m-left-x {margin-left:1px through margin-left:20px}
+@each $direction in $directions {
+
+    @for $i from 0 through $max-margin-spacing {
+        $value : (($margin-spacing-buffer / $max-margin-spacing) * $i) * 1;
+
+        .l--m-#{$direction}-#{$i * $margin-spacing-threshhold} {
+            margin-#{$direction} : rem-calc($value) !important;
+        }
+
+    }
+
+}
+
+////////////////////////
+// Extra helpers
+////////////////////////
+.l--m-auto {
+    margin-right : auto !important;
+    margin-left  : auto !important;
+}
