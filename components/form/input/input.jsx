@@ -18,6 +18,8 @@ module.exports = React.createClass({
         label                 : React.PropTypes.string,
         placeholder           : React.PropTypes.string,
         value                 : React.PropTypes.any,
+        onFocus               : React.PropTypes.func,
+        onBlur                : React.PropTypes.func,
         onChange              : React.PropTypes.func,
         type                  : React.PropTypes.oneOf([
             'date',
@@ -39,10 +41,12 @@ module.exports = React.createClass({
     getDefaultProps : function()
     {
         return {
-            componentCSSClassName :'input',
+            componentCSSClassName : 'input',
             label                 : null,
             placeholder           : null,
             value                 : null,
+            onFocus               : null,
+            onBlur                : null,
             onChange              : null,
             type                  : 'text'
         };
