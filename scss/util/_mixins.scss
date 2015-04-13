@@ -1,0 +1,48 @@
+@mixin no-flicker() {
+    backface-visibility : hidden;
+    transform           : translate3d(0, 0, 0);
+}
+
+@mixin clearfix {
+    *zoom : 1; //hasLayout in Internet Explorer versions 7 and lower
+
+    &:before,
+    &:after {
+      content : " ";
+      display : table;
+    }
+
+    &:after {
+      clear : both;
+    }
+
+}
+
+// https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html
+//
+// grayscale      ex: filter: grayscale(100%);
+// sepia          ex: filter: sepia(100%);
+// saturate       ex: filter: saturate(0%);
+// hue-rotate     ex: filter: hue-rotate(45deg);
+// invert         ex: filter: invert(100%);
+// brightness     ex: filter: brightness(15%);
+// contrast       ex: filter: contrast(200%);
+// blur           ex: filter: blur(2px);
+
+@mixin filter($filter-type, $filter-amount) {
+    filter : $filter-type+unquote('(#{$filter-amount})');
+}
+
+@mixin absolute-center($width: auto) {
+    position      : absolute !important;
+        top       : 50%;
+        left      : 50%;
+        transform : translate(-50%, -50%);
+    width         : $width;
+}
+
+@mixin ellipses {
+    text-overflow : ellipsis;
+    white-space   : nowrap;
+    overflow      : hidden;
+}

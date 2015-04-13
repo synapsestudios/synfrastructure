@@ -1,9 +1,8 @@
 //
 // SYNFRASTRUCTURE SETTINGS
 //
-
 // Comment to remove rem-calc() from your settings
-@import "functions";
+@import "foundation/functions";
 
 // This is the default html and body font-size for the base rem value.
 $rem-base : 16px !default;
@@ -17,7 +16,7 @@ $line-height-base : 1.5 !default;
 // Grid
 $row-width     : rem-calc(1280) !default;
 $column-gutter : rem-calc(20)   !default;
-// $total-columns: 12;
+$total-columns : 12             !default;
 
 // Media Query Ranges
 $small-range   : (0, 30em)        !default; // 0px to 480px
@@ -25,3 +24,11 @@ $medium-range  : (30.063em, 48em) !default; // 481px to 768px
 $large-range   : (48.063em, 64em) !default; // 769px to 1024px
 $xlarge-range  : (64.063em, 90em) !default; //1025px to 1440px
 $xxlarge-range : (90.063em)       !default; //1441 px and up
+
+// Margin utility helpers
+$max-margin-spacing        : 30 !default; // Ex: max l--m-30
+$margin-spacing-threshhold : 3  !default; // Ex: l--m-0, l--m-3, l--m-6
+
+// Padding utility helpers
+$max-padding-spacing        : 30 !default; // Ex: max l--p-30
+$padding-spacing-threshhold : 3  !default; // Ex: l--p-0, l--p-3, l--p-6
