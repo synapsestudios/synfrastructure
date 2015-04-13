@@ -7,22 +7,22 @@ $include-form-input-component-classes : $include-component-classes !default;
 //
 // @vars
 // default input
-$form-input-display       : block                         !default;
-$form-input-width         : 100%                          !default;
-$form-input-height        : rem-calc(45)                  !default;
-$form-input-margin        : rem-calc(0 0 15)              !default;
-$form-input-padding       : rem-calc(15)                  !default;
-$form-input-bx-shadow     : none                          !default;
-$form-input-border-style  : 1px solid                     !default;
-$form-input-border-color  : tint($black, 70%)             !default;
-$form-input-border-radius : 2px                           !default;
-$form-input-bg            : $white                        !default;
-$form-input-bg-img        : none                          !default;
-$form-input-font-family   : 'Helvetica Neue', 'Helvetica' !default;
-$form-input-font-size     : 16px                          !default;
-$form-input-line-height   : 1                             !default;
-$form-input-font-color    : tint($black, 50%)             !default;
-$form-input-text-shadow   : none                          !default;
+$form-input-display       : block             !default;
+$form-input-width         : 100%              !default;
+$form-input-height        : rem-calc(45)      !default;
+$form-input-margin        : rem-calc(0 0 15)  !default;
+$form-input-padding       : rem-calc(15)      !default;
+$form-input-bx-shadow     : none              !default;
+$form-input-border-style  : 1px solid         !default;
+$form-input-border-color  : tint($black, 70%) !default;
+$form-input-border-radius : 2px               !default;
+$form-input-bg            : $white            !default;
+$form-input-bg-img        : none              !default;
+$form-input-font-family   : inherit           !default;
+$form-input-font-size     : 16px              !default;
+$form-input-line-height   : 1                 !default;
+$form-input-font-color    : tint($black, 50%) !default;
+$form-input-text-shadow   : none              !default;
 
 // placeholder
 $form-input-placeholder-font-family : $form-input-font-family !default;
