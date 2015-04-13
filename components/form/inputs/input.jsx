@@ -68,6 +68,8 @@ module.exports = React.createClass({
                 type        = {this.props.type}
                 value       = {this.props.value}
                 placeholder = {this.props.placeholder}
+                onFocus     = {this.onFocus}
+                onBlur      = {this.onBlur}
                 onChange    = {this.onChange}
             />
         );
