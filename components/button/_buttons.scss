@@ -7,21 +7,21 @@ $include-button-component-classes : $include-component-classes !default;
 
 //
 // @vars
-$button-display     : inline-block                  !default;
-$button-min-width   : 0                             !default;
-$button-margin      : 0 0 15px 0                    !default;
-$button-padding     : 15px                          !default;
-$button-bx-shadow   : none                          !default;
-$button-bdr-style   : 1px solid                     !default;
-$button-bdr-color   : $syn-color                    !default;
-$button-bdr-rad     : 3px                           !default;
-$button-bg          : $syn-color                    !default;
-$button-bg-img      : transparent                   !default;
-$button-font-family : 'Helvetica Neue', 'Helvetica' !default;
-$button-font-size   : 16px                          !default;
-$button-font-color  : $white                        !default;
-$button-text-shadow : 1px 1px 0 rgba($black, .15)   !default;
-$button-transition  : background-color 300ms ease   !default;
+$button-display     : inline-block                !default;
+$button-min-width   : 0                           !default;
+$button-margin      : 0 0 15px 0                  !default;
+$button-padding     : 15px                        !default;
+$button-bx-shadow   : none                        !default;
+$button-bdr-style   : 1px solid                   !default;
+$button-bdr-color   : $syn-color                  !default;
+$button-bdr-rad     : 3px                         !default;
+$button-bg          : $syn-color                  !default;
+$button-bg-img      : transparent                 !default;
+$button-font-family : inherit                     !default;
+$button-font-size   : 16px                        !default;
+$button-font-color  : $white                      !default;
+$button-text-shadow : none                        !default;
+$button-transition  : background-color 300ms ease !default;
 
 // @MIXIN
 // Normalize button to our base styles
