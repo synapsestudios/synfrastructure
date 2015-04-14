@@ -102,7 +102,6 @@ module.exports = React.createClass({
             })
         ].join(' ');
 
-
         return (
             <select
                 className   = {classes}

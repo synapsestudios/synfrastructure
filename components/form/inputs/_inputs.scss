@@ -41,11 +41,24 @@ $form-input-disabled-cursor       : not-allowed       !default;
 $form-input-disabled-font-color   : tint($black, 90%) !default;
 
 // selects
-$form-input-select-padding-value : rem-calc(15)                           !default;
+$form-input-select-display       : block                                        !default;
+$form-input-select-width         : 100%                                         !default;
+$form-input-select-height        : $form-input-height                           !default;
+$form-input-select-margin        : $form-input-margin                           !default;
+$form-input-select-padding-value : $form-input-padding                          !default;
 $form-input-select-padding       : rem-calc(0 $form-input-select-padding-value) !default;
-$form-input-select-border-style  : 1px solid         !default;
-$form-input-select-border-color  : tint($black, 70%) !default;
-$form-input-select-border-radius : 2px               !default;
+$form-input-select-bx-shadow     : none                                         !default;
+$form-input-select-border-style  : $form-input-border-style                     !default;
+$form-input-select-border-color  : $form-input-border-color                     !default;
+$form-input-select-border-radius : $form-input-border-radius                    !default;
+$form-input-select-bg            : $form-input-bg                               !default;
+$form-input-select-bg-img        : $form-input-bg-img                           !default;
+$form-input-select-font-family   : $form-input-font-family                      !default;
+$form-input-select-font-size     : $form-input-font-size                        !default;
+$form-input-select-line-height   : $form-input-line-height                      !default;
+$form-input-select-font-color    : $form-input-font-color                       !default;
+$form-input-select-text-shadow   : $form-input-text-shadow                      !default;
+$form-input-select-normalize     : false                                        !default;
 
 // @MIXIN
 // Normalize inputs
@@ -114,7 +127,7 @@ $form-input-select-border-radius : 2px               !default;
 }
 
 // @MIXIN
-// Create a default button component
+// Create a default form input component
 @mixin form-input(
     $display          : $form-input-display,
     $width            : $form-input-width,
@@ -134,6 +147,54 @@ $form-input-select-border-radius : 2px               !default;
     $text-shadow      : $form-input-text-shadow,
     $normalize        : $form-input-normalize
 ) {
+    @if $normalize {
+        @include form-input-normalize;
+    }
+    @include form-input-layout(
+        $display,
+        $margin
+    );
+    @include form-input-size(
+        $width,
+        $height,
+        $padding
+    );
+    @include form-input-typography(
+        $font-family,
+        $font-size,
+        $line-height,
+        $font-color,
+        $text-shadow
+    );
+    @include form-input-style(
+        $box-shadow,
+        $border-style,
+        $border-color,
+        $border-radius,
+        $background-color,
+        $background-image
+    );
+}
+
+@mixin select-input(
+    $display          : $form-input-select-display,
+    $width            : $form-input-select-width,
+    $height           : $form-input-select-height,
+    $margin           : $form-input-select-margin,
+    $padding          : $form-input-select-padding,
+    $box-shadow       : $form-input-select-bx-shadow,
+    $border-style     : $form-input-select-border-style,
+    $border-color     : $form-input-select-border-color,
+    $border-radius    : $form-input-select-border-radius,
+    $background-color : $form-input-select-bg,
+    $background-image : $form-input-select-bg-img,
+    $font-family      : $form-input-select-font-family,
+    $font-size        : $form-input-select-font-size,
+    $line-height      : $form-input-select-line-height,
+    $font-color       : $form-input-select-font-color,
+    $text-shadow      : $form-input-select-text-shadow,
+    $normalize        : $form-input-select-normalize
+    ) {
     @if $normalize {
         @include form-input-normalize;
     }
@@ -226,48 +287,57 @@ $form-input-select-border-radius : 2px               !default;
     // select element
     // 1. prevent text clipping
     .select {
-        padding    : $form-input-select-padding; // 1.
+        padding    : $form-input-select-padding;
         background : shade($white, 5%);
     }
 
-}
+    // Custom Select Component
+    // If custom icon is passed into component
+    // 1. Wrapper
+    // 2. Custom Select
+    // 3. Custom Icon
 
-.select__custom--wrap {
-    position      : relative;
-    overflow      : hidden;
-    margin        : $form-input-margin;
-    background    : $white;
-}
-
-.select__custom {
-    position       : relative;
-        z-index    : 2;
-    width          : 100%;
-    margin-bottom  : 0;
-    padding-top    : $form-input-select-padding-value / 2;
-    padding-right  : $form-input-select-padding-value * 2;
-    padding-bottom : $form-input-select-padding-value / 2;
-    padding-left   : $form-input-select-padding-value;
-    overflow       : hidden;
-    background     : transparent !important; // 4.
-
-    @include form-input-normalize;
-
-    &::-ms-expand {
-        display : none; // 3.
+    /* 1 */
+    .select__custom--wrap {
+        position      : relative;
+        overflow      : hidden;
+        margin        : $form-input-margin;
+        background    : $white;
     }
-}
 
-.select__custom--icon {
-    position    : absolute;
-        top     : 50%;
-        right   : $form-input-select-padding-value;
-        z-index : 1; // 2.
-    margin-top  : rem-calc(-5);
+    /* 2 */
+    .select__custom {
+        position       : relative;
+            z-index    : 2;
+        width          : 100%;
+        margin-bottom  : 0;
+        padding-top    : $form-input-select-padding-value / 2;
+        padding-right  : $form-input-select-padding-value * 2;
+        padding-bottom : $form-input-select-padding-value / 2;
+        padding-left   : $form-input-select-padding-value;
+        overflow       : hidden;
+        background     : transparent !important;
 
-    .icon {
-        fill : $form-input-font-color;
+        @include form-input-normalize;
+
+        &::-ms-expand {
+            display : none;
+        }
     }
+
+    /* 3 */
+    .select__custom--icon {
+        position    : absolute;
+            top     : 50%;
+            right   : $form-input-select-padding-value;
+            z-index : 1;
+        margin-top  : rem-calc(-5);
+
+        .icon {
+            fill : $form-input-font-color;
+        }
+    }
+
 }
 
 
