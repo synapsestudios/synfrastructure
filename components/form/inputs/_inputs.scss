@@ -23,6 +23,7 @@ $form-input-font-size     : 16px              !default;
 $form-input-line-height   : 1                 !default;
 $form-input-font-color    : tint($black, 50%) !default;
 $form-input-text-shadow   : none              !default;
+$form-input-normalize     : false             !default;
 
 // placeholder
 $form-input-placeholder-font-family : $form-input-font-family !default;
@@ -38,6 +39,9 @@ $form-input-disabled-bg           : tint($white, 10%) !default;
 $form-input-disabled-bg-img       : none              !default;
 $form-input-disabled-cursor       : not-allowed       !default;
 $form-input-disabled-font-color   : tint($black, 90%) !default;
+
+// selects
+$form-input-select-padding : rem-calc(0 15) !default;
 
 // @MIXIN
 // Normalize inputs
@@ -121,9 +125,12 @@ $form-input-disabled-font-color   : tint($black, 90%) !default;
     $font-size        : $form-input-font-size,
     $line-height      : $form-input-line-height,
     $font-color       : $form-input-font-color,
-    $text-shadow      : $form-input-text-shadow
+    $text-shadow      : $form-input-text-shadow,
+    $normalize        : $form-input-normalize
 ) {
-    @include form-input-normalize;
+    @if $normalize {
+        @include form-input-normalize;
+    }
     @include form-input-layout(
         $display,
         $margin
@@ -156,7 +163,8 @@ $form-input-disabled-font-color   : tint($black, 90%) !default;
 @if $include-form-input-component-classes {
 
     .input,
-    .textarea {
+    .textarea,
+    .select {
         @include form-input;
 
         // placeholder styles
@@ -189,6 +197,11 @@ $form-input-disabled-font-color   : tint($black, 90%) !default;
 
     }
 
+    .input,
+    .textarea {
+        @include form-input-normalize;
+    }
+
     // textarea specific styles
     // 1. override input height
     // 2. cannot be resized past
@@ -202,6 +215,13 @@ $form-input-disabled-font-color   : tint($black, 90%) !default;
             resize : none;
         }
 
+    }
+
+    // select element
+    // 1. prevent text clipping
+    .select {
+        padding    : $form-input-select-padding; // 1.
+        background : shade($white, 5%);
     }
 
 }
