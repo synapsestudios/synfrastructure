@@ -8,5 +8,8 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/synapsestudios/synfrastructure.git"
+  },
+  "dependencies": {
+    "underscore" : "1.6.0"
   }
 }

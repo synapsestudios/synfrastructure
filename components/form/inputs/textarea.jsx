@@ -22,21 +22,22 @@ module.exports = React.createClass({
         resize                : React.PropTypes.bool,
         onFocus               : React.PropTypes.func,
         onBlur                : React.PropTypes.func,
-        onChange              : React.PropTypes.func
+        onChange              : React.PropTypes.func,
+        className             : React.PropTypes.string
     },
 
     getDefaultProps : function()
     {
         return {
             componentCSSClassName : 'textarea',
-            label                 : null,
             placeholder           : null,
             value                 : null,
             rows                  : 4,
             resize                : true,
             onFocus               : null,
             onBlur                : null,
-            onChange              : null
+            onChange              : null,
+            className             : null
         };
     },
 
@@ -59,7 +60,6 @@ module.exports = React.createClass({
             <textarea
                 className   = {classes}
                 id          = {this.props.id}
-                name        = {this.props.id}
                 value       = {this.props.value}
                 rows        = {this.props.rows}
                 placeholder = {this.props.placeholder}

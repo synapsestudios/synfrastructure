@@ -15,12 +15,12 @@ module.exports = React.createClass({
     propTypes : {
         id                    : React.PropTypes.string.isRequired,
         componentCSSClassName : React.PropTypes.string,
-        label                 : React.PropTypes.string,
         placeholder           : React.PropTypes.string,
         value                 : React.PropTypes.any,
         onFocus               : React.PropTypes.func,
         onBlur                : React.PropTypes.func,
         onChange              : React.PropTypes.func,
+        className             : React.PropTypes.string,
         type                  : React.PropTypes.oneOf([
             'date',
             'datetime',
@@ -42,12 +42,12 @@ module.exports = React.createClass({
     {
         return {
             componentCSSClassName : 'input',
-            label                 : null,
             placeholder           : null,
             value                 : null,
             onFocus               : null,
             onBlur                : null,
             onChange              : null,
+            className             : null,
             type                  : 'text'
         };
     },
