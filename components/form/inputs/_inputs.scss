@@ -41,13 +41,19 @@ $form-input-disabled-cursor       : not-allowed       !default;
 $form-input-disabled-font-color   : tint($black, 90%) !default;
 
 // selects
-$form-input-select-padding : rem-calc(0 15) !default;
+$form-input-select-padding-value : rem-calc(15)                           !default;
+$form-input-select-padding       : rem-calc(0 $form-input-select-padding-value) !default;
+$form-input-select-border-style  : 1px solid         !default;
+$form-input-select-border-color  : tint($black, 70%) !default;
+$form-input-select-border-radius : 2px               !default;
 
 // @MIXIN
 // Normalize inputs
 @mixin form-input-normalize {
     -webkit-appearance : none;
     -moz-appearance    : none;
+    text-indent        : 1px;
+    text-overflow      : '';
 }
 
 // @MIXIN
@@ -225,3 +231,43 @@ $form-input-select-padding : rem-calc(0 15) !default;
     }
 
 }
+
+.select__custom--wrap {
+    position      : relative;
+    overflow      : hidden;
+    margin        : $form-input-margin;
+    background    : $white;
+}
+
+.select__custom {
+    position       : relative;
+        z-index    : 2;
+    width          : 100%;
+    margin-bottom  : 0;
+    padding-top    : $form-input-select-padding-value / 2;
+    padding-right  : $form-input-select-padding-value * 2;
+    padding-bottom : $form-input-select-padding-value / 2;
+    padding-left   : $form-input-select-padding-value;
+    overflow       : hidden;
+    background     : transparent !important; // 4.
+
+    @include form-input-normalize;
+
+    &::-ms-expand {
+        display : none; // 3.
+    }
+}
+
+.select__custom--icon {
+    position    : absolute;
+        top     : 50%;
+        right   : $form-input-select-padding-value;
+        z-index : 1; // 2.
+    margin-top  : rem-calc(-5);
+
+    .icon {
+        fill : $form-input-font-color;
+    }
+}
+
+
