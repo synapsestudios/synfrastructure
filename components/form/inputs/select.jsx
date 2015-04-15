@@ -2,7 +2,6 @@
 'use strict';
 
 var _              = require('underscore');
-var classSet       = require('react/lib/cx');
 var React          = require('react');
 var FormInputMixin = require('../../../mixins/form-input-mixin');
 
@@ -36,6 +35,7 @@ module.exports = React.createClass({
     {
         return {
             componentCSSClassName : 'select',
+            customIcon            : null,
             value                 : null,
             onFocus               : null,
             onBlur                : null,
@@ -94,12 +94,12 @@ module.exports = React.createClass({
 
     renderDefaultSelect : function()
     {
+        var customSelect = (this.props.customIcon) ? this.props.componentCSSClassName + '__custom' : null;
+
         var classes = [
             this.props.componentCSSClassName,
             this.props.className,
-            classSet({
-                'select__custom' : this.props.customIcon
-            })
+            customSelect
         ].join(' ');
 
         return (
