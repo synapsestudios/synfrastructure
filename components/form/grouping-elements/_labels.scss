@@ -24,11 +24,11 @@ $label-transition  : none               !default;
 // @MIXIN
 // Add specified label styles
 @mixin label-layout(
-    $display   : $label-display,
-    $margin    : $label-margin
+    $display : $label-display,
+    $margin  : $label-margin
 ) {
-    display   : $display;
-    margin    : $margin;
+    display : $display;
+    margin  : $margin;
 }
 
 // @MIXIN
