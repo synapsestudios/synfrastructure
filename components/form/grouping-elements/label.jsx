@@ -11,16 +11,18 @@ module.exports = React.createClass({
     mixins : [SynfrastructureHelperMixin],
 
     propTypes : {
-        htmlFor    : React.PropTypes.string.isRequired,
-        text       : React.PropTypes.string,
-        attributes : React.PropTypes.object
+        htmlFor               : React.PropTypes.string.isRequired,
+        componentCSSClassName : React.PropTypes.string,
+        text                  : React.PropTypes.string,
+        attributes            : React.PropTypes.object
     },
 
     getDefaultProps : function()
     {
         return {
-            text       : null,
-            attributes : null
+            componentCSSClassName : 'label',
+            text                  : null,
+            attributes            : null
       };
     },
 
@@ -31,7 +33,7 @@ module.exports = React.createClass({
             attributes = {};
 
         classes = [
-            'label',
+            this.props.componentCSSClassName,
             this.props.className
         ].join(' ');
 
