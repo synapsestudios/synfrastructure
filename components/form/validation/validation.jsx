@@ -1,17 +1,22 @@
 /* jshint globalstrict: true */
 'use strict';
 
-var React    = require('react');
-var classSet = require('react/lib/cx');
+var React                      = require('react');
+var classSet                   = require('react/lib/cx');
+var SynfrastructureHelperMixin = require('../../../mixins/synfrastructure-helper-mixin');
 
 module.exports = React.createClass({
 
     displayName : 'Validation',
 
+    mixins : [SynfrastructureHelperMixin],
+
     propTypes : {
         componentCSSClassName        : React.PropTypes.string,
         show                         : React.PropTypes.bool,
-        renderMessagesBeforeChildren : React.PropTypes.bool,
+        renderMessages               : React.PropTypes.oneOf(['before', 'after']),
+        messageContainer             : React.PropTypes.func,
+        messageContainerProps        : React.PropTypes.object,
         messages                     : React.PropTypes.arrayOf(
             React.PropTypes.shape({
                 messageType : React.PropTypes.string,
@@ -25,34 +30,48 @@ module.exports = React.createClass({
         return {
             componentCSSClassName        : 'validation',
             show                         : false,
-            renderMessagesBeforeChildren : false,
+            renderMessages               : 'after',
+            messageContainer             : null,
+            messageContainerProps        : null,
             messages                     : null
         };
     },
 
     renderValidationMessages : function()
     {
-        var messages  = [],
-            component = this,
+        var messages     = [],
+            component    = this,
+            messageProps = {},
+            messageElement,
             messageClasses;
 
         if (! this.props.show) {
             return null;
         }
 
+        messageElement = this.props.messageContainer ?
+            this.props.messageContainer : 'div';
+
         this.props.messages.map(function(message, index) {
+            messageProps = {
+                className : messageClasses,
+                key       : 'validation-msg-' + index
+            };
+
             messageClasses = [
                 component.props.componentCSSClassName + '__message',
                 component.props.componentCSSClassName + '__message' + '--' + message.messageType
             ].join(' ');
 
             messages.push(
-                <div
-                    className = {messageClasses}
-                    key       = {'validation-msg-' + index}
-                >
-                    {message.message}
-                </div>
+                React.createElement(
+                    messageElement,
+                    component.mergeAttributes(
+                        messageProps,
+                        component.props.messageContainerProps
+                    ),
+                    message.message
+                )
             );
         });
 
@@ -63,7 +82,7 @@ module.exports = React.createClass({
     {
         var messages = this.renderValidationMessages();
 
-        if (this.props.renderMessagesBeforeChildren) {
+        if (this.props.renderMessages === 'before') {
             return [
                 {'message'          : messages},
                 {'message-children' : this.props.children}
