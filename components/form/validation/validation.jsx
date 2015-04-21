@@ -12,12 +12,12 @@ module.exports = React.createClass({
     mixins : [SynfrastructureHelperMixin],
 
     propTypes : {
-        componentCSSClassName        : React.PropTypes.string,
-        show                         : React.PropTypes.bool,
-        renderMessages               : React.PropTypes.oneOf(['before', 'after']),
-        messageContainer             : React.PropTypes.func,
-        messageContainerProps        : React.PropTypes.object,
-        messages                     : React.PropTypes.arrayOf(
+        componentCSSClassName : React.PropTypes.string,
+        show                  : React.PropTypes.bool,
+        renderMessages        : React.PropTypes.oneOf(['before', 'after']),
+        messageContainer      : React.PropTypes.func,
+        messageContainerProps : React.PropTypes.object,
+        messages              : React.PropTypes.arrayOf(
             React.PropTypes.shape({
                 messageType : React.PropTypes.string,
                 message     : React.PropTypes.any
@@ -28,12 +28,12 @@ module.exports = React.createClass({
     getDefaultProps : function()
     {
         return {
-            componentCSSClassName        : 'validation',
-            show                         : false,
-            renderMessages               : 'after',
-            messageContainer             : null,
-            messageContainerProps        : null,
-            messages                     : null
+            componentCSSClassName : 'validation',
+            show                  : false,
+            renderMessages        : 'after',
+            messageContainer      : null,
+            messageContainerProps : null,
+            messages              : null
         };
     },
 
