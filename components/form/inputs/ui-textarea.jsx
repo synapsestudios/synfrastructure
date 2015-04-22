@@ -6,7 +6,7 @@ var FormInputMixin = require('../../../mixins/form-input-mixin');
 
 module.exports = React.createClass({
 
-    displayName : 'TextArea',
+    displayName : 'UI-TextArea',
 
     mixins : [
         FormInputMixin

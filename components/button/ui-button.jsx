@@ -6,7 +6,7 @@ var SynfrastructureHelperMixin = require('../../mixins/synfrastructure-helper-mi
 
 module.exports = React.createClass({
 
-    displayName : 'Button',
+    displayName : 'UI-Button',
 
     mixins : [SynfrastructureHelperMixin],
 
@@ -21,6 +21,10 @@ module.exports = React.createClass({
         attributes            : React.PropTypes.object,
         componentCSSClassName : React.PropTypes.string,
         size                  : React.PropTypes.string,
+        modifier              : React.PropTypes.oneOfType([
+            React.PropTypes.string,
+            React.PropTypes.array
+        ]),
         disabled  : React.PropTypes.bool,
         className : React.PropTypes.string,
         onClick   : React.PropTypes.func
@@ -33,6 +37,7 @@ module.exports = React.createClass({
             attributes            : {},
             componentCSSClassName : 'button',
             size                  : null,
+            modifier              : null,
             disabled              : false,
             className             : null,
             onClick               : null
@@ -49,6 +54,7 @@ module.exports = React.createClass({
 
         classes = [
             this.props.componentCSSClassName,
+            this.props.modifier.join(' '),
             this.props.className,
             this.props.disabled ?
                 this.props.componentCSSClassName + '--disabled' : null

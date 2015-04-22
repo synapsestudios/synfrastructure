@@ -6,7 +6,7 @@ var SynfrastructureHelperMixin = require('../../../mixins/synfrastructure-helper
 
 module.exports = React.createClass({
 
-    displayName : 'FormLabel',
+    displayName : 'UI-FormLabel',
 
     mixins : [SynfrastructureHelperMixin],
 

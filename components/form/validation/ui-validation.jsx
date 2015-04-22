@@ -7,7 +7,7 @@ var SynfrastructureHelperMixin = require('../../../mixins/synfrastructure-helper
 
 module.exports = React.createClass({
 
-    displayName : 'Validation',
+    displayName : 'UI-Validation',
 
     mixins : [SynfrastructureHelperMixin],
 

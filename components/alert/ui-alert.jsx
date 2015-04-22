@@ -6,7 +6,7 @@ var SynfrastructureHelperMixin = require('../../mixins/synfrastructure-helper-mi
 
 module.exports = React.createClass({
 
-    displayName : 'Alert',
+    displayName : 'UI-Alert',
 
     mixins : [SynfrastructureHelperMixin],
 
