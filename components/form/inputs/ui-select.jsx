@@ -7,7 +7,7 @@ var FormInputMixin = require('../../../mixins/form-input-mixin');
 
 module.exports = React.createClass({
 
-    displayName : 'Select',
+    displayName : 'UI-Select',
 
     mixins : [
         FormInputMixin
