@@ -80,19 +80,19 @@ module.exports = React.createClass({
 
     renderValidationContent : function()
     {
-        var messages = this.renderValidationMessages();
+        var messages       = this.renderValidationMessages(),
+            orderdChildren = [];
 
-        if (this.props.renderMessages === 'before') {
-            return [
-                {'message'          : messages},
-                {'message-children' : this.props.children}
-            ];
-        }
-
-        return [
+        orderdChildren = [
             {'message-children' : this.props.children},
             {'message'          : messages}
         ];
+
+        if (this.props.renderMessages === 'before') {
+            return orderdChildren.reverse();
+        }
+
+        return orderdChildren;
     },
 
     render : function()
