@@ -70,9 +70,9 @@ module.exports = React.createClass({
                 id          : this.props.id,
                 placeholder : this.props.placeholder,
                 value       : this.props.value,
-                onFocus     : this.props.onFocus,
-                onBlur      : this.props.onBlur,
-                onChange    : this.props.onChange,
+                onFocus     : this.onFocus,
+                onBlur      : this.onBlur,
+                onChange    : this.onChange,
                 type        : this.props.type
             },
             this.children
