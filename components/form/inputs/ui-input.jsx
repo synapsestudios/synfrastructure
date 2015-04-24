@@ -65,7 +65,16 @@ module.exports = React.createClass({
 
         Component = React.createElement(
             'input',
-            this.props,
+            {
+                className   : classes,
+                id          : this.props.id,
+                placeholder : this.props.placeholder,
+                value       : this.props.value,
+                onFocus     : this.props.onFocus,
+                onBlur      : this.props.onBlur,
+                onChange    : this.props.onChange,
+                type        : this.props.type
+            },
             this.children
         );
 
