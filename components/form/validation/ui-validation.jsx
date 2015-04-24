@@ -110,9 +110,13 @@ module.exports = React.createClass({
         ].join(' ');
 
         return (
-            <div className={classes}>
-                {this.renderValidationContent()}
-            </div>
+            React.createElement(
+                'div',
+                {
+                    className : classes
+                },
+                this.renderValidationContent()
+            )
         );
     }
 
