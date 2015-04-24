@@ -53,15 +53,15 @@ module.exports = React.createClass({
             this.props.messageContainer : 'div';
 
         this.props.messages.map(function(message, index) {
-            messageProps = {
-                className : messageClasses,
-                key       : 'validation-msg-' + index
-            };
-
             messageClasses = [
                 component.props.componentCSSClassName + '__message',
                 component.props.componentCSSClassName + '__message' + '--' + message.messageType
             ].join(' ');
+
+            messageProps = {
+                className : messageClasses,
+                key       : 'validation-msg-' + index
+            };
 
             messages.push(
                 React.createElement(
@@ -98,7 +98,8 @@ module.exports = React.createClass({
     render : function()
     {
         var classes,
-            showClassName;
+            showClassName,
+            messages;
 
         showClassName = this.props.show ?
             this.props.componentCSSClassName + '--show' : null;
@@ -109,13 +110,15 @@ module.exports = React.createClass({
             this.props.className
         ].join(' ');
 
+        messages = this.renderValidationContent();
+
         return (
             React.createElement(
                 'div',
                 {
                     className : classes
                 },
-                this.renderValidationContent()
+                messages
             )
         );
     }
