@@ -57,16 +57,20 @@ module.exports = React.createClass({
         ].join(' ');
 
         return (
-            <textarea
-                className   = {classes}
-                id          = {this.props.id}
-                value       = {this.props.value}
-                rows        = {this.props.rows}
-                placeholder = {this.props.placeholder}
-                onFocus     = {this.onFocus}
-                onBlur      = {this.onBlur}
-                onChange    = {this.onChange}
-            />
+            React.createElement(
+                'textarea',
+                {
+                    className   : classes,
+                    id          : this.props.id,
+                    value       : this.props.value,
+                    rows        : this.props.rows,
+                    placeholder : this.props.placeholder,
+                    onFocus     : this.onFocus,
+                    onBlur      : this.onBlur,
+                    onChange    : this.onChange
+                },
+                this.props.children
+            )
         );
     }
 
