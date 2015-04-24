@@ -54,25 +54,22 @@ module.exports = React.createClass({
 
     render : function()
     {
-        var classes = [
+        var classes,
+            Component;
+
+        classes = [
             this.props.componentCSSClassName,
             this.props.componentCSSClassName + '--' + this.props.type,
             this.props.className
         ].join(' ');
 
-        return (
-            <input
-                className   = {classes}
-                id          = {this.props.id}
-                name        = {this.props.id}
-                type        = {this.props.type}
-                value       = {this.props.value}
-                placeholder = {this.props.placeholder}
-                onFocus     = {this.onFocus}
-                onBlur      = {this.onBlur}
-                onChange    = {this.onChange}
-            />
+        Component = React.createElement(
+            'input',
+            this.props,
+            this.children
         );
+
+        return Component;
     }
 
 });
