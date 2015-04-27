@@ -41,7 +41,7 @@ module.exports = React.createClass({
             messageElement,
             messageClasses;
 
-        if (! this.props.validation) {
+        if (! this.props.validation || ! this.props.validation.messages) {
             return null;
         }
 
