@@ -13,27 +13,23 @@ module.exports = React.createClass({
 
     propTypes : {
         componentCSSClassName : React.PropTypes.string,
-        show                  : React.PropTypes.bool,
         renderMessages        : React.PropTypes.oneOf(['before', 'after']),
         messageContainer      : React.PropTypes.func,
         messageContainerProps : React.PropTypes.object,
-        messages              : React.PropTypes.arrayOf(
-            React.PropTypes.shape({
-                messageType : React.PropTypes.string,
-                message     : React.PropTypes.any
-            })
-        )
+        validation : React.PropTypes.shape({
+            status   : React.PropTypes.string,
+            messages : React.PropTypes.array
+        })
     },
 
     getDefaultProps : function()
     {
         return {
             componentCSSClassName : 'validation',
-            show                  : false,
             renderMessages        : 'after',
             messageContainer      : null,
             messageContainerProps : null,
-            messages              : null
+            validation            : null
         };
     },
 
@@ -45,17 +41,17 @@ module.exports = React.createClass({
             messageElement,
             messageClasses;
 
-        if (! this.props.show) {
+        if (! this.props.validation || ! this.props.validation.messages) {
             return null;
         }
 
         messageElement = this.props.messageContainer ?
             this.props.messageContainer : 'div';
 
-        this.props.messages.map(function(message, index) {
+        this.props.validation.messages.map(function(message, index) {
             messageClasses = [
                 component.props.componentCSSClassName + '__message',
-                component.props.componentCSSClassName + '__message' + '--' + message.messageType
+                component.props.componentCSSClassName + '__message--' + component.props.validation.status
             ].join(' ');
 
             messageProps = {
@@ -70,7 +66,7 @@ module.exports = React.createClass({
                         messageProps,
                         component.props.messageContainerProps
                     ),
-                    message.message
+                    message
                 )
             );
         });
@@ -98,17 +94,22 @@ module.exports = React.createClass({
     render : function()
     {
         var classes,
-            showClassName,
+            showClass,
+            statusClass,
             messages;
 
-        showClassName = this.props.show ?
+        showClass = this.props.validation ?
             this.props.componentCSSClassName + '--show' : null;
+
+        statusClass = this.props.validation ?
+            this.props.componentCSSClassName + '--' + this.props.validation.status : null;
 
         classes = [
             this.props.componentCSSClassName,
-            showClassName,
+            showClass,
+            statusClass,
             this.props.className
-        ].join(' ');
+        ].join(' ').trim();
 
         messages = this.renderValidationContent();
 
