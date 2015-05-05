@@ -1,6 +1,6 @@
 {
   "name": "synfrastructure",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Lightweight Sass utility library inspired by Foundation and Bourbon",
   "author": "Synapse Studios",
   "main": "index.js",
@@ -10,6 +10,6 @@
     "url": "git://github.com/synapsestudios/synfrastructure.git"
   },
   "dependencies": {
-    "underscore" : "1.6.0"
+    "underscore": "1.6.0"
   }
 }
