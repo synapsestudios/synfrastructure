@@ -15,6 +15,7 @@ module.exports = React.createClass({
 
     propTypes : {
         id                    : React.PropTypes.string.isRequired,
+        disabled              : React.PropTypes.bool,
         options               : React.PropTypes.arrayOf(
             React.PropTypes.shape({
                 text     : React.PropTypes.string,
@@ -40,6 +41,7 @@ module.exports = React.createClass({
             onFocus               : null,
             onBlur                : null,
             onChange              : null,
+            disabled              : false,
             className             : null
         };
     },
@@ -119,6 +121,7 @@ module.exports = React.createClass({
             React.createElement(
                 'select',
                 {
+                    disabled  : this.props.disabled,
                     className : classes,
                     id        : this.props.id,
                     name      : this.props.id,
