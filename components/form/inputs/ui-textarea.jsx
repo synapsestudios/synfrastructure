@@ -14,6 +14,7 @@ module.exports = React.createClass({
 
     propTypes : {
         id                    : React.PropTypes.string.isRequired,
+        disabled              : React.PropTypes.bool,
         componentCSSClassName : React.PropTypes.string,
         label                 : React.PropTypes.string,
         placeholder           : React.PropTypes.string,
@@ -37,6 +38,7 @@ module.exports = React.createClass({
             onFocus               : null,
             onBlur                : null,
             onChange              : null,
+            disabled              : false,
             className             : null
         };
     },
@@ -60,8 +62,10 @@ module.exports = React.createClass({
             React.createElement(
                 'textarea',
                 {
+                    disabled    : this.props.disabled,
                     className   : classes,
                     id          : this.props.id,
+                    name        : this.props.name,
                     value       : this.props.value,
                     rows        : this.props.rows,
                     placeholder : this.props.placeholder,
