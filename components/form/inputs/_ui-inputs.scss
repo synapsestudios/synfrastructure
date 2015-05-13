@@ -38,7 +38,7 @@ $form-input-disabled-border-color : tint($black, 80%) !default;
 $form-input-disabled-bg           : tint($white, 10%) !default;
 $form-input-disabled-bg-img       : none              !default;
 $form-input-disabled-cursor       : not-allowed       !default;
-$form-input-disabled-font-color   : tint($black, 90%) !default;
+$form-input-disabled-font-color   : tint($black, 50%) !default;
 
 // selects
 $form-input-select-display       : block                                        !default;
@@ -251,7 +251,8 @@ $form-input-select-normalize     : false                                        
         }
 
         // disabled field styles
-        &:disabled {
+        &:disabled,
+        &[disabled] {
             border           : $form-input-disabled-style;
             border-color     : $form-input-disabled-border-color;
             background-color : $form-input-disabled-bg;
@@ -260,7 +261,7 @@ $form-input-select-normalize     : false                                        
             @include form-input-typography(
                 $font-color : $form-input-disabled-font-color
             );
-            
+
         }
 
     }
@@ -324,7 +325,7 @@ $form-input-select-normalize     : false                                        
         &::-ms-expand {
             display : none;
         }
-        
+
     }
 
     /* 3 */
@@ -338,7 +339,7 @@ $form-input-select-normalize     : false                                        
         .icon {
             fill : $form-input-font-color;
         }
-        
+
     }
 
 }
