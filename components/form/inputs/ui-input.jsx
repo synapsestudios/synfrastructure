@@ -70,6 +70,7 @@ module.exports = React.createClass({
             {
                 className   : classes,
                 id          : this.props.id,
+                name        : this.props.name,
                 placeholder : this.props.placeholder,
                 value       : this.props.value,
                 onFocus     : this.onFocus,

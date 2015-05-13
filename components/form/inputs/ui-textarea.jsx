@@ -65,6 +65,7 @@ module.exports = React.createClass({
                     disabled    : this.props.disabled,
                     className   : classes,
                     id          : this.props.id,
+                    name        : this.props.name,
                     value       : this.props.value,
                     rows        : this.props.rows,
                     placeholder : this.props.placeholder,
