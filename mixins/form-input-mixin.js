@@ -8,7 +8,7 @@ module.exports = {
         var currentValue = event.currentTarget.value;
 
         if (this.props.onFocus) {
-            this.props.onFocus(currentValue);
+            this.props.onFocus(event, currentValue);
         }
     },
 
@@ -17,7 +17,7 @@ module.exports = {
         var currentValue = event.currentTarget.value;
 
         if (this.props.onBlur) {
-            this.props.onBlur(currentValue);
+            this.props.onBlur(event, currentValue);
         }
     },
 
@@ -26,7 +26,34 @@ module.exports = {
         var currentValue = event.currentTarget.value;
 
         if (this.props.onChange) {
-            this.props.onChange(currentValue);
+            this.props.onChange(event, currentValue);
+        }
+    },
+
+    onKeyUp : function(event)
+    {
+        var currentValue = event.currentTarget.value;
+
+        if (this.props.onKeyUp) {
+            this.props.onKeyUp(event, currentValue);
+        }
+    },
+
+    onKeyDown : function(event)
+    {
+        var currentValue = event.currentTarget.value;
+
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(event, currentValue);
+        }
+    },
+
+    onKeyPress : function(event)
+    {
+        var currentValue = event.currentTarget.value;
+
+        if (this.props.onKeyPress) {
+            this.props.onKeyPress(event, currentValue);
         }
     }
 
