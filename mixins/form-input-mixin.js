@@ -8,7 +8,7 @@ module.exports = {
         var currentValue = event.currentTarget.value;
 
         if (this.props.onFocus) {
-            this.props.onFocus(event, currentValue);
+            this.props.onFocus(currentValue);
         }
     },
 
@@ -17,7 +17,7 @@ module.exports = {
         var currentValue = event.currentTarget.value;
 
         if (this.props.onBlur) {
-            this.props.onBlur(event, currentValue);
+            this.props.onBlur(currentValue);
         }
     },
 
@@ -26,7 +26,7 @@ module.exports = {
         var currentValue = event.currentTarget.value;
 
         if (this.props.onChange) {
-            this.props.onChange(event, currentValue);
+            this.props.onChange(currentValue);
         }
     },
 
