@@ -24,6 +24,9 @@ module.exports = React.createClass({
         onFocus               : React.PropTypes.func,
         onBlur                : React.PropTypes.func,
         onChange              : React.PropTypes.func,
+        onKeyDown             : React.PropTypes.func,
+        onKeyUp               : React.PropTypes.func,
+        onKeyPress            : React.PropTypes.func,
         className             : React.PropTypes.string
     },
 
@@ -38,6 +41,9 @@ module.exports = React.createClass({
             onFocus               : null,
             onBlur                : null,
             onChange              : null,
+            onKeyUp               : null,
+            onKeyDown             : null,
+            onKeyPress            : null,
             disabled              : false,
             className             : null
         };
@@ -62,7 +68,6 @@ module.exports = React.createClass({
             React.createElement(
                 'textarea',
                 {
-                    disabled    : this.props.disabled,
                     className   : classes,
                     id          : this.props.id,
                     name        : this.props.name,
@@ -71,7 +76,11 @@ module.exports = React.createClass({
                     placeholder : this.props.placeholder,
                     onFocus     : this.onFocus,
                     onBlur      : this.onBlur,
-                    onChange    : this.onChange
+                    onChange    : this.onChange,
+                    onKeyUp     : this.onKeyUp,
+                    onKeyDown   : this.onKeyDown,
+                    onKeyPress  : this.onKeyPress,
+                    disabled    : this.props.disabled
                 },
                 this.props.children
             )
