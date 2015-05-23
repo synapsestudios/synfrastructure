@@ -127,17 +127,17 @@ module.exports = React.createClass({
             React.createElement(
                 'select',
                 {
-                    disabled  : this.props.disabled,
-                    className : classes,
-                    id        : this.props.id,
-                    name      : this.props.id,
-                    value     : this.getSelectedValue(),
-                    onFocus   : this.onFocus,
-                    onBlur    : this.onBlur,
-                    onChange  : this.onChange,
-                    onKeyUp     : this.onKeyUp,
-                    onKeyDown   : this.onKeyDown,
-                    onKeyPress  : this.onKeyPress
+                    disabled   : this.props.disabled,
+                    className  : classes,
+                    id         : this.props.id,
+                    name       : this.props.id,
+                    value      : this.getSelectedValue(),
+                    onFocus    : this.onFocus,
+                    onBlur     : this.onBlur,
+                    onChange   : this.onChange,
+                    onKeyUp    : this.onKeyUp,
+                    onKeyDown  : this.onKeyDown,
+                    onKeyPress : this.onKeyPress
                 },
                 this.renderSelectOptions()
             )
