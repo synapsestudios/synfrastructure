@@ -1,20 +1,24 @@
 {
-  "name": "synfrastructure",
-  "version": "2.0.2",
-  "description": "Lightweight Sass utility library inspired by Foundation and Bourbon",
-  "author": "Synapse Studios",
-  "main": "index.js",
-  "readmeFilename": "README.md",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/synapsestudios/synfrastructure.git"
-  },
-  "scripts" : {
-    "build"   : "rm -f ./dist/*  && ./node_modules/babel/bin/babel/index.js src --loose --out-dir dist"
-  },
-  "dependencies": {
-    "babel"      : "5.1.10",
-    "react"      : "0.12.2",
-    "underscore" : "1.6.0"
-  }
+    "name": "synfrastructure",
+    "version": "2.0.2",
+    "description": "Lightweight Sass utility library inspired by Foundation and Bourbon",
+    "author": "Synapse Studios",
+    "main": "index.js",
+    "readmeFilename": "README.md",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/synapsestudios/synfrastructure.git"
+    },
+    "scripts" : {
+        "demo"  : "rm -rf ./demo-build/* && ./node_modules/webpack/bin/webpack.js",
+        "build" : "rm -f ./dist/*  && ./node_modules/babel/bin/babel/index.js src --loose --out-dir dist"
+     },
+    "dependencies": {
+        "babel"                      : "5.1.10",
+        "babel-loader"               : "5.0.0",
+        "html-webpack-plugin"        : "1.1.0",
+        "react"                      : "0.12.2",
+        "underscore"                 : "1.6.0",
+        "webpack"                    : "1.5.3"
+    }
 }
