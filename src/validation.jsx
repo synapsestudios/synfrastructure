@@ -3,11 +3,11 @@
 
 var React                      = require('react');
 var classSet                   = require('react/lib/cx');
-var SynfrastructureHelperMixin = require('../../../mixins/synfrastructure-helper-mixin');
+var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
 module.exports = React.createClass({
 
-    displayName : 'UI-Validation',
+    displayName : 'Synfrastructure-Validation',
 
     mixins : [SynfrastructureHelperMixin],
 

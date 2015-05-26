@@ -3,11 +3,11 @@
 
 var _              = require('underscore');
 var React          = require('react');
-var FormInputMixin = require('../../../mixins/form-input-mixin');
+var FormInputMixin = require('../mixins/form-input-mixin');
 
 module.exports = React.createClass({
 
-    displayName : 'UI-Select',
+    displayName : 'Synfrastructure-Select',
 
     mixins : [
         FormInputMixin
