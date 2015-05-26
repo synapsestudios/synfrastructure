@@ -44,7 +44,7 @@ module.exports = {
         var currentValue = event.currentTarget.value;
 
         if (this.props.onKeyDown) {
-            this.props.onKeyDown(currentValue, event);;
+            this.props.onKeyDown(currentValue, event);
         }
     },
 
@@ -53,7 +53,7 @@ module.exports = {
         var currentValue = event.currentTarget.value;
 
         if (this.props.onKeyPress) {
-            this.props.onKeyPress(currentValue, event);;
+            this.props.onKeyPress(currentValue, event);
         }
     }
 
