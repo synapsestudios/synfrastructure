@@ -21,6 +21,9 @@ module.exports = React.createClass({
         onFocus               : React.PropTypes.func,
         onBlur                : React.PropTypes.func,
         onChange              : React.PropTypes.func,
+        onKeyDown             : React.PropTypes.func,
+        onKeyUp               : React.PropTypes.func,
+        onKeyPress            : React.PropTypes.func,
         className             : React.PropTypes.string,
         type                  : React.PropTypes.oneOf([
             'date',
@@ -48,6 +51,9 @@ module.exports = React.createClass({
             onFocus               : null,
             onBlur                : null,
             onChange              : null,
+            onKeyUp               : null,
+            onKeyDown             : null,
+            onKeyPress            : null,
             className             : null,
             disabled              : false,
             type                  : 'text'
@@ -76,6 +82,9 @@ module.exports = React.createClass({
                 onFocus     : this.onFocus,
                 onBlur      : this.onBlur,
                 onChange    : this.onChange,
+                onKeyUp     : this.onKeyUp,
+                onKeyDown   : this.onKeyDown,
+                onKeyPress  : this.onKeyPress,
                 disabled    : this.props.disabled,
                 type        : this.props.type
             },

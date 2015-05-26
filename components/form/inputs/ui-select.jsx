@@ -29,6 +29,9 @@ module.exports = React.createClass({
         onFocus               : React.PropTypes.func,
         onBlur                : React.PropTypes.func,
         onChange              : React.PropTypes.func,
+        onKeyDown             : React.PropTypes.func,
+        onKeyUp               : React.PropTypes.func,
+        onKeyPress            : React.PropTypes.func,
         className             : React.PropTypes.string
     },
 
@@ -41,6 +44,9 @@ module.exports = React.createClass({
             onFocus               : null,
             onBlur                : null,
             onChange              : null,
+            onKeyUp               : null,
+            onKeyDown             : null,
+            onKeyPress            : null,
             disabled              : false,
             className             : null
         };
@@ -121,14 +127,17 @@ module.exports = React.createClass({
             React.createElement(
                 'select',
                 {
-                    disabled  : this.props.disabled,
-                    className : classes,
-                    id        : this.props.id,
-                    name      : this.props.id,
-                    value     : this.getSelectedValue(),
-                    onFocus   : this.onFocus,
-                    onBlur    : this.onBlur,
-                    onChange  : this.onChange
+                    disabled   : this.props.disabled,
+                    className  : classes,
+                    id         : this.props.id,
+                    name       : this.props.id,
+                    value      : this.getSelectedValue(),
+                    onFocus    : this.onFocus,
+                    onBlur     : this.onBlur,
+                    onChange   : this.onChange,
+                    onKeyUp    : this.onKeyUp,
+                    onKeyDown  : this.onKeyDown,
+                    onKeyPress : this.onKeyPress
                 },
                 this.renderSelectOptions()
             )

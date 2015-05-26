@@ -28,6 +28,33 @@ module.exports = {
         if (this.props.onChange) {
             this.props.onChange(currentValue);
         }
+    },
+
+    onKeyUp : function(event)
+    {
+        var currentValue = event.currentTarget.value;
+
+        if (this.props.onKeyUp) {
+            this.props.onKeyUp(currentValue, event);
+        }
+    },
+
+    onKeyDown : function(event)
+    {
+        var currentValue = event.currentTarget.value;
+
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(currentValue, event);
+        }
+    },
+
+    onKeyPress : function(event)
+    {
+        var currentValue = event.currentTarget.value;
+
+        if (this.props.onKeyPress) {
+            this.props.onKeyPress(currentValue, event);
+        }
     }
 
 };
