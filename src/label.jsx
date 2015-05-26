@@ -2,11 +2,11 @@
 'use strict';
 
 var React                      = require('react');
-var SynfrastructureHelperMixin = require('../../../mixins/synfrastructure-helper-mixin');
+var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
 module.exports = React.createClass({
 
-    displayName : 'UI-FormLabel',
+    displayName : 'Synfrastructure-FormLabel',
 
     mixins : [SynfrastructureHelperMixin],
 
