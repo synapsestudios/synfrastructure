@@ -1,23 +1,28 @@
+/* globals __dirname */
 'use strict';
 
-var webpack     = require('webpack');
+var Webpack     = require('webpack');
 var HtmlWebpack = require('html-webpack-plugin');
+var path        = require('path');
 
 module.exports = {
-    entry: './demo/demo.jsx',
+    entry: [
+        './demo/bootstrap.js',
+        'webpack-dev-server/client?http://localhost:9000'
+    ],
     module: {
         loaders: [
             { test: /\.(jsx|js)$/, loader: 'babel?loose=all', exclude: /node_modules/ }
         ]
     },
     output: {
-        filename: 'demo-build/demo.min.js'
+        filename : 'demo.js',
+        path     : path.resolve(__dirname, 'demo-build')
     },
     plugins: [
         new HtmlWebpack({
-            filename : './demo-build/index.html',
             template : './demo/index.html'
         }),
-        new webpack.optimize.OccurenceOrderPlugin()
+        new Webpack.optimize.OccurenceOrderPlugin()
     ]
 };

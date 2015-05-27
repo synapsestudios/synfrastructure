@@ -6,7 +6,7 @@ module.exports = React.createClass({
 
     render : function()
     {
-        return <div>Test</div>;
+        return <div>Demo content goes here</div>;
     }
 
 });
