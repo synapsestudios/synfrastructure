@@ -8,13 +8,14 @@ var path        = require('path');
 module.exports = {
     entry: [
         './demo/bootstrap.js',
+        'webpack/hot/dev-server',
         'webpack-dev-server/client?http://localhost:9000'
     ],
     module: {
         loaders: [
             {
                 test    : /\.(jsx|js)$/,
-                loader  : 'babel?loose=all',
+                loaders : ['babel?loose=all', 'react-hot'],
                 exclude : /node_modules/
             },
             {
@@ -40,6 +41,7 @@ module.exports = {
         new HtmlWebpack({
             template : './demo/index.html'
         }),
+        new Webpack.HotModuleReplacementPlugin(),
         new Webpack.optimize.OccurenceOrderPlugin()
     ]
 };
