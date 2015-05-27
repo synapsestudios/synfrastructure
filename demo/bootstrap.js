@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var Demo  = require('./demo.jsx');
+var Demo  = require('./demo');
 
 window.onload = function() {
     React.render(

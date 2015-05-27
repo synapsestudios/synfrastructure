@@ -19,6 +19,9 @@ module.exports = {
         filename : 'demo.js',
         path     : path.resolve(__dirname, 'demo-build')
     },
+    resolve : {
+        extensions : ['', '.js', '.jsx']
+    },
     plugins: [
         new HtmlWebpack({
             template : './demo/index.html'
