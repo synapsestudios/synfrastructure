@@ -14,14 +14,18 @@
         "build" : "rm -f ./dist/*  && ./node_modules/babel/bin/babel/index.js src --loose --out-dir dist"
      },
     "dependencies": {
-        "babel"               : "5.1.10",
-        "babel-loader"        : "5.0.0",
-        "express-http-proxy"  : "0.4.0",
-        "html-webpack-plugin" : "1.1.0",
-        "react"               : "0.12.2",
-        "request"             : "2.53.0",
-        "underscore"          : "1.6.0",
-        "webpack"             : "1.5.3",
-        "webpack-dev-server"  : "1.7.0"
+         "autoprefixer-loader" : "1.1.0",
+         "babel"               : "5.1.10",
+         "babel-loader"        : "5.0.0",
+         "css-loader"          : "0.9.1",
+         "express-http-proxy"  : "0.4.0",
+         "html-webpack-plugin" : "1.1.0",
+         "react"               : "0.12.2",
+         "request"             : "2.53.0",
+         "sass-loader"         : "0.4.1",
+         "style-loader"        : "0.8.3",
+         "underscore"          : "1.6.0",
+         "webpack"             : "1.5.3",
+         "webpack-dev-server"  : "1.7.0"
     }
 }

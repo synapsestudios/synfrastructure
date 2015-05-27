@@ -1,5 +1,7 @@
 'use strict';
 
+require('../scss/app');
+
 var React = require('react');
 var Demo  = require('./demo');
 

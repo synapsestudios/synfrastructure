@@ -12,15 +12,29 @@ module.exports = {
     ],
     module: {
         loaders: [
-            { test: /\.(jsx|js)$/, loader: 'babel?loose=all', exclude: /node_modules/ }
+            {
+                test    : /\.(jsx|js)$/,
+                loader  : 'babel?loose=all',
+                exclude : /node_modules/
+            },
+            {
+                test    : /\.scss$/,
+                loader  : 'style!css!autoprefixer!sass?outputStyle=nested&includePaths[]=' + path.resolve(__dirname, 'node_modules'),
+                include : /scss/
+            },
+            {
+                test   : /\.css$/,
+                loader : 'style-loader!css-loader'
+            }
         ]
     },
     output: {
-        filename : 'demo.js',
-        path     : path.resolve(__dirname, 'demo-build')
+        filename   : 'demo.js',
+        path       : path.resolve(__dirname, 'demo-build'),
+        publicPath : '/'
     },
     resolve : {
-        extensions : ['', '.js', '.jsx']
+        extensions : ['', '.js', '.jsx', '.css', '.scss']
     },
     plugins: [
         new HtmlWebpack({
