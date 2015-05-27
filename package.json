@@ -9,7 +9,12 @@
     "type": "git",
     "url": "git://github.com/synapsestudios/synfrastructure.git"
   },
+  "scripts" : {
+    "build"   : "rm -f ./dist/*  && ./node_modules/babel/bin/babel/index.js src --loose --out-dir dist"
+  },
   "dependencies": {
-    "underscore": "1.6.0"
+    "babel"      : "5.1.10",
+    "react"      : "0.12.2",
+    "underscore" : "1.6.0"
   }
 }
