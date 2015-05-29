@@ -3,9 +3,10 @@
 @import "synfrastructure";
 
 /**** Uncomment to show default component stylings ****/
-/* $include-component-classes : true; */
+$include-component-classes : true;
 
 @import "components/alerts";
 @import "components/buttons";
-
+@import "components/inputs";
 @import "components/labels";
+
