@@ -67,7 +67,7 @@ module.exports = React.createClass({
             onKeyDown: this.onKeyDown,
             onKeyPress: this.onKeyPress,
             disabled: this.props.disabled
-        }, this.props.children);
+        });
     }
 
 });
