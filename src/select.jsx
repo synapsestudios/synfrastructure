@@ -77,14 +77,12 @@ module.exports = React.createClass({
 
         return _.map(this.props.options, function(option, index) {
             return (
-                React.createElement(
-                    'option',
-                    {
-                        value: option.value,
-                        key: 'select-option-' + index
-                    },
-                    option.text
-                )
+                <option
+                    value = {option.value}
+                    key   = {option.text}
+                >
+                    {option.text}
+                </option>
             );
         });
     },
@@ -96,51 +94,45 @@ module.exports = React.createClass({
         }
 
         return (
-            React.createElement(
-                'div',
-                {
-                    className: "select__custom--wrap"
-                },
-                this.renderDefaultSelect(),
-                React.createElement(
-                    'span',
-                    {
-                        className: "select__custom--icon"
-                    },
-                    this.props.customIcon
-                )
-            )
+            <div className='select__custom--wrap'>
+                {this.renderDefaultSelect()}
+                <span className='select__custom--icon'>
+                    {this.props.customIcon}
+                </span>
+            </div>
         );
     },
 
     renderDefaultSelect : function()
     {
-        var customSelect = (this.props.customIcon) ? this.props.componentCSSClassName + '__custom' : null;
+        var classes,
+            customSelect;
 
-        var classes = [
+        customSelect = (this.props.customIcon) ?
+            this.props.componentCSSClassName + '__custom' : null;
+
+        classes = [
             this.props.componentCSSClassName,
             this.props.className,
             customSelect
         ].join(' ');
 
         return (
-            React.createElement(
-                'select',
-                {
-                    disabled   : this.props.disabled,
-                    className  : classes,
-                    id         : this.props.id,
-                    name       : this.props.id,
-                    value      : this.getSelectedValue(),
-                    onFocus    : this.onFocus,
-                    onBlur     : this.onBlur,
-                    onChange   : this.onChange,
-                    onKeyUp    : this.onKeyUp,
-                    onKeyDown  : this.onKeyDown,
-                    onKeyPress : this.onKeyPress
-                },
-                this.renderSelectOptions()
-            )
+            <select
+                disabled   = {this.props.disabled}
+                className  = {classes}
+                id         = {this.props.id}
+                name       = {this.props.id}
+                value      = {this.getSelectedValue()}
+                onFocus    = {this.onFocus}
+                onBlur     = {this.onBlur}
+                onChange   = {this.onChange}
+                onKeyUp    = {this.onKeyUp}
+                onKeyDown  = {this.onKeyDown}
+                onKeyPress = {this.onKeyPress}
+            >
+                {this.renderSelectOptions()}
+            </select>
         );
     },
 
