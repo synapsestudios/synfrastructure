@@ -50,11 +50,11 @@ module.exports = React.createClass({
     getSelectedValue: function getSelectedValue() {
         var selectedOption;
 
-        if (!_.isUndefined(this.props.value)) {
+        if (this.props.value) {
             return this.props.value;
         }
 
-        selectedOption = _.findWhere(this.props.options, { isSelected: true });
+        selectedOption = _.findWhere(this.props.options, { selected: true });
 
         if (!selectedOption) {
             return;
