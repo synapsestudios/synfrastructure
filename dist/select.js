@@ -69,10 +69,14 @@ module.exports = React.createClass({
         }
 
         return _.map(this.props.options, function (option, index) {
-            return React.createElement('option', {
-                value: option.value,
-                key: 'select-option-' + index
-            }, option.text);
+            return React.createElement(
+                'option',
+                {
+                    value: option.value,
+                    key: option.text
+                },
+                option.text
+            );
         });
     },
 
@@ -81,31 +85,42 @@ module.exports = React.createClass({
             return this.renderDefaultSelect();
         }
 
-        return React.createElement('div', {
-            className: 'select__custom--wrap'
-        }, this.renderDefaultSelect(), React.createElement('span', {
-            className: 'select__custom--icon'
-        }, this.props.customIcon));
+        return React.createElement(
+            'div',
+            { className: 'select__custom--wrap' },
+            this.renderDefaultSelect(),
+            React.createElement(
+                'span',
+                { className: 'select__custom--icon' },
+                this.props.customIcon
+            )
+        );
     },
 
     renderDefaultSelect: function renderDefaultSelect() {
-        var customSelect = this.props.customIcon ? this.props.componentCSSClassName + '__custom' : null;
+        var classes, customSelect;
 
-        var classes = [this.props.componentCSSClassName, this.props.className, customSelect].join(' ');
+        customSelect = this.props.customIcon ? this.props.componentCSSClassName + '__custom' : null;
 
-        return React.createElement('select', {
-            disabled: this.props.disabled,
-            className: classes,
-            id: this.props.id,
-            name: this.props.id,
-            value: this.getSelectedValue(),
-            onFocus: this.onFocus,
-            onBlur: this.onBlur,
-            onChange: this.onChange,
-            onKeyUp: this.onKeyUp,
-            onKeyDown: this.onKeyDown,
-            onKeyPress: this.onKeyPress
-        }, this.renderSelectOptions());
+        classes = [this.props.componentCSSClassName, this.props.className, customSelect].join(' ');
+
+        return React.createElement(
+            'select',
+            {
+                disabled: this.props.disabled,
+                className: classes,
+                id: this.props.id,
+                name: this.props.id,
+                value: this.getSelectedValue(),
+                onFocus: this.onFocus,
+                onBlur: this.onBlur,
+                onChange: this.onChange,
+                onKeyUp: this.onKeyUp,
+                onKeyDown: this.onKeyDown,
+                onKeyPress: this.onKeyPress
+            },
+            this.renderSelectOptions()
+        );
     },
 
     render: function render() {
