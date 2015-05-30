@@ -1,10 +1,13 @@
 'use strict';
 
-var React  = require('react');
-var Alert  = require('../dist/alert');
-var Button = require('../dist/button');
-var Input  = require('../dist/input');
-var Label  = require('../dist/label');
+var React      = require('react');
+var Alert      = require('../dist/alert');
+var Button     = require('../dist/button');
+var Input      = require('../dist/input');
+var Textarea   = require('../dist/textarea');
+var Select     = require('../dist/select');
+var Label      = require('../dist/label');
+var Validation = require('../dist/validation');
 
 module.exports = React.createClass({
 
@@ -35,6 +38,69 @@ module.exports = React.createClass({
                     <Label htmlFor='example2' text='This Is a Label'>
                         <Input id='example2' placeholder='A label wraps around me' />
                     </Label>
+                </div>
+                <div>
+                    <h1>Textarea Component</h1>
+                    <Textarea id='example3' />
+                </div>
+                <div>
+                    <Select
+                        id      = 'example4'
+                        options = {[
+                            {
+                                text     : 'Option 1',
+                                value    : 'option-1',
+                                selected : true
+                            },
+                            {
+                                text     : 'Option 2',
+                                value    : 'option-2',
+                                selected : false
+                            },
+                            {
+                                text     : 'Option 3',
+                                value    : 'option-3',
+                                selected : false
+                            }
+                        ]}
+                    />
+                </div>
+                <div>
+                    <Select
+                        id         = 'example5'
+                        customIcon = {String.fromCharCode(9660)}
+                        options    = {[
+                            {
+                                text     : 'Option 1',
+                                value    : 'option-1',
+                                selected : false
+                            },
+                            {
+                                text     : 'Option 2',
+                                value    : 'option-2',
+                                selected : true
+                            },
+                            {
+                                text     : 'Option 3',
+                                value    : 'option-3',
+                                selected : false
+                            }
+                        ]}
+                    />
+                </div>
+                <div>
+                    <h1>Input Component Validated</h1>
+                    <Validation
+                        validation = {{
+                            status : 'error',
+                            messages : [
+                                'This field is required',
+                                'This field is empty'
+                            ]
+                        }}
+                    >
+                        <Input id='example5' />
+                    </Validation>
                 </div>
             </div>
         );
