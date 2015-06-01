@@ -6,6 +6,7 @@ var Button     = require('../dist/button');
 var Input      = require('../dist/input');
 var Textarea   = require('../dist/textarea');
 var Select     = require('../dist/select');
+var Checkbox   = require('../dist/checkbox');
 var Label      = require('../dist/label');
 var Validation = require('../dist/validation');
 
@@ -66,6 +67,14 @@ module.exports = React.createClass({
                     />
                 </div>
                 <div>
+                    <h1>Checkbox Inputs</h1>
+                    <Checkbox
+                        id      = 'example6'
+                        name    = 'checkbox-example6'
+                        checked = {true}
+                    />
+                </div>
+                <div>
                     <Select
                         id         = 'example5'
                         customIcon = {String.fromCharCode(9660)}
@@ -92,7 +101,7 @@ module.exports = React.createClass({
                     <h1>Input Component Validated</h1>
                     <Validation
                         validation = {{
-                            status : 'error',
+                            status   : 'error',
                             messages : [
                                 'This field is required',
                                 'This field is empty'
