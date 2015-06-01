@@ -62,36 +62,29 @@ module.exports = React.createClass({
 
     render : function()
     {
-        var classes,
-            Component;
-
-        classes = [
+        var classes = [
             this.props.componentCSSClassName,
             this.props.componentCSSClassName + '--' + this.props.type,
             this.props.className
         ].join(' ');
 
-        Component = React.createElement(
-            'input',
-            {
-                className   : classes,
-                id          : this.props.id,
-                name        : this.props.name,
-                placeholder : this.props.placeholder,
-                value       : this.props.value,
-                onFocus     : this.onFocus,
-                onBlur      : this.onBlur,
-                onChange    : this.onChange,
-                onKeyUp     : this.onKeyUp,
-                onKeyDown   : this.onKeyDown,
-                onKeyPress  : this.onKeyPress,
-                disabled    : this.props.disabled,
-                type        : this.props.type
-            },
-            this.children
+        return (
+            <input
+                className   = {classes}
+                id          = {this.props.id}
+                name        = {this.props.name}
+                placeholder = {this.props.placeholder}
+                value       = {this.props.value}
+                onFocus     = {this.onFocus}
+                onBlur      = {this.onBlur}
+                onChange    = {this.onChange}
+                onKeyUp     = {this.onKeyUp}
+                onKeyDown   = {this.onKeyDown}
+                onKeyPress  = {this.onKeyPress}
+                disabled    = {this.props.disabled}
+                type        = {this.props.type}
+            />
         );
-
-        return Component;
     }
 
 });

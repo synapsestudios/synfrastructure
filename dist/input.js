@@ -44,11 +44,9 @@ module.exports = React.createClass({
     },
 
     render: function render() {
-        var classes, Component;
+        var classes = [this.props.componentCSSClassName, this.props.componentCSSClassName + '--' + this.props.type, this.props.className].join(' ');
 
-        classes = [this.props.componentCSSClassName, this.props.componentCSSClassName + '--' + this.props.type, this.props.className].join(' ');
-
-        Component = React.createElement('input', {
+        return React.createElement('input', {
             className: classes,
             id: this.props.id,
             name: this.props.name,
@@ -62,9 +60,7 @@ module.exports = React.createClass({
             onKeyPress: this.onKeyPress,
             disabled: this.props.disabled,
             type: this.props.type
-        }, this.children);
-
-        return Component;
+        });
     }
 
 });

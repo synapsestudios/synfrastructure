@@ -73,7 +73,7 @@ module.exports = React.createClass({
     },
 
     render: function render() {
-        var classes, showClass, statusClass, messages;
+        var classes, showClass, statusClass;
 
         showClass = this.props.validation ? this.props.componentCSSClassName + '--show' : null;
 
@@ -81,11 +81,11 @@ module.exports = React.createClass({
 
         classes = [this.props.componentCSSClassName, showClass, statusClass, this.props.className].join(' ').trim();
 
-        messages = this.renderValidationContent();
-
-        return React.createElement('div', {
-            className: classes
-        }, messages);
+        return React.createElement(
+            'div',
+            { className: classes },
+            this.renderValidationContent()
+        );
     }
 
 });
