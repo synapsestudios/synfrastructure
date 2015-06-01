@@ -40,37 +40,37 @@ module.exports = React.createClass({
         };
     },
 
-    onChange: function onChange() {
+    onChange: function onChange(event) {
         if (this.props.onChange) {
             this.props.onChange(this.props.checked, event);
         }
     },
 
-    onFocus: function onFocus() {
+    onFocus: function onFocus(event) {
         if (this.props.onFocus) {
             this.props.onFocus(this.props.checked, event);
         }
     },
 
-    onBlur: function onBlur() {
+    onBlur: function onBlur(event) {
         if (this.props.onBlur) {
             this.props.onBlur(this.props.checked, event);
         }
     },
 
-    onKeyUp: function onKeyUp() {
+    onKeyUp: function onKeyUp(event) {
         if (this.props.onKeyUp) {
             this.props.onKeyUp(this.props.checked, event);
         }
     },
 
-    onKeyDown: function onKeyDown() {
+    onKeyDown: function onKeyDown(event) {
         if (this.props.onKeyDown) {
             this.props.onKeyDown(this.props.checked, event);
         }
     },
 
-    onKeyPress: function onKeyPress() {
+    onKeyPress: function onKeyPress(event) {
         if (this.props.onKeyPress) {
             this.props.onKeyPress(this.props.checked, event);
         }
