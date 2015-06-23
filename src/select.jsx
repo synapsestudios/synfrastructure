@@ -23,16 +23,17 @@ module.exports = React.createClass({
                 selected : React.PropTypes.bool
             })
         ).isRequired,
-        componentCSSClassName : React.PropTypes.string,
-        customIcon            : React.PropTypes.any,
-        value                 : React.PropTypes.any,
-        onFocus               : React.PropTypes.func,
-        onBlur                : React.PropTypes.func,
-        onChange              : React.PropTypes.func,
-        onKeyDown             : React.PropTypes.func,
-        onKeyUp               : React.PropTypes.func,
-        onKeyPress            : React.PropTypes.func,
-        className             : React.PropTypes.string
+        componentCSSClassName     : React.PropTypes.string,
+        componentWrapCSSClassName : React.PropTypes.string,
+        customIcon                : React.PropTypes.any,
+        value                     : React.PropTypes.any,
+        onFocus                   : React.PropTypes.func,
+        onBlur                    : React.PropTypes.func,
+        onChange                  : React.PropTypes.func,
+        onKeyDown                 : React.PropTypes.func,
+        onKeyUp                   : React.PropTypes.func,
+        onKeyPress                : React.PropTypes.func,
+        className                 : React.PropTypes.string
     },
 
     getDefaultProps : function()
@@ -89,12 +90,19 @@ module.exports = React.createClass({
 
     renderCustomSelect : function()
     {
+        var classes;
+
         if (! this.props.customIcon) {
             return this.renderDefaultSelect();
         }
 
+        classes = [
+            'select--custom--wrap',
+            this.props.componentWrapCSSClassName
+        ].join(' ');
+
         return (
-            <div className='select--custom--wrap'>
+            <div className={classes}>
                 {this.renderDefaultSelect()}
                 <span className='select--custom--icon'>
                     {this.props.customIcon}

@@ -300,7 +300,7 @@ $form-input-select-normalize     : false                                        
     // 3. Custom Icon
 
     /* 1 */
-    .select__custom--wrap {
+    .select--custom--wrap {
         position      : relative;
         overflow      : hidden;
         margin        : $form-input-margin;
@@ -308,7 +308,7 @@ $form-input-select-normalize     : false                                        
     }
 
     /* 2 */
-    .select__custom {
+    .select--custom {
         position       : relative;
             z-index    : 2;
         width          : 100%;
@@ -329,7 +329,7 @@ $form-input-select-normalize     : false                                        
     }
 
     /* 3 */
-    .select__custom--icon {
+    .select--custom--icon {
         position    : absolute;
             top     : 50%;
             right   : $form-input-select-padding-value;
