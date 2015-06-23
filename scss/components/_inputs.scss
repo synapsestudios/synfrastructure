@@ -315,7 +315,7 @@ $form-input-select-normalize     : false                                        
         margin-bottom  : 0;
         padding-right  : $form-input-select-padding-value * 2;
         padding-left   : $form-input-select-padding-value;
-        overflow-x     : hidden;
+        overflow       : hidden;
         background     : transparent !important;
 
         @include form-input-normalize;
