@@ -94,9 +94,9 @@ module.exports = React.createClass({
         }
 
         return (
-            <div className='select__custom--wrap'>
+            <div className='select--custom--wrap'>
                 {this.renderDefaultSelect()}
-                <span className='select__custom--icon'>
+                <span className='select--custom--icon'>
                     {this.props.customIcon}
                 </span>
             </div>
@@ -109,7 +109,7 @@ module.exports = React.createClass({
             customSelect;
 
         customSelect = (this.props.customIcon) ?
-            this.props.componentCSSClassName + '__custom' : null;
+            this.props.componentCSSClassName + '--custom' : null;
 
         classes = [
             this.props.componentCSSClassName,
