@@ -1,0 +1,86 @@
+// Bring in default settings
+@import "../../scss/settings";
+
+$modal-hidden-index     : -10;
+$modal-revealed-index   : 20;
+$modal-background-dark  : #444444;
+$modal-background-light : #fefefe;
+$modal-transition       : opacity 250ms ease;
+$modal-theme-dark  : rgba($modal-background-dark, .95);
+$modal-theme-light : rgba($modal-background-light, .95);
+
+$modal-content-margin              : 0;
+$modal-content-transform--inactive : translate(-50%, -50%) scale(.5, .5);
+$modal-content-transform--active   : translate(-50%, -50%) scale(1, 1);
+$modal-content-transition          : transform 200ms $ease-in-out-quad;
+$modal-content-width-small         : 50%;
+$modal-content-margin-small        : rem-calc(60) auto rem-calc(30);
+$modal-content-padding-small       : rem-calc(20);
+$modal-content-background-small    : $white;
+
+.modal {
+    position    : fixed;
+        top     : 0;
+        right   : 0;
+        bottom  : 0;
+        left    : 0;
+        z-index : $modal-hidden-index;
+    opacity     : 0;
+    visibility  : hidden;
+    overflow    : auto;
+    transition  : $modal-transition;
+
+    &.modal--reveal {
+        z-index    : $modal-revealed-index;
+        opacity    : 1;
+        visibility : visible;
+    }
+
+}
+
+.modal__content {
+    min-width  : $modal-content-width-small;
+    margin     : $modal-content-margin-small;
+    padding    : $modal-content-padding-small;
+    background : $modal-content-background-small;
+
+    @media #{$medium-up} {
+        position    : absolute;
+            top     : 50%;
+            left    : 50%;
+            z-index : $modal-revealed-index;
+        margin      : $modal-content-margin;
+        transform   : $modal-content-transform--inactive;
+        transition  : $modal-content-transition;
+    }
+
+    .modal--reveal & {
+
+        @media #{$medium-up} {
+            transform : $modal-content-transform--active;
+        }
+
+    }
+
+}
+
+.modal--dark {
+    background : $modal-theme-dark;
+}
+
+.modal--light {
+    background : $modal-theme-light;
+}
+
+.modal--transparent {
+    background : transparent;
+}
+
+.modal__mask {
+  position  : absolute;
+    top     : 0;
+    right   : 0;
+    bottom  : 0;
+    left    : 0;
+    z-index : 1;
+}
