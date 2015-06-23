@@ -1,7 +1,7 @@
 /* jshint globalstrict: true */
 'use strict';
 
-var _ = require('underscore');
+var _ = require('lodash');
 var React = require('react');
 var FormInputMixin = require('../mixins/form-input-mixin');
 
