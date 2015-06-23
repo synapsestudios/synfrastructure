@@ -67,9 +67,10 @@ module.exports = React.createClass({
                 </div>
                 <div>
                     <Select
-                        id         = 'example5'
-                        customIcon = {String.fromCharCode(9660)}
-                        options    = {[
+                        id                        = 'example5'
+                        customIcon                = {String.fromCharCode(9660)}
+                        componentWrapCSSClassName = 'super-custom__wrapper'
+                        options                   = {[
                             {
                                 text     : 'Option 1',
                                 value    : 'option-1',
