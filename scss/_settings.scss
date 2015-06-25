@@ -32,7 +32,7 @@ $legacy-grid : false !default;
 } @else {
     // Flexbox Grid Settings
     $column-count    : 12 !default;
-    $column-selector : '.col' !default;
+    $column-selector : '.' !default;
     $offset-modifier : 'offset' !default;
 
     $gutter-width        : 1rem !default;
@@ -54,14 +54,15 @@ $legacy-grid : false !default;
     $container-md : #{$width-md}rem + $gutter-width !default;
     $container-lg : #{$width-lg}rem + $gutter-width !default;
 
-    $xs : 'xsmall' !default;
-    $sm : 'small'  !default;
-    $md : 'medium' !default;
-    $lg : 'large'  !default;
+    $xs : 'small' !default;
+    $sm : 'medium'  !default;
+    $md : 'large' !default;
+    $lg : 'xlarge'  !default;
 
-    $block-delimiter    : '_' !default;
+    // Removed to match 'size-x' syntax
+    $block-delimiter    : '' !default;
     $element-delimiter  : '-' !default;
-    $modifier-delimiter : '--' !default;
+    $modifier-delimiter : '-' !default;
 
     $defaultQuery : $viewport-xs !default;
 

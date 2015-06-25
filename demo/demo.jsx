@@ -151,6 +151,17 @@ module.exports = React.createClass({
                 {this.renderModal()}
                 <div className='section'>
                     <h1 className='h1'>Grid System</h1>
+                    <div className='row around-small'>
+                        <div className='small-4'>
+                            <div className='box blue'>small-4</div>
+                        </div>
+                        <div className='small-2'>
+                            <div className='box red'>small-2</div>
+                        </div>
+                        <div className='small-2'>
+                            <div className='box yellow'>small-2</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

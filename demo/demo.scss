@@ -1,6 +1,8 @@
+@import '../scss/_synfrastructure';
+
 .demo__wrapper {
     max-width : 960px;
-    margin    : 20px auto;
+    margin    : 20px auto 200px;
 }
 
 .section {
@@ -17,4 +19,25 @@
     font-size     : 22px;
     font-weight   : 800;
     text-align    : center;
+}
+
+.row {
+    background : #ddd;
+}
+
+.red {
+    background : red;
+    height     : 200px;
+}
+
+.blue {
+    background : blue;
+}
+
+.yellow {
+    background : yellow;
+}
+
+.box {
+    padding : 10px;
 }
