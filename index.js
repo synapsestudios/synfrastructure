@@ -4,4 +4,5 @@ module.exports = {
     Input    : require('./dist/input'),
     Label    : require('./dist/label'),
     Checkbox : require('./dist/checkbox')
+    Modal    : require('./dist/modal')
 };

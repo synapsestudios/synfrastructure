@@ -1,7 +1,7 @@
 /* jshint globalstrict: true */
 'use strict';
 
-var React = require('react');
+var React = require('react/addons');
 var classSet = require('react/lib/cx');
 var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
@@ -63,7 +63,7 @@ module.exports = React.createClass({
         var messages = this.renderValidationMessages(),
             orderdChildren = [];
 
-        orderdChildren = [{ 'message-children': this.props.children }, { 'message': messages }];
+        orderdChildren = [React.addons.createFragment({ 'message-children': this.props.children }), React.addons.createFragment({ 'message': messages })];
 
         if (this.props.renderMessages === 'before') {
             return orderdChildren.reverse();

@@ -290,7 +290,7 @@ $form-input-select-normalize     : false                                        
     // 1. prevent text clipping
     .select {
         padding    : $form-input-select-padding;
-        background : shade($white, 5%);
+        background : shade($form-input-bg, 5%);
     }
 
     // Custom Select Component
@@ -300,22 +300,20 @@ $form-input-select-normalize     : false                                        
     // 3. Custom Icon
 
     /* 1 */
-    .select__custom--wrap {
+    .select--custom--wrap {
         position      : relative;
         overflow      : hidden;
         margin        : $form-input-margin;
-        background    : $white;
+        background    : $form-input-bg;
     }
 
     /* 2 */
-    .select__custom {
+    .select--custom {
         position       : relative;
             z-index    : 2;
         width          : 100%;
         margin-bottom  : 0;
-        padding-top    : $form-input-select-padding-value / 2;
         padding-right  : $form-input-select-padding-value * 2;
-        padding-bottom : $form-input-select-padding-value / 2;
         padding-left   : $form-input-select-padding-value;
         overflow       : hidden;
         background     : transparent !important;
@@ -329,7 +327,7 @@ $form-input-select-normalize     : false                                        
     }
 
     /* 3 */
-    .select__custom--icon {
+    .select--custom--icon {
         position    : absolute;
             top     : 50%;
             right   : $form-input-select-padding-value;

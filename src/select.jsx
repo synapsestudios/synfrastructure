@@ -1,7 +1,7 @@
 /* jshint globalstrict: true */
 'use strict';
 
-var _              = require('underscore');
+var _              = require('lodash');
 var React          = require('react');
 var FormInputMixin = require('../mixins/form-input-mixin');
 
@@ -23,16 +23,17 @@ module.exports = React.createClass({
                 selected : React.PropTypes.bool
             })
         ).isRequired,
-        componentCSSClassName : React.PropTypes.string,
-        customIcon            : React.PropTypes.any,
-        value                 : React.PropTypes.any,
-        onFocus               : React.PropTypes.func,
-        onBlur                : React.PropTypes.func,
-        onChange              : React.PropTypes.func,
-        onKeyDown             : React.PropTypes.func,
-        onKeyUp               : React.PropTypes.func,
-        onKeyPress            : React.PropTypes.func,
-        className             : React.PropTypes.string
+        componentCSSClassName     : React.PropTypes.string,
+        componentWrapCSSClassName : React.PropTypes.string,
+        customIcon                : React.PropTypes.any,
+        value                     : React.PropTypes.any,
+        onFocus                   : React.PropTypes.func,
+        onBlur                    : React.PropTypes.func,
+        onChange                  : React.PropTypes.func,
+        onKeyDown                 : React.PropTypes.func,
+        onKeyUp                   : React.PropTypes.func,
+        onKeyPress                : React.PropTypes.func,
+        className                 : React.PropTypes.string
     },
 
     getDefaultProps : function()
@@ -89,14 +90,21 @@ module.exports = React.createClass({
 
     renderCustomSelect : function()
     {
+        var classes;
+
         if (! this.props.customIcon) {
             return this.renderDefaultSelect();
         }
 
+        classes = [
+            'select--custom--wrap',
+            this.props.componentWrapCSSClassName
+        ].join(' ');
+
         return (
-            <div className='select__custom--wrap'>
+            <div className={classes}>
                 {this.renderDefaultSelect()}
-                <span className='select__custom--icon'>
+                <span className='select--custom--icon'>
                     {this.props.customIcon}
                 </span>
             </div>
@@ -109,7 +117,7 @@ module.exports = React.createClass({
             customSelect;
 
         customSelect = (this.props.customIcon) ?
-            this.props.componentCSSClassName + '__custom' : null;
+            this.props.componentCSSClassName + '--custom' : null;
 
         classes = [
             this.props.componentCSSClassName,

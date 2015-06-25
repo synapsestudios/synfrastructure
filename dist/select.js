@@ -1,7 +1,7 @@
 /* jshint globalstrict: true */
 'use strict';
 
-var _ = require('underscore');
+var _ = require('lodash');
 var React = require('react');
 var FormInputMixin = require('../mixins/form-input-mixin');
 
@@ -20,6 +20,7 @@ module.exports = React.createClass({
             selected: React.PropTypes.bool
         })).isRequired,
         componentCSSClassName: React.PropTypes.string,
+        componentWrapCSSClassName: React.PropTypes.string,
         customIcon: React.PropTypes.any,
         value: React.PropTypes.any,
         onFocus: React.PropTypes.func,
@@ -81,17 +82,21 @@ module.exports = React.createClass({
     },
 
     renderCustomSelect: function renderCustomSelect() {
+        var classes;
+
         if (!this.props.customIcon) {
             return this.renderDefaultSelect();
         }
 
+        classes = ['select--custom--wrap', this.props.componentWrapCSSClassName].join(' ');
+
         return React.createElement(
             'div',
-            { className: 'select__custom--wrap' },
+            { className: classes },
             this.renderDefaultSelect(),
             React.createElement(
                 'span',
-                { className: 'select__custom--icon' },
+                { className: 'select--custom--icon' },
                 this.props.customIcon
             )
         );
@@ -100,7 +105,7 @@ module.exports = React.createClass({
     renderDefaultSelect: function renderDefaultSelect() {
         var classes, customSelect;
 
-        customSelect = this.props.customIcon ? this.props.componentCSSClassName + '__custom' : null;
+        customSelect = this.props.customIcon ? this.props.componentCSSClassName + '--custom' : null;
 
         classes = [this.props.componentCSSClassName, this.props.className, customSelect].join(' ');
 

@@ -7,12 +7,52 @@ var Input      = require('../dist/input');
 var Textarea   = require('../dist/textarea');
 var Select     = require('../dist/select');
 var Checkbox   = require('../dist/checkbox');
-var Label      = require('../dist/label');
-var Validation = require('../dist/validation');
+var Label      = require('../src/label');
+var Validation = require('../src/validation');
+var Modal      = require('../src/modal');
 
 module.exports = React.createClass({
 
-    render : function()
+    getInitialState()
+    {
+        return {
+            modalView : false
+        };
+    },
+
+    openModal()
+    {
+        this.setState({
+            modalView : true
+        });
+    },
+
+    closeModal()
+    {
+        this.setState({
+            modalView : false
+        });
+    },
+
+    renderModal()
+    {
+        return (
+            <div>
+                <h1>Modal Component</h1>
+                <Button onClick={this.openModal}>Fire Modal</Button>
+                <Modal
+                    reveal     = {this.state.modalView !== false}
+                    close      = {this.closeModal}
+                    colorTheme = 'dark'
+                >
+                    <span>Working Modal</span>
+                    <span onClick={this.closeModal}>Close This Modal</span>
+                </Modal>
+            </div>
+        );
+    },
+
+    render()
     {
         var styles = {
             maxWidth : '720px',
@@ -76,9 +116,10 @@ module.exports = React.createClass({
                 </div>
                 <div>
                     <Select
-                        id         = 'example5'
-                        customIcon = {String.fromCharCode(9660)}
-                        options    = {[
+                        id                        = 'example5'
+                        customIcon                = {String.fromCharCode(9660)}
+                        componentWrapCSSClassName = 'super-custom__wrapper'
+                        options                   = {[
                             {
                                 text     : 'Option 1',
                                 value    : 'option-1',
@@ -111,6 +152,7 @@ module.exports = React.createClass({
                         <Input id='example5' />
                     </Validation>
                 </div>
+                {this.renderModal()}
             </div>
         );
     }
