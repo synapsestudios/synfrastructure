@@ -14,12 +14,13 @@
 
 /// Absolutely position element
 /// @param {position} $center, $middle, $vertical-middle
-@mixin absolute($position) {
+@mixin absolute($position: middle, $width: inherit) {
 
     @if $position == center {
         position      : absolute;
             left      : 50%;
             transform : translateX(-50%);
+        width         : $width;
     }
 
     @if $position == middle {
@@ -27,12 +28,14 @@
             top       : 50%;
             left      : 50%;
             transform : translate(-50%, -50%);
+        width         : $width;
     }
 
     @if $position == vertical-middle {
         position      : absolute;
             top       : 50%;
             transform : translateY(-50%);
+        width         : $width;
     }
 
 }
