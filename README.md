@@ -23,7 +23,7 @@ To include the React Component base styles, make sure `$include-component-classe
 ### Using the Grid
 There are two grids in synfrastructure. The default grid is based off Flexbox. You can use the legacy Foundation-based grid by setting the `$legacy-grid` flag to `true`.
 
-*Syntax*
+##### Syntax
 ```
 <div class='row'>
     <div class='small-4'>
@@ -38,7 +38,7 @@ There are two grids in synfrastructure. The default grid is based off Flexbox. Y
 </div>
 ```
 
-*Media Queries*
+##### Media Queries
 Media queries are based on min/max width and the variables are prefixed with `$viewport`
 ```
 $viewport-xs
