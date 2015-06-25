@@ -54,10 +54,10 @@ $legacy-grid : false !default;
     $container-md : #{$width-md}rem + $gutter-width !default;
     $container-lg : #{$width-lg}rem + $gutter-width !default;
 
-    $xs : 'small' !default;
-    $sm : 'medium'  !default;
-    $md : 'large' !default;
-    $lg : 'xlarge'  !default;
+    $xs : 'xsmall' !default;
+    $sm : 'small'  !default;
+    $md : 'medium' !default;
+    $lg : 'large'  !default;
 
     // Removed to match 'size-x' syntax
     $block-delimiter    : '' !default;

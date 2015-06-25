@@ -25,19 +25,21 @@
     background : #ddd;
 }
 
-.red {
-    background : red;
-    height     : 200px;
-}
-
-.blue {
-    background : blue;
-}
-
-.yellow {
-    background : yellow;
-}
-
 .box {
     padding : 10px;
+}
+
+@media screen and (min-width: $viewport-sm) {
+    .blue {
+        background : blue;
+    }
+
+    .yellow {
+        background : yellow;
+    }
+
+    .red {
+        background : red;
+        height     : 200px;
+    }
 }
