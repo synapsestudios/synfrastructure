@@ -11,6 +11,8 @@ var Label      = require('../src/label');
 var Validation = require('../src/validation');
 var Modal      = require('../src/modal');
 
+require('./demo.scss');
+
 module.exports = React.createClass({
 
     getInitialState()
@@ -37,8 +39,8 @@ module.exports = React.createClass({
     renderModal()
     {
         return (
-            <div>
-                <h1>Modal Component</h1>
+            <div className='section'>
+                <h1 className='h1'>Modal Component</h1>
                 <Button onClick={this.openModal}>Fire Modal</Button>
                 <Modal
                     reveal     = {this.state.modalView !== false}
@@ -54,37 +56,31 @@ module.exports = React.createClass({
 
     render()
     {
-        var styles = {
-            maxWidth : '720px',
-            margin   : '0 auto',
-            padding  : '20px'
-        }
-
         return (
-            <div style={styles}>
-                <div>
-                    <h1>Alert Component</h1>
+            <div className='demo__wrapper'>
+                <div className='section'>
+                    <h1 className='h1'>Alert Component</h1>
                     <Alert message='This Is An Alert'/>
                 </div>
-                <div>
-                    <h1>Button Component</h1>
+                <div className='section'>
+                    <h1 className='h1'>Button Component</h1>
                     <Button>This is a Button</Button>
                 </div>
-                <div>
-                    <h1>Input Component</h1>
+                <div className='section'>
+                    <h1 className='h1'>Input Component</h1>
                     <Input id='example1' />
                 </div>
-                <div>
-                    <h1>Label Component</h1>
+                <div className='section'>
+                    <h1 className='h1'>Label Component</h1>
                     <Label htmlFor='example2' text='This Is a Label'>
                         <Input id='example2' placeholder='A label wraps around me' />
                     </Label>
                 </div>
-                <div>
-                    <h1>Textarea Component</h1>
+                <div className='section'>
+                    <h1 className='h1'>Textarea Component</h1>
                     <Textarea id='example3' />
                 </div>
-                <div>
+                <div className='section'>
                     <Select
                         id      = 'example4'
                         options = {[
@@ -106,15 +102,15 @@ module.exports = React.createClass({
                         ]}
                     />
                 </div>
-                <div>
-                    <h1>Checkbox Inputs</h1>
+                <div className='section'>
+                    <h1 className='h1'>Checkbox Inputs</h1>
                     <Checkbox
                         id      = 'example6'
                         name    = 'checkbox-example6'
                         checked = {true}
                     />
                 </div>
-                <div>
+                <div className='section'>
                     <Select
                         id                        = 'example5'
                         customIcon                = {String.fromCharCode(9660)}
@@ -138,8 +134,8 @@ module.exports = React.createClass({
                         ]}
                     />
                 </div>
-                <div>
-                    <h1>Input Component Validated</h1>
+                <div className='section'>
+                    <h1 className='h1'>Input Component Validated</h1>
                     <Validation
                         validation = {{
                             status   : 'error',
@@ -153,6 +149,20 @@ module.exports = React.createClass({
                     </Validation>
                 </div>
                 {this.renderModal()}
+                <div className='section'>
+                    <h1 className='h1'>Grid System</h1>
+                    <div className='row around-small'>
+                        <div className='small-4'>
+                            <div className='box blue'>small-4</div>
+                        </div>
+                        <div className='small-2'>
+                            <div className='box red'>small-2</div>
+                        </div>
+                        <div className='small-2'>
+                            <div className='box yellow'>small-2</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

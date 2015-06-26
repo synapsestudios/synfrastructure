@@ -13,8 +13,14 @@
 @import "foundation/flex-video";
 @import "foundation/functions";
 @import "foundation/global";
-@import "foundation/legacy-grid";
 @import "foundation/visibility";
+
+// import grid
+@if($legacy-grid) {
+    @import "grid/legacy-grid";
+} @else {
+    @import "grid/flexbox-grid";
+}
 
 
 // imports from Bourbon

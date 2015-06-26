@@ -1,8 +1,8 @@
 /* global document */
 'use strict';
 
-var classNames = require('react/lib/cx');
-var className = require('../../../util/className');
+var classNames = require('classnames');
+var className = require('../util/className');
 var React = require('react');
 
 module.exports = React.createClass({
