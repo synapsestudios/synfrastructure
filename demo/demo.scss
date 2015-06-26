@@ -29,7 +29,7 @@
     padding : 10px;
 }
 
-@media screen and (min-width: $viewport-sm) {
+@include min-screen($media-small) {
     .blue {
         background : blue;
     }

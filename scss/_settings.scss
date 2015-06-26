@@ -17,11 +17,12 @@ $line-height-base : 1.5 !default;
 // Use legacy grid?
 $legacy-grid : false !default;
 
-// Media Queries
-$media-xsmall : 30 !default;
-$media-small  : 48 !default;
-$media-medium : 62 !default;
-$media-large  : 75 !default;
+// Media Sizes
+$media-unit   : em;
+$media-xsmall : 30em !default; // 480px
+$media-small  : 48em !default; // 768px
+$media-medium : 62em !default; // 992px
+$media-large  : 75em !default; // 1200px
 
 @if ($legacy-grid) {
     // Legacy Grid Settings
@@ -35,11 +36,11 @@ $media-large  : 75 !default;
     $xlarge-limit : $media-large;
 
     // Media Query Ranges
-    $small-range   : (0, #{$media-xsmall}em)        !default; // 0px to 480px
-    $medium-range  : (#{$media-xsmall + .063}em, #{$media-small}em) !default; // 481px to 768px
-    $large-range   : (#{$media-small + .063}em, #{$media-medium}em) !default; // 769px to 1024px
-    $xlarge-range  : (#{$media-medium + .063}em, #{$media-large}em) !default; //1025px to 1440px
-    $xxlarge-range : (#{$media-large + .063}em)       !default; //1441 px and up
+    $small-range   : (0, #{$media-xsmall})                      !default;
+    $medium-range  : (#{$media-xsmall + .063em}, #{$media-small}) !default;
+    $large-range   : (#{$media-small + .063em}, #{$media-medium}) !default;
+    $xlarge-range  : (#{$media-medium + .063em}, #{$media-large}) !default;
+    $xxlarge-range : (#{$media-large + .063em})                   !default;
 } @else {
     // Flexbox Grid Settings
     $column-count    : 12 !default;
@@ -51,14 +52,14 @@ $media-large  : 75 !default;
     $gutter-compensation : (($gutter-width / 2) * -1) !default;
     $half-gutter-width   : ($gutter-width / 2) !default;
 
-    $viewport-xs : #{$media-xsmall}em !default;
-    $viewport-sm : #{$media-small}em !default;
-    $viewport-md : #{$media-medium}em !default;
-    $viewport-lg : #{$media-large}em !default;
+    $viewport-xs : #{$media-xsmall} !default;
+    $viewport-sm : #{$media-small} !default;
+    $viewport-md : #{$media-medium} !default;
+    $viewport-lg : #{$media-large} !default;
 
-    $container-sm : #{$media-small}rem + $gutter-width !default;
-    $container-md : #{$media-medium}rem + $gutter-width !default;
-    $container-lg : #{$media-large}rem + $gutter-width !default;
+    $container-sm : #{$media-small} + $gutter-width !default;
+    $container-md : #{$media-medium} + $gutter-width !default;
+    $container-lg : #{$media-large} + $gutter-width !default;
 
     $xs : 'xsmall' !default;
     $sm : 'small'  !default;
