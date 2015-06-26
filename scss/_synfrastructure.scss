@@ -18,9 +18,10 @@
 @if($legacy-grid) {
     @import "grid/legacy-grid";
 } @else {
+    // Flexbox Grid
+    // http://flexboxgrid.com/
     @import "grid/flexbox-grid";
 }
-
 
 // imports from Bourbon
 // http://bourbon.io/docs/
