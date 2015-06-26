@@ -13,15 +13,15 @@
 @import "foundation/flex-video";
 @import "foundation/functions";
 @import "foundation/global";
-@import "foundation/visibility";
 
 // import grid
 @if($legacy-grid) {
     @import "grid/legacy-grid";
 } @else {
+    // Flexbox Grid
+    // http://flexboxgrid.com/
     @import "grid/flexbox-grid";
 }
-
 
 // imports from Bourbon
 // http://bourbon.io/docs/
@@ -31,6 +31,7 @@
 
 // utils
 @import "util/mixins";
+@import "util/media-queries";
 @import "util/utilities";
 @import "util/margin";
 @import "util/padding";

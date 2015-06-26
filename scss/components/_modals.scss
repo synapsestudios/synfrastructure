@@ -111,7 +111,7 @@ $modal-content-background-small    : $white;
     .modal__content {
         @include modal-content;
 
-        @media #{$medium-up} {
+        @include min-screen($media-small) {
             position    : absolute;
                 top     : 50%;
                 left    : 50%;
@@ -123,7 +123,7 @@ $modal-content-background-small    : $white;
 
         .modal--reveal & {
 
-            @media #{$medium-up} {
+            @include min-screen($media-small) {
                 transform : $modal-content-transform--active;
             }
 
