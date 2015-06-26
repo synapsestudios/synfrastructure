@@ -1,7 +1,7 @@
 {
   "name": "synfrastructure",
   "version": "3.1.0",
-  "description": "Lightweight Sass utility library inspired by Foundation and Bourbon",
+  "description": "A collection of highly reusable React components paired with sass utilities and mixins for speedy UI development",
   "author": "Synapse Studios",
   "main": "index.js",
   "readmeFilename": "README.md",
