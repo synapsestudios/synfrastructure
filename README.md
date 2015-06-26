@@ -39,15 +39,14 @@ There are two grids in synfrastructure. The default grid is based off Flexbox. Y
 ```
 
 ##### Media Queries
-Media queries are based on min/max width and the variables are prefixed with `$viewport`
 ```
-$viewport-xs
-$viewport-sm
-$viewport-md
-$viewport-lg
+$screen-xsmall
+$screen-small
+$screen-medium
+$screen-large
 
-@media screen and (max-width: $viewport-sm) {
-    //Only shown on screen sizes small and under
+@include max-screen($screen-medium) {
+    //Only shown on screens up to medium-size
 }
 ```
 

@@ -1,3 +1,17 @@
+## [v3.1.0](https://github.com/synapsestudios/synapse-common/compare/v3.0.3...v3.1.0) - 2015-06-26
+- Added a new grid based on flexbox, and ability to toggle between new and legacy
+- Removed a lot of foundation bloat
+- Added media query mixins
+- Added checkbox component and styles
+- Updated dependancies
+- fix custom select classes
+- Added modal component and styles
+
+## [v3.0.0](https://github.com/synapsestudios/synapse-common/compare/v2.0.2...v3.0.0) - 2015-06-8
+- Added JSX components and compiled JS files for use
+- Added ability to path to SCSS files individually for components
+- New build process
+
 ## [v2.0.2](https://github.com/synapsestudios/synapse-common/compare/v2.0.1...v2.0.2) - 2015-05-26
 - Add keyboard events to form inputs
 
