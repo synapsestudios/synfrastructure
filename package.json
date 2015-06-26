@@ -1,35 +1,42 @@
 {
-  "name": "synfrastructure",
-  "version": "3.1.0",
-  "description": "A collection of highly reusable React components paired with sass utilities and mixins for speedy UI development",
-  "author": "Synapse Studios",
-  "main": "index.js",
-  "readmeFilename": "README.md",
-  "repository": {
+    "name": "synfrastructure",
+    "version": "3.1.0",
+    "description": "A collection of highly reusable React components paired with sass utilities and mixins for speedy UI development",
+    "author": "Synapse Studios",
+    "license": "MIT",
+    "bugs": {
+    "url": "https://github.com/synapsestudios/synfrastructure/issues"
+    },
+    "main": "index.js",
+    "homepage": "https://github.com/synapsestudios/synfrastructure#readme",
+    "readmeFilename": "README.md",
+    "repository": {
     "type": "git",
     "url": "git://github.com/synapsestudios/synfrastructure.git"
-  },
-  "scripts": {
+    },
+    "scripts": {
     "demo": "rm -rf ./demo-build/* && ./node_modules/webpack/bin/webpack.js --config webpack.config.demo.js && node ./demo-server.js",
     "build": "rm -f ./dist/*  && ./node_modules/babel/bin/babel/index.js src --loose --out-dir dist"
-  },
-  "dependencies": {
-    "autoprefixer-core": "5.2.0",
-    "babel": "5.6.14",
-    "babel-loader": "5.2.2",
-    "classnames": "2.1.2",
-    "css-loader": "0.14.5",
-    "express-http-proxy": "0.6.0",
-    "html-webpack-plugin": "1.5.2",
-    "postcss-loader": "0.5.0",
-    "react": "0.13.3",
-    "react-hot-loader": "1.2.7",
-    "react-tools": "0.13.3",
-    "request": "2.58.0",
-    "sass-loader": "1.0.2",
-    "style-loader": "0.12.3",
-    "lodash": "3.9.3",
-    "webpack": "1.9.11",
-    "webpack-dev-server": "1.9.0"
-  }
+    },
+    "dependencies": {
+        "react": "0.13.3",
+        "lodash": "3.9.3",
+        "classnames": "2.1.2"
+        },
+    "devDependencies": {
+        "autoprefixer-core": "5.2.0",
+        "babel": "5.6.14",
+        "babel-loader": "5.2.2",
+        "css-loader": "0.14.5",
+        "express-http-proxy": "0.6.0",
+        "html-webpack-plugin": "1.5.2",
+        "postcss-loader": "0.5.0",
+        "react-hot-loader": "1.2.7",
+        "react-tools": "0.13.3",
+        "request": "2.58.0",
+        "sass-loader": "1.0.2",
+        "style-loader": "0.12.3",
+        "webpack": "1.9.11",
+        "webpack-dev-server": "1.9.0"
+    }
 }
