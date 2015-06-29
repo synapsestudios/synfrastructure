@@ -10,6 +10,7 @@ var Checkbox   = require('../dist/checkbox');
 var Label      = require('../src/label');
 var Validation = require('../src/validation');
 var Modal      = require('../src/modal');
+var Switch     = require('../src/switch');
 
 require('./demo.scss');
 
@@ -162,6 +163,16 @@ module.exports = React.createClass({
                             <div className='box yellow'>small-2</div>
                         </div>
                     </div>
+                </div>
+                <div className='section'>
+                    <h1 className='h1'>Switches</h1>
+                    <Switch
+                        id      = 'switch-input'
+                        label   = 'Example Switch'
+                        name    = 'single-switch'
+                        value   = 'switch'
+                        checked = {true}
+                    />
                 </div>
             </div>
         );
