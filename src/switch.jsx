@@ -101,7 +101,7 @@ module.exports = React.createClass({
         return (
             <div className={classes}>
                 <input
-                    className      = {'switch__checkbox'}
+                    className      = {this.props.componentCSSClassName + '__checkbox'}
                     id             = {this.props.id}
                     name           = {this.props.name}
                     type           = 'checkbox'
@@ -116,13 +116,13 @@ module.exports = React.createClass({
                     onKeyPress     = {this.onKeyPress}
                     disabled       = {this.props.disabled}
                 />
-                <label className='switch__label' htmlFor={this.props.name}>
+                <label className={this.props.componentCSSClassName + '__label'} htmlFor={this.props.name}>
                     <span
-                        className        = 'switch__inner'
+                        className        = {this.props.componentCSSClassName + '__inner'}
                         data-content-on  = {this.props.switchTextOn}
                         data-content-off = {this.props.switchTextOff}
                     />
-                    <span className='switch__toggle'></span>
+                    <span className={this.props.componentCSSClassName + '__toggle'}></span>
                 </label>
             </div>
         );

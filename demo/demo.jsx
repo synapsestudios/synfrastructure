@@ -168,9 +168,16 @@ module.exports = React.createClass({
                     <h1 className='h1'>Switches</h1>
                     <Switch
                         id      = 'switch-input'
-                        label   = 'Example Switch'
+                        label   = 'Example Switch Off'
+                        name    = 'single-switch-on'
+                        value   = 'switch1'
+                        checked = {false}
+                    />
+                    <Switch
+                        id      = 'switch-input-on'
+                        label   = 'Example Switch On'
                         name    = 'single-switch'
-                        value   = 'switch'
+                        value   = 'switch2'
                         checked = {true}
                     />
                 </div>
