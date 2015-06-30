@@ -10,6 +10,7 @@ var Checkbox   = require('../dist/checkbox');
 var Label      = require('../src/label');
 var Validation = require('../src/validation');
 var Modal      = require('../src/modal');
+var Tooltip    = require('../src/tooltip');
 
 require('./demo.scss');
 
@@ -161,6 +162,19 @@ module.exports = React.createClass({
                         <div className='small-2'>
                             <div className='box yellow'>small-2</div>
                         </div>
+                    </div>
+                </div>
+                <div className='section'>
+                    <h1 className='h1'>Tooltips</h1>
+                    <div>
+                        <Tooltip />
+                            <p
+                                data-tip      = 'tooltip'
+                                data-top      = 'This is a tip!'
+                                data-place    = 'top'
+                            >
+                            Hover for a tip
+                            </p>
                     </div>
                 </div>
             </div>
