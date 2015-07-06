@@ -9,7 +9,6 @@ var Tooltip = React.createClass({
 
     propTypes: {
         place   : React.PropTypes.string,
-        type    : React.PropTypes.string,
         effect  : React.PropTypes.string,
         positon : React.PropTypes.object,
     },
@@ -119,34 +118,33 @@ var Tooltip = React.createClass({
 
     },
 
-    showTooltip(e) {
+    showTooltip(error) {
         this.setState({
-            placeholder: e.target.getAttribute("data-tip"),
-            place : e.target.getAttribute("data-place")?e.target.getAttribute("data-place"):(this.props.place?this.props.place:"top"),
-            type : e.target.getAttribute("data-type")?e.target.getAttribute("data-type"):(this.props.type?this.props.type:"dark"),
-            effect : e.target.getAttribute("data-effect")?e.target.getAttribute("data-effect"):(this.props.effect?this.props.effect:"float"),
-            position : e.target.getAttribute("data-position")?e.target.getAttribute("data-position"):(this.props.position?this.props.position:{}),
+            placeholder: error.target.getAttribute("data-tip"),
+            place : error.target.getAttribute("data-place")?error.target.getAttribute("data-place"):(this.props.place?this.props.place:"top"),
+            effect : error.target.getAttribute("data-effect")?error.target.getAttribute("data-effect"):(this.props.effect?this.props.effect:"float"),
+            position : error.target.getAttribute("data-position")?error.target.getAttribute("data-position"):(this.props.position?this.props.position:{}),
         })
-        this.updateTooltip(e);
+        this.updateTooltip(error);
     },
 
-    updateTooltip(e) {
+    updateTooltip(error) {
         if(this.trim(this.state.placeholder).length > 0) {
             if(this.state.effect === "float") {
             this.setState({
                 show: true,
-                x : e.clientX,
-                y : e.clientY
+                x : error.clientX,
+                y : error.clientY
             })
         }
-          else if(this.state.effect === "solid"){
-            let targetTop = e.target.getBoundingClientRect().top;
-            let targetLeft = e.target.getBoundingClientRect().left;
+          else if(this.state.effect === "fixed"){
+            let targetTop = error.target.getBoundingClientRect().top;
+            let targetLeft = error.target.getBoundingClientRect().left;
             let node = React.findDOMNode(this);
             let tipWidth = node.clientWidth;
             let tipHeight = node.clientHeight;
-            let targetWidth = e.target.clientWidth;
-            let targetHeight = e.target.clientHeight;
+            let targetWidth = error.target.clientWidth;
+            let targetHeight = error.target.clientHeight;
             let { place } = this.state;
             let x, y ;
             if(place === "top") {
@@ -177,50 +175,47 @@ var Tooltip = React.createClass({
 
     },
 
-    hideTooltip(e) {
+    hideTooltip(error) {
         this.setState({
             show : false,
-            x    : "NONE",
-            y    : "NONE",
+            x    : 'NONE',
+            y    : 'NONE',
         });
     },
 
     render() {
         let tooltipClass = classname(
-            'reactTooltip',
-            {"show": this.state.show},
-            {"place-top": this.state.place === "top"},
-            {"place-bottom": this.state.place === "bottom"},
-            {"place-left": this.state.place === "left"},
-            {"place-right": this.state.place === "right"},
-            {"type-dark": this.state.type === "dark"},
-            {"type-success": this.state.type === "success"},
-            {"type-warning": this.state.type === "warning"},
-            {"type-error": this.state.type === "error"},
-            {"type-info": this.state.type === "info"},
-            {"type-light": this.state.type === "light"}
+            'tooltip',
+            {"tooltip--show": this.state.show},
+            {"tooltip__top": this.state.place === "top"},
+            {"tooltip__bottom": this.state.place === "bottom"},
+            {"tooltip__left": this.state.place === "left"},
+            {"tooltip__right": this.state.place === "right"}
         );
 
         return (
             <span className={tooltipClass} data-id="tooltip">{this.state.placeholder}</span>
         )
-        },
+    },
 
-        trim(string) {
+    trim(string) {
         let newString = string.split("");
         let firstCount = 0, lastCount = 0;
+
         for(let i = 0; i < string.length; i++) {
             if(string[i] !== " ") {
                 break;
             }
             firstCount++;
         }
+
         for(let i = string.length-1; i >= 0; i--) {
             if(string[i] !== " ") {
                 break;
-          }
+            }
             lastCount++;
         }
+
         newString.splice(0, firstCount);
         newString.splice(-lastCount, lastCount);
         return newString.join("");
