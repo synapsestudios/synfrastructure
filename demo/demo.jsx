@@ -10,6 +10,7 @@ var Checkbox   = require('../dist/checkbox');
 var Label      = require('../src/label');
 var Validation = require('../src/validation');
 var Modal      = require('../src/modal');
+var Tooltip    = require('../src/tooltip');
 
 require('./demo.scss');
 
@@ -57,7 +58,7 @@ module.exports = React.createClass({
     render()
     {
         return (
-            <div className='demo__wrapper'>
+            <div className='demo__wrapper a--appear'>
                 <div className='section'>
                     <h1 className='h1'>Alert Component</h1>
                     <Alert message='This Is An Alert'/>
@@ -160,6 +161,68 @@ module.exports = React.createClass({
                         </div>
                         <div className='small-2'>
                             <div className='box yellow'>small-2</div>
+                        </div>
+                    </div>
+                </div>
+                <div className='section'>
+                    <h1 className='h1'>Tooltips</h1>
+                    <div className='row'>
+                        <Tooltip />
+                        <div className='small-12 medium-6'>
+                            <span
+                                style       = {{display:'block', width:120}}
+                                data-tip    = 'tooltip'
+                                data-place  = 'top'
+                                data-effect = 'fixed'
+                            >Fixed Top</span>
+
+                            <span
+                                style       = {{display:'block', width:120}}
+                                data-tip    = 'tooltip'
+                                data-place  = 'right'
+                                data-effect = 'fixed'
+                            >Fixed Right</span>
+
+                            <span
+                                style       = {{display:'block', width:120}}
+                                data-tip    = 'tooltip'
+                                data-place  = 'bottom'
+                                data-effect = 'fixed'
+                            >Fixed Bottom</span>
+                            <span
+                                style       = {{display:'block', width:120}}
+                                data-tip    = 'tooltip'
+                                data-place  = 'left'
+                                data-effect = 'fixed'
+                            >Fixed Left</span>
+                        </div>
+                        <div className='small-12 medium-6'>
+                            <span
+                                style       = {{display:'block', width:120}}
+                                data-tip    = 'tooltip'
+                                data-place  = 'top'
+                                data-effect = 'float'
+                            >Floated Top</span>
+
+                            <span
+                                style       = {{display:'block', width:120}}
+                                data-tip    = 'tooltip'
+                                data-place  = 'right'
+                                data-effect = 'float'
+                            >Floated Right</span>
+
+                            <span
+                                style       = {{display:'block', width:120}}
+                                data-tip    = 'tooltip'
+                                data-place  = 'bottom'
+                                data-effect = 'float'
+                            >Floated Bottom</span>
+                            <span
+                                style       = {{display:'block', width:120}}
+                                data-tip    = 'tooltip'
+                                data-place  = 'left'
+                                data-effect = 'float'
+                            >Floated Left</span>
                         </div>
                     </div>
                 </div>
