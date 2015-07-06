@@ -58,7 +58,7 @@ module.exports = React.createClass({
     render()
     {
         return (
-            <div className='demo__wrapper'>
+            <div className='demo__wrapper a--appear'>
                 <div className='section'>
                     <h1 className='h1'>Alert Component</h1>
                     <Alert message='This Is An Alert'/>
