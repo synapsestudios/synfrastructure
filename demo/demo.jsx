@@ -168,70 +168,62 @@ module.exports = React.createClass({
                     <h1 className='h1'>Tooltips</h1>
                     <div className='row'>
                         <Tooltip />
-                            <div className='small-12 medium-6'>
-                                <span
-                                    style       = {{display:'block', width:120}}
-                                    data-tip    = 'tooltip'
-                                    data-top    = 'This is a tip!'
-                                    data-place  = 'top'
-                                    data-effect = 'fixed'
-                                >Fixed Top</span>
+                        <div className='small-12 medium-6'>
+                            <span
+                                style       = {{display:'block', width:120}}
+                                data-tip    = 'tooltip'
+                                data-place  = 'top'
+                                data-effect = 'fixed'
+                            >Fixed Top</span>
 
-                                <span
-                                    style       = {{display:'block', width:120}}
-                                    data-tip    = 'tooltip'
-                                    data-top    = 'This is a tip!'
-                                    data-place  = 'right'
-                                    data-effect = 'fixed'
-                                >Fixed Right</span>
+                            <span
+                                style       = {{display:'block', width:120}}
+                                data-tip    = 'tooltip'
+                                data-place  = 'right'
+                                data-effect = 'fixed'
+                            >Fixed Right</span>
 
-                                <span
-                                    style       = {{display:'block', width:120}}
-                                    data-tip    = 'tooltip'
-                                    data-top    = 'This is a tip!'
-                                    data-place  = 'bottom'
-                                    data-effect = 'fixed'
-                                >Fixed Bottom</span>
-                                <span
-                                    style       = {{display:'block', width:120}}
-                                    data-tip    = 'tooltip'
-                                    data-top    = 'This is a tip!'
-                                    data-place  = 'left'
-                                    data-effect = 'fixed'
-                                >Fixed Left</span>
-                            </div>
-                            <div className='small-12 medium-6'>
-                                <span
-                                    style       = {{display:'block', width:120}}
-                                    data-tip    = 'tooltip'
-                                    data-top    = 'This is a tip!'
-                                    data-place  = 'top'
-                                    data-effect = 'float'
-                                >Floated Top</span>
+                            <span
+                                style       = {{display:'block', width:120}}
+                                data-tip    = 'tooltip'
+                                data-place  = 'bottom'
+                                data-effect = 'fixed'
+                            >Fixed Bottom</span>
+                            <span
+                                style       = {{display:'block', width:120}}
+                                data-tip    = 'tooltip'
+                                data-place  = 'left'
+                                data-effect = 'fixed'
+                            >Fixed Left</span>
+                        </div>
+                        <div className='small-12 medium-6'>
+                            <span
+                                style       = {{display:'block', width:120}}
+                                data-tip    = 'tooltip'
+                                data-place  = 'top'
+                                data-effect = 'float'
+                            >Floated Top</span>
 
-                                <span
-                                    style       = {{display:'block', width:120}}
-                                    data-tip    = 'tooltip'
-                                    data-top    = 'This is a tip!'
-                                    data-place  = 'right'
-                                    data-effect = 'float'
-                                >Floated Right</span>
+                            <span
+                                style       = {{display:'block', width:120}}
+                                data-tip    = 'tooltip'
+                                data-place  = 'right'
+                                data-effect = 'float'
+                            >Floated Right</span>
 
-                                <span
-                                    style       = {{display:'block', width:120}}
-                                    data-tip    = 'tooltip'
-                                    data-top    = 'This is a tip!'
-                                    data-place  = 'bottom'
-                                    data-effect = 'float'
-                                >Floated Bottom</span>
-                                <span
-                                    style       = {{display:'block', width:120}}
-                                    data-tip    = 'tooltip'
-                                    data-top    = 'This is a tip!'
-                                    data-place  = 'left'
-                                    data-effect = 'float'
-                                >Floated Left</span>
-                            </div>
+                            <span
+                                style       = {{display:'block', width:120}}
+                                data-tip    = 'tooltip'
+                                data-place  = 'bottom'
+                                data-effect = 'float'
+                            >Floated Bottom</span>
+                            <span
+                                style       = {{display:'block', width:120}}
+                                data-tip    = 'tooltip'
+                                data-place  = 'left'
+                                data-effect = 'float'
+                            >Floated Left</span>
+                        </div>
                     </div>
                 </div>
             </div>
