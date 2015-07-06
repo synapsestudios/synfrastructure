@@ -2,16 +2,18 @@
 // Bring in default settings
 @import "../../scss/settings";
 
-$tooltip-background-color : $syn-color;
-$tooltip-text-color : $white;
-$tooltip-padding : rem-calc(8 21);
-$tooltip-border-radius : rem-calc(3);
-$tooltip-font-size : rem-calc(13);
-$tooltip-transition : opacity 250ms ease-out, margin-top 250ms ease-out, margin-left 250ms ease-out;
-$tooltip-arrow-size-top-bottom : rem-calc(8);
-$tooltip-arrow-size-left-right : rem-calc(6);
-$tooltip-shown-opacity : .9;
+$tooltip-background-color      : $syn-color     !default;
+$tooltip-text-color            : $white         !default;
+$tooltip-padding               : rem-calc(8 21) !default;
+$tooltip-border-radius         : rem-calc(3)    !default;
+$tooltip-font-size             : rem-calc(13)   !default;
+$tooltip-transition            : opacity 250ms ease-out, margin-top 250ms ease-out, margin-left 250ms ease-out !default;
+$tooltip-arrow-size-top-bottom : rem-calc(8) !default;
+$tooltip-arrow-size-left-right : rem-calc(6) !default;
+$tooltip-shown-opacity         : .9          !default;
 
+// @MIXIN
+// Style tooltip arrows based on background color
 @mixin color($background-color) {
     background-color : $background-color;
 
@@ -41,20 +43,33 @@ $tooltip-shown-opacity : .9;
 
 }
 
-.tooltip {
+// @MIXIN
+// Create tooltip styles
+@mixin tooltip(
+    $padding          : $tooltip-padding,
+    $border-radius    : $tooltip-border-radius,
+    $font-size        : $tooltip-font-size,
+    $color            : $tooltip-text-color,
+    $transition       : $tooltip-transition,
+    $background-color : $tooltip-background-color
+) {
     position       : fixed;
         top        : -999em;
         left       : -999em;
     display        : inline-block;
     opacity        : 0;
-    padding        : $tooltip-padding;
-    border-radius  : $tooltip-border-radius;
-    font-size      : $tooltip-font-size;
-    color          : $tooltip-text-color;
-    transition     : $tooltip-transition;
+    padding        : $padding;
+    border-radius  : $border-radius;
+    font-size      : $font-size;
+    color          : $color;
+    transition     : $transition;
     pointer-events : none;
 
-    @include color($tooltip-background-color);
+    @include color($background-color);
+}
+
+.tooltip {
+    @include tooltip;
 
     &:after {
         content  : "";
@@ -83,7 +98,7 @@ $tooltip-shown-opacity : .9;
     }
 
     &__bottom {
-    margin-top : 10px;
+        margin-top : 10px;
 
         &:after {
             top          : rem-calc(-8);
