@@ -2,7 +2,6 @@
 'use strict';
 
 var React = require('react/addons');
-var classSet = require('react/lib/cx');
 var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
 module.exports = React.createClass({
