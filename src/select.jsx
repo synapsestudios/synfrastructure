@@ -139,7 +139,7 @@ module.exports = React.createClass({
                 onKeyUp    = {this.onKeyUp}
                 onKeyDown  = {this.onKeyDown}
                 onKeyPress = {this.onKeyPress}
-                tab-index  = {this.props.tabIndex}
+                tabindex   = {this.props.tabIndex}
             >
                 {this.renderSelectOptions()}
             </select>
