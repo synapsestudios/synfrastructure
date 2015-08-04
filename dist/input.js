@@ -22,6 +22,7 @@ module.exports = React.createClass({
         onKeyDown: React.PropTypes.func,
         onKeyUp: React.PropTypes.func,
         onKeyPress: React.PropTypes.func,
+        tabIndex: React.PropTypes.string,
         className: React.PropTypes.string,
         type: React.PropTypes.oneOf(['date', 'datetime', 'datetime-local', 'date', 'email', 'month', 'number', 'password', 'search', 'tel', 'text', 'url', 'week'])
     },
@@ -59,7 +60,8 @@ module.exports = React.createClass({
             onKeyDown: this.onKeyDown,
             onKeyPress: this.onKeyPress,
             disabled: this.props.disabled,
-            type: this.props.type
+            type: this.props.type,
+            tabindex: this.props.tabIndex
         });
     }
 
