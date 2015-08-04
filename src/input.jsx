@@ -24,6 +24,7 @@ module.exports = React.createClass({
         onKeyDown             : React.PropTypes.func,
         onKeyUp               : React.PropTypes.func,
         onKeyPress            : React.PropTypes.func,
+        tabIndex              : React.PropTypes.string,
         className             : React.PropTypes.string,
         type                  : React.PropTypes.oneOf([
             'date',
@@ -83,6 +84,7 @@ module.exports = React.createClass({
                 onKeyPress  = {this.onKeyPress}
                 disabled    = {this.props.disabled}
                 type        = {this.props.type}
+                tabindex    = {this.props.tabIndex}
             />
         );
     }
