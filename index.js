@@ -8,5 +8,5 @@ module.exports = {
     Select     : require('./dist/select'),
     Textarea   : require('./dist/textarea'),
     Tooltip    : require('./dist/tooltip'),
-    validation : require('./dist/validation')
+    Validation : require('./dist/validation')
 };
