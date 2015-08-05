@@ -51,9 +51,9 @@ $screen-large
 ```
 
 ### Using the React Components
-Use the components just as you would any other.
+Use the components just as you would any other. Component reference must be capitalized.
 
-ex. `var Alert = require('synfrastructure/alert');`
+ex. `var Alert = require('synfrastructure').Alert;`
 
 ### Development
 
