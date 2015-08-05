@@ -57,7 +57,7 @@ module.exports = React.createClass({
             className : classes,
             onClick   : this.props.onClick,
             disabled  : this.props.disabled,
-            tabindex  : this.props.tabIndex
+            tabIndex  : this.props.tabIndex
         };
 
         childClassName = this.props.componentCSSClassName + '__children';

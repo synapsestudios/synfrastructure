@@ -109,7 +109,7 @@ module.exports = React.createClass({
                 onKeyDown   = {this.onKeyDown}
                 onKeyPress  = {this.onKeyPress}
                 disabled    = {this.props.disabled}
-                tabindex    = {this.props.tabIndex}
+                tabIndex    = {this.props.tabIndex}
             />
         );
     }
