@@ -1,10 +1,9 @@
-/* jshint globalstrict: true */
 'use strict';
 
-var React                      = require('react/addons');
-var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
+let React                      = require('react/addons');
+let SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
-module.exports = React.createClass({
+let Validation = React.createClass({
 
     displayName : 'Synfrastructure-Validation',
 
@@ -21,7 +20,7 @@ module.exports = React.createClass({
         })
     },
 
-    getDefaultProps : function()
+    getDefaultProps()
     {
         return {
             componentCSSClassName : 'validation',
@@ -32,9 +31,9 @@ module.exports = React.createClass({
         };
     },
 
-    renderValidationMessages : function()
+    renderValidationMessages()
     {
-        var messages     = [],
+        let messages     = [],
             component    = this,
             messageProps = {},
             messageElement,
@@ -47,7 +46,7 @@ module.exports = React.createClass({
         messageElement = this.props.messageContainer ?
             this.props.messageContainer : 'div';
 
-        this.props.validation.messages.map(function(message, index) {
+        this.props.validation.messages.map((message, index) => {
             messageClasses = [
                 component.props.componentCSSClassName + '__message',
                 component.props.componentCSSClassName + '__message--' + component.props.validation.status
@@ -73,9 +72,9 @@ module.exports = React.createClass({
         return messages;
     },
 
-    renderValidationContent : function()
+    renderValidationContent()
     {
-        var messages       = this.renderValidationMessages(),
+        let messages       = this.renderValidationMessages(),
             orderdChildren = [];
 
         orderdChildren = [
@@ -90,9 +89,9 @@ module.exports = React.createClass({
         return orderdChildren;
     },
 
-    render : function()
+    render()
     {
-        var classes,
+        let classes,
             showClass,
             statusClass;
 
@@ -117,3 +116,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = Validation;

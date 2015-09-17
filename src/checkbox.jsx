@@ -1,11 +1,8 @@
-/* jshint globalstrict: true */
-'use strict';
+let React = require('react');
 
-var React = require('react');
+let Checkbox = React.createClass({
 
-module.exports = React.createClass({
-
-    displayName : 'Synfrastructure-Checkbox',
+    displayName : 'SynfrastructureCheckbox',
 
     propTypes : {
         id   : React.PropTypes.string.isRequired,
@@ -115,3 +112,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = Checkbox;

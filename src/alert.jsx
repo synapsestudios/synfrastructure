@@ -1,12 +1,11 @@
-/* jshint globalstrict: true */
 'use strict';
 
-var React                      = require('react');
-var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
+let React                      = require('react');
+let SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
-module.exports = React.createClass({
+let Alert = React.createClass({
 
-    displayName : 'Synfrastructure-Alert',
+    displayName : 'SynfrastructureAlert',
 
     mixins : [SynfrastructureHelperMixin],
 
@@ -95,3 +94,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = Alert;

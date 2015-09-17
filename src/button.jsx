@@ -1,12 +1,11 @@
-/* jshint globalstrict: true */
 'use strict';
 
-var React                      = require('react');
-var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
+let React                      = require('react');
+let SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
-module.exports = React.createClass({
+let Button = React.createClass({
 
-    displayName : 'Synfrastructure-Button',
+    displayName : 'SynfrastructureButton',
 
     mixins : [SynfrastructureHelperMixin],
 
@@ -81,3 +80,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = Button;

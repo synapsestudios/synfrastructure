@@ -1,12 +1,12 @@
 'use strict';
 
 let React      = require('react');
-let Alert      = require('../dist/alert');
-let Button     = require('../dist/button');
-let Input      = require('../dist/input');
-let Textarea   = require('../dist/textarea');
-let Select     = require('../dist/select');
-let Checkbox   = require('../dist/checkbox');
+let Alert      = require('../src/alert');
+let Button     = require('../src/button');
+let Input      = require('../src/input');
+let Textarea   = require('../src/textarea');
+let Select     = require('../src/select');
+let Checkbox   = require('../src/checkbox');
 let Label      = require('../src/label');
 let Validation = require('../src/validation');
 let Modal      = require('../src/modal');

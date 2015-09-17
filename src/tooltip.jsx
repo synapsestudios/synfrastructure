@@ -1,19 +1,20 @@
 'use strict';
 
-var React     = require('react');
-var classname = require('classnames');
+let React      = require('react');
+let classNames = require('classnames');
 
-var Tooltip = React.createClass({
+let Tooltip = React.createClass({
 
     displayName : 'ReactTooltip',
 
-    propTypes: {
+    propTypes : {
         place   : React.PropTypes.string,
         effect  : React.PropTypes.string,
         positon : React.PropTypes.object,
     },
 
-    getInitialState() {
+    getInitialState()
+    {
         return {
             show        : false,
             placeholder : "",
@@ -26,26 +27,31 @@ var Tooltip = React.createClass({
         }
     },
 
-    componentDidMount() {
+    componentDidMount()
+    {
         this._updatePosition();
         this.bindListener();
     },
 
-    componentWillUnmount() {
+    componentWillUnmount()
+    {
         this.unbindListener();
     },
 
-    componentWillUpdate() {
+    componentWillUpdate()
+    {
         this.unbindListener();
     },
 
-    componentDidUpdate(){
+    componentDidUpdate()
+    {
         this._updatePosition();
         this.bindListener();
     },
 
-    bindListener() {
-    let targetArray = document.querySelectorAll("[data-tip]");
+    bindListener()
+    {
+        let targetArray = document.querySelectorAll("[data-tip]");
 
         for(let i = 0; i < targetArray.length; i++) {
           targetArray[i].addEventListener("mouseenter", this.showTooltip, false);
@@ -54,8 +60,9 @@ var Tooltip = React.createClass({
         }
     },
 
-    unbindListener() {
-    let targetArray = document.querySelectorAll("[data-tip]");
+    unbindListener()
+    {
+        let targetArray = document.querySelectorAll("[data-tip]");
 
         for(let i = 0; i < targetArray.length; i++) {
           targetArray[i].removeEventListener("mouseenter", this.showTooltip);
@@ -64,7 +71,8 @@ var Tooltip = React.createClass({
         }
     },
 
-    _updatePosition: function(){
+    _updatePosition()
+    {
     let node, tipWidth, tipHeight, offset;
 
     node      = React.findDOMNode(this);
@@ -73,6 +81,7 @@ var Tooltip = React.createClass({
     offset    = {x:0, y:0};
 
     let { effect } = this.state;
+
     if(effect === "float") {
         if(this.state.place === "top") {
             offset.x = -(tipWidth/2);
@@ -118,7 +127,8 @@ var Tooltip = React.createClass({
 
     },
 
-    showTooltip(error) {
+    showTooltip(error)
+    {
         this.setState({
             placeholder: error.target.getAttribute("data-tip"),
             place : error.target.getAttribute("data-place")?error.target.getAttribute("data-place"):(this.props.place?this.props.place:"top"),
@@ -128,7 +138,8 @@ var Tooltip = React.createClass({
         this.updateTooltip(error);
     },
 
-    updateTooltip(error) {
+    updateTooltip(error)
+    {
         if(this.trim(this.state.placeholder).length > 0) {
             if(this.state.effect === "float") {
             this.setState({
@@ -175,7 +186,8 @@ var Tooltip = React.createClass({
 
     },
 
-    hideTooltip(error) {
+    hideTooltip(error)
+    {
         this.setState({
             show : false,
             x    : 'NONE',
@@ -183,14 +195,15 @@ var Tooltip = React.createClass({
         });
     },
 
-    render() {
-        let tooltipClass = classname(
+    render()
+    {
+        let tooltipClass = classNames(
             'tooltip',
-            {"tooltip--show": this.state.show},
-            {"tooltip__top": this.state.place === "top"},
-            {"tooltip__bottom": this.state.place === "bottom"},
-            {"tooltip__left": this.state.place === "left"},
-            {"tooltip__right": this.state.place === "right"}
+            {'tooltip--show'   : this.state.show},
+            {'tooltip__top'    : this.state.place === 'top'},
+            {'tooltip__bottom' : this.state.place === 'bottom'},
+            {'tooltip__left'   : this.state.place === 'left'},
+            {'tooltip__right'  : this.state.place === 'right'}
         );
 
         return (
@@ -198,7 +211,8 @@ var Tooltip = React.createClass({
         )
     },
 
-    trim(string) {
+    trim(string)
+    {
         let newString = string.split("");
         let firstCount = 0, lastCount = 0;
 
