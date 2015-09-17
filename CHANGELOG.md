@@ -1,7 +1,8 @@
 ## [v3.2.0](https://github.com/synapsestudios/synapse-common/compare/v3.1.4...v3.2.0) - 2015-09-17
 - Added radio component
 - Added switch component
-- Updated componentry to use ES6 syntax rather than commonJS
+- Added A]bbility to pass attributes via the spread operator
+- Updated componentry to use some ES6 syntax
 - Updated packages
 
 ## [v3.1.4](https://github.com/synapsestudios/synapse-common/compare/v3.1.2...v3.1.4) - 2015-07-06
