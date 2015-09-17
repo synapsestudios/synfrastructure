@@ -11,7 +11,7 @@ let Label      = require('../src/label');
 let Validation = require('../src/validation');
 let Modal      = require('../src/modal');
 let Tooltip    = require('../src/tooltip');
-let Switch     - require('../src/switch');
+let Switch     = require('../src/switch');
 
 require('./demo.scss');
 
