@@ -19,6 +19,7 @@ module.exports = React.createClass({
         switchTextOff         : React.PropTypes.string,
         checked               : React.PropTypes.bool.isRequired,
         value                 : React.PropTypes.any,
+        onClick               : React.PropTypes.func,
         onFocus               : React.PropTypes.func,
         onBlur                : React.PropTypes.func,
         onChange              : React.PropTypes.func,
@@ -116,7 +117,11 @@ module.exports = React.createClass({
                     onKeyPress     = {this.onKeyPress}
                     disabled       = {this.props.disabled}
                 />
-                <label className={this.props.componentCSSClassName + '__label'} htmlFor={this.props.name}>
+                <label
+                    className = {this.props.componentCSSClassName + '__label'}
+                    htmlFor   = {this.props.name}
+                    onClick   = {this.props.onClick}
+                >
                     <span
                         className        = {this.props.componentCSSClassName + '__inner'}
                         data-content-on  = {this.props.switchTextOn}

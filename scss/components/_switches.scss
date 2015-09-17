@@ -5,45 +5,72 @@ $switch-color--default   : tint($black, 50%)  !default;
 $switch-color--on        : $syn-color         !default;
 $switch-color--off       : #D94444            !default;
 $switch-border-size      : 1px                !default;
-$switch-border-color     : tint($black, 50%)  !default;
+$switch-border-color     : transparent        !default;
+$switch-border-radius    : rem-calc(35);
 $switch-inner-font-size  : rem-calc(12);
 $switch-inner-font-color : $white;
 $switch-toggle-size      : rem-calc(30);
 $switch-toggle-offset    : rem-calc(29);
+$switch-margin           : rem-calc(0 0 20 -30);
 
-.switch {
+@mixin switch(
+    $margin    : $switch-margin
+) {
     position      : relative;
-    width         : $switch-toggle-size * 2;
     left          : 50%;
-    margin-left   : rem-calc(-30);
-    margin-bottom : rem-calc(20);
     user-select   : none;
+    width         : $switch-toggle-size * 2;
+    margin        : $switch-margin;
+}
+
+@mixin switch-label(
+    $border-radius : $switch-border-radius
+) {
+    display       : block;
+    overflow      : hidden;
+    cursor        : pointer;
+    border-radius : $border-radius;
+    border        : $switch-border-size solid $switch-border-color;
+}
+
+// Build default switch component
+.switch {
+    @include switch;
 
     input[type="checkbox"]+label {
         margin : 0;
     }
 
-    .switch__checkbox {
-        display : none;
+}
+
+.switch__checkbox {
+    display : none;
+
+    &:checked {
+        + .switch__label .switch__inner {
+            margin-left : 0;
+        }
+
+        + .switch__label .switch__toggle {
+            right : rem-calc($switch-border-size);
+        }
+
     }
 
-    .switch__label {
-        display       : block;
-        overflow      : hidden;
-        cursor        : pointer;
-        border-radius : rem-calc(35);
-        border        : $switch-border-size solid $switch-border-color;
-    }
+}
 
-    .switch__inner {
-        display     : block;
-        width       : 200%;
-        margin-left : -100%;
-        transition  : all 200ms ease-in-out 0s;
-    }
+.switch__label {
+    @include switch-label;
+}
 
-    .switch__inner:before,
-    .switch__inner:after {
+.switch__inner {
+    display     : block;
+    width       : 200%;
+    margin-left : -100%;
+    transition  : all 200ms ease-in-out 0s;
+
+    &:before,
+    &:after {
         display     : block;
         float       : left;
         width       : 50%;
@@ -54,50 +81,33 @@ $switch-toggle-offset    : rem-calc(29);
         color       : $white;
     }
 
-    .switch__inner:before {
+    &:before {
         content          : attr(data-content-on);
         padding-left     : rem-calc(8);
         background-color : $switch-color--on;
-        box-shadow       : -1px 0 1px $switch-color--default,
-                           inset 0 1px 2px shade($switch-color--on, 30%),
-                           inset 0 -1px 2px tint($switch-color--on, 70%);
         border-radius    : rem-calc(40 0 0 40);
         color            : $switch-inner-font-color;
     }
 
-    .switch__inner:after {
+    &:after {
         content          : attr(data-content-off);
         padding-right    : rem-calc(12);
         background-color : $switch-color--off;
-        box-shadow       : 1px 0 1px $switch-color--default,
-                           inset 0 1px 2px shade($switch-color--off, 50%),
-                           inset 0 -1px 2px tint($switch-color--off, 50%);
         border-radius    : rem-calc(0 40 40 0);
         color            : $switch-inner-font-color;
         text-align       : right;
     }
 
-    .switch__toggle {
-        display       : block;
-        width         : $switch-toggle-size;
-        height        : $switch-toggle-size;
-        background    : $white;
-        box-shadow    : 1px 0 1px rgba($switch-color--default, .1),
-                        inset 0 -1px 2px rgba($switch-color--default, .3),
-                        inset 0 -10px 10px shade($white, 10%);
-        border-radius : 50%;
-        position      : absolute;
-        top           : rem-calc($switch-border-size);
-        right         : $switch-toggle-offset;
-        transition    : all 200ms ease-in-out 0s;
-    }
+}
 
-    .switch__checkbox:checked + .switch__label .switch__inner {
-        margin-left : 0;
-    }
-
-    .switch__checkbox:checked + .switch__label .switch__toggle {
-        right : rem-calc($switch-border-size);
-    }
-
+.switch__toggle {
+    display       : block;
+    width         : $switch-toggle-size;
+    height        : $switch-toggle-size;
+    background    : $white;
+    border-radius : 50%;
+    position      : absolute;
+    top           : rem-calc($switch-border-size);
+    right         : $switch-toggle-offset;
+    transition    : all 200ms ease-in-out 0s;
 }
