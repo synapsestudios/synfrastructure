@@ -1,20 +1,20 @@
 'use strict';
 
-var React      = require('react');
-var Alert      = require('../dist/alert');
-var Button     = require('../dist/button');
-var Input      = require('../dist/input');
-var Textarea   = require('../dist/textarea');
-var Select     = require('../dist/select');
-var Checkbox   = require('../dist/checkbox');
-var Label      = require('../src/label');
-var Validation = require('../src/validation');
-var Modal      = require('../src/modal');
-var Tooltip    = require('../src/tooltip');
+let React      = require('react');
+let Alert      = require('../dist/alert');
+let Button     = require('../dist/button');
+let Input      = require('../dist/input');
+let Textarea   = require('../dist/textarea');
+let Select     = require('../dist/select');
+let Checkbox   = require('../dist/checkbox');
+let Label      = require('../src/label');
+let Validation = require('../src/validation');
+let Modal      = require('../src/modal');
+let Tooltip    = require('../src/tooltip');
 
 require('./demo.scss');
 
-module.exports = React.createClass({
+let Demo = React.createClass({
 
     getInitialState()
     {
@@ -231,3 +231,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = Demo;
