@@ -1,17 +1,14 @@
-/* jshint globalstrict: true */
 'use strict';
 
-var _              = require('lodash');
-var React          = require('react');
-var FormInputMixin = require('../mixins/form-input-mixin');
+let _              = require('lodash');
+let React          = require('react');
+let FormInputMixin = require('../mixins/form-input-mixin');
 
-module.exports = React.createClass({
+let Select = React.createClass({
 
-    displayName : 'Synfrastructure-Select',
+    displayName : 'SynfrastructureSelect',
 
-    mixins : [
-        FormInputMixin
-    ],
+    mixins : [FormInputMixin],
 
     propTypes : {
         id                    : React.PropTypes.string.isRequired,
@@ -37,7 +34,7 @@ module.exports = React.createClass({
         tabIndex                  : React.PropTypes.string
     },
 
-    getDefaultProps : function()
+    getDefaultProps()
     {
         return {
             componentCSSClassName : 'select',
@@ -54,9 +51,9 @@ module.exports = React.createClass({
         };
     },
 
-    getSelectedValue : function()
+    getSelectedValue()
     {
-        var selectedOption;
+        let selectedOption;
 
         if (this.props.value) {
             return this.props.value;
@@ -65,19 +62,19 @@ module.exports = React.createClass({
         selectedOption = _.findWhere(this.props.options, {selected : true});
 
         if (! selectedOption) {
-            return;
+            return null;
         }
 
         return selectedOption.value;
     },
 
-    renderSelectOptions : function()
+    renderSelectOptions()
     {
         if (! this.props.options) {
             return null;
         }
 
-        return _.map(this.props.options, function(option, index) {
+        return _.map(this.props.options, (option, index) => {
             return (
                 <option
                     value = {option.value}
@@ -89,9 +86,9 @@ module.exports = React.createClass({
         });
     },
 
-    renderCustomSelect : function()
+    renderCustomSelect()
     {
-        var classes;
+        let classes;
 
         if (! this.props.customIcon) {
             return this.renderDefaultSelect();
@@ -112,9 +109,9 @@ module.exports = React.createClass({
         );
     },
 
-    renderDefaultSelect : function()
+    renderDefaultSelect()
     {
-        var classes,
+        let classes,
             customSelect;
 
         customSelect = (this.props.customIcon) ?
@@ -128,6 +125,7 @@ module.exports = React.createClass({
 
         return (
             <select
+                {...this.props}
                 disabled   = {this.props.disabled}
                 className  = {classes}
                 id         = {this.props.id}
@@ -146,9 +144,11 @@ module.exports = React.createClass({
         );
     },
 
-    render : function()
+    render()
     {
         return this.renderCustomSelect();
     }
 
 });
+
+module.exports = Select;

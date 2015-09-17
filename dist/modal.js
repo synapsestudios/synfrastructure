@@ -1,4 +1,3 @@
-/* jshint globalstrict: true */
 /* global document */
 'use strict';
 
@@ -6,9 +5,9 @@ var classNames = require('classnames');
 var className = require('../util/className');
 var React = require('react');
 
-module.exports = React.createClass({
+var Modal = React.createClass({
 
-    displayName: 'Modal',
+    displayName: 'SynfrastructureModal',
 
     propTypes: {
         reveal: React.PropTypes.bool.isRequired,
@@ -82,3 +81,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = Modal;

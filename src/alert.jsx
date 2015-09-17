@@ -1,12 +1,11 @@
-/* jshint globalstrict: true */
 'use strict';
 
-var React                      = require('react');
-var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
+let React                      = require('react');
+let SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
-module.exports = React.createClass({
+let Alert = React.createClass({
 
-    displayName : 'Synfrastructure-Alert',
+    displayName : 'SynfrastructureAlert',
 
     mixins : [SynfrastructureHelperMixin],
 
@@ -22,7 +21,7 @@ module.exports = React.createClass({
         className             : React.PropTypes.string
     },
 
-    getDefaultProps : function()
+    getDefaultProps()
     {
         return {
             componentCSSClassName : 'alert',
@@ -37,7 +36,7 @@ module.exports = React.createClass({
         };
     },
 
-    renderDismissIcon : function()
+    renderDismissIcon()
     {
         if (! this.props.canDismiss) {
             return null;
@@ -55,7 +54,7 @@ module.exports = React.createClass({
         );
     },
 
-    renderAlertChildren : function()
+    renderAlertChildren()
     {
         return (
             <div className={this.props.componentCSSClassName + '__content'}>
@@ -66,9 +65,9 @@ module.exports = React.createClass({
         );
     },
 
-    render : function()
+    render()
     {
-        var AlertComponent,
+        let AlertComponent,
             alertAttributes,
             alertClasses;
 
@@ -85,6 +84,7 @@ module.exports = React.createClass({
         AlertComponent = React.createElement(
             'div',
             this.mergeAttributes(
+                ...this.props,
                 alertAttributes,
                 this.props.attributes
             ),
@@ -95,3 +95,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = Alert;

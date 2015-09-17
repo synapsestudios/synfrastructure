@@ -1,12 +1,11 @@
-/* jshint globalstrict: true */
 'use strict';
 
 var React = require('react');
 var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
-module.exports = React.createClass({
+var Alert = React.createClass({
 
-    displayName: 'Synfrastructure-Alert',
+    displayName: 'SynfrastructureAlert',
 
     mixins: [SynfrastructureHelperMixin],
 
@@ -66,7 +65,9 @@ module.exports = React.createClass({
     },
 
     render: function render() {
-        var AlertComponent, alertAttributes, alertClasses;
+        var AlertComponent = undefined,
+            alertAttributes = undefined,
+            alertClasses = undefined;
 
         alertClasses = [this.props.componentCSSClassName, this.props.className].join(' ');
 
@@ -75,9 +76,11 @@ module.exports = React.createClass({
             onClick: this.props.onClick
         };
 
-        AlertComponent = React.createElement('div', this.mergeAttributes(alertAttributes, this.props.attributes), this.renderAlertChildren());
+        AlertComponent = React.createElement('div', this.mergeAttributes.apply(this, this.props.concat([alertAttributes, this.props.attributes])), this.renderAlertChildren());
 
         return AlertComponent;
     }
 
 });
+
+module.exports = Alert;

@@ -1,12 +1,11 @@
-/* jshint globalstrict: true */
 'use strict';
 
-var React                      = require('react');
-var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
+let React                      = require('react');
+let SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
-module.exports = React.createClass({
+let Label = React.createClass({
 
-    displayName : 'Synfrastructure-FormLabel',
+    displayName : 'SynfrastructureFormLabel',
 
     mixins : [SynfrastructureHelperMixin],
 
@@ -45,6 +44,7 @@ module.exports = React.createClass({
         Component = React.createElement(
             'label',
             this.mergeAttributes(
+                ...this.props,
                 attributes,
                 this.props.attributes
             ),
@@ -55,3 +55,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = Label;

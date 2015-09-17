@@ -1,7 +1,7 @@
 /* globals __dirname */
 'use strict';
 
-var autoprefixer = require('autoprefixer-core');
+var autoprefixer = require('autoprefixer');
 var Webpack      = require('webpack');
 var HtmlWebpack  = require('html-webpack-plugin');
 var path         = require('path');

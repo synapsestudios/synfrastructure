@@ -1,11 +1,12 @@
-/* jshint globalstrict: true */
 'use strict';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var React = require('react');
 
 var Radio = React.createClass({
 
-    displayName: 'Radio',
+    displayName: 'SynfrastructureRadio',
 
     propTypes: {
         id: React.PropTypes.string.isRequired,
@@ -79,7 +80,7 @@ var Radio = React.createClass({
     render: function render() {
         var classes = [this.props.componentCSSClassName, this.props.className].join(' ');
 
-        return React.createElement('input', {
+        return React.createElement('input', _extends({}, this.props, {
             className: classes,
             id: this.props.id,
             name: this.props.name,
@@ -93,7 +94,7 @@ var Radio = React.createClass({
             onKeyDown: this.onKeyDown,
             onKeyPress: this.onKeyPress,
             disabled: this.props.disabled
-        });
+        }));
     }
 
 });

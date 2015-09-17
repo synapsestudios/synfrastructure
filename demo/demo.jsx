@@ -1,21 +1,21 @@
 'use strict';
 
-var React      = require('react');
-var Alert      = require('../dist/alert');
-var Button     = require('../dist/button');
-var Input      = require('../dist/input');
-var Textarea   = require('../dist/textarea');
-var Select     = require('../dist/select');
-var Checkbox   = require('../dist/checkbox');
-var Label      = require('../src/label');
-var Validation = require('../src/validation');
-var Modal      = require('../src/modal');
-var Switch     = require('../src/switch');
-var Tooltip    = require('../src/tooltip');
+let React      = require('react');
+let Alert      = require('../src/alert');
+let Button     = require('../src/button');
+let Input      = require('../src/input');
+let Textarea   = require('../src/textarea');
+let Select     = require('../src/select');
+let Checkbox   = require('../src/checkbox');
+let Label      = require('../src/label');
+let Validation = require('../src/validation');
+let Modal      = require('../src/modal');
+let Tooltip    = require('../src/tooltip');
+let Switch     = require('../src/switch');
 
 require('./demo.scss');
 
-module.exports = React.createClass({
+let Demo = React.createClass({
 
     getInitialState()
     {
@@ -74,7 +74,7 @@ module.exports = React.createClass({
             <div className='demo__wrapper a--appear'>
                 <div className='section'>
                     <h1 className='h1'>Alert Component</h1>
-                    <Alert message='This Is An Alert'/>
+                    <Alert foo={'poop'} message='This Is An Alert'/>
                 </div>
                 <div className='section'>
                     <h1 className='h1'>Button Component</h1>
@@ -263,3 +263,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = Demo;

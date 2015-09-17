@@ -1,10 +1,11 @@
-/* jshint globalstrict: true */
 'use strict';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var React = require('react/addons');
 var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
-module.exports = React.createClass({
+var Validation = React.createClass({
 
     displayName: 'Synfrastructure-Validation',
 
@@ -35,8 +36,8 @@ module.exports = React.createClass({
         var messages = [],
             component = this,
             messageProps = {},
-            messageElement,
-            messageClasses;
+            messageElement = undefined,
+            messageClasses = undefined;
 
         if (!this.props.validation || !this.props.validation.messages) {
             return null;
@@ -72,7 +73,9 @@ module.exports = React.createClass({
     },
 
     render: function render() {
-        var classes, showClass, statusClass;
+        var classes = undefined,
+            showClass = undefined,
+            statusClass = undefined;
 
         showClass = this.props.validation ? this.props.componentCSSClassName + '--show' : null;
 
@@ -82,9 +85,11 @@ module.exports = React.createClass({
 
         return React.createElement(
             'div',
-            { className: classes },
+            _extends({}, this.props, { className: classes }),
             this.renderValidationContent()
         );
     }
 
 });
+
+module.exports = Validation;

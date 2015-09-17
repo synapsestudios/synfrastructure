@@ -1,13 +1,14 @@
-/* jshint globalstrict: true */
 'use strict';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _ = require('lodash');
 var React = require('react');
 var FormInputMixin = require('../mixins/form-input-mixin');
 
-module.exports = React.createClass({
+var Select = React.createClass({
 
-    displayName: 'Synfrastructure-Select',
+    displayName: 'SynfrastructureSelect',
 
     mixins: [FormInputMixin],
 
@@ -50,7 +51,7 @@ module.exports = React.createClass({
     },
 
     getSelectedValue: function getSelectedValue() {
-        var selectedOption;
+        var selectedOption = undefined;
 
         if (this.props.value) {
             return this.props.value;
@@ -59,7 +60,7 @@ module.exports = React.createClass({
         selectedOption = _.findWhere(this.props.options, { selected: true });
 
         if (!selectedOption) {
-            return;
+            return null;
         }
 
         return selectedOption.value;
@@ -83,7 +84,7 @@ module.exports = React.createClass({
     },
 
     renderCustomSelect: function renderCustomSelect() {
-        var classes;
+        var classes = undefined;
 
         if (!this.props.customIcon) {
             return this.renderDefaultSelect();
@@ -104,7 +105,8 @@ module.exports = React.createClass({
     },
 
     renderDefaultSelect: function renderDefaultSelect() {
-        var classes, customSelect;
+        var classes = undefined,
+            customSelect = undefined;
 
         customSelect = this.props.customIcon ? this.props.componentCSSClassName + '--custom' : null;
 
@@ -112,7 +114,7 @@ module.exports = React.createClass({
 
         return React.createElement(
             'select',
-            {
+            _extends({}, this.props, {
                 disabled: this.props.disabled,
                 className: classes,
                 id: this.props.id,
@@ -125,7 +127,7 @@ module.exports = React.createClass({
                 onKeyDown: this.onKeyDown,
                 onKeyPress: this.onKeyPress,
                 tabIndex: this.props.tabIndex
-            },
+            }),
             this.renderSelectOptions()
         );
     },
@@ -135,3 +137,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = Select;

@@ -1,16 +1,13 @@
-/* jshint globalstrict: true */
 'use strict';
 
-var React          = require('react');
-var FormInputMixin = require('../mixins/form-input-mixin');
+let React          = require('react');
+let FormInputMixin = require('../mixins/form-input-mixin');
 
-module.exports = React.createClass({
+let Input = React.createClass({
 
-    displayName : 'Synfrastructure-Input',
+    displayName : 'SynfrastructureInput',
 
-    mixins : [
-        FormInputMixin
-    ],
+    mixins : [FormInputMixin],
 
     propTypes : {
         id                    : React.PropTypes.string.isRequired,
@@ -71,6 +68,7 @@ module.exports = React.createClass({
 
         return (
             <input
+                {...this.props}
                 className   = {classes}
                 id          = {this.props.id}
                 name        = {this.props.name}
@@ -90,3 +88,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = Input;

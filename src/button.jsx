@@ -1,12 +1,11 @@
-/* jshint globalstrict: true */
 'use strict';
 
-var React                      = require('react');
-var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
+let React                      = require('react');
+let SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
-module.exports = React.createClass({
+let Button = React.createClass({
 
-    displayName : 'Synfrastructure-Button',
+    displayName : 'SynfrastructureButton',
 
     mixins : [SynfrastructureHelperMixin],
 
@@ -26,7 +25,7 @@ module.exports = React.createClass({
         tabIndex              : React.PropTypes.string
     },
 
-    getDefaultProps : function()
+    getDefaultProps()
     {
         return {
             element               : 'a',
@@ -38,9 +37,9 @@ module.exports = React.createClass({
         };
     },
 
-    render : function()
+    render()
     {
-        var Component,
+        let Component,
             ComponentChildren,
             classes,
             childClassName,
@@ -71,6 +70,7 @@ module.exports = React.createClass({
         Component = React.createElement(
             this.props.element,
             this.mergeAttributes(
+                ...this.props,
                 attributes,
                 this.props.attributes
             ),
@@ -81,3 +81,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = Button;
