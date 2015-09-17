@@ -1,9 +1,10 @@
+/* jshint globalstrict: true */
 /* global document */
 'use strict';
 
-var classNames = require('classnames');
-var className  = require('../util/className');
-var React      = require('react');
+let classNames = require('classnames');
+let className  = require('../util/className');
+let React      = require('react');
 
 module.exports = React.createClass({
 
@@ -19,7 +20,7 @@ module.exports = React.createClass({
         ])
     },
 
-    getDefaultProps : function()
+    getDefaultProps()
     {
         return {
             colorTheme   : 'dark',
@@ -27,7 +28,7 @@ module.exports = React.createClass({
         };
     },
 
-    componentWillUpdate : function(nextProps, nextState)
+    componentWillUpdate(nextProps, nextState)
     {
         if (! this.props.reveal && nextProps.reveal) {
             this.__setBodyOverflow(true);
@@ -36,20 +37,16 @@ module.exports = React.createClass({
         }
     },
 
-    __setBodyOverflow : function(visible)
+    __setBodyOverflow(visible)
     {
         if (typeof document === 'undefined') {
             return null;
         }
 
-        if (visible) {
-            className.addClass(document.body, 'l--modal-revealed');
-        } else {
-            className.removeClass(document.body, 'l--modal-revealed');
-        }
+        visible ? className.addClass(document.body, 'l--modal-revealed') : className.removeClass(document.body, 'l--modal-revealed');
     },
 
-    renderModalMask : function()
+    renderModalMask()
     {
         if (! this.props.close) {
             return null;
@@ -64,9 +61,9 @@ module.exports = React.createClass({
         );
     },
 
-    render : function()
+    render()
     {
-        var componentClasses,
+        let componentClasses,
             colorThemeClasses,
             contentClasses;
 

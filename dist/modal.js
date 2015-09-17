@@ -1,3 +1,4 @@
+/* jshint globalstrict: true */
 /* global document */
 'use strict';
 
@@ -35,11 +36,7 @@ module.exports = React.createClass({
             return null;
         }
 
-        if (visible) {
-            className.addClass(document.body, 'l--modal-revealed');
-        } else {
-            className.removeClass(document.body, 'l--modal-revealed');
-        }
+        visible ? className.addClass(document.body, 'l--modal-revealed') : className.removeClass(document.body, 'l--modal-revealed');
     },
 
     renderModalMask: function renderModalMask() {
@@ -54,7 +51,9 @@ module.exports = React.createClass({
     },
 
     render: function render() {
-        var componentClasses, colorThemeClasses, contentClasses;
+        var componentClasses = undefined,
+            colorThemeClasses = undefined,
+            contentClasses = undefined;
 
         colorThemeClasses = this.props.colorTheme ? 'modal--' + this.props.colorTheme : null;
 
