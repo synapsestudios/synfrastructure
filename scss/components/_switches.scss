@@ -84,16 +84,16 @@ $switch-margin           : rem-calc(0 0 20 -30);
     &:before {
         content          : attr(data-content-on);
         padding-left     : rem-calc(8);
-        background-color : $switch-color--on;
         border-radius    : rem-calc(40 0 0 40);
+        background-color : $switch-color--on;
         color            : $switch-inner-font-color;
     }
 
     &:after {
         content          : attr(data-content-off);
         padding-right    : rem-calc(12);
-        background-color : $switch-color--off;
         border-radius    : rem-calc(0 40 40 0);
+        background-color : $switch-color--off;
         color            : $switch-inner-font-color;
         text-align       : right;
     }
@@ -102,12 +102,12 @@ $switch-margin           : rem-calc(0 0 20 -30);
 
 .switch__toggle {
     display       : block;
+    position      : absolute;
+        top       : rem-calc($switch-border-size);
+        right     : $switch-toggle-offset;
     width         : $switch-toggle-size;
     height        : $switch-toggle-size;
     background    : $white;
     border-radius : 50%;
-    position      : absolute;
-    top           : rem-calc($switch-border-size);
-    right         : $switch-toggle-offset;
     transition    : all 200ms ease-in-out 0s;
 }
