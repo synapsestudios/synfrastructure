@@ -7,6 +7,20 @@
   "bugs": {
     "url": "https://github.com/synapsestudios/synfrastructure/issues"
   },
+  "keywords": [
+    "react",
+    "ui",
+    "form",
+    "base",
+    "webpack",
+    "interface",
+    "radio",
+    "validation",
+    "checkbox",
+    "input",
+    "modal",
+    "tooltip"
+  ],
   "main": "index.js",
   "homepage": "https://github.com/synapsestudios/synfrastructure#readme",
   "readmeFilename": "README.md",
