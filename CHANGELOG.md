@@ -1,3 +1,12 @@
+## [v3.1.4](https://github.com/synapsestudios/synapse-common/compare/v3.1.0...v3.1.2) - 2015-07-06
+- Added tabIndex to forms
+- Textarea component accepts style
+
+## [v3.1.2](https://github.com/synapsestudios/synapse-common/compare/v3.1.0...v3.1.2) - 2015-07-06
+- Added tooltips
+- Added basic animations
+- Fixed missing comma in index file that was breaking builds
+
 ## [v3.1.0](https://github.com/synapsestudios/synapse-common/compare/v3.0.3...v3.1.0) - 2015-06-26
 - Added a new grid based on flexbox, and ability to toggle between new and legacy
 - Removed a lot of foundation bloat

@@ -27,12 +27,14 @@ $button-transition  : background-color 300ms ease !default;
 // Normalize button to our base styles
 // resets form and anchor styles
 @mixin button-normalize {
-     border-radius      : 0;
-     line-height        : normal;
-     text-decoration    : none;
-     cursor             : pointer;
-     -webkit-appearance : none;
-     -moz-appearance    : none;
+    background-color   : transparent;
+    border-radius      : 0;
+    border             : 0;
+    line-height        : normal;
+    text-decoration    : none;
+    cursor             : pointer;
+    -webkit-appearance : none;
+    -moz-appearance    : none;
 }
 
 // @MIXIN

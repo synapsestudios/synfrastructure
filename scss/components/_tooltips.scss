@@ -1,0 +1,139 @@
+
+// Bring in default settings
+@import "../../scss/settings";
+
+$tooltip-background-color      : $syn-color     !default;
+$tooltip-text-color            : $white         !default;
+$tooltip-padding               : rem-calc(8 21) !default;
+$tooltip-border-radius         : rem-calc(3)    !default;
+$tooltip-font-size             : rem-calc(13)   !default;
+$tooltip-transition            : opacity 250ms ease-out, margin-top 250ms ease-out, margin-left 250ms ease-out !default;
+$tooltip-arrow-size-top-bottom : rem-calc(8) !default;
+$tooltip-arrow-size-left-right : rem-calc(6) !default;
+$tooltip-shown-opacity         : .9          !default;
+
+// @MIXIN
+// Style tooltip arrows based on background color
+@mixin color($background-color) {
+    background-color : $background-color;
+
+    &__top {
+        &:after {
+          border-top : $tooltip-arrow-size-top-bottom solid $background-color;
+        }
+    }
+
+    &__bottom {
+        &:after {
+          border-bottom : $tooltip-arrow-size-top-bottom solid $background-color;
+        }
+    }
+
+    &__left {
+        &:after {
+          border-left : $tooltip-arrow-size-left-right solid $background-color;
+        }
+    }
+
+    &__right {
+        &:after {
+          border-right : $tooltip-arrow-size-left-right solid $background-color;
+        }
+    }
+
+}
+
+// @MIXIN
+// Create tooltip styles
+@mixin tooltip(
+    $padding          : $tooltip-padding,
+    $border-radius    : $tooltip-border-radius,
+    $font-size        : $tooltip-font-size,
+    $color            : $tooltip-text-color,
+    $transition       : $tooltip-transition,
+    $background-color : $tooltip-background-color
+) {
+    position       : fixed;
+        top        : -999em;
+        left       : -999em;
+    display        : inline-block;
+    opacity        : 0;
+    padding        : $padding;
+    border-radius  : $border-radius;
+    font-size      : $font-size;
+    color          : $color;
+    transition     : $transition;
+    pointer-events : none;
+
+    @include color($background-color);
+}
+
+.tooltip {
+    @include tooltip;
+
+    &:after {
+        content  : "";
+        position : absolute;
+        width    : 0;
+        height   : 0;
+    }
+
+    &--show {
+        opacity     : $tooltip-shown-opacity !important;
+        margin-top  : 0                      !important;
+        margin-left : 0                      !important;
+    }
+
+    &__top {
+        margin-top : rem-calc(-10);
+
+        &:after {
+            bottom       : rem-calc(-8);
+            left         : 50%;
+            margin-left  : rem-calc(-10);
+            border-left  : rem-calc(10) solid transparent;
+            border-right : rem-calc(10) solid transparent;
+        }
+
+    }
+
+    &__bottom {
+        margin-top : 10px;
+
+        &:after {
+            top          : rem-calc(-8);
+            left         : 50%;
+            margin-left  : rem-calc(-10);
+            border-left  : rem-calc(10) solid transparent;
+            border-right : rem-calc(10) solid transparent;
+        }
+
+    }
+
+    &__left {
+        margin-left : -10px;
+
+        &:after {
+            top           : 50%;
+            right         : -6px;
+            margin-top    : rem-calc(-5);
+            border-top    : rem-calc(6) solid transparent;
+            border-bottom : rem-calc(6) solid transparent;
+        }
+
+    }
+
+    &__right {
+        margin-left : 10px;
+
+        &:after {
+            top           : 50%;
+            left          : -6px;
+            margin-top    : rem-calc(-5);
+            border-top    : rem-calc(6) solid transparent;
+            border-bottom : rem-calc(6) solid transparent;
+        }
+
+    }
+
+}

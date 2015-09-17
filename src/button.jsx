@@ -22,7 +22,8 @@ module.exports = React.createClass({
         componentCSSClassName : React.PropTypes.string,
         disabled              : React.PropTypes.bool,
         className             : React.PropTypes.string,
-        onClick               : React.PropTypes.func
+        onClick               : React.PropTypes.func,
+        tabIndex              : React.PropTypes.string
     },
 
     getDefaultProps : function()
@@ -55,7 +56,8 @@ module.exports = React.createClass({
         attributes = {
             className : classes,
             onClick   : this.props.onClick,
-            disabled  : this.props.disabled
+            disabled  : this.props.disabled,
+            tabIndex  : this.props.tabIndex
         };
 
         childClassName = this.props.componentCSSClassName + '__children';

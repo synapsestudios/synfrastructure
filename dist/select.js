@@ -29,7 +29,8 @@ module.exports = React.createClass({
         onKeyDown: React.PropTypes.func,
         onKeyUp: React.PropTypes.func,
         onKeyPress: React.PropTypes.func,
-        className: React.PropTypes.string
+        className: React.PropTypes.string,
+        tabIndex: React.PropTypes.string
     },
 
     getDefaultProps: function getDefaultProps() {
@@ -122,7 +123,8 @@ module.exports = React.createClass({
                 onChange: this.onChange,
                 onKeyUp: this.onKeyUp,
                 onKeyDown: this.onKeyDown,
-                onKeyPress: this.onKeyPress
+                onKeyPress: this.onKeyPress,
+                tabIndex: this.props.tabIndex
             },
             this.renderSelectOptions()
         );

@@ -18,6 +18,7 @@ module.exports = React.createClass({
         componentCSSClassName : React.PropTypes.string,
         label                 : React.PropTypes.string,
         placeholder           : React.PropTypes.string,
+        style                 : React.PropTypes.any,
         value                 : React.PropTypes.any,
         rows                  : React.PropTypes.number,
         resize                : React.PropTypes.bool,
@@ -27,7 +28,8 @@ module.exports = React.createClass({
         onKeyDown             : React.PropTypes.func,
         onKeyUp               : React.PropTypes.func,
         onKeyPress            : React.PropTypes.func,
-        className             : React.PropTypes.string
+        className             : React.PropTypes.string,
+        tabIndex              : React.PropTypes.string
     },
 
     getDefaultProps : function()
@@ -35,6 +37,7 @@ module.exports = React.createClass({
         return {
             componentCSSClassName : 'textarea',
             placeholder           : null,
+            style                 : null,
             value                 : null,
             rows                  : 4,
             resize                : true,
@@ -72,6 +75,7 @@ module.exports = React.createClass({
                 value       = {this.props.value}
                 rows        = {this.props.rows}
                 placeholder = {this.props.placeholder}
+                style       = {this.props.style}
                 onFocus     = {this.onFocus}
                 onBlur      = {this.onBlur}
                 onChange    = {this.onChange}
@@ -79,6 +83,7 @@ module.exports = React.createClass({
                 onKeyDown   = {this.onKeyDown}
                 onKeyPress  = {this.onKeyPress}
                 disabled    = {this.props.disabled}
+                tabIndex    = {this.props.tabIndex}
             />
         );
     }
