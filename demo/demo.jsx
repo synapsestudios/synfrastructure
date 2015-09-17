@@ -10,6 +10,7 @@ var Checkbox   = require('../dist/checkbox');
 var Label      = require('../src/label');
 var Validation = require('../src/validation');
 var Modal      = require('../src/modal');
+var Switch     = require('../src/switch');
 var Tooltip    = require('../src/tooltip');
 
 require('./demo.scss');
@@ -19,7 +20,9 @@ module.exports = React.createClass({
     getInitialState()
     {
         return {
-            modalView : false
+            modalView : false,
+            switch1   : true,
+            switch2   : false
         };
     },
 
@@ -35,6 +38,16 @@ module.exports = React.createClass({
         this.setState({
             modalView : false
         });
+    },
+
+    toggleSwitch1()
+    {
+        this.setState({switch1 : ! this.state.switch1});
+    },
+
+    toggleSwitch2()
+    {
+        this.setState({switch2 : ! this.state.switch2});
     },
 
     renderModal()
@@ -163,6 +176,25 @@ module.exports = React.createClass({
                             <div className='box yellow'>small-2</div>
                         </div>
                     </div>
+                </div>
+                <div className='section'>
+                    <h1 className='h1'>Switches</h1>
+                    <Switch
+                        id      = 'switch-input'
+                        label   = 'Example Switch Off'
+                        name    = 'single-switch-on'
+                        value   = 'switch1'
+                        checked = {this.state.switch1}
+                        onClick = {this.toggleSwitch1}
+                    />
+                    <Switch
+                        id       = 'switch-input-on'
+                        label    = 'Example Switch On'
+                        name     = 'single-switch'
+                        value    = 'switch2'
+                        checked  = {this.state.switch2}
+                        onClick  = {this.toggleSwitch2}
+                    />
                 </div>
                 <div className='section'>
                     <h1 className='h1'>Tooltips</h1>

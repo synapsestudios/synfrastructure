@@ -7,7 +7,7 @@ var React      = require('react');
 
 module.exports = React.createClass({
 
-    displayName : 'Modal',
+    displayName : 'Synfrastructure-Modal',
 
     propTypes : {
         reveal     : React.PropTypes.bool.isRequired,
