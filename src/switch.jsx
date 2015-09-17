@@ -102,6 +102,7 @@ module.exports = React.createClass({
         return (
             <div className={classes}>
                 <input
+                    {...this.props}
                     className      = {this.props.componentCSSClassName + '__checkbox'}
                     id             = {this.props.id}
                     name           = {this.props.name}

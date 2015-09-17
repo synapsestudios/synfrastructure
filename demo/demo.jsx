@@ -74,7 +74,7 @@ let Demo = React.createClass({
             <div className='demo__wrapper a--appear'>
                 <div className='section'>
                     <h1 className='h1'>Alert Component</h1>
-                    <Alert message='This Is An Alert'/>
+                    <Alert foo={'poop'} message='This Is An Alert'/>
                 </div>
                 <div className='section'>
                     <h1 className='h1'>Button Component</h1>

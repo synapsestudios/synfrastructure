@@ -25,7 +25,7 @@ let Button = React.createClass({
         tabIndex              : React.PropTypes.string
     },
 
-    getDefaultProps : function()
+    getDefaultProps()
     {
         return {
             element               : 'a',
@@ -37,9 +37,9 @@ let Button = React.createClass({
         };
     },
 
-    render : function()
+    render()
     {
-        var Component,
+        let Component,
             ComponentChildren,
             classes,
             childClassName,
@@ -70,6 +70,7 @@ let Button = React.createClass({
         Component = React.createElement(
             this.props.element,
             this.mergeAttributes(
+                ...this.props,
                 attributes,
                 this.props.attributes
             ),

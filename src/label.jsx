@@ -44,6 +44,7 @@ let Label = React.createClass({
         Component = React.createElement(
             'label',
             this.mergeAttributes(
+                ...this.props,
                 attributes,
                 this.props.attributes
             ),

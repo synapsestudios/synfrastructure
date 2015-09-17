@@ -1,5 +1,7 @@
 'use strict';
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var React = require('react');
 var FormInputMixin = require('../mixins/form-input-mixin');
 
@@ -46,7 +48,7 @@ var Input = React.createClass({
     render: function render() {
         var classes = [this.props.componentCSSClassName, this.props.componentCSSClassName + '--' + this.props.type, this.props.className].join(' ');
 
-        return React.createElement('input', {
+        return React.createElement('input', _extends({}, this.props, {
             className: classes,
             id: this.props.id,
             name: this.props.name,
@@ -61,7 +63,7 @@ var Input = React.createClass({
             disabled: this.props.disabled,
             type: this.props.type,
             tabIndex: this.props.tabIndex
-        });
+        }));
     }
 
 });

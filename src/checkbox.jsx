@@ -86,13 +86,14 @@ let Checkbox = React.createClass({
 
     render()
     {
-        var classes = [
+        let classes = [
             this.props.componentCSSClassName,
             this.props.className
         ].join(' ');
 
         return (
             <input
+                {...this.props}
                 className   = {classes}
                 id          = {this.props.id}
                 name        = {this.props.name}

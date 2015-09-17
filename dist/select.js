@@ -1,5 +1,7 @@
 'use strict';
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _ = require('lodash');
 var React = require('react');
 var FormInputMixin = require('../mixins/form-input-mixin');
@@ -112,7 +114,7 @@ var Select = React.createClass({
 
         return React.createElement(
             'select',
-            {
+            _extends({}, this.props, {
                 disabled: this.props.disabled,
                 className: classes,
                 id: this.props.id,
@@ -125,7 +127,7 @@ var Select = React.createClass({
                 onKeyDown: this.onKeyDown,
                 onKeyPress: this.onKeyPress,
                 tabIndex: this.props.tabIndex
-            },
+            }),
             this.renderSelectOptions()
         );
     },

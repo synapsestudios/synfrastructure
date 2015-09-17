@@ -36,7 +36,7 @@ var Label = React.createClass({
             className: classes
         };
 
-        Component = React.createElement('label', this.mergeAttributes(attributes, this.props.attributes), [this.props.text, this.props.children]);
+        Component = React.createElement('label', this.mergeAttributes.apply(this, this.props.concat([attributes, this.props.attributes])), [this.props.text, this.props.children]);
 
         return Component;
     }

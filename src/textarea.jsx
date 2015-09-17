@@ -66,6 +66,7 @@ let TextArea = React.createClass({
 
         return (
             <textarea
+                {...this.props}
                 className   = {classes}
                 id          = {this.props.id}
                 name        = {this.props.name}

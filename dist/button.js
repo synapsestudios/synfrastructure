@@ -31,10 +31,10 @@ var Button = React.createClass({
     },
 
     render: function render() {
-        var Component,
-            ComponentChildren,
-            classes,
-            childClassName,
+        var Component = undefined,
+            ComponentChildren = undefined,
+            classes = undefined,
+            childClassName = undefined,
             attributes = {};
 
         classes = [this.props.componentCSSClassName, this.props.className, this.props.disabled ? this.props.componentCSSClassName + '--disabled' : null].join(' ');
@@ -50,7 +50,7 @@ var Button = React.createClass({
 
         ComponentChildren = React.createElement('span', { className: childClassName }, this.props.children);
 
-        Component = React.createElement(this.props.element, this.mergeAttributes(attributes, this.props.attributes), ComponentChildren);
+        Component = React.createElement(this.props.element, this.mergeAttributes.apply(this, this.props.concat([attributes, this.props.attributes])), ComponentChildren);
 
         return Component;
     }

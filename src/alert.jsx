@@ -21,7 +21,7 @@ let Alert = React.createClass({
         className             : React.PropTypes.string
     },
 
-    getDefaultProps : function()
+    getDefaultProps()
     {
         return {
             componentCSSClassName : 'alert',
@@ -36,7 +36,7 @@ let Alert = React.createClass({
         };
     },
 
-    renderDismissIcon : function()
+    renderDismissIcon()
     {
         if (! this.props.canDismiss) {
             return null;
@@ -54,7 +54,7 @@ let Alert = React.createClass({
         );
     },
 
-    renderAlertChildren : function()
+    renderAlertChildren()
     {
         return (
             <div className={this.props.componentCSSClassName + '__content'}>
@@ -65,9 +65,9 @@ let Alert = React.createClass({
         );
     },
 
-    render : function()
+    render()
     {
-        var AlertComponent,
+        let AlertComponent,
             alertAttributes,
             alertClasses;
 
@@ -84,6 +84,7 @@ let Alert = React.createClass({
         AlertComponent = React.createElement(
             'div',
             this.mergeAttributes(
+                ...this.props,
                 alertAttributes,
                 this.props.attributes
             ),

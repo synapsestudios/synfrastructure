@@ -109,7 +109,7 @@ let Validation = React.createClass({
         ].join(' ').trim();
 
         return (
-            <div className={classes}>
+            <div {...this.props} className={classes}>
                 {this.renderValidationContent()}
             </div>
         );

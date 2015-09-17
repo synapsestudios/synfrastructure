@@ -125,6 +125,7 @@ let Select = React.createClass({
 
         return (
             <select
+                {...this.props}
                 disabled   = {this.props.disabled}
                 className  = {classes}
                 id         = {this.props.id}
