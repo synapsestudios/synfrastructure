@@ -1,12 +1,11 @@
-/* jshint globalstrict: true */
 'use strict';
 
 var React = require('react');
 var FormInputMixin = require('../mixins/form-input-mixin');
 
-module.exports = React.createClass({
+var Input = React.createClass({
 
-    displayName: 'Synfrastructure-Input',
+    displayName: 'SynfrastructureInput',
 
     mixins: [FormInputMixin],
 
@@ -66,3 +65,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = Input;

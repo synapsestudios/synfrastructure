@@ -1,11 +1,10 @@
-/* jshint globalstrict: true */
 'use strict';
 
 var React = require('react');
 
 var Radio = React.createClass({
 
-    displayName: 'Radio',
+    displayName: 'SynfrastructureRadio',
 
     propTypes: {
         id: React.PropTypes.string.isRequired,

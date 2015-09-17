@@ -1,10 +1,9 @@
-/* jshint globalstrict: true */
 'use strict';
 
 var React = require('react/addons');
 var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
-module.exports = React.createClass({
+var Validation = React.createClass({
 
     displayName: 'Synfrastructure-Validation',
 
@@ -35,8 +34,8 @@ module.exports = React.createClass({
         var messages = [],
             component = this,
             messageProps = {},
-            messageElement,
-            messageClasses;
+            messageElement = undefined,
+            messageClasses = undefined;
 
         if (!this.props.validation || !this.props.validation.messages) {
             return null;
@@ -72,7 +71,9 @@ module.exports = React.createClass({
     },
 
     render: function render() {
-        var classes, showClass, statusClass;
+        var classes = undefined,
+            showClass = undefined,
+            statusClass = undefined;
 
         showClass = this.props.validation ? this.props.componentCSSClassName + '--show' : null;
 
@@ -88,3 +89,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = Validation;

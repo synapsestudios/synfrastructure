@@ -1,13 +1,12 @@
-/* jshint globalstrict: true */
 'use strict';
 
 var _ = require('lodash');
 var React = require('react');
 var FormInputMixin = require('../mixins/form-input-mixin');
 
-module.exports = React.createClass({
+var Select = React.createClass({
 
-    displayName: 'Synfrastructure-Select',
+    displayName: 'SynfrastructureSelect',
 
     mixins: [FormInputMixin],
 
@@ -50,7 +49,7 @@ module.exports = React.createClass({
     },
 
     getSelectedValue: function getSelectedValue() {
-        var selectedOption;
+        var selectedOption = undefined;
 
         if (this.props.value) {
             return this.props.value;
@@ -59,7 +58,7 @@ module.exports = React.createClass({
         selectedOption = _.findWhere(this.props.options, { selected: true });
 
         if (!selectedOption) {
-            return;
+            return null;
         }
 
         return selectedOption.value;
@@ -83,7 +82,7 @@ module.exports = React.createClass({
     },
 
     renderCustomSelect: function renderCustomSelect() {
-        var classes;
+        var classes = undefined;
 
         if (!this.props.customIcon) {
             return this.renderDefaultSelect();
@@ -104,7 +103,8 @@ module.exports = React.createClass({
     },
 
     renderDefaultSelect: function renderDefaultSelect() {
-        var classes, customSelect;
+        var classes = undefined,
+            customSelect = undefined;
 
         customSelect = this.props.customIcon ? this.props.componentCSSClassName + '--custom' : null;
 
@@ -135,3 +135,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = Select;

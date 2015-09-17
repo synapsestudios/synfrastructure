@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var classname = require('classnames');
+var classNames = require('classnames');
 
 var Tooltip = React.createClass({
 
@@ -176,7 +176,7 @@ var Tooltip = React.createClass({
     },
 
     render: function render() {
-        var tooltipClass = classname('tooltip', { "tooltip--show": this.state.show }, { "tooltip__top": this.state.place === "top" }, { "tooltip__bottom": this.state.place === "bottom" }, { "tooltip__left": this.state.place === "left" }, { "tooltip__right": this.state.place === "right" });
+        var tooltipClass = classNames('tooltip', { 'tooltip--show': this.state.show }, { 'tooltip__top': this.state.place === 'top' }, { 'tooltip__bottom': this.state.place === 'bottom' }, { 'tooltip__left': this.state.place === 'left' }, { 'tooltip__right': this.state.place === 'right' });
 
         return React.createElement(
             'span',

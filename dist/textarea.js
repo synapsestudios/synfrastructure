@@ -1,12 +1,11 @@
-/* jshint globalstrict: true */
 'use strict';
 
 var React = require('react');
 var FormInputMixin = require('../mixins/form-input-mixin');
 
-module.exports = React.createClass({
+var TextArea = React.createClass({
 
-    displayName: 'Synfrastructure-TextArea',
+    displayName: 'SynfrastructureTextArea',
 
     mixins: [FormInputMixin],
 
@@ -50,7 +49,8 @@ module.exports = React.createClass({
     },
 
     render: function render() {
-        var classes, resizeClass;
+        var classes = undefined,
+            resizeClass = undefined;
 
         resizeClass = !this.props.resize ? this.props.componentCSSClassName + '--no-resize' : null;
 
@@ -76,3 +76,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = TextArea;
