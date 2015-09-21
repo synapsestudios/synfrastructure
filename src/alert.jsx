@@ -1,13 +1,10 @@
 'use strict';
 
 let React                      = require('react');
-let SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
 let Alert = React.createClass({
 
     displayName : 'SynfrastructureAlert',
-
-    mixins : [SynfrastructureHelperMixin],
 
     propTypes : {
         componentCSSClassName : React.PropTypes.string,
@@ -17,7 +14,6 @@ let Alert = React.createClass({
         dismissIcon           : React.PropTypes.any,
         onDismiss             : React.PropTypes.func,
         onClick               : React.PropTypes.func,
-        attributes            : React.PropTypes.object,
         className             : React.PropTypes.string
     },
 
@@ -31,7 +27,6 @@ let Alert = React.createClass({
             dismissIcon           : String.fromCharCode(10761),
             onDismiss             : null,
             onClick               : null,
-            attributes            : {},
             className             : null
         };
     },
@@ -68,7 +63,6 @@ let Alert = React.createClass({
     render()
     {
         let AlertComponent,
-            alertAttributes,
             alertClasses;
 
         alertClasses = [
@@ -76,18 +70,13 @@ let Alert = React.createClass({
             this.props.className
         ].join(' ');
 
-        alertAttributes = {
-            className : alertClasses,
-            onClick   : this.props.onClick
-        };
-
         AlertComponent = React.createElement(
             'div',
-            this.mergeAttributes(
+            {
                 ...this.props,
-                alertAttributes,
-                this.props.attributes
-            ),
+                className : alertClasses,
+                onClick   : this.props.onClick
+            },
             this.renderAlertChildren()
         );
 

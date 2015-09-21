@@ -1,13 +1,10 @@
 'use strict';
 
 let React                      = require('react');
-let SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
 let Button = React.createClass({
 
     displayName : 'SynfrastructureButton',
-
-    mixins : [SynfrastructureHelperMixin],
 
     propTypes : {
         element : React.PropTypes.oneOf([
@@ -17,7 +14,6 @@ let Button = React.createClass({
             'span',
             'div'
         ]),
-        attributes            : React.PropTypes.object,
         componentCSSClassName : React.PropTypes.string,
         disabled              : React.PropTypes.bool,
         className             : React.PropTypes.string,
@@ -29,7 +25,6 @@ let Button = React.createClass({
     {
         return {
             element               : 'a',
-            attributes            : {},
             componentCSSClassName : 'button',
             disabled              : false,
             className             : null,
@@ -42,8 +37,7 @@ let Button = React.createClass({
         let Component,
             ComponentChildren,
             classes,
-            childClassName,
-            attributes = {};
+            childClassName;
 
         classes = [
             this.props.componentCSSClassName,
@@ -51,13 +45,6 @@ let Button = React.createClass({
             this.props.disabled ?
                 this.props.componentCSSClassName + '--disabled' : null
         ].join(' ');
-
-        attributes = {
-            className : classes,
-            onClick   : this.props.onClick,
-            disabled  : this.props.disabled,
-            tabIndex  : this.props.tabIndex
-        };
 
         childClassName = this.props.componentCSSClassName + '__children';
 
@@ -69,11 +56,13 @@ let Button = React.createClass({
 
         Component = React.createElement(
             this.props.element,
-            this.mergeAttributes(
+            {
                 ...this.props,
-                attributes,
-                this.props.attributes
-            ),
+                className : classes,
+                onClick   : this.props.onClick,
+                disabled  : this.props.disabled,
+                tabIndex  : this.props.tabIndex
+            },
             ComponentChildren
         );
 
