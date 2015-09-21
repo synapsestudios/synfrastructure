@@ -1,17 +1,15 @@
 'use strict';
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var React = require('react');
-var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
 var Button = React.createClass({
 
     displayName: 'SynfrastructureButton',
 
-    mixins: [SynfrastructureHelperMixin],
-
     propTypes: {
         element: React.PropTypes.oneOf(['a', 'button', 'input', 'span', 'div']),
-        attributes: React.PropTypes.object,
         componentCSSClassName: React.PropTypes.string,
         disabled: React.PropTypes.bool,
         className: React.PropTypes.string,
@@ -22,7 +20,6 @@ var Button = React.createClass({
     getDefaultProps: function getDefaultProps() {
         return {
             element: 'a',
-            attributes: {},
             componentCSSClassName: 'button',
             disabled: false,
             className: null,
@@ -34,23 +31,20 @@ var Button = React.createClass({
         var Component = undefined,
             ComponentChildren = undefined,
             classes = undefined,
-            childClassName = undefined,
-            attributes = {};
+            childClassName = undefined;
 
         classes = [this.props.componentCSSClassName, this.props.className, this.props.disabled ? this.props.componentCSSClassName + '--disabled' : null].join(' ');
-
-        attributes = {
-            className: classes,
-            onClick: this.props.onClick,
-            disabled: this.props.disabled,
-            tabIndex: this.props.tabIndex
-        };
 
         childClassName = this.props.componentCSSClassName + '__children';
 
         ComponentChildren = React.createElement('span', { className: childClassName }, this.props.children);
 
-        Component = React.createElement(this.props.element, this.mergeAttributes.apply(this, this.props.concat([attributes, this.props.attributes])), ComponentChildren);
+        Component = React.createElement(this.props.element, _extends({}, this.props, {
+            className: classes,
+            onClick: this.props.onClick,
+            disabled: this.props.disabled,
+            tabIndex: this.props.tabIndex
+        }), ComponentChildren);
 
         return Component;
     }

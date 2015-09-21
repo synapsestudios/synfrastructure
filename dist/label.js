@@ -1,42 +1,36 @@
 'use strict';
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var React = require('react');
-var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
 var Label = React.createClass({
 
     displayName: 'SynfrastructureFormLabel',
 
-    mixins: [SynfrastructureHelperMixin],
-
     propTypes: {
         htmlFor: React.PropTypes.string.isRequired,
         componentCSSClassName: React.PropTypes.string,
-        text: React.PropTypes.string,
-        attributes: React.PropTypes.object
+        text: React.PropTypes.string
     },
 
     getDefaultProps: function getDefaultProps() {
         return {
             componentCSSClassName: 'label',
-            text: null,
-            attributes: null
+            text: null
         };
     },
 
     render: function render() {
-        var Component,
-            classes,
-            attributes = {};
+        var Component = undefined,
+            classes = undefined;
 
         classes = [this.props.componentCSSClassName, this.props.className].join(' ');
 
-        attributes = {
+        Component = React.createElement('label', _extends({}, this.props, {
             htmlFor: this.props.htmlFor,
             className: classes
-        };
-
-        Component = React.createElement('label', this.mergeAttributes.apply(this, this.props.concat([attributes, this.props.attributes])), [this.props.text, this.props.children]);
+        }), [this.props.text, this.props.children]);
 
         return Component;
     }

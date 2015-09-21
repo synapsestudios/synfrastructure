@@ -1,13 +1,12 @@
 'use strict';
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var React = require('react');
-var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
 
 var Alert = React.createClass({
 
     displayName: 'SynfrastructureAlert',
-
-    mixins: [SynfrastructureHelperMixin],
 
     propTypes: {
         componentCSSClassName: React.PropTypes.string,
@@ -17,7 +16,6 @@ var Alert = React.createClass({
         dismissIcon: React.PropTypes.any,
         onDismiss: React.PropTypes.func,
         onClick: React.PropTypes.func,
-        attributes: React.PropTypes.object,
         className: React.PropTypes.string
     },
 
@@ -30,7 +28,6 @@ var Alert = React.createClass({
             dismissIcon: String.fromCharCode(10761),
             onDismiss: null,
             onClick: null,
-            attributes: {},
             className: null
         };
     },
@@ -66,17 +63,14 @@ var Alert = React.createClass({
 
     render: function render() {
         var AlertComponent = undefined,
-            alertAttributes = undefined,
             alertClasses = undefined;
 
         alertClasses = [this.props.componentCSSClassName, this.props.className].join(' ');
 
-        alertAttributes = {
+        AlertComponent = React.createElement('div', _extends({}, this.props, {
             className: alertClasses,
             onClick: this.props.onClick
-        };
-
-        AlertComponent = React.createElement('div', this.mergeAttributes.apply(this, this.props.concat([alertAttributes, this.props.attributes])), this.renderAlertChildren());
+        }), this.renderAlertChildren());
 
         return AlertComponent;
     }
