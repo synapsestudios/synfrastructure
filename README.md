@@ -53,10 +53,9 @@ $screen-large
 ### Using the React Components
 Use the components just as you would any other. Component reference must be capitalized.
 
-ex. `var Alert = require('synfrastructure').Alert;`
+ex. for es5 `var Alert = require('synfrastructure').Alert;`
+ex. for es6 `import {Alert} from 'synfrastructure';`
 
 ### Development
 
 Use `npm run build` to compile your JSX components into JS & then use `npm run demo` to build the 'demo' directory and start your local server.
-
-

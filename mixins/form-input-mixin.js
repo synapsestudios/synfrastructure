@@ -1,7 +1,4 @@
-/* jshint globalstrict: true */
-'use strict';
-
-module.exports = {
+let FormInputMixin = {
 
     onFocus : function(event)
     {
@@ -58,3 +55,5 @@ module.exports = {
     }
 
 };
+
+export default FormInputMixin;
