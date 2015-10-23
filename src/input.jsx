@@ -1,7 +1,5 @@
-'use strict';
-
-let React          = require('react');
-let FormInputMixin = require('../mixins/form-input-mixin');
+import React          from 'react';
+import FormInputMixin from '../mixins/form-input-mixin';
 
 let Input = React.createClass({
 
@@ -89,4 +87,4 @@ let Input = React.createClass({
 
 });
 
-module.exports = Input;
+export default Input;

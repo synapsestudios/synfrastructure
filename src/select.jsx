@@ -1,8 +1,6 @@
-'use strict';
-
-let _              = require('lodash');
-let React          = require('react');
-let FormInputMixin = require('../mixins/form-input-mixin');
+import React             from 'react';
+import {Collection as _} from 'lodash';
+import FormInputMixin    from '../mixins/form-input-mixin';
 
 let Select = React.createClass({
 
@@ -151,4 +149,4 @@ let Select = React.createClass({
 
 });
 
-module.exports = Select;
+export default Select;

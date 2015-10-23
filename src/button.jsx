@@ -1,6 +1,4 @@
-'use strict';
-
-let React                      = require('react');
+import React from 'react';
 
 let Button = React.createClass({
 
@@ -71,4 +69,4 @@ let Button = React.createClass({
 
 });
 
-module.exports = Button;
+export default Button;

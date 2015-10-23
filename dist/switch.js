@@ -1,31 +1,36 @@
-/* jshint globalstrict: true */
 'use strict';
+
+exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var React = require('react');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-module.exports = React.createClass({
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var Switch = _react2['default'].createClass({
 
     displayName: 'Synfrastructure-Switch',
 
     propTypes: {
-        id: React.PropTypes.string.isRequired,
-        name: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-        disabled: React.PropTypes.bool,
-        componentCSSClassName: React.PropTypes.string,
-        switchTextOn: React.PropTypes.string,
-        switchTextOff: React.PropTypes.string,
-        checked: React.PropTypes.bool.isRequired,
-        value: React.PropTypes.any,
-        onClick: React.PropTypes.func,
-        onFocus: React.PropTypes.func,
-        onBlur: React.PropTypes.func,
-        onChange: React.PropTypes.func,
-        onKeyDown: React.PropTypes.func,
-        onKeyUp: React.PropTypes.func,
-        onKeyPress: React.PropTypes.func,
-        className: React.PropTypes.string
+        id: _react2['default'].PropTypes.string.isRequired,
+        name: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number]),
+        disabled: _react2['default'].PropTypes.bool,
+        componentCSSClassName: _react2['default'].PropTypes.string,
+        switchTextOn: _react2['default'].PropTypes.string,
+        switchTextOff: _react2['default'].PropTypes.string,
+        checked: _react2['default'].PropTypes.bool.isRequired,
+        value: _react2['default'].PropTypes.any,
+        onClick: _react2['default'].PropTypes.func,
+        onFocus: _react2['default'].PropTypes.func,
+        onBlur: _react2['default'].PropTypes.func,
+        onChange: _react2['default'].PropTypes.func,
+        onKeyDown: _react2['default'].PropTypes.func,
+        onKeyUp: _react2['default'].PropTypes.func,
+        onKeyPress: _react2['default'].PropTypes.func,
+        className: _react2['default'].PropTypes.string
     },
 
     getDefaultProps: function getDefaultProps() {
@@ -87,10 +92,10 @@ module.exports = React.createClass({
     render: function render() {
         var classes = [this.props.componentCSSClassName, this.props.className].join(' ');
 
-        return React.createElement(
+        return _react2['default'].createElement(
             'div',
             { className: classes },
-            React.createElement('input', _extends({}, this.props, {
+            _react2['default'].createElement('input', _extends({}, this.props, {
                 className: this.props.componentCSSClassName + '__checkbox',
                 id: this.props.id,
                 name: this.props.name,
@@ -106,21 +111,24 @@ module.exports = React.createClass({
                 onKeyPress: this.onKeyPress,
                 disabled: this.props.disabled
             })),
-            React.createElement(
+            _react2['default'].createElement(
                 'label',
                 {
                     className: this.props.componentCSSClassName + '__label',
                     htmlFor: this.props.name,
                     onClick: this.props.onClick
                 },
-                React.createElement('span', {
+                _react2['default'].createElement('span', {
                     className: this.props.componentCSSClassName + '__inner',
                     'data-content-on': this.props.switchTextOn,
                     'data-content-off': this.props.switchTextOff
                 }),
-                React.createElement('span', { className: this.props.componentCSSClassName + '__toggle' })
+                _react2['default'].createElement('span', { className: this.props.componentCSSClassName + '__toggle' })
             )
         );
     }
 
 });
+
+exports['default'] = Switch;
+module.exports = exports['default'];

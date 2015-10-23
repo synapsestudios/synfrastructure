@@ -1,9 +1,6 @@
-/* jshint globalstrict: true */
-'use strict';
+import React from 'react';
 
-var React = require('react');
-
-module.exports = React.createClass({
+let Switch = React.createClass({
 
     displayName : 'Synfrastructure-Switch',
 
@@ -135,3 +132,5 @@ module.exports = React.createClass({
     }
 
 });
+
+export default Switch;

@@ -1,20 +1,26 @@
 'use strict';
 
+exports.__esModule = true;
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var React = require('react');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var Button = React.createClass({
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var Button = _react2['default'].createClass({
 
     displayName: 'SynfrastructureButton',
 
     propTypes: {
-        element: React.PropTypes.oneOf(['a', 'button', 'input', 'span', 'div']),
-        componentCSSClassName: React.PropTypes.string,
-        disabled: React.PropTypes.bool,
-        className: React.PropTypes.string,
-        onClick: React.PropTypes.func,
-        tabIndex: React.PropTypes.string
+        element: _react2['default'].PropTypes.oneOf(['a', 'button', 'input', 'span', 'div']),
+        componentCSSClassName: _react2['default'].PropTypes.string,
+        disabled: _react2['default'].PropTypes.bool,
+        className: _react2['default'].PropTypes.string,
+        onClick: _react2['default'].PropTypes.func,
+        tabIndex: _react2['default'].PropTypes.string
     },
 
     getDefaultProps: function getDefaultProps() {
@@ -37,9 +43,9 @@ var Button = React.createClass({
 
         childClassName = this.props.componentCSSClassName + '__children';
 
-        ComponentChildren = React.createElement('span', { className: childClassName }, this.props.children);
+        ComponentChildren = _react2['default'].createElement('span', { className: childClassName }, this.props.children);
 
-        Component = React.createElement(this.props.element, _extends({}, this.props, {
+        Component = _react2['default'].createElement(this.props.element, _extends({}, this.props, {
             className: classes,
             onClick: this.props.onClick,
             disabled: this.props.disabled,
@@ -51,4 +57,5 @@ var Button = React.createClass({
 
 });
 
-module.exports = Button;
+exports['default'] = Button;
+module.exports = exports['default'];

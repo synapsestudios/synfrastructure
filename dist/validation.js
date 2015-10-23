@@ -1,24 +1,37 @@
 'use strict';
 
+exports.__esModule = true;
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var React = require('react/addons');
-var SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var Validation = React.createClass({
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactAddonsCreateFragment = require('react-addons-create-fragment');
+
+var _reactAddonsCreateFragment2 = _interopRequireDefault(_reactAddonsCreateFragment);
+
+var _mixinsSynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
+
+var _mixinsSynfrastructureHelperMixin2 = _interopRequireDefault(_mixinsSynfrastructureHelperMixin);
+
+var Validation = _react2['default'].createClass({
 
     displayName: 'Synfrastructure-Validation',
 
-    mixins: [SynfrastructureHelperMixin],
+    mixins: [_mixinsSynfrastructureHelperMixin2['default']],
 
     propTypes: {
-        componentCSSClassName: React.PropTypes.string,
-        renderMessages: React.PropTypes.oneOf(['before', 'after']),
-        messageContainer: React.PropTypes.func,
-        messageContainerProps: React.PropTypes.object,
-        validation: React.PropTypes.shape({
-            status: React.PropTypes.string,
-            messages: React.PropTypes.array
+        componentCSSClassName: _react2['default'].PropTypes.string,
+        renderMessages: _react2['default'].PropTypes.oneOf(['before', 'after']),
+        messageContainer: _react2['default'].PropTypes.func,
+        messageContainerProps: _react2['default'].PropTypes.object,
+        validation: _react2['default'].PropTypes.shape({
+            status: _react2['default'].PropTypes.string,
+            messages: _react2['default'].PropTypes.array
         })
     },
 
@@ -53,7 +66,7 @@ var Validation = React.createClass({
                 key: 'validation-msg-' + index
             };
 
-            messages.push(React.createElement(messageElement, component.mergeAttributes(messageProps, component.props.messageContainerProps), message));
+            messages.push(_react2['default'].createElement(messageElement, component.mergeAttributes(messageProps, component.props.messageContainerProps), message));
         });
 
         return messages;
@@ -63,7 +76,7 @@ var Validation = React.createClass({
         var messages = this.renderValidationMessages(),
             orderdChildren = [];
 
-        orderdChildren = [React.addons.createFragment({ 'message-children': this.props.children }), React.addons.createFragment({ 'message': messages })];
+        orderdChildren = [_reactAddonsCreateFragment2['default']({ 'message-children': this.props.children }), _reactAddonsCreateFragment2['default']({ 'message': messages })];
 
         if (this.props.renderMessages === 'before') {
             return orderdChildren.reverse();
@@ -83,7 +96,7 @@ var Validation = React.createClass({
 
         classes = [this.props.componentCSSClassName, showClass, statusClass, this.props.className].join(' ').trim();
 
-        return React.createElement(
+        return _react2['default'].createElement(
             'div',
             _extends({}, this.props, { className: classes }),
             this.renderValidationContent()
@@ -92,4 +105,5 @@ var Validation = React.createClass({
 
 });
 
-module.exports = Validation;
+exports['default'] = Validation;
+module.exports = exports['default'];
