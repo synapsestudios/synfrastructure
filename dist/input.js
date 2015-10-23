@@ -1,31 +1,40 @@
 'use strict';
 
+exports.__esModule = true;
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var React = require('react');
-var FormInputMixin = require('../mixins/form-input-mixin');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var Input = React.createClass({
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _mixinsFormInputMixin = require('../mixins/form-input-mixin');
+
+var _mixinsFormInputMixin2 = _interopRequireDefault(_mixinsFormInputMixin);
+
+var Input = _react2['default'].createClass({
 
     displayName: 'SynfrastructureInput',
 
-    mixins: [FormInputMixin],
+    mixins: [_mixinsFormInputMixin2['default']],
 
     propTypes: {
-        id: React.PropTypes.string.isRequired,
-        disabled: React.PropTypes.bool,
-        componentCSSClassName: React.PropTypes.string,
-        placeholder: React.PropTypes.string,
-        value: React.PropTypes.any,
-        onFocus: React.PropTypes.func,
-        onBlur: React.PropTypes.func,
-        onChange: React.PropTypes.func,
-        onKeyDown: React.PropTypes.func,
-        onKeyUp: React.PropTypes.func,
-        onKeyPress: React.PropTypes.func,
-        tabIndex: React.PropTypes.string,
-        className: React.PropTypes.string,
-        type: React.PropTypes.oneOf(['date', 'datetime', 'datetime-local', 'date', 'email', 'month', 'number', 'password', 'search', 'tel', 'text', 'url', 'week'])
+        id: _react2['default'].PropTypes.string.isRequired,
+        disabled: _react2['default'].PropTypes.bool,
+        componentCSSClassName: _react2['default'].PropTypes.string,
+        placeholder: _react2['default'].PropTypes.string,
+        value: _react2['default'].PropTypes.any,
+        onFocus: _react2['default'].PropTypes.func,
+        onBlur: _react2['default'].PropTypes.func,
+        onChange: _react2['default'].PropTypes.func,
+        onKeyDown: _react2['default'].PropTypes.func,
+        onKeyUp: _react2['default'].PropTypes.func,
+        onKeyPress: _react2['default'].PropTypes.func,
+        tabIndex: _react2['default'].PropTypes.string,
+        className: _react2['default'].PropTypes.string,
+        type: _react2['default'].PropTypes.oneOf(['date', 'datetime', 'datetime-local', 'date', 'email', 'month', 'number', 'password', 'search', 'tel', 'text', 'url', 'week'])
     },
 
     getDefaultProps: function getDefaultProps() {
@@ -48,7 +57,7 @@ var Input = React.createClass({
     render: function render() {
         var classes = [this.props.componentCSSClassName, this.props.componentCSSClassName + '--' + this.props.type, this.props.className].join(' ');
 
-        return React.createElement('input', _extends({}, this.props, {
+        return _react2['default'].createElement('input', _extends({}, this.props, {
             className: classes,
             id: this.props.id,
             name: this.props.name,
@@ -68,4 +77,5 @@ var Input = React.createClass({
 
 });
 
-module.exports = Input;
+exports['default'] = Input;
+module.exports = exports['default'];

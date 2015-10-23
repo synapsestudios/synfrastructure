@@ -1,9 +1,6 @@
-/* global document */
-'use strict';
-
-let classNames = require('classnames');
-let className  = require('../util/className');
-let React      = require('react');
+import React      from 'react';
+import classNames from 'classnames';
+import className  from '../util/className';
 
 let Modal = React.createClass({
 
@@ -94,4 +91,4 @@ let Modal = React.createClass({
 
 });
 
-module.exports = Modal;
+export default Modal;

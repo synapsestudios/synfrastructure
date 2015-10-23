@@ -2,21 +2,25 @@
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var React = require('react');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var Alert = React.createClass({
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var Alert = _react2['default'].createClass({
 
     displayName: 'SynfrastructureAlert',
 
     propTypes: {
-        componentCSSClassName: React.PropTypes.string,
-        message: React.PropTypes.string,
-        show: React.PropTypes.bool,
-        canDismiss: React.PropTypes.bool,
-        dismissIcon: React.PropTypes.any,
-        onDismiss: React.PropTypes.func,
-        onClick: React.PropTypes.func,
-        className: React.PropTypes.string
+        componentCSSClassName: _react2['default'].PropTypes.string,
+        message: _react2['default'].PropTypes.string,
+        show: _react2['default'].PropTypes.bool,
+        canDismiss: _react2['default'].PropTypes.bool,
+        dismissIcon: _react2['default'].PropTypes.any,
+        onDismiss: _react2['default'].PropTypes.func,
+        onClick: _react2['default'].PropTypes.func,
+        className: _react2['default'].PropTypes.string
     },
 
     getDefaultProps: function getDefaultProps() {
@@ -37,13 +41,13 @@ var Alert = React.createClass({
             return null;
         }
 
-        return React.createElement(
+        return _react2['default'].createElement(
             'span',
             {
                 className: this.props.componentCSSClassName + '__dismiss',
                 onClick: this.props.onDismiss
             },
-            React.createElement(
+            _react2['default'].createElement(
                 'span',
                 { className: this.props.componentCSSClassName + '__dismiss__icon' },
                 this.props.dismissIcon
@@ -52,7 +56,7 @@ var Alert = React.createClass({
     },
 
     renderAlertChildren: function renderAlertChildren() {
-        return React.createElement(
+        return _react2['default'].createElement(
             'div',
             { className: this.props.componentCSSClassName + '__content' },
             this.props.message,
@@ -67,7 +71,7 @@ var Alert = React.createClass({
 
         alertClasses = [this.props.componentCSSClassName, this.props.className].join(' ');
 
-        AlertComponent = React.createElement('div', _extends({}, this.props, {
+        AlertComponent = _react2['default'].createElement('div', _extends({}, this.props, {
             className: alertClasses,
             onClick: this.props.onClick
         }), this.renderAlertChildren());

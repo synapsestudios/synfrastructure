@@ -1,27 +1,33 @@
 'use strict';
 
+exports.__esModule = true;
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var React = require('react');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var Radio = React.createClass({
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var Radio = _react2['default'].createClass({
 
     displayName: 'SynfrastructureRadio',
 
     propTypes: {
-        id: React.PropTypes.string.isRequired,
-        name: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-        disabled: React.PropTypes.bool,
-        componentCSSClassName: React.PropTypes.string,
-        checked: React.PropTypes.bool.isRequired,
-        value: React.PropTypes.any,
-        onFocus: React.PropTypes.func,
-        onBlur: React.PropTypes.func,
-        onChange: React.PropTypes.func,
-        onKeyDown: React.PropTypes.func,
-        onKeyUp: React.PropTypes.func,
-        onKeyPress: React.PropTypes.func,
-        className: React.PropTypes.string
+        id: _react2['default'].PropTypes.string.isRequired,
+        name: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number]),
+        disabled: _react2['default'].PropTypes.bool,
+        componentCSSClassName: _react2['default'].PropTypes.string,
+        checked: _react2['default'].PropTypes.bool.isRequired,
+        value: _react2['default'].PropTypes.any,
+        onFocus: _react2['default'].PropTypes.func,
+        onBlur: _react2['default'].PropTypes.func,
+        onChange: _react2['default'].PropTypes.func,
+        onKeyDown: _react2['default'].PropTypes.func,
+        onKeyUp: _react2['default'].PropTypes.func,
+        onKeyPress: _react2['default'].PropTypes.func,
+        className: _react2['default'].PropTypes.string
     },
 
     getDefaultProps: function getDefaultProps() {
@@ -80,7 +86,7 @@ var Radio = React.createClass({
     render: function render() {
         var classes = [this.props.componentCSSClassName, this.props.className].join(' ');
 
-        return React.createElement('input', _extends({}, this.props, {
+        return _react2['default'].createElement('input', _extends({}, this.props, {
             className: classes,
             id: this.props.id,
             name: this.props.name,
@@ -99,4 +105,5 @@ var Radio = React.createClass({
 
 });
 
-module.exports = Radio;
+exports['default'] = Radio;
+module.exports = exports['default'];

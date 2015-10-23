@@ -1,6 +1,4 @@
-'use strict';
-
-let React                      = require('react');
+import React from 'react';
 
 let Alert = React.createClass({
 

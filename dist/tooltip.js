@@ -1,16 +1,25 @@
 'use strict';
 
-var React = require('react');
-var classNames = require('classnames');
+exports.__esModule = true;
 
-var Tooltip = React.createClass({
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var Tooltip = _react2['default'].createClass({
 
     displayName: 'ReactTooltip',
 
     propTypes: {
-        place: React.PropTypes.string,
-        effect: React.PropTypes.string,
-        positon: React.PropTypes.object
+        place: _react2['default'].PropTypes.string,
+        effect: _react2['default'].PropTypes.string,
+        positon: _react2['default'].PropTypes.object
     },
 
     getInitialState: function getInitialState() {
@@ -70,7 +79,7 @@ var Tooltip = React.createClass({
             tipHeight = undefined,
             offset = undefined;
 
-        node = React.findDOMNode(this);
+        node = ReactDOM.findDOMNode(this);
         tipWidth = node.clientWidth;
         tipHeight = node.clientHeight;
         offset = { x: 0, y: 0 };
@@ -136,7 +145,7 @@ var Tooltip = React.createClass({
             } else if (this.state.effect === "fixed") {
                 var targetTop = error.target.getBoundingClientRect().top;
                 var targetLeft = error.target.getBoundingClientRect().left;
-                var node = React.findDOMNode(this);
+                var node = ReactDOM.findDOMNode(this);
                 var tipWidth = node.clientWidth;
                 var tipHeight = node.clientHeight;
                 var targetWidth = error.target.clientWidth;
@@ -176,9 +185,9 @@ var Tooltip = React.createClass({
     },
 
     render: function render() {
-        var tooltipClass = classNames('tooltip', { 'tooltip--show': this.state.show }, { 'tooltip__top': this.state.place === 'top' }, { 'tooltip__bottom': this.state.place === 'bottom' }, { 'tooltip__left': this.state.place === 'left' }, { 'tooltip__right': this.state.place === 'right' });
+        var tooltipClass = _classnames2['default']('tooltip', { 'tooltip--show': this.state.show }, { 'tooltip__top': this.state.place === 'top' }, { 'tooltip__bottom': this.state.place === 'bottom' }, { 'tooltip__left': this.state.place === 'left' }, { 'tooltip__right': this.state.place === 'right' });
 
-        return React.createElement(
+        return _react2['default'].createElement(
             'span',
             { className: tooltipClass, 'data-id': 'tooltip' },
             this.state.placeholder
@@ -211,4 +220,5 @@ var Tooltip = React.createClass({
 
 });
 
-module.exports = Tooltip;
+exports['default'] = Tooltip;
+module.exports = exports['default'];

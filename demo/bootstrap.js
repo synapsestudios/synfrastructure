@@ -1,12 +1,11 @@
-'use strict';
-
 require('../scss/app');
 
-var React = require('react');
-var Demo  = require('./demo');
+import React    from 'react';
+import ReactDOM from 'react-dom';
+import Demo     from './demo';
 
 window.onload = function() {
-    React.render(
+    ReactDOM.render(
         React.createElement(Demo),
         window.document.getElementById('content')
     );

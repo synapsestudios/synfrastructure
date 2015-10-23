@@ -1,6 +1,4 @@
-'use strict';
-
-let React = require('react');
+import React from 'react';
 
 let Radio = React.createClass({
 
@@ -114,4 +112,4 @@ let Radio = React.createClass({
 
 });
 
-module.exports = Radio;
+export default Radio;

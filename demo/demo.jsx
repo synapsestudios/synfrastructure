@@ -1,17 +1,15 @@
-'use strict';
-
-let React      = require('react');
-let Alert      = require('../src/alert');
-let Button     = require('../src/button');
-let Input      = require('../src/input');
-let Textarea   = require('../src/textarea');
-let Select     = require('../src/select');
-let Checkbox   = require('../src/checkbox');
-let Label      = require('../src/label');
-let Validation = require('../src/validation');
-let Modal      = require('../src/modal');
-let Tooltip    = require('../src/tooltip');
-let Switch     = require('../src/switch');
+import React      from 'react';
+import Alert      from '../src/alert';
+import Button     from '../src/button';
+import Input      from '../src/input';
+import Textarea   from '../src/textarea';
+import Select     from '../src/select';
+import Checkbox   from '../src/checkbox';
+import Label      from '../src/label';
+import Validation from '../src/validation';
+import Modal      from '../src/modal';
+import Tooltip    from '../src/tooltip';
+import Switch     from '../src/switch';
 
 require('./demo.scss');
 
@@ -264,4 +262,4 @@ let Demo = React.createClass({
 
 });
 
-module.exports = Demo;
+export default Demo;

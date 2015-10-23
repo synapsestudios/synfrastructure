@@ -1,37 +1,49 @@
 'use strict';
 
+exports.__esModule = true;
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _ = require('lodash');
-var React = require('react');
-var FormInputMixin = require('../mixins/form-input-mixin');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var Select = React.createClass({
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _mixinsFormInputMixin = require('../mixins/form-input-mixin');
+
+var _mixinsFormInputMixin2 = _interopRequireDefault(_mixinsFormInputMixin);
+
+var Select = _react2['default'].createClass({
 
     displayName: 'SynfrastructureSelect',
 
-    mixins: [FormInputMixin],
+    mixins: [_mixinsFormInputMixin2['default']],
 
     propTypes: {
-        id: React.PropTypes.string.isRequired,
-        disabled: React.PropTypes.bool,
-        options: React.PropTypes.arrayOf(React.PropTypes.shape({
-            text: React.PropTypes.string,
-            value: React.PropTypes.any,
-            selected: React.PropTypes.bool
+        id: _react2['default'].PropTypes.string.isRequired,
+        disabled: _react2['default'].PropTypes.bool,
+        options: _react2['default'].PropTypes.arrayOf(_react2['default'].PropTypes.shape({
+            text: _react2['default'].PropTypes.string,
+            value: _react2['default'].PropTypes.any,
+            selected: _react2['default'].PropTypes.bool
         })).isRequired,
-        componentCSSClassName: React.PropTypes.string,
-        componentWrapCSSClassName: React.PropTypes.string,
-        customIcon: React.PropTypes.any,
-        value: React.PropTypes.any,
-        onFocus: React.PropTypes.func,
-        onBlur: React.PropTypes.func,
-        onChange: React.PropTypes.func,
-        onKeyDown: React.PropTypes.func,
-        onKeyUp: React.PropTypes.func,
-        onKeyPress: React.PropTypes.func,
-        className: React.PropTypes.string,
-        tabIndex: React.PropTypes.string
+        componentCSSClassName: _react2['default'].PropTypes.string,
+        componentWrapCSSClassName: _react2['default'].PropTypes.string,
+        customIcon: _react2['default'].PropTypes.any,
+        value: _react2['default'].PropTypes.any,
+        onFocus: _react2['default'].PropTypes.func,
+        onBlur: _react2['default'].PropTypes.func,
+        onChange: _react2['default'].PropTypes.func,
+        onKeyDown: _react2['default'].PropTypes.func,
+        onKeyUp: _react2['default'].PropTypes.func,
+        onKeyPress: _react2['default'].PropTypes.func,
+        className: _react2['default'].PropTypes.string,
+        tabIndex: _react2['default'].PropTypes.string
     },
 
     getDefaultProps: function getDefaultProps() {
@@ -57,7 +69,7 @@ var Select = React.createClass({
             return this.props.value;
         }
 
-        selectedOption = _.findWhere(this.props.options, { selected: true });
+        selectedOption = _lodash2['default'].findWhere(this.props.options, { selected: true });
 
         if (!selectedOption) {
             return null;
@@ -71,8 +83,8 @@ var Select = React.createClass({
             return null;
         }
 
-        return _.map(this.props.options, function (option, index) {
-            return React.createElement(
+        return _lodash2['default'].map(this.props.options, function (option, index) {
+            return _react2['default'].createElement(
                 'option',
                 {
                     value: option.value,
@@ -92,11 +104,11 @@ var Select = React.createClass({
 
         classes = ['select--custom--wrap', this.props.componentWrapCSSClassName].join(' ');
 
-        return React.createElement(
+        return _react2['default'].createElement(
             'div',
             { className: classes },
             this.renderDefaultSelect(),
-            React.createElement(
+            _react2['default'].createElement(
                 'span',
                 { className: 'select--custom--icon' },
                 this.props.customIcon
@@ -112,7 +124,7 @@ var Select = React.createClass({
 
         classes = [this.props.componentCSSClassName, this.props.className, customSelect].join(' ');
 
-        return React.createElement(
+        return _react2['default'].createElement(
             'select',
             _extends({}, this.props, {
                 disabled: this.props.disabled,
@@ -138,4 +150,5 @@ var Select = React.createClass({
 
 });
 
-module.exports = Select;
+exports['default'] = Select;
+module.exports = exports['default'];

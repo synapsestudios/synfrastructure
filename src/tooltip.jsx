@@ -1,7 +1,5 @@
-'use strict';
-
-let React      = require('react');
-let classNames = require('classnames');
+import React      from 'react';
+import classNames from 'classnames';
 
 let Tooltip = React.createClass({
 
@@ -75,7 +73,7 @@ let Tooltip = React.createClass({
     {
     let node, tipWidth, tipHeight, offset;
 
-    node      = React.findDOMNode(this);
+    node      = ReactDOM.findDOMNode(this);
     tipWidth  = node.clientWidth;
     tipHeight = node.clientHeight;
     offset    = {x:0, y:0};
@@ -151,7 +149,7 @@ let Tooltip = React.createClass({
           else if(this.state.effect === "fixed"){
             let targetTop = error.target.getBoundingClientRect().top;
             let targetLeft = error.target.getBoundingClientRect().left;
-            let node = React.findDOMNode(this);
+            let node = ReactDOM.findDOMNode(this);
             let tipWidth = node.clientWidth;
             let tipHeight = node.clientHeight;
             let targetWidth = error.target.clientWidth;
@@ -237,4 +235,4 @@ let Tooltip = React.createClass({
 
 });
 
-module.exports = Tooltip;
+export default Tooltip;

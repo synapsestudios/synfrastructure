@@ -1,6 +1,4 @@
-'use strict';
-
-let React = require('react');
+import React from 'react';
 
 let Label = React.createClass({
 
@@ -45,4 +43,4 @@ let Label = React.createClass({
 
 });
 
-module.exports = Label;
+export default Label;

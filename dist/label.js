@@ -1,17 +1,23 @@
 'use strict';
 
+exports.__esModule = true;
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var React = require('react');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var Label = React.createClass({
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var Label = _react2['default'].createClass({
 
     displayName: 'SynfrastructureFormLabel',
 
     propTypes: {
-        htmlFor: React.PropTypes.string.isRequired,
-        componentCSSClassName: React.PropTypes.string,
-        text: React.PropTypes.string
+        htmlFor: _react2['default'].PropTypes.string.isRequired,
+        componentCSSClassName: _react2['default'].PropTypes.string,
+        text: _react2['default'].PropTypes.string
     },
 
     getDefaultProps: function getDefaultProps() {
@@ -27,7 +33,7 @@ var Label = React.createClass({
 
         classes = [this.props.componentCSSClassName, this.props.className].join(' ');
 
-        Component = React.createElement('label', _extends({}, this.props, {
+        Component = _react2['default'].createElement('label', _extends({}, this.props, {
             htmlFor: this.props.htmlFor,
             className: classes
         }), [this.props.text, this.props.children]);
@@ -37,4 +43,5 @@ var Label = React.createClass({
 
 });
 
-module.exports = Label;
+exports['default'] = Label;
+module.exports = exports['default'];

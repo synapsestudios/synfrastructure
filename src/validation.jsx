@@ -1,7 +1,6 @@
-'use strict';
-
-let React                      = require('react/addons');
-let SynfrastructureHelperMixin = require('../mixins/synfrastructure-helper-mixin');
+import React                      from 'react';
+import CreateFragment             from 'react-addons-create-fragment';
+import SynfrastructureHelperMixin from '../mixins/synfrastructure-helper-mixin';
 
 let Validation = React.createClass({
 
@@ -78,8 +77,8 @@ let Validation = React.createClass({
             orderdChildren = [];
 
         orderdChildren = [
-            React.addons.createFragment({'message-children' : this.props.children}),
-            React.addons.createFragment({'message'          : messages})
+            CreateFragment({'message-children' : this.props.children}),
+            CreateFragment({'message'          : messages})
         ];
 
         if (this.props.renderMessages === 'before') {
@@ -117,4 +116,4 @@ let Validation = React.createClass({
 
 });
 
-module.exports = Validation;
+export default Validation;

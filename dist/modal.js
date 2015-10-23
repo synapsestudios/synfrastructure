@@ -1,18 +1,29 @@
-/* global document */
 'use strict';
 
-var classNames = require('classnames');
-var className = require('../util/className');
-var React = require('react');
+exports.__esModule = true;
 
-var Modal = React.createClass({
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _utilClassName = require('../util/className');
+
+var _utilClassName2 = _interopRequireDefault(_utilClassName);
+
+var Modal = _react2['default'].createClass({
 
     displayName: 'SynfrastructureModal',
 
     propTypes: {
-        reveal: React.PropTypes.bool.isRequired,
-        close: React.PropTypes.func,
-        colorTheme: React.PropTypes.oneOf(['dark', 'light', 'transparent'])
+        reveal: _react2['default'].PropTypes.bool.isRequired,
+        close: _react2['default'].PropTypes.func,
+        colorTheme: _react2['default'].PropTypes.oneOf(['dark', 'light', 'transparent'])
     },
 
     getDefaultProps: function getDefaultProps() {
@@ -35,7 +46,7 @@ var Modal = React.createClass({
             return null;
         }
 
-        visible ? className.addClass(document.body, 'l--modal-revealed') : className.removeClass(document.body, 'l--modal-revealed');
+        visible ? _utilClassName2['default'].addClass(document.body, 'l--modal-revealed') : _utilClassName2['default'].removeClass(document.body, 'l--modal-revealed');
     },
 
     renderModalMask: function renderModalMask() {
@@ -43,7 +54,7 @@ var Modal = React.createClass({
             return null;
         }
 
-        return React.createElement('div', {
+        return _react2['default'].createElement('div', {
             className: 'modal__mask',
             onClick: this.props.close
         });
@@ -68,12 +79,12 @@ var Modal = React.createClass({
             'modal__content': true
         };
 
-        return React.createElement(
+        return _react2['default'].createElement(
             'div',
-            { className: classNames(componentClasses) },
-            React.createElement(
+            { className: _classnames2['default'](componentClasses) },
+            _react2['default'].createElement(
                 'div',
-                { className: classNames(contentClasses) },
+                { className: _classnames2['default'](contentClasses) },
                 this.props.children
             ),
             this.renderModalMask()
@@ -82,4 +93,5 @@ var Modal = React.createClass({
 
 });
 
-module.exports = Modal;
+exports['default'] = Modal;
+module.exports = exports['default'];

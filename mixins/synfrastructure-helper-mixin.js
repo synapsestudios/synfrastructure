@@ -1,7 +1,4 @@
-/* jshint globalstrict: true */
-'use strict';
-
-module.exports = {
+let SynfrastructureHelperMixin = {
 
     mergeAttributes : function(attr1, attr2){
         var newAttributes = {},
@@ -14,3 +11,5 @@ module.exports = {
     }
 
 };
+
+export default SynfrastructureHelperMixin;
