@@ -83,4 +83,4 @@ let Alert = React.createClass({
 
 });
 
-module.exports = Alert;
+export default Alert;
