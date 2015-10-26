@@ -1,3 +1,7 @@
+## [v3.2.0](https://github.com/synapsestudios/synapse-common/compare/v3.2.0...v4.0.0) - 2015-09-17
+- Added support for React 14
+- In exchange, we lost support for React 13. Use the v3.x branch for React 13 support
+
 ## [v3.2.0](https://github.com/synapsestudios/synapse-common/compare/v3.1.4...v3.2.0) - 2015-09-17
 - Added radio component
 - Added switch component
