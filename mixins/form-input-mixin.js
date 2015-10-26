@@ -1,4 +1,4 @@
-let FormInputMixin = {
+module.exports = {
 
     onFocus : function(event)
     {
@@ -55,5 +55,3 @@ let FormInputMixin = {
     }
 
 };
-
-export default FormInputMixin;

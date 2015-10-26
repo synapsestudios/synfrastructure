@@ -1,4 +1,4 @@
-let SynfrastructureHelperMixin = {
+module.exports = {
 
     mergeAttributes : function(attr1, attr2){
         var newAttributes = {},
@@ -11,5 +11,3 @@ let SynfrastructureHelperMixin = {
     }
 
 };
-
-export default SynfrastructureHelperMixin;
