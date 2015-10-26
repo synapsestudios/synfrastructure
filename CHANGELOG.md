@@ -1,3 +1,6 @@
+## [v4.0.1](https://github.com/synapsestudios/synfrastructure/compare/v4.0.0...v4.0.1) - 2015-10-26
+- Small fix for syntax error in mixins
+
 ## [v4.0.0](https://github.com/synapsestudios/synfrastructure/compare/v3.2.0...v4.0.0) - 2015-10-26
 - Added support for React 14
 - In exchange, we lost support for React 13. Use the v3.x branch for React 13 support
