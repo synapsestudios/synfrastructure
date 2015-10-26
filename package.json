@@ -1,5 +1,5 @@
 {
-  "name": "synfrastructure",
+  "name": "@synapsestudios/synfrastructure",
   "version": "3.2.3",
   "description": "A collection of highly reusable React components paired with sass utilities and mixins for speedy UI development",
   "author": "Synapse Studios",
