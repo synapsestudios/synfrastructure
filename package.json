@@ -1,6 +1,6 @@
 {
   "name": "synfrastructure",
-  "version": "3.2.2",
+  "version": "4.0.0",
   "description": "A collection of highly reusable React components paired with sass utilities and mixins for speedy UI development",
   "author": "Synapse Studios",
   "license": "MIT",
@@ -37,7 +37,7 @@
     "lodash": "3.10.1",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
-    "react-addons-create-fragment" : "^0.14.0"
+    "react-addons-create-fragment": "^0.14.0"
   },
   "devDependencies": {
     "autoprefixer": "6.0.3",
