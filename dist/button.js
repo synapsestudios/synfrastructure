@@ -20,12 +20,13 @@ var Button = _react2['default'].createClass({
         disabled: _react2['default'].PropTypes.bool,
         className: _react2['default'].PropTypes.string,
         onClick: _react2['default'].PropTypes.func,
-        tabIndex: _react2['default'].PropTypes.string
+        tabIndex: _react2['default'].PropTypes.string,
+        children: _react2['default'].PropTypes.any
     },
 
     getDefaultProps: function getDefaultProps() {
         return {
-            element: 'a',
+            element: 'button',
             componentCSSClassName: 'button',
             disabled: false,
             className: null,

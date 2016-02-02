@@ -16,13 +16,14 @@ let Button = React.createClass({
         disabled              : React.PropTypes.bool,
         className             : React.PropTypes.string,
         onClick               : React.PropTypes.func,
-        tabIndex              : React.PropTypes.string
+        tabIndex              : React.PropTypes.string,
+        children              : React.PropTypes.any
     },
 
     getDefaultProps()
     {
         return {
-            element               : 'a',
+            element               : 'button',
             componentCSSClassName : 'button',
             disabled              : false,
             className             : null,
