@@ -8,10 +8,8 @@
         "generators"     : true
     },
     "rules" : {
-        "indent"                        : [2, 4, {"indentSwitchCase": true}],
         "quotes"                        : 0,
         "semi"                          : [2,"always"],
-        "parser"                        : "babel-eslint",
         "strict"                        : 0,
         "global-strict"                 : 0,
         "no-multi-spaces"               : 0,

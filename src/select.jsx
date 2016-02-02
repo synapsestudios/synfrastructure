@@ -1,5 +1,5 @@
 import React             from 'react';
-import {Collection as _} from 'lodash';
+import _ from 'lodash';
 import FormInputMixin    from '../mixins/form-input-mixin';
 
 let Select = React.createClass({
