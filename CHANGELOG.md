@@ -1,3 +1,5 @@
+## [v4.1.0](https://github.com/synapsestudios/synfrastructure/compare/v4.0.4...v4.1.0) - 2016-02-02
+- Checkbox handlers report id of element as first param
 ## [v4.0.2](https://github.com/synapsestudios/synfrastructure/compare/v4.0.1...v4.0.2) - 2016-02-02
 - Add missing packages to manifest
 - Button component defaults to `<button>` element instead of anchor
