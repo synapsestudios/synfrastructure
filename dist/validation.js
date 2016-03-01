@@ -29,10 +29,9 @@ var Validation = _react2['default'].createClass({
         renderMessages: _react2['default'].PropTypes.oneOf(['before', 'after']),
         messageContainer: _react2['default'].PropTypes.func,
         messageContainerProps: _react2['default'].PropTypes.object,
-        validation: _react2['default'].PropTypes.shape({
-            status: _react2['default'].PropTypes.string,
-            messages: _react2['default'].PropTypes.array
-        })
+        errors: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.arrayOf(_react2['default'].PropTypes.string)]),
+        successMessages: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.arrayOf(_react2['default'].PropTypes.string)]),
+        warnings: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.arrayOf(_react2['default'].PropTypes.string)])
     },
 
     getDefaultProps: function getDefaultProps() {
@@ -45,56 +44,66 @@ var Validation = _react2['default'].createClass({
         };
     },
 
-    renderValidationMessages: function renderValidationMessages() {
+    renderMessage: function renderMessage(messages, messageType) {
+        var _this = this;
+
+        var messageProps = {},
+            messageElement = undefined,
+            messageClasses = undefined,
+            renderedMessages = [];
+
+        if (messages) {
+            messages = Array.isArray(messages) ? messages : [messages];
+
+            messageElement = this.props.messageContainer ? this.props.messageContainer : 'div';
+
+            messages.map(function (message, index) {
+                messageClasses = [_this.props.componentCSSClassName + '__message', _this.props.componentCSSClassName + '__message--' + messageType].join(' ');
+
+                messageProps = {
+                    className: messageClasses,
+                    key: 'validation-msg-' + messageType + '-' + index
+                };
+
+                renderedMessages.push(_react2['default'].createElement(messageElement, _this.mergeAttributes(messageProps, _this.props.messageContainerProps), message));
+            });
+        }
+
+        return renderedMessages;
+    },
+
+    renderMessages: function renderMessages() {
         var messages = [],
             component = this,
             messageProps = {},
             messageElement = undefined,
             messageClasses = undefined;
 
-        if (!this.props.validation || !this.props.validation.messages) {
-            return null;
-        }
-
-        messageElement = this.props.messageContainer ? this.props.messageContainer : 'div';
-
-        this.props.validation.messages.map(function (message, index) {
-            messageClasses = [component.props.componentCSSClassName + '__message', component.props.componentCSSClassName + '__message--' + component.props.validation.status].join(' ');
-
-            messageProps = {
-                className: messageClasses,
-                key: 'validation-msg-' + index
-            };
-
-            messages.push(_react2['default'].createElement(messageElement, component.mergeAttributes(messageProps, component.props.messageContainerProps), message));
-        });
+        messages = messages.concat(this.renderMessage(this.props.errors, 'error'), this.renderMessage(this.props.successMessages, 'success'), this.renderMessage(this.props.warnings, 'warning'));
 
         return messages;
     },
 
     renderValidationContent: function renderValidationContent() {
-        var messages = this.renderValidationMessages(),
-            orderdChildren = [];
+        var messages = this.renderMessages(),
+            orderedChildren = [];
 
-        orderdChildren = [_reactAddonsCreateFragment2['default']({ 'message-children': this.props.children }), _reactAddonsCreateFragment2['default']({ 'message': messages })];
+        orderedChildren = [_reactAddonsCreateFragment2['default']({ 'message-children': this.props.children }), _reactAddonsCreateFragment2['default']({ 'message': messages })];
 
         if (this.props.renderMessages === 'before') {
-            return orderdChildren.reverse();
+            return orderedChildren.reverse();
         }
 
-        return orderdChildren;
+        return orderedChildren;
     },
 
     render: function render() {
         var classes = undefined,
-            showClass = undefined,
-            statusClass = undefined;
+            showClass = undefined;
 
-        showClass = this.props.validation ? this.props.componentCSSClassName + '--show' : null;
+        showClass = this.props.errors ? this.props.componentCSSClassName + '--show' : null;
 
-        statusClass = this.props.validation ? this.props.componentCSSClassName + '--' + this.props.validation.status : null;
-
-        classes = [this.props.componentCSSClassName, showClass, statusClass, this.props.className].join(' ').trim();
+        classes = [this.props.componentCSSClassName, showClass, this.props.className].join(' ').trim();
 
         return _react2['default'].createElement(
             'div',
