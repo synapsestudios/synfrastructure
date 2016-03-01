@@ -50,25 +50,25 @@ var Checkbox = _react2['default'].createClass({
 
     onChange: function onChange(event) {
         if (this.props.onChange) {
-            this.props.onChange(this.props.id, this.props.checked, event);
+            this.props.onChange(this.props.id, event.target.checked, event);
         }
     },
 
     onFocus: function onFocus(event) {
         if (this.props.onFocus) {
-            this.props.onFocus(this.props.id, this.props.checked, event);
+            this.props.onFocus(this.props.id, event.target.checked, event);
         }
     },
 
     onBlur: function onBlur(event) {
         if (this.props.onBlur) {
-            this.props.onBlur(this.props.id, this.props.checked, event);
+            this.props.onBlur(this.props.id, event.target.checked, event);
         }
     },
 
     onKeyUp: function onKeyUp(event) {
         if (this.props.onKeyUp) {
-            this.props.onKeyUp(this.props.id, this.props.checked, event);
+            this.props.onKeyUp(this.props.id, event.target.checked, event);
         }
     },
 
