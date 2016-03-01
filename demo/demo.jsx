@@ -146,20 +146,28 @@ let Demo = React.createClass({
                         ]}
                     />
                 </div>
+
                 <div className='section'>
-                    <h1 className='h1'>Input Component Validated</h1>
+                    <h1 className='h1'>Input Component Validated (arrays)</h1>
                     <Validation
-                        validation = {{
-                            status   : 'error',
-                            messages : [
-                                'This field is required',
-                                'This field is empty'
-                            ]
-                        }}
+                        errors = {['this is an error message', 'another error']}
+                        successMessages = {['this is a success message', 'another success']}
+                        warnings = {['this is a warning message', 'another warning']}
                     >
                         <Input id='example5' />
                     </Validation>
                 </div>
+                <div className='section'>
+                    <h1 className='h1'>Input Component Validated (strings)</h1>
+                    <Validation
+                        errors = {'this is an error'}
+                        successMessages = {'this is a success'}
+                        warnings = {'this is a warning'}
+                    >
+                        <Input id='example5' />
+                    </Validation>
+                </div>
+
                 {this.renderModal()}
                 <div className='section'>
                     <h1 className='h1'>Grid System</h1>
