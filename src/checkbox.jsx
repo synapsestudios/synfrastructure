@@ -45,7 +45,7 @@ let Checkbox = React.createClass({
     onChange(event)
     {
         if (this.props.onChange) {
-            this.props.onChange(this.props.id, this.props.checked, event);
+            this.props.onChange(this.props.id, !this.props.checked, event);
         }
     },
 

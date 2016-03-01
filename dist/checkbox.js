@@ -50,7 +50,7 @@ var Checkbox = _react2['default'].createClass({
 
     onChange: function onChange(event) {
         if (this.props.onChange) {
-            this.props.onChange(this.props.id, this.props.checked, event);
+            this.props.onChange(this.props.id, !this.props.checked, event);
         }
     },
 
