@@ -1,0 +1,9 @@
+# v5.0.0
+
+## Validation Component
+The validation component now takes an errors prop and no longer takes a validation prop. You'll need to replace `validation = {{status: 'error', messages: ['message']}}` with the new errors prop `errors = {['message']}`. Errors prop will take a string or an array.
+
+In addition, there are two new props `successMessages` and `warnings` which take strings or arrays of strings. These will display the strings passed in as messages and they can be styled to look appropriate.
+
+## Checkbox
+The checkbox component now returns `true` from `onChange` whenever you're checking the box instead of false. If you have any logic that negates the value returned by the checkbox components onChange handler then you should stop negating it. You can trust it now.
