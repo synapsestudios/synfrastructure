@@ -15,15 +15,18 @@ let Validation = React.createClass({
         messageContainerProps : React.PropTypes.object,
         errors : React.PropTypes.oneOfType([
             React.PropTypes.string,
-            React.PropTypes.arrayOf(React.PropTypes.string)
+            React.PropTypes.arrayOf(React.PropTypes.string),
+            React.PropTypes.oneOf([false])
         ]),
         successMessages : React.PropTypes.oneOfType([
             React.PropTypes.string,
-            React.PropTypes.arrayOf(React.PropTypes.string)
+            React.PropTypes.arrayOf(React.PropTypes.string),
+            React.PropTypes.oneOf([false])
         ]),
         warnings : React.PropTypes.oneOfType([
             React.PropTypes.string,
-            React.PropTypes.arrayOf(React.PropTypes.string)
+            React.PropTypes.arrayOf(React.PropTypes.string),
+            React.PropTypes.oneOf([false])
         ])
     },
 

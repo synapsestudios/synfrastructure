@@ -29,9 +29,9 @@ var Validation = _react2['default'].createClass({
         renderMessages: _react2['default'].PropTypes.oneOf(['before', 'after']),
         messageContainer: _react2['default'].PropTypes.func,
         messageContainerProps: _react2['default'].PropTypes.object,
-        errors: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.arrayOf(_react2['default'].PropTypes.string)]),
-        successMessages: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.arrayOf(_react2['default'].PropTypes.string)]),
-        warnings: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.arrayOf(_react2['default'].PropTypes.string)])
+        errors: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.arrayOf(_react2['default'].PropTypes.string), _react2['default'].PropTypes.oneOf([false])]),
+        successMessages: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.arrayOf(_react2['default'].PropTypes.string), _react2['default'].PropTypes.oneOf([false])]),
+        warnings: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.arrayOf(_react2['default'].PropTypes.string), _react2['default'].PropTypes.oneOf([false])])
     },
 
     getDefaultProps: function getDefaultProps() {
