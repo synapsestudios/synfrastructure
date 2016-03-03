@@ -284,11 +284,19 @@ let Demo = React.createClass({
                     <h1 className='h1'>Password</h1>
                     <div className='row'>
                         <div className="small-12 medium-6">
-                            <Password id='password' />
+                            <Password id='password' revealIcon={Trash} />
                         </div>
                     </div>
                 </div>
 
+                <div className='section'>
+                    <h1 className='h1'>Controlled Password</h1>
+                    <div className='row'>
+                        <div className="small-12 medium-6">
+                            <Password id='password' revealPassword={true} toggleReveal={() => console.log('toggle called')}/>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
