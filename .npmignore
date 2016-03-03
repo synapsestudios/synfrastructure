@@ -1,4 +1,4 @@
+*.jsx
 node_modules
 npm-debug.log
 demo-build
-dist
