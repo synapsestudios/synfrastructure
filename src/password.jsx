@@ -11,8 +11,12 @@ export default React.createClass({
     displayName : 'PasswordInput',
 
     propTypes : {
+        // use these props to control the reveal, otherwise the component uses local state
         revealPassword : React.PropTypes.bool,
-        toggleReveal : React.PropTypes.func
+        toggleReveal : React.PropTypes.func,
+
+        revealIcon : React.PropTypes.func,
+        hideIcon : React.PropTypes.func
     },
 
     getInitialState()
@@ -30,20 +34,22 @@ export default React.createClass({
 
     toggleReveal()
     {
+        // always trust prop before state
         if (typeof this.props.revealPassword === 'undefined') {
-            this.props.toggleReveal();
-        } else {
             this.setState({revealPassword: !this.state.revealPassword});
+        } else {
+            this.props.toggleReveal();
         }
     },
 
     renderPasswordRevealIcon()
     {
-        let visibilityIcon = this.shouldRevealPassword() ? <EyeOpenIcon /> : <EyeClosedIcon />;
+        let RevealIcon = this.props.revealIcon ? this.props.revealIcon : EyeOpenIcon;
+        let HideIcon = this.props.hideIcon ? this.props.hideIcon : EyeClosedIcon;
 
         return (
-            <div className='input__password-reveal' onClick={() => this.setState({revealPassword: !this.state.revealPassword})}>
-                <Icon>{this.state.revealPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}</Icon>
+            <div className='input__password-reveal' onClick={this.toggleReveal}>
+                <Icon>{this.shouldRevealPassword() ? <RevealIcon /> : <HideIcon />}</Icon>
             </div>
         );
     },
@@ -53,7 +59,7 @@ export default React.createClass({
         return (
             <div>
                 <input
-                    type = {this.state.revealPassword ? 'text' : 'password'}
+                    type = {this.shouldRevealPassword() ? 'text' : 'password'}
                     className = 'input'
                     {...this.props}
                 />
