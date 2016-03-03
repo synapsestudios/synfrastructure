@@ -11,6 +11,9 @@ import Modal      from '../src/modal';
 import Tooltip    from '../src/tooltip';
 import Switch     from '../src/switch';
 
+import Icon from '../src/icon';
+import Trash from './trash';
+
 require('./demo.scss');
 
 let Demo = React.createClass({
@@ -202,6 +205,7 @@ let Demo = React.createClass({
                         onClick  = {this.toggleSwitch2}
                     />
                 </div>
+                
                 <div className='section'>
                     <h1 className='h1'>Tooltips</h1>
                     <div className='row'>
@@ -261,6 +265,17 @@ let Demo = React.createClass({
                                 data-place  = 'left'
                                 data-effect = 'float'
                             >Floated Left</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='section'>
+                    <h1 className='h1'>Icon</h1>
+                    <div className='row'>
+                        <div className="small-1">
+                            <Icon>
+                                <Trash />
+                            </Icon>
                         </div>
                     </div>
                 </div>
