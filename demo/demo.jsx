@@ -10,9 +10,9 @@ import Validation from '../src/validation';
 import Modal      from '../src/modal';
 import Tooltip    from '../src/tooltip';
 import Switch     from '../src/switch';
-
-import Icon from '../src/icon';
-import Trash from './trash';
+import Icon       from '../src/icon';
+import Trash      from './trash';
+import Password   from '../src/password';
 
 require('./demo.scss');
 
@@ -279,6 +279,16 @@ let Demo = React.createClass({
                         </div>
                     </div>
                 </div>
+
+                <div className='section'>
+                    <h1 className='h1'>Password</h1>
+                    <div className='row'>
+                        <div className="small-12 medium-6">
+                            <Password id='password' />
+                        </div>
+                    </div>
+                </div>
+
             </div>
         );
     }
