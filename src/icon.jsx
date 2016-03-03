@@ -7,7 +7,6 @@ let Icon = React.createClass({
     displayName : 'Icon',
 
     propTypes : {
-        icon : React.PropTypes.string.isRequired,
         size : React.PropTypes.oneOf([
             'x-small',
             'small',
