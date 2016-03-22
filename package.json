@@ -30,7 +30,7 @@
   },
   "scripts": {
     "demo": "rm -rf ./demo-build/* && ./node_modules/webpack/bin/webpack.js --config webpack.config.demo.js && node ./demo-server.js",
-    "build": "rm -f ./dist/*  && ./node_modules/babel/bin/babel.js src --loose --out-dir dist",
+    "build": "rm -rf ./dist/*  && ./node_modules/babel/bin/babel.js src --loose --out-dir dist",
     "prepublish": "npm run build"
   },
   "dependencies": {
