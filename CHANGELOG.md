@@ -1,3 +1,5 @@
+## [v5.0.3](https://github.com/synapsestudios/synfrastructure/compare/v5.0.2...v5.0.3) - 2016-03-22
+- Pass events from onBlur, onFocus, onChange (merge from 4.x)
 ## [v5.0.2](https://github.com/synapsestudios/synfrastructure/compare/v4.1.0...v5.0.2) - 2016-03-04
 - Refactor out InputGroup component, see [UPGRADE_GUIDE](https://github.com/synapsestudios/synfrastructure/blob/master/UPGRADE_GUIDE.md)
 ## [v4.1.1](https://github.com/synapsestudios/synfrastructure/compare/v4.1.0...v4.1.1) - 2016-03-22
