@@ -1,3 +1,5 @@
+## [v5.0.4](https://github.com/synapsestudios/synfrastructure/compare/v5.0.3...v5.0.4) - 2016-03-31
+- Allow disabled on select options
 ## [v5.0.3](https://github.com/synapsestudios/synfrastructure/compare/v5.0.2...v5.0.3) - 2016-03-22
 - Pass events from onBlur, onFocus, onChange (merge from 4.x)
 ## [v5.0.2](https://github.com/synapsestudios/synfrastructure/compare/v4.1.0...v5.0.2) - 2016-03-04
