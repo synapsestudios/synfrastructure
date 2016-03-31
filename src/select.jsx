@@ -75,8 +75,9 @@ let Select = React.createClass({
         return _.map(this.props.options, (option, index) => {
             return (
                 <option
-                    value = {option.value}
-                    key   = {option.text}
+                    value    = {option.value}
+                    key      = {option.text}
+                    disabled = {option.disabled || false}
                 >
                     {option.text}
                 </option>
