@@ -1,16 +1,22 @@
 ## [v5.0.4](https://github.com/synapsestudios/synfrastructure/compare/v5.0.3...v5.0.4) - 2016-03-31
 - Allow disabled on select options
+
 ## [v5.0.3](https://github.com/synapsestudios/synfrastructure/compare/v5.0.2...v5.0.3) - 2016-03-22
 - Pass events from onBlur, onFocus, onChange (merge from 4.x)
+
 ## [v5.0.2](https://github.com/synapsestudios/synfrastructure/compare/v4.1.0...v5.0.2) - 2016-03-04
 - Refactor out InputGroup component, see [UPGRADE_GUIDE](https://github.com/synapsestudios/synfrastructure/blob/master/UPGRADE_GUIDE.md)
+
 ## [v4.1.1](https://github.com/synapsestudios/synfrastructure/compare/v4.1.0...v4.1.1) - 2016-03-22
 - Pass events from onBlur, onFocus, onChange
+
 ## [v4.1.0](https://github.com/synapsestudios/synfrastructure/compare/v4.0.4...v4.1.0) - 2016-02-02
 - Checkbox handlers report id of element as first param
+
 ## [v4.0.2](https://github.com/synapsestudios/synfrastructure/compare/v4.0.1...v4.0.2) - 2016-02-02
 - Add missing packages to manifest
 - Button component defaults to `<button>` element instead of anchor
+
 ## [v4.0.0](https://github.com/synapsestudios/synfrastructure/compare/v3.2.0...v4.0.0) - 2015-10-26
 - Added support for React 14
 - In exchange, we lost support for React 13. Use the v3.x branch for React 13 support
