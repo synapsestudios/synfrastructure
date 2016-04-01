@@ -78,6 +78,7 @@ let Select = React.createClass({
                     value    = {option.value}
                     key      = {option.text}
                     disabled = {option.disabled || false}
+                    selected = {option.selected || false}
                 >
                     {option.text}
                 </option>
