@@ -1,4 +1,4 @@
-## [v4.1.2](https://github.com/synapsestudios/synfrastructure/compare/v4.1.1...v4.1.2) - 2016-03-31
+## [v4.1.3](https://github.com/synapsestudios/synfrastructure/compare/v4.1.1...v4.1.3) - 2016-03-31
 - Allow disabled select options
 
 ## [v4.1.1](https://github.com/synapsestudios/synfrastructure/compare/v4.1.0...v4.1.1) - 2016-03-22
