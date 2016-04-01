@@ -88,7 +88,8 @@ var Select = _react2['default'].createClass({
                 'option',
                 {
                     value: option.value,
-                    key: option.text
+                    key: option.text,
+                    disabled: option.disabled || false
                 },
                 option.text
             );
