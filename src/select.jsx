@@ -1,5 +1,5 @@
 import React             from 'react';
-import _ from 'lodash';
+import map               from 'lodash/map';
 import FormInputMixin    from '../mixins/form-input-mixin';
 
 let Select = React.createClass({
@@ -72,7 +72,7 @@ let Select = React.createClass({
             return null;
         }
 
-        return _.map(this.props.options, (option, index) => {
+        return map(this.props.options, (option, index) => {
             return (
                 <option
                     value    = {option.value}

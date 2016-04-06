@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _lodash = require('lodash');
+var _lodashMap = require('lodash/map');
 
-var _lodash2 = _interopRequireDefault(_lodash);
+var _lodashMap2 = _interopRequireDefault(_lodashMap);
 
 var _mixinsFormInputMixin = require('../mixins/form-input-mixin');
 
@@ -69,7 +69,7 @@ var Select = _react2['default'].createClass({
             return this.props.value;
         }
 
-        selectedOption = _lodash2['default'].findWhere(this.props.options, { selected: true });
+        selectedOption = _.findWhere(this.props.options, { selected: true });
 
         if (!selectedOption) {
             return null;
@@ -83,12 +83,13 @@ var Select = _react2['default'].createClass({
             return null;
         }
 
-        return _lodash2['default'].map(this.props.options, function (option, index) {
+        return _lodashMap2['default'](this.props.options, function (option, index) {
             return _react2['default'].createElement(
                 'option',
                 {
                     value: option.value,
-                    key: option.text
+                    key: option.text,
+                    disabled: option.disabled || false
                 },
                 option.text
             );
