@@ -1,6 +1,6 @@
 import React             from 'react';
-import map               from 'lodash/map';
-import findWhere         from 'lodash/findWhere';
+import map               from 'lodash/collection/map';
+import findWhere         from 'lodash/collection/findWhere';
 import FormInputMixin    from '../mixins/form-input-mixin';
 
 let Select = React.createClass({
