@@ -1,3 +1,8 @@
+## [v5.1.0](https://github.com/synapsestudios/synfrastructure/compare/v5.0.4...v5.1.0) - 2016-04-11
+- Require in only the utilized lodash modules
+- Update to React 15
+- Package bump
+
 ## [v5.0.4](https://github.com/synapsestudios/synfrastructure/compare/v5.0.3...v5.0.4) - 2016-03-31
 - Allow disabled on select options
 

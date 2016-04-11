@@ -1,6 +1,6 @@
 import React from 'react';
-import map from 'lodash/collection/map';
-import findWhere from 'lodash/collection/findWhere';
+import map from 'lodash/map';
+import find from 'lodash/find';
 import FormInputMixin from '../mixins/form-input-mixin';
 
 let Select = React.createClass({
@@ -58,7 +58,7 @@ let Select = React.createClass({
             return this.props.value;
         }
 
-        selectedOption = findWhere(this.props.options, {selected : true});
+        selectedOption = find(this.props.options, {selected : true});
 
         if (! selectedOption) {
             return null;
