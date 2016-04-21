@@ -15,16 +15,8 @@
 @import "foundation/global";
 
 // import grid systems
-@import "grid/legacy-grid";
-@import "grid/flexbox-grid";
-
-@if($legacy-grid) {
-    @include legacy-grid;
-} @else {
-    // Flexbox Grid
-    // http://flexboxgrid.com
-    @include flexbox-grid;
-}
+@import "grid/grid-mixins";
+@import "grid/grid";
 
 // imports from Bourbon
 // http://bourbon.io/docs/
