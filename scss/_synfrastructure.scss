@@ -14,13 +14,16 @@
 @import "foundation/functions";
 @import "foundation/global";
 
-// import grid
+// import grid systems
+@import "grid/legacy-grid";
+@import "grid/flexbox-grid";
+
 @if($legacy-grid) {
-    @import "grid/legacy-grid";
+    @include legacy-grid;
 } @else {
     // Flexbox Grid
-    // http://flexboxgrid.com/
-    @import "grid/flexbox-grid";
+    // http://flexboxgrid.com
+    @include flexbox-grid;
 }
 
 // imports from Bourbon

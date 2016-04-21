@@ -1,3 +1,6 @@
+## [v4.2.0](https://github.com/synapsestudios/synfrastructure/compare/v4..3...v4.2.0) - 2016-04-21
+- Import grids and use their mixins to include them
+
 ## [v4.1.3](https://github.com/synapsestudios/synfrastructure/compare/v4.1.1...v4.1.3) - 2016-03-31
 - Allow disabled select options
 
