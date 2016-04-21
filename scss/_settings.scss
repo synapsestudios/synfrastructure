@@ -38,10 +38,10 @@ $outer-margin        : 2rem !default;
 $gutter-compensation : (($gutter-width / 2) * -1) !default;
 $half-gutter-width   : ($gutter-width / 2) !default;
 
-$viewport-xs : #{$media-xsmall} !default;
-$viewport-sm : #{$media-small} !default;
-$viewport-md : #{$media-medium} !default;
-$viewport-lg : #{$media-large} !default;
+$viewport-xs : $media-xsmall !default;
+$viewport-sm : $media-small !default;
+$viewport-md : $media-medium !default;
+$viewport-lg : $media-large !default;
 
 $container-sm : #{$media-small} + $gutter-width !default;
 $container-md : #{$media-medium} + $gutter-width !default;
