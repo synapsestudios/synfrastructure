@@ -15,76 +15,58 @@ $font-size-base : rem-calc(16) !default;
 // Base line height
 $line-height-base : 1.5 !default;
 
-// Use legacy grid?
-$legacy-grid : false !default;
-
 // Media Sizes
 $media-xsmall : 30em !default; // 480px
 $media-small  : 48em !default; // 768px
 $media-medium : 62em !default; // 992px
 $media-large  : 75em !default; // 1200px
 
-@if ($legacy-grid) {
-    // Legacy Grid Settings
-    $row-width     : rem-calc(1280) !default;
-    $column-gutter : rem-calc(20)   !default;
-    $total-columns : 12             !default;
+// Media Query Ranges
+$small-range   : (0, #{$media-xsmall})                      !default;
+$medium-range  : (#{$media-xsmall + .063em}, #{$media-small}) !default;
+$large-range   : (#{$media-small + .063em}, #{$media-medium}) !default;
+$xlarge-range  : (#{$media-medium + .063em}, #{$media-large}) !default;
+$xxlarge-range : (#{$media-large + .063em})                   !default;
 
-    $small-limit  : $media-xsmall;
-    $medium-limit : $media-small;
-    $large-limit  : $media-medium;
-    $xlarge-limit : $media-large;
+// Flexbox Grid Settings
+$column-count    : 12 !default;
+$column-selector : '.' !default;
+$offset-modifier : 'offset' !default;
 
-    // Media Query Ranges
-    $small-range   : (0, #{$media-xsmall})                      !default;
-    $medium-range  : (#{$media-xsmall + .063em}, #{$media-small}) !default;
-    $large-range   : (#{$media-small + .063em}, #{$media-medium}) !default;
-    $xlarge-range  : (#{$media-medium + .063em}, #{$media-large}) !default;
-    $xxlarge-range : (#{$media-large + .063em})                   !default;
-} @else {
-    // Flexbox Grid Settings
-    $column-count    : 12 !default;
-    $column-selector : '.' !default;
-    $offset-modifier : 'offset' !default;
+$gutter-width        : 1rem !default;
+$outer-margin        : 2rem !default;
+$gutter-compensation : (($gutter-width / 2) * -1) !default;
+$half-gutter-width   : ($gutter-width / 2) !default;
 
-    $gutter-width        : 1rem !default;
-    $outer-margin        : 2rem !default;
-    $gutter-compensation : (($gutter-width / 2) * -1) !default;
-    $half-gutter-width   : ($gutter-width / 2) !default;
+$viewport-xs : $media-xsmall !default;
+$viewport-sm : $media-small !default;
+$viewport-md : $media-medium !default;
+$viewport-lg : $media-large !default;
 
-    $viewport-xs : #{$media-xsmall} !default;
-    $viewport-sm : #{$media-small} !default;
-    $viewport-md : #{$media-medium} !default;
-    $viewport-lg : #{$media-large} !default;
+$container-sm : #{$media-small} + $gutter-width !default;
+$container-md : #{$media-medium} + $gutter-width !default;
+$container-lg : #{$media-large} + $gutter-width !default;
 
-    $container-sm : #{$media-small} + $gutter-width !default;
-    $container-md : #{$media-medium} + $gutter-width !default;
-    $container-lg : #{$media-large} + $gutter-width !default;
+$xs : 'xsmall' !default;
+$sm : 'small'  !default;
+$md : 'medium' !default;
+$lg : 'large'  !default;
 
-    $xs : 'xsmall' !default;
-    $sm : 'small'  !default;
-    $md : 'medium' !default;
-    $lg : 'large'  !default;
+// Removed to match 'size-x' syntax
+$block-delimiter    : '' !default;
+$element-delimiter  : '-' !default;
+$modifier-delimiter : '-' !default;
 
-    // Removed to match 'size-x' syntax
-    $block-delimiter    : '' !default;
-    $element-delimiter  : '-' !default;
-    $modifier-delimiter : '-' !default;
+$default-query : $viewport-xs !default;
+$queries: (
+  $xs: $viewport-xs,
+  $sm: $viewport-sm,
+  $md: $viewport-md,
+  $lg: $viewport-lg
+) !default;
 
-    $defaultQuery : $viewport-xs !default;
-
-    $sizes : #{$xs}, #{$sm}, #{$md}, #{$lg} !default;
-
-    $queries : (
-        #{$xs} : #{$viewport-xs},
-        #{$sm} : #{$viewport-sm},
-        #{$md} : #{$viewport-md},
-        #{$lg} : #{$viewport-lg}
-    ) !default;
-
-    $column-properties : 'flex-basis', 'max-width' !default;
-    $offset-properties : 'margin-left' !default;
-}
+$column-properties : 'flex-basis', 'max-width' !default;
+$offset-properties : 'margin-left' !default;
 
 // Margin utility helpers
 $max-margin-spacing        : 30 !default; // Ex: max l--m-30
@@ -98,4 +80,3 @@ $padding-spacing-threshhold : 3  !default; // Ex: l--p-0, l--p-3, l--p-6
 $white     : #fff    !default;
 $black     : #000    !default;
 $syn-color : #25c0d7 !default;
-

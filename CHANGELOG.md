@@ -1,5 +1,6 @@
-## [v5.2.0](https://github.com/synapsestudios/synfrastructure/compare/v5.1,0...v5.2.0) - 2016-04-32
-- Import grids and use their mixins to include them
+## [v5.3.0](https://github.com/synapsestudios/synfrastructure/compare/v5.1,0...v5.3.0) - 2016-04-21
+- [BREAKING] Remove legacy Grid
+- Remove scss animation utilities
 
 ## [v5.1.0](https://github.com/synapsestudios/synfrastructure/compare/v5.0.4...v5.1.0) - 2016-04-11
 - Require in only the utilized lodash modules
