@@ -57,7 +57,6 @@ let TextArea = React.createClass({
 
         classes = [
             this.props.componentCSSClassName,
-            this.props.componentCSSClassName + '--' + this.props.type,
             resizeClass,
             this.props.className
         ].join(' ');
