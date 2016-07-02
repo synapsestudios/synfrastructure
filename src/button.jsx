@@ -1,73 +1,61 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-let Button = React.createClass({
+class Button extends Component {
 
-    displayName : 'SynfrastructureButton',
+  render() {
+    const classes = [
+      this.props.componentCSSClassName,
+      this.props.className,
+      this.props.disabled ? `${this.props.componentCSSClassName}--disabled` : null,
+    ].join(' ');
 
-    propTypes : {
-        element : React.PropTypes.oneOf([
-            'a',
-            'button',
-            'input',
-            'span',
-            'div'
-        ]),
-        componentCSSClassName : React.PropTypes.string,
-        disabled              : React.PropTypes.bool,
-        className             : React.PropTypes.string,
-        onClick               : React.PropTypes.func,
-        tabIndex              : React.PropTypes.string,
-        children              : React.PropTypes.any
-    },
+    const ComponentChildren = React.createElement(
+      'span',
+      {
+        className: `${this.props.componentCSSClassName}__children`,
+      },
+      this.props.children
+    );
 
-    getDefaultProps()
-    {
-        return {
-            element               : 'button',
-            componentCSSClassName : 'button',
-            disabled              : false,
-            className             : null,
-            onClick               : null
-        };
-    },
+    const ButtonComponent = React.createElement(
+      this.props.element,
+      {
+        ...this.props,
+        className: classes,
+        onClick: this.props.onClick,
+        disabled: this.props.disabled,
+        tabIndex: this.props.tabIndex,
+      },
+      ComponentChildren
+    );
 
-    render()
-    {
-        let Component,
-            ComponentChildren,
-            classes,
-            childClassName;
+    return ButtonComponent;
+  }
 
-        classes = [
-            this.props.componentCSSClassName,
-            this.props.className,
-            this.props.disabled ?
-                this.props.componentCSSClassName + '--disabled' : null
-        ].join(' ');
+}
 
-        childClassName = this.props.componentCSSClassName + '__children';
+Button.propTypes = {
+  element: PropTypes.oneOf([
+    'a',
+    'button',
+    'input',
+    'span',
+    'div',
+  ]),
+  componentCSSClassName: PropTypes.string,
+  disabled: PropTypes.bool,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+  tabIndex: PropTypes.string,
+  children: PropTypes.any,
+};
 
-        ComponentChildren = React.createElement(
-            'span',
-            {className : childClassName},
-            this.props.children
-        );
-
-        Component = React.createElement(
-            this.props.element,
-            {
-                ...this.props,
-                className : classes,
-                onClick   : this.props.onClick,
-                disabled  : this.props.disabled,
-                tabIndex  : this.props.tabIndex
-            },
-            ComponentChildren
-        );
-
-        return Component;
-    }
-
-});
+Button.defaultProps = {
+  element: 'button',
+  componentCSSClassName: 'button',
+  disabled: false,
+  className: null,
+  onClick: null,
+};
 
 export default Button;

@@ -1,89 +1,138 @@
-import React          from 'react';
-import FormInputMixin from '../mixins/form-input-mixin';
+import React, { Component, PropTypes } from 'react';
 
-let TextArea = React.createClass({
+class TextArea extends Component {
 
-    displayName : 'SynfrastructureTextArea',
+  constructor(props) {
+    super(props);
 
-    mixins : [FormInputMixin],
+    this.onFocus = this.onFocus.bind(this);
+    this.onBlur = this.onBlur.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onKeyUp = this.onKeyUp.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
+    this.onKeyPress = this.onKeyPress.bind(this);
+  }
 
-    propTypes : {
-        id                    : React.PropTypes.string.isRequired,
-        disabled              : React.PropTypes.bool,
-        componentCSSClassName : React.PropTypes.string,
-        label                 : React.PropTypes.string,
-        placeholder           : React.PropTypes.string,
-        style                 : React.PropTypes.any,
-        value                 : React.PropTypes.any,
-        rows                  : React.PropTypes.number,
-        resize                : React.PropTypes.bool,
-        onFocus               : React.PropTypes.func,
-        onBlur                : React.PropTypes.func,
-        onChange              : React.PropTypes.func,
-        onKeyDown             : React.PropTypes.func,
-        onKeyUp               : React.PropTypes.func,
-        onKeyPress            : React.PropTypes.func,
-        className             : React.PropTypes.string,
-        tabIndex              : React.PropTypes.string
-    },
+  onFocus(event) {
+    const currentValue = event.currentTarget.value;
 
-    getDefaultProps()
-    {
-        return {
-            componentCSSClassName : 'textarea',
-            placeholder           : null,
-            style                 : null,
-            value                 : null,
-            rows                  : 4,
-            resize                : true,
-            onFocus               : null,
-            onBlur                : null,
-            onChange              : null,
-            onKeyUp               : null,
-            onKeyDown             : null,
-            onKeyPress            : null,
-            disabled              : false,
-            className             : null
-        };
-    },
-
-    render()
-    {
-        let classes,
-            resizeClass;
-
-        resizeClass = ! this.props.resize ?
-            this.props.componentCSSClassName + '--no-resize' : null;
-
-        classes = [
-            this.props.componentCSSClassName,
-            this.props.componentCSSClassName + '--' + this.props.type,
-            resizeClass,
-            this.props.className
-        ].join(' ');
-
-        return (
-            <textarea
-                {...this.props}
-                className   = {classes}
-                id          = {this.props.id}
-                name        = {this.props.name}
-                value       = {this.props.value}
-                rows        = {this.props.rows}
-                placeholder = {this.props.placeholder}
-                style       = {this.props.style}
-                onFocus     = {this.onFocus}
-                onBlur      = {this.onBlur}
-                onChange    = {this.onChange}
-                onKeyUp     = {this.onKeyUp}
-                onKeyDown   = {this.onKeyDown}
-                onKeyPress  = {this.onKeyPress}
-                disabled    = {this.props.disabled}
-                tabIndex    = {this.props.tabIndex}
-            />
-        );
+    if (this.props.onFocus) {
+      this.props.onFocus(currentValue, event);
     }
+  }
 
-});
+  onBlur(event) {
+    const currentValue = event.currentTarget.value;
+
+    if (this.props.onBlur) {
+      this.props.onBlur(currentValue, event);
+    }
+  }
+
+  onChange(event) {
+    const currentValue = event.currentTarget.value;
+
+    if (this.props.onChange) {
+      this.props.onChange(currentValue, event);
+    }
+  }
+
+  onKeyUp(event) {
+    const currentValue = event.currentTarget.value;
+
+    if (this.props.onKeyUp) {
+      this.props.onKeyUp(currentValue, event);
+    }
+  }
+
+  onKeyDown(event) {
+    const currentValue = event.currentTarget.value;
+
+    if (this.props.onKeyDown) {
+      this.props.onKeyDown(currentValue, event);
+    }
+  }
+
+  onKeyPress(event) {
+    const currentValue = event.currentTarget.value;
+
+    if (this.props.onKeyPress) {
+      this.props.onKeyPress(currentValue, event);
+    }
+  }
+
+  render() {
+    const resizeClass = ! this.props.resize ?
+      `${this.props.componentCSSClassName}--no-resize` : null;
+
+    const classes = [
+      this.props.componentCSSClassName,
+      `${this.props.componentCSSClassName}--${this.props.type}`,
+      resizeClass,
+      this.props.className,
+    ].join(' ').trim();
+
+    return (
+      <textarea
+        {...this.props}
+        className={classes}
+        id={this.props.id}
+        name={this.props.name}
+        value={this.props.value}
+        rows={this.props.rows}
+        placeholder={this.props.placeholder}
+        style={this.props.style}
+        onFocus={this.onFocus}
+        onBlur={this.onBlur}
+        onChange={this.onChange}
+        onKeyUp={this.onKeyUp}
+        onKeyDown={this.onKeyDown}
+        onKeyPress={this.onKeyPress}
+        disabled={this.props.disabled}
+        tabIndex={this.props.tabIndex}
+      />
+    );
+  }
+
+}
+
+TextArea.propTypes = {
+  id: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
+  componentCSSClassName: PropTypes.string,
+  label: PropTypes.string,
+  placeholder: PropTypes.string,
+  style: PropTypes.any,
+  value: PropTypes.any,
+  rows: PropTypes.number,
+  resize: PropTypes.bool,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  onKeyUp: PropTypes.func,
+  onKeyPress: PropTypes.func,
+  className: PropTypes.string,
+  tabIndex: PropTypes.string,
+  type: PropTypes.string,
+  name: PropTypes.string,
+};
+
+TextArea.defaultProps = {
+  componentCSSClassName: 'textarea',
+  placeholder: null,
+  style: null,
+  value: undefined,
+  rows: 4,
+  resize: true,
+  onFocus: null,
+  onBlur: null,
+  onChange: null,
+  onKeyUp: null,
+  onKeyDown: null,
+  onKeyPress: null,
+  disabled: false,
+  className: null,
+};
 
 export default TextArea;

@@ -1,70 +1,73 @@
-'use strict';
+import React, { Component, PropTypes } from 'react';
 
-import React from 'react';
-import classNames from 'classnames';
 import Icon from './icon';
 import EyeOpenIcon from './icons/eye-open';
 import EyeClosedIcon from './icons/eye-closed';
 
-export default React.createClass({
+class PasswordInput extends Component {
 
-    displayName : 'PasswordInput',
+  constructor(props) {
+    super(props);
 
-    propTypes : {
-        // use these props to control the reveal, otherwise the component uses local state
-        revealPassword : React.PropTypes.bool,
-        toggleReveal : React.PropTypes.func,
+    this.state = {
+      revealPassword: false,
+    };
 
-        revealIcon : React.PropTypes.func,
-        hideIcon : React.PropTypes.func
-    },
+    this.toggleReveal = this.toggleReveal.bind(this);
+  }
 
-    getInitialState()
-    {
-        return {
-            revealPassword : false
-        };
-    },
+  shouldRevealPassword() {
+    // always trust prop before state
+    return typeof this.props.revealPassword === 'undefined' ?
+      this.state.revealPassword : this.props.revealPassword;
+  }
 
-    shouldRevealPassword()
-    {
-        // always trust prop before state
-        return typeof this.props.revealPassword === 'undefined' ? this.state.revealPassword : this.props.revealPassword;
-    },
-
-    toggleReveal()
-    {
-        // always trust prop before state
-        if (typeof this.props.revealPassword === 'undefined') {
-            this.setState({revealPassword: !this.state.revealPassword});
-        } else {
-            this.props.toggleReveal();
-        }
-    },
-
-    renderPasswordRevealIcon()
-    {
-        let RevealIcon = this.props.revealIcon ? this.props.revealIcon : EyeOpenIcon;
-        let HideIcon = this.props.hideIcon ? this.props.hideIcon : EyeClosedIcon;
-
-        return (
-            <div className='input__password-reveal' onClick={this.toggleReveal}>
-                <Icon>{this.shouldRevealPassword() ? <RevealIcon /> : <HideIcon />}</Icon>
-            </div>
-        );
-    },
-
-    render()
-    {
-        return (
-            <div>
-                <input
-                    type = {this.shouldRevealPassword() ? 'text' : 'password'}
-                    className = 'input'
-                    {...this.props}
-                />
-                {this.renderPasswordRevealIcon()}
-            </div>
-        );
+  toggleReveal() {
+    // always trust prop before state
+    if (typeof this.props.revealPassword === 'undefined') {
+      this.setState({
+        revealPassword: !this.state.revealPassword,
+      });
+    } else {
+      this.props.toggleReveal();
     }
-});
+  }
+
+  renderPasswordRevealIcon() {
+    const RevealIcon = this.props.revealIcon ? this.props.revealIcon : EyeOpenIcon;
+    const HideIcon = this.props.hideIcon ? this.props.hideIcon : EyeClosedIcon;
+
+    return (
+      <div
+        className="input__password-reveal"
+        onClick={this.toggleReveal}
+      >
+        <Icon>{this.shouldRevealPassword() ? <RevealIcon /> : <HideIcon />}</Icon>
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div>
+        <input
+          type={this.shouldRevealPassword() ? 'text' : 'password'}
+          className="input"
+          {...this.props}
+        />
+        {this.renderPasswordRevealIcon()}
+      </div>
+    );
+  }
+}
+
+// use revealPassword/toggleReveal props to control the reveal,
+// otherwise the component uses local state
+PasswordInput.propTypes = {
+  revealPassword: PropTypes.bool,
+  toggleReveal: PropTypes.func,
+  revealIcon: PropTypes.func,
+  hideIcon: PropTypes.func,
+};
+
+export default PasswordInput;

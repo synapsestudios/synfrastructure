@@ -1,90 +1,141 @@
-import React          from 'react';
-import FormInputMixin from '../mixins/form-input-mixin';
+import React, { Component, PropTypes } from 'react';
 
-let Input = React.createClass({
+class Input extends Component {
 
-    displayName : 'SynfrastructureInput',
+  constructor(props) {
+    super(props);
 
-    mixins : [FormInputMixin],
+    this.onFocus = this.onFocus.bind(this);
+    this.onBlur = this.onBlur.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onKeyUp = this.onKeyUp.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
+    this.onKeyPress = this.onKeyPress.bind(this);
+  }
 
-    propTypes : {
-        id                    : React.PropTypes.string.isRequired,
-        disabled              : React.PropTypes.bool,
-        componentCSSClassName : React.PropTypes.string,
-        placeholder           : React.PropTypes.string,
-        value                 : React.PropTypes.any,
-        onFocus               : React.PropTypes.func,
-        onBlur                : React.PropTypes.func,
-        onChange              : React.PropTypes.func,
-        onKeyDown             : React.PropTypes.func,
-        onKeyUp               : React.PropTypes.func,
-        onKeyPress            : React.PropTypes.func,
-        tabIndex              : React.PropTypes.string,
-        className             : React.PropTypes.string,
-        type                  : React.PropTypes.oneOf([
-            'date',
-            'datetime',
-            'datetime-local',
-            'date',
-            'email',
-            'month',
-            'number',
-            'password',
-            'search',
-            'tel',
-            'text',
-            'url',
-            'week'
-        ])
-    },
+  onFocus(event) {
+    const currentValue = event.currentTarget.value;
 
-    getDefaultProps : function()
-    {
-        return {
-            componentCSSClassName : 'input',
-            placeholder           : null,
-            value                 : null,
-            onFocus               : null,
-            onBlur                : null,
-            onChange              : null,
-            onKeyUp               : null,
-            onKeyDown             : null,
-            onKeyPress            : null,
-            className             : null,
-            disabled              : false,
-            type                  : 'text'
-        };
-    },
-
-    render : function()
-    {
-        var classes = [
-            this.props.componentCSSClassName,
-            this.props.componentCSSClassName + '--' + this.props.type,
-            this.props.className
-        ].join(' ');
-
-        return (
-            <input
-                {...this.props}
-                className   = {classes}
-                id          = {this.props.id}
-                name        = {this.props.name}
-                placeholder = {this.props.placeholder}
-                value       = {this.props.value}
-                onFocus     = {this.onFocus}
-                onBlur      = {this.onBlur}
-                onChange    = {this.onChange}
-                onKeyUp     = {this.onKeyUp}
-                onKeyDown   = {this.onKeyDown}
-                onKeyPress  = {this.onKeyPress}
-                disabled    = {this.props.disabled}
-                type        = {this.props.type}
-                tabIndex    = {this.props.tabIndex}
-            />
-        );
+    if (this.props.onFocus) {
+      this.props.onFocus(currentValue, event);
     }
+  }
 
-});
+  onBlur(event) {
+    const currentValue = event.currentTarget.value;
+
+    if (this.props.onBlur) {
+      this.props.onBlur(currentValue, event);
+    }
+  }
+
+  onChange(event) {
+    const currentValue = event.currentTarget.value;
+
+    if (this.props.onChange) {
+      this.props.onChange(currentValue, event);
+    }
+  }
+
+  onKeyUp(event) {
+    const currentValue = event.currentTarget.value;
+
+    if (this.props.onKeyUp) {
+      this.props.onKeyUp(currentValue, event);
+    }
+  }
+
+  onKeyDown(event) {
+    const currentValue = event.currentTarget.value;
+
+    if (this.props.onKeyDown) {
+      this.props.onKeyDown(currentValue, event);
+    }
+  }
+
+  onKeyPress(event) {
+    const currentValue = event.currentTarget.value;
+
+    if (this.props.onKeyPress) {
+      this.props.onKeyPress(currentValue, event);
+    }
+  }
+
+  render() {
+    const classes = [
+      this.props.componentCSSClassName,
+      `${this.props.componentCSSClassName}--${this.props.type}`,
+      this.props.className,
+    ].join(' ');
+
+    return (
+      <input
+        {...this.props}
+        className={classes}
+        id={this.props.id}
+        name={this.props.name}
+        placeholder={this.props.placeholder}
+        value={this.props.value}
+        onFocus={this.onFocus}
+        onBlur={this.onBlur}
+        onChange={this.onChange}
+        onKeyUp={this.onKeyUp}
+        onKeyDown={this.onKeyDown}
+        onKeyPress={this.onKeyPress}
+        disabled={this.props.disabled}
+        type={this.props.type}
+        tabIndex={this.props.tabIndex}
+      />
+    );
+  }
+
+}
+
+Input.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  disabled: PropTypes.bool,
+  componentCSSClassName: PropTypes.string,
+  placeholder: PropTypes.string,
+  value: PropTypes.any,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  onKeyUp: PropTypes.func,
+  onKeyPress: PropTypes.func,
+  tabIndex: PropTypes.string,
+  className: PropTypes.string,
+  type: PropTypes.oneOf([
+    'date',
+    'datetime',
+    'datetime-local',
+    'date',
+    'email',
+    'month',
+    'number',
+    'password',
+    'search',
+    'tel',
+    'text',
+    'url',
+    'week',
+  ]),
+};
+
+Input.defaultProps = {
+  componentCSSClassName: 'input',
+  placeholder: null,
+  value: undefined,
+  onFocus: null,
+  onBlur: null,
+  onChange: null,
+  onKeyUp: null,
+  onKeyDown: null,
+  onKeyPress: null,
+  className: null,
+  disabled: false,
+  type: 'text',
+};
 
 export default Input;

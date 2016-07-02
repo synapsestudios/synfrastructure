@@ -1,46 +1,39 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-let Label = React.createClass({
+class Label extends Component {
 
-    displayName : 'SynfrastructureFormLabel',
+  render() {
+    const classes = [
+      this.props.componentCSSClassName,
+      this.props.className,
+    ].join(' ').trim();
 
-    propTypes : {
-        htmlFor               : React.PropTypes.string.isRequired,
-        componentCSSClassName : React.PropTypes.string,
-        text                  : React.PropTypes.string
-    },
+    const LabelComponent = React.createElement(
+      'label',
+      {
+        ...this.props,
+        htmlFor: this.props.htmlFor,
+        className: classes,
+      },
+      [this.props.text, this.props.children]
+    );
 
-    getDefaultProps()
-    {
-        return {
-            componentCSSClassName : 'label',
-            text                  : null
-      };
-    },
+    return LabelComponent;
+  }
 
-    render()
-    {
-        let Component,
-            classes;
+}
 
-        classes = [
-            this.props.componentCSSClassName,
-            this.props.className
-        ].join(' ');
+Label.propTypes = {
+  htmlFor: PropTypes.string.isRequired,
+  componentCSSClassName: PropTypes.string,
+  text: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.any,
+};
 
-        Component = React.createElement(
-            'label',
-            {
-                ...this.props,
-                htmlFor   : this.props.htmlFor,
-                className : classes
-            },
-            [this.props.text, this.props.children]
-        );
-
-        return Component;
-    }
-
-});
+Label.defaultProps = {
+  componentCSSClassName: 'label',
+  text: null,
+};
 
 export default Label;

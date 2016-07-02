@@ -1,82 +1,64 @@
-'use strict';
+import React, { Component, PropTypes } from 'react';
 
-import React from 'react';
+class Icon extends Component { // eslint-disable-line
 
-let Icon = React.createClass({
+  render() {
+    const sizeClass = this.props.size ? `icon--${this.props.size}` : null;
+    const colorThemeClass = this.props.colorTheme ? `icon--${this.props.colorTheme}` : null;
+    const rotationClass = `icon--rotate-${this.props.rotate}`;
+    const classes = [
+      'icon',
+      sizeClass,
+      colorThemeClass,
+      rotationClass,
+      this.props.className,
+    ].join(' ').trim();
 
-    displayName : 'Icon',
+    return (
+      <span className={classes} onClick={this.props.onClick}>
+        {this.props.children}
+      </span>
+    );
+  }
+}
 
-    propTypes : {
-        size : React.PropTypes.oneOf([
-            'x-small',
-            'small',
-            'large',
-            'x-large',
-            null
-        ]),
-        rotate : React.PropTypes.oneOf([
-            0,
-            45,
-            90,
-            180,
-            270
-        ]),
-        colorTheme : React.PropTypes.oneOf([
-            'black',
-            'white',
-            'primary',
-            'secondary',
-            'tertiary',
-            'status--success',
-            'status--warning',
-            'status--error',
-            null
-        ]),
-        className : React.PropTypes.string,
-        onClick   : React.PropTypes.func
-    },
+Icon.propTypes = {
+  size: PropTypes.oneOf([
+    'x-small',
+    'small',
+    'large',
+    'x-large',
+    null,
+  ]),
+  rotate: PropTypes.oneOf([
+    0,
+    45,
+    90,
+    180,
+    270,
+  ]),
+  colorTheme: PropTypes.oneOf([
+    'black',
+    'white',
+    'primary',
+    'secondary',
+    'tertiary',
+    'status--success',
+    'status--warning',
+    'status--error',
+    null,
+  ]),
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+  children: PropTypes.any,
+};
 
-    getDefaultProps()
-    {
-        return {
-            size       : null,
-            rotate     : 0,
-            colorTheme : null,
-            className  : null,
-            onClick    : null
-        };
-    },
-
-    render()
-    {
-        let Icon,
-            classes,
-            sizeClass,
-            colorThemeClass,
-            rotationClass;
-
-        sizeClass = this.props.size ?
-            'icon--' + this.props.size : null;
-
-        colorThemeClass = this.props.colorTheme ?
-            'icon--' + this.props.colorTheme : null;
-
-        rotationClass = 'icon--rotate-' + this.props.rotate;
-
-        classes = [
-            'icon',
-            sizeClass,
-            colorThemeClass,
-            rotationClass,
-            this.props.className
-        ].join(' ').trim();
-
-        return (
-            <span className={classes} onClick={this.props.onClick}>
-                {this.props.children}
-            </span>
-        );
-    }
-});
+Icon.defaultProps = {
+  size: null,
+  rotate: 0,
+  colorTheme: null,
+  className: null,
+  onClick: null,
+};
 
 export default Icon;

@@ -34,19 +34,23 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "classnames": "2.2.3",
-    "lodash": "4.11.1",
-    "react": "^15.0.1",
-    "react-addons-create-fragment": "^15.0.1",
-    "react-dom": "^15.0.1"
+    "classnames": "2.2.5",
+    "lodash": "4.13.1",
+    "react": "15.1.0",
+    "react-addons-create-fragment": "15.1.0",
+    "react-dom": "15.1.0"
   },
   "devDependencies": {
     "autoprefixer": "6.3.6",
     "babel": "5.8.23",
-    "babel-eslint": "^4.1.8",
+    "babel-eslint": "^6.1.0",
     "babel-loader": "5.3.2",
     "css-loader": "0.23.1",
-    "eslint-plugin-react": "^3.16.1",
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.10.0",
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "eslint-plugin-react": "^5.0.1",
     "express-http-proxy": "0.6.0",
     "html-webpack-plugin": "1.6.2",
     "node-sass": "^3.4.2",
