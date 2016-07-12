@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Alert from '../src/alert';
+import AlertDocs from './AlertDocs';
+import ButtonDocs from './ButtonDocs';
 import Button from '../src/button';
 import Input from '../src/input';
 import Textarea from '../src/textarea';
@@ -77,14 +78,8 @@ class Demo extends Component {
   render() {
     return (
       <div className="demo__wrapper a--appear">
-        <div className="section">
-          <h1 className="h1">Alert Component</h1>
-          <Alert message="This is an alert." />
-        </div>
-        <div className="section">
-          <h1 className="h1">Button Component</h1>
-          <Button>This is a Button</Button>
-        </div>
+        <AlertDocs />
+        <ButtonDocs />
         <div className="section">
           <h1 className="h1">Input Component</h1>
           <Input id="example1" />

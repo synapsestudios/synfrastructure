@@ -3,11 +3,12 @@ import React, { Component, PropTypes } from 'react';
 class Button extends Component {
 
   render() {
+    // TODO: Update to use classnames package
     const classes = [
       this.props.componentCSSClassName,
       this.props.className,
       this.props.disabled ? `${this.props.componentCSSClassName}--disabled` : null,
-    ].join(' ');
+    ].join(' ').trim();
 
     const ComponentChildren = React.createElement(
       'span',

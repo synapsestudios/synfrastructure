@@ -3,10 +3,11 @@ import React, { Component, PropTypes } from 'react';
 class Alert extends Component {
 
   renderDismissIcon() {
-    if (!this.props.canDismiss) {
+    if (!this.props.dismissable) {
       return null;
     }
 
+    // TODO: Do we need to nest the `dismissIcon` in a span as well, or could this be a single span?
     return (
       <span
         className={`${this.props.componentCSSClassName}__dismiss`}
@@ -20,6 +21,7 @@ class Alert extends Component {
   }
 
   render() {
+    // TODO: Update to use classnames package
     const alertClasses = [
       this.props.componentCSSClassName,
       this.props.className,
@@ -31,7 +33,6 @@ class Alert extends Component {
         className={alertClasses}
       >
         <div className={`${this.props.componentCSSClassName}__content`}>
-          {this.props.message}
           {this.props.children}
           {this.renderDismissIcon()}
         </div>
@@ -42,23 +43,21 @@ class Alert extends Component {
 }
 
 Alert.propTypes = {
-  canDismiss: PropTypes.bool,
-  children: PropTypes.any,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
   componentCSSClassName: PropTypes.string,
+  dismissable: PropTypes.bool,
   dismissIcon: PropTypes.any,
-  message: PropTypes.string,
   show: PropTypes.bool,
   onClick: PropTypes.func,
   onDismiss: PropTypes.func,
 };
 
 Alert.defaultProps = {
-  canDismiss: false,
   className: null,
   componentCSSClassName: 'alert',
+  dismissable: false,
   dismissIcon: String.fromCharCode(10761),
-  message: null,
   show: false,
   onClick: null,
   onDismiss: null,
