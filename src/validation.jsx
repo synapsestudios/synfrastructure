@@ -102,15 +102,16 @@ class Validation extends Component {
 }
 
 Validation.propTypes = {
+  className: PropTypes.string,
   componentCSSClassName: PropTypes.string,
-  renderMessages: PropTypes.oneOf(['before', 'after']),
-  messageContainer: PropTypes.func,
-  messageContainerProps: PropTypes.object,
   errors: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.oneOf([false]),
   ]),
+  messageContainer: PropTypes.func,
+  messageContainerProps: PropTypes.object,
+  renderMessages: PropTypes.oneOf(['before', 'after']),
   successMessages: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
@@ -121,14 +122,13 @@ Validation.propTypes = {
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.oneOf([false]),
   ]),
-  className: PropTypes.string,
 };
 
 Validation.defaultProps = {
   componentCSSClassName: 'validation',
-  renderMessages: 'after',
   messageContainer: null,
   messageContainerProps: null,
+  renderMessages: 'after',
   validation: null,
 };
 

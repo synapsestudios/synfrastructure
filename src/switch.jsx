@@ -48,11 +48,12 @@ class Switch extends Component {
       <div className={classes}>
         <input
           {...this.props}
+          checked={this.props.checked}
           className={`${this.props.componentCSSClassName}__checkbox`}
+          disabled={this.props.disabled}
           id={this.props.id}
           name={this.props.name}
           type="checkbox"
-          checked={this.props.checked}
           value={this.props.value}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
@@ -60,7 +61,6 @@ class Switch extends Component {
           onKeyUp={this.onKeyUp}
           onKeyDown={this.onKeyDown}
           onKeyPress={this.onKeyPress}
-          disabled={this.props.disabled}
         />
         <label
           className={`${this.props.componentCSSClassName}__label`}
@@ -81,16 +81,17 @@ class Switch extends Component {
 }
 
 Switch.propTypes = {
+  checked: PropTypes.bool.isRequired,
+  className: PropTypes.string,
+  componentCSSClassName: PropTypes.string,
+  disabled: PropTypes.bool,
   id: React.PropTypes.string.isRequired,
   name: React.PropTypes.oneOfType([
     React.PropTypes.string,
     React.PropTypes.number,
   ]),
-  disabled: PropTypes.bool,
-  componentCSSClassName: PropTypes.string,
   switchTextOn: PropTypes.string,
   switchTextOff: PropTypes.string,
-  checked: PropTypes.bool.isRequired,
   value: PropTypes.any,
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
@@ -99,16 +100,16 @@ Switch.propTypes = {
   onKeyDown: PropTypes.func,
   onKeyUp: PropTypes.func,
   onKeyPress: PropTypes.func,
-  className: PropTypes.string,
 };
 
 Switch.defaultProps = {
-  name: null,
-  disabled: false,
+  checked: false,
+  className: null,
   componentCSSClassName: 'switch',
+  disabled: false,
+  name: null,
   switchTextOn: 'on',
   switchTextOff: 'off',
-  checked: false,
   value: null,
   onFocus: null,
   onBlur: null,
@@ -116,7 +117,6 @@ Switch.defaultProps = {
   onKeyUp: null,
   onKeyDown: null,
   onKeyPress: null,
-  className: null,
 };
 
 export default Switch;

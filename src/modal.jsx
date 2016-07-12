@@ -63,20 +63,20 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
-  reveal: PropTypes.bool.isRequired,
+  children: PropTypes.any,
+  className: PropTypes.string,
   close: PropTypes.func,
   colorTheme: PropTypes.oneOf([
     'dark',
     'light',
     'transparent',
   ]),
-  className: PropTypes.string,
-  children: PropTypes.any,
+  reveal: PropTypes.bool.isRequired,
 };
 
 Modal.defaultProps = {
-  colorTheme: 'dark',
   close: null,
+  colorTheme: 'dark',
 };
 
 export default Modal;

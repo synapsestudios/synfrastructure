@@ -19,58 +19,49 @@ class Alert extends Component {
     );
   }
 
-  renderAlertChildren() {
-    return (
-      <div className={`${this.props.componentCSSClassName}__content`}>
-        {this.props.message}
-        {this.props.children}
-        {this.renderDismissIcon()}
-      </div>
-    );
-  }
-
   render() {
     const alertClasses = [
       this.props.componentCSSClassName,
       this.props.className,
     ].join(' ').trim();
 
-    const AlertComponent = React.createElement(
-      'div',
-      {
-        ...this.props,
-        className: alertClasses,
-        onClick: this.props.onClick,
-      },
-      this.renderAlertChildren()
+    return (
+      <div
+        {...this.props}
+        className={alertClasses}
+      >
+        <div className={`${this.props.componentCSSClassName}__content`}>
+          {this.props.message}
+          {this.props.children}
+          {this.renderDismissIcon()}
+        </div>
+      </div>
     );
-
-    return AlertComponent;
   }
 
 }
 
 Alert.propTypes = {
+  canDismiss: PropTypes.bool,
+  children: PropTypes.any,
+  className: PropTypes.string,
   componentCSSClassName: PropTypes.string,
+  dismissIcon: PropTypes.any,
   message: PropTypes.string,
   show: PropTypes.bool,
-  canDismiss: PropTypes.bool,
-  dismissIcon: PropTypes.any,
-  onDismiss: PropTypes.func,
   onClick: PropTypes.func,
-  className: PropTypes.string,
-  children: PropTypes.any,
+  onDismiss: PropTypes.func,
 };
 
 Alert.defaultProps = {
+  canDismiss: false,
+  className: null,
   componentCSSClassName: 'alert',
+  dismissIcon: String.fromCharCode(10761),
   message: null,
   show: false,
-  canDismiss: false,
-  dismissIcon: String.fromCharCode(10761),
-  onDismiss: null,
   onClick: null,
-  className: null,
+  onDismiss: null,
 };
 
 export default Alert;

@@ -35,6 +35,10 @@ class Button extends Component {
 }
 
 Button.propTypes = {
+  children: PropTypes.any,
+  className: PropTypes.string,
+  componentCSSClassName: PropTypes.string,
+  disabled: PropTypes.bool,
   element: PropTypes.oneOf([
     'a',
     'button',
@@ -42,19 +46,15 @@ Button.propTypes = {
     'span',
     'div',
   ]),
-  componentCSSClassName: PropTypes.string,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-  onClick: PropTypes.func,
   tabIndex: PropTypes.string,
-  children: PropTypes.any,
+  onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
-  element: 'button',
+  className: null,
   componentCSSClassName: 'button',
   disabled: false,
-  className: null,
+  element: 'button',
   onClick: null,
 };
 

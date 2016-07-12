@@ -47,11 +47,12 @@ class Radio extends Component {
     return (
       <input
         {...this.props}
+        checked={this.props.checked}
         className={classes}
+        disabled={this.props.disabled}
         id={this.props.id}
         name={this.props.name}
         type="radio"
-        checked={this.props.checked}
         value={this.props.value}
         onFocus={this.onFocus}
         onBlur={this.onBlur}
@@ -59,7 +60,6 @@ class Radio extends Component {
         onKeyUp={this.onKeyUp}
         onKeyDown={this.onKeyDown}
         onKeyPress={this.onKeyPress}
-        disabled={this.props.disabled}
       />
     );
   }
@@ -67,14 +67,15 @@ class Radio extends Component {
 }
 
 Radio.propTypes = {
+  checked: PropTypes.bool.isRequired,
+  className: PropTypes.string,
+  componentCSSClassName: PropTypes.string,
+  disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,
   name: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
   ]),
-  disabled: PropTypes.bool,
-  componentCSSClassName: PropTypes.string,
-  checked: PropTypes.bool.isRequired,
   value: PropTypes.any,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
@@ -82,14 +83,14 @@ Radio.propTypes = {
   onKeyDown: PropTypes.func,
   onKeyUp: PropTypes.func,
   onKeyPress: PropTypes.func,
-  className: PropTypes.string,
 };
 
 Radio.defaultProps = {
-  name: null,
-  disabled: false,
-  componentCSSClassName: 'radio',
   checked: false,
+  className: null,
+  componentCSSClassName: 'radio',
+  disabled: false,
+  name: null,
   value: null,
   onFocus: null,
   onBlur: null,
@@ -97,7 +98,6 @@ Radio.defaultProps = {
   onKeyUp: null,
   onKeyDown: null,
   onKeyPress: null,
-  className: null,
 };
 
 export default Radio;

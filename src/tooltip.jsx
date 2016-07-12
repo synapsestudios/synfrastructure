@@ -214,8 +214,8 @@ class Tooltip extends Component {
 }
 
 Tooltip.propTypes = {
-  place: PropTypes.string,
   effect: PropTypes.string,
+  place: PropTypes.string,
   position: PropTypes.object,
 };
 

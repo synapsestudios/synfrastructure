@@ -66,15 +66,18 @@ class Input extends Component {
       this.props.componentCSSClassName,
       `${this.props.componentCSSClassName}--${this.props.type}`,
       this.props.className,
-    ].join(' ');
+    ].join(' ').trim();
 
     return (
       <input
         {...this.props}
         className={classes}
+        disabled={this.props.disabled}
         id={this.props.id}
         name={this.props.name}
         placeholder={this.props.placeholder}
+        tabIndex={this.props.tabIndex}
+        type={this.props.type}
         value={this.props.value}
         onFocus={this.onFocus}
         onBlur={this.onBlur}
@@ -82,9 +85,6 @@ class Input extends Component {
         onKeyUp={this.onKeyUp}
         onKeyDown={this.onKeyDown}
         onKeyPress={this.onKeyPress}
-        disabled={this.props.disabled}
-        type={this.props.type}
-        tabIndex={this.props.tabIndex}
       />
     );
   }
@@ -92,20 +92,13 @@ class Input extends Component {
 }
 
 Input.propTypes = {
+  className: PropTypes.string,
+  componentCSSClassName: PropTypes.string,
+  disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,
   name: PropTypes.string,
-  disabled: PropTypes.bool,
-  componentCSSClassName: PropTypes.string,
   placeholder: PropTypes.string,
-  value: PropTypes.any,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  onKeyUp: PropTypes.func,
-  onKeyPress: PropTypes.func,
   tabIndex: PropTypes.string,
-  className: PropTypes.string,
   type: PropTypes.oneOf([
     'date',
     'datetime',
@@ -121,11 +114,21 @@ Input.propTypes = {
     'url',
     'week',
   ]),
+  value: PropTypes.any,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  onKeyUp: PropTypes.func,
+  onKeyPress: PropTypes.func,
 };
 
 Input.defaultProps = {
+  className: null,
   componentCSSClassName: 'input',
+  disabled: false,
   placeholder: null,
+  type: 'text',
   value: undefined,
   onFocus: null,
   onBlur: null,
@@ -133,9 +136,6 @@ Input.defaultProps = {
   onKeyUp: null,
   onKeyDown: null,
   onKeyPress: null,
-  className: null,
-  disabled: false,
-  type: 'text',
 };
 
 export default Input;

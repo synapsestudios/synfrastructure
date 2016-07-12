@@ -53,16 +53,18 @@ class Checkbox extends Component {
     let classes = [
       this.props.componentCSSClassName,
       this.props.className,
-    ].join(' ');
+    ].join(' ').trim();
 
     return (
       <input
         {...this.props}
+        checked={this.props.checked}
         className={classes}
+        disabled={this.props.disabled}
         id={this.props.id}
         name={this.props.name}
         type="checkbox"
-        checked={this.props.checked}
+        tabIndex={this.props.tabIndex}
         value={this.props.value}
         onFocus={this.onFocus}
         onBlur={this.onBlur}
@@ -70,8 +72,6 @@ class Checkbox extends Component {
         onKeyUp={this.onKeyUp}
         onKeyDown={this.onKeyDown}
         onKeyPress={this.onKeyPress}
-        disabled={this.props.disabled}
-        tabIndex={this.props.tabIndex}
       />
     );
   }
@@ -79,14 +79,16 @@ class Checkbox extends Component {
 }
 
 Checkbox.propTypes = {
+  checked: PropTypes.bool.isRequired,
+  className: PropTypes.string,
+  componentCSSClassName: PropTypes.string,
+  disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,
   name: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
   ]),
-  disabled: PropTypes.bool,
-  componentCSSClassName: PropTypes.string,
-  checked: PropTypes.bool.isRequired,
+  tabIndex: PropTypes.string,
   value: PropTypes.any,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
@@ -94,15 +96,14 @@ Checkbox.propTypes = {
   onKeyDown: PropTypes.func,
   onKeyUp: PropTypes.func,
   onKeyPress: PropTypes.func,
-  className: PropTypes.string,
-  tabIndex: PropTypes.string,
 };
 
 Checkbox.defaultProps = {
-  name: null,
-  disabled: false,
-  componentCSSClassName: 'checkbox',
   checked: false,
+  className: null,
+  componentCSSClassName: 'checkbox',
+  disabled: false,
+  name: null,
   value: undefined,
   onFocus: null,
   onBlur: null,
@@ -110,7 +111,6 @@ Checkbox.defaultProps = {
   onKeyUp: null,
   onKeyDown: null,
   onKeyPress: null,
-  className: null,
 };
 
 export default Checkbox;

@@ -94,26 +94,6 @@ class Select extends Component {
     ));
   }
 
-  renderCustomSelect() {
-    if (! this.props.customIcon) {
-      return this.renderDefaultSelect();
-    }
-
-    const classes = [
-      'select--custom--wrap',
-      this.props.componentWrapCSSClassName,
-    ].join(' ').trim();
-
-    return (
-      <div className={classes}>
-        {this.renderDefaultSelect()}
-        <span className="select--custom--icon">
-          {this.props.customIcon}
-        </span>
-      </div>
-    );
-  }
-
   renderDefaultSelect() {
     const customSelect = (this.props.customIcon) ?
       `${this.props.componentCSSClassName}--custom` : null;
@@ -145,6 +125,26 @@ class Select extends Component {
     );
   }
 
+  renderCustomSelect() {
+    if (! this.props.customIcon) {
+      return this.renderDefaultSelect();
+    }
+
+    const classes = [
+      'select--custom--wrap',
+      this.props.componentWrapCSSClassName,
+    ].join(' ').trim();
+
+    return (
+      <div className={classes}>
+        {this.renderDefaultSelect()}
+        <span className="select--custom--icon">
+          {this.props.customIcon}
+        </span>
+      </div>
+    );
+  }
+
   render() {
     return this.renderCustomSelect();
   }
@@ -152,8 +152,12 @@ class Select extends Component {
 }
 
 Select.propTypes = {
-  id: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  componentCSSClassName: PropTypes.string,
+  componentWrapCSSClassName: PropTypes.string,
+  customIcon: PropTypes.any,
   disabled: PropTypes.bool,
+  id: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string,
@@ -161,9 +165,7 @@ Select.propTypes = {
       selected: PropTypes.bool,
     })
   ).isRequired,
-  componentCSSClassName: PropTypes.string,
-  componentWrapCSSClassName: PropTypes.string,
-  customIcon: PropTypes.any,
+  tabIndex: PropTypes.string,
   value: PropTypes.any,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
@@ -171,13 +173,13 @@ Select.propTypes = {
   onKeyDown: PropTypes.func,
   onKeyUp: PropTypes.func,
   onKeyPress: PropTypes.func,
-  className: PropTypes.string,
-  tabIndex: PropTypes.string,
 };
 
 Select.defaultProps = {
+  className: null,
   componentCSSClassName: 'select',
   customIcon: null,
+  disabled: false,
   value: null,
   onFocus: null,
   onBlur: null,
@@ -185,8 +187,6 @@ Select.defaultProps = {
   onKeyUp: null,
   onKeyDown: null,
   onKeyPress: null,
-  disabled: false,
-  className: null,
 };
 
 export default Select;

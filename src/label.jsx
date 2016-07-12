@@ -24,11 +24,11 @@ class Label extends Component {
 }
 
 Label.propTypes = {
-  htmlFor: PropTypes.string.isRequired,
-  componentCSSClassName: PropTypes.string,
-  text: PropTypes.string,
-  className: PropTypes.string,
   children: PropTypes.any,
+  className: PropTypes.string,
+  componentCSSClassName: PropTypes.string,
+  htmlFor: PropTypes.string.isRequired,
+  text: PropTypes.string,
 };
 
 Label.defaultProps = {

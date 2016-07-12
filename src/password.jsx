@@ -64,10 +64,10 @@ class PasswordInput extends Component {
 // use revealPassword/toggleReveal props to control the reveal,
 // otherwise the component uses local state
 PasswordInput.propTypes = {
+  hideIcon: PropTypes.func,
+  revealIcon: PropTypes.func,
   revealPassword: PropTypes.bool,
   toggleReveal: PropTypes.func,
-  revealIcon: PropTypes.func,
-  hideIcon: PropTypes.func,
 };
 
 export default PasswordInput;

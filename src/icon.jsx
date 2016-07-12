@@ -1,42 +1,27 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
-class Icon extends Component { // eslint-disable-line
+function Icon(props) {
+  const colorThemeClass = props.colorTheme ? `icon--${props.colorTheme}` : null;
+  const rotationClass = `icon--rotate-${props.rotate}`;
+  const sizeClass = props.size ? `icon--${props.size}` : null;
+  const classes = [
+    'icon',
+    props.className,
+    colorThemeClass,
+    rotationClass,
+    sizeClass,
+  ].join(' ').trim();
 
-  render() {
-    const sizeClass = this.props.size ? `icon--${this.props.size}` : null;
-    const colorThemeClass = this.props.colorTheme ? `icon--${this.props.colorTheme}` : null;
-    const rotationClass = `icon--rotate-${this.props.rotate}`;
-    const classes = [
-      'icon',
-      sizeClass,
-      colorThemeClass,
-      rotationClass,
-      this.props.className,
-    ].join(' ').trim();
-
-    return (
-      <span className={classes} onClick={this.props.onClick}>
-        {this.props.children}
-      </span>
-    );
-  }
+  return (
+    <span className={classes} onClick={props.onClick}>
+      {props.children}
+    </span>
+  );
 }
 
 Icon.propTypes = {
-  size: PropTypes.oneOf([
-    'x-small',
-    'small',
-    'large',
-    'x-large',
-    null,
-  ]),
-  rotate: PropTypes.oneOf([
-    0,
-    45,
-    90,
-    180,
-    270,
-  ]),
+  children: PropTypes.any,
+  className: PropTypes.string,
   colorTheme: PropTypes.oneOf([
     'black',
     'white',
@@ -48,16 +33,28 @@ Icon.propTypes = {
     'status--error',
     null,
   ]),
-  className: PropTypes.string,
+  rotate: PropTypes.oneOf([
+    0,
+    45,
+    90,
+    180,
+    270,
+  ]),
+  size: PropTypes.oneOf([
+    'x-small',
+    'small',
+    'large',
+    'x-large',
+    null,
+  ]),
   onClick: PropTypes.func,
-  children: PropTypes.any,
 };
 
 Icon.defaultProps = {
-  size: null,
-  rotate: 0,
-  colorTheme: null,
   className: null,
+  colorTheme: null,
+  rotate: 0,
+  size: null,
   onClick: null,
 };
 
