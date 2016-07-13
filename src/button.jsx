@@ -1,33 +1,27 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 
 class Button extends Component {
 
   render() {
-    // TODO: Update to use classnames package
-    const classes = [
-      this.props.componentCSSClassName,
-      this.props.className,
-      this.props.disabled ? `${this.props.componentCSSClassName}--disabled` : null,
-    ].join(' ').trim();
-
-    const ComponentChildren = React.createElement(
-      'span',
-      {
-        className: `${this.props.componentCSSClassName}__children`,
-      },
-      this.props.children
-    );
+    const buttonClasses = {
+      button: true,
+      'button--disabled': this.props.disabled,
+      [`button--size--${this.props.size}`]: this.props.size,
+      [`button--theme--${this.props.colorTheme}`]: this.props.colorTheme,
+      [`button--display--${this.props.display}`]: this.props.display,
+      [`${this.props.className}`]: this.props.className,
+    };
 
     const ButtonComponent = React.createElement(
       this.props.element,
       {
         ...this.props,
-        className: classes,
-        onClick: this.props.onClick,
-        disabled: this.props.disabled,
-        tabIndex: this.props.tabIndex,
+        className: classNames(buttonClasses),
       },
-      ComponentChildren
+      <span className="button__children">
+        {this.props.children}
+      </span>
     );
 
     return ButtonComponent;
@@ -38,8 +32,24 @@ class Button extends Component {
 Button.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
-  componentCSSClassName: PropTypes.string,
+  colorTheme: PropTypes.oneOf([
+    'black',
+    'white',
+    'primary',
+    'secondary',
+    'tertiary',
+    'alt-primary',
+    'alt-secondary',
+    'alt-tertiary',
+    'status--success',
+    'status--warning',
+    'status--error',
+  ]),
   disabled: PropTypes.bool,
+  display: PropTypes.oneOf([
+    'block',
+    'inline',
+  ]),
   element: PropTypes.oneOf([
     'a',
     'button',
@@ -47,15 +57,23 @@ Button.propTypes = {
     'span',
     'div',
   ]),
+  size: PropTypes.oneOf([
+    'xsmall',
+    'small',
+    'medium',
+    'large',
+    'xlarge',
+  ]),
   tabIndex: PropTypes.string,
   onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
   className: null,
-  componentCSSClassName: 'button',
+  colorTheme: 'primary',
   disabled: false,
   element: 'button',
+  size: 'medium',
   onClick: null,
 };
 

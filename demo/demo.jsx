@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import AlertDocs from './AlertDocs';
 import ButtonDocs from './ButtonDocs';
+import CheckboxDocs from './CheckboxDocs';
+import IconDocs from './IconDocs';
+
 import Button from '../src/button';
 import Input from '../src/input';
 import Textarea from '../src/textarea';
 import Select from '../src/select';
-import Checkbox from '../src/checkbox';
 import Label from '../src/label';
 import Validation from '../src/validation';
 import Modal from '../src/modal';
 import Tooltip from '../src/tooltip';
 import Switch from '../src/switch';
-import Icon from '../src/icon';
 import Trash from './trash';
 import Password from '../src/password';
 
@@ -80,6 +81,8 @@ class Demo extends Component {
       <div className="demo__wrapper a--appear">
         <AlertDocs />
         <ButtonDocs />
+        <CheckboxDocs />
+        <IconDocs />
         <div className="section">
           <h1 className="h1">Input Component</h1>
           <Input id="example1" />
@@ -114,14 +117,6 @@ class Demo extends Component {
                 selected: false,
               },
             ]}
-          />
-        </div>
-        <div className="section">
-          <h1 className="h1">Checkbox Inputs</h1>
-          <Checkbox
-            id="example6"
-            name="checkbox-example6"
-            checked
           />
         </div>
         <div className="section">
@@ -276,17 +271,6 @@ class Demo extends Component {
               >
                 Floated Left
               </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="section">
-          <h1 className="h1">Icon</h1>
-          <div className="row">
-            <div className="small-1">
-              <Icon>
-                <Trash />
-              </Icon>
             </div>
           </div>
         </div>

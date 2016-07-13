@@ -1,70 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Alert from '../src/alert';
-import PropsTable from './PropsTable';
 
-require('./demo.scss');
+class AlertDocs extends Component {
+  constructor(props) {
+    super(props);
 
-function AlertDocs() {
-  return (
-    <div className="section">
-      <h1 className="h1">Alert Component</h1>
-      <Alert>
-        This is an alert block.
-      </Alert>
-      <PropsTable
-        propsData={[
-          {
-            name: 'children*',
-            type: 'node',
-            default: '',
-            description: '',
-          },
-          {
-            name: 'className',
-            type: 'string',
-            default: '',
-            description: '',
-          },
-          {
-            name: 'componentCSSClassName',
-            type: 'string',
-            default: 'alert',
-            description: '',
-          },
-          {
-            name: 'dismissable',
-            type: 'bool',
-            default: '',
-            description: '',
-          },
-          {
-            name: 'dismissIcon',
-            type: 'any',
-            default: '',
-            description: '',
-          },
-          {
-            name: 'show',
-            type: 'bool',
-            default: '',
-            description: '',
-          },
-          {
-            name: 'onDismiss',
-            type: 'func',
-            default: '',
-            description: '',
-          },
-          {
-            name: 'onClick',
-            type: 'func',
-            default: '',
-            description: '',
-          },
-        ]}
-      />
-    </div>
-  );
+    this.state = {
+      showNotification: true,
+    };
+
+    this.hideNotification = this.hideNotification.bind(this);
+  }
+
+  hideNotification() {
+    this.setState({
+      showNotification: false,
+    });
+  }
+
+  render() {
+    return (
+      <div className="section">
+        <h1 className="h1">Alert Component</h1>
+        <Alert type="notification">
+          This is an information alert
+        </Alert>
+        <Alert type="success">
+          This is an success alert
+        </Alert>
+        <Alert type="warning">
+          This is an warning alert
+        </Alert>
+        <Alert type="error">
+          This is an error alert
+        </Alert>
+        <Alert
+          type="notification"
+          isVisible={this.state.showNotification}
+          onDismiss={() => this.hideNotification()}
+        >
+          This is an dismissable alert
+        </Alert>
+      </div>
+    );
+  }
 }
 
 export default AlertDocs;

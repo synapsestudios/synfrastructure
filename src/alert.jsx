@@ -1,38 +1,40 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 
 class Alert extends Component {
 
   renderDismissIcon() {
-    if (!this.props.dismissable) {
+    if (!this.props.onDismiss) {
       return null;
     }
 
-    // TODO: Do we need to nest the `dismissIcon` in a span as well, or could this be a single span?
     return (
       <span
-        className={`${this.props.componentCSSClassName}__dismiss`}
+        className="alert__dismiss"
         onClick={this.props.onDismiss}
       >
-        <span className={`${this.props.componentCSSClassName}__dismiss__icon`}>
-          {this.props.dismissIcon}
-        </span>
+        {this.props.dismissIcon}
       </span>
     );
   }
 
   render() {
-    // TODO: Update to use classnames package
-    const alertClasses = [
-      this.props.componentCSSClassName,
-      this.props.className,
-    ].join(' ').trim();
+    if (!this.props.isVisible) {
+      return null;
+    }
+
+    const alertClasses = {
+      alert: true,
+      [`alert--${this.props.type}`]: true,
+      [`${this.props.className}`]: this.props.className,
+    };
 
     return (
       <div
         {...this.props}
-        className={alertClasses}
+        className={classNames(alertClasses)}
       >
-        <div className={`${this.props.componentCSSClassName}__content`}>
+        <div className="alert__content">
           {this.props.children}
           {this.renderDismissIcon()}
         </div>
@@ -45,20 +47,24 @@ class Alert extends Component {
 Alert.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  componentCSSClassName: PropTypes.string,
-  dismissable: PropTypes.bool,
   dismissIcon: PropTypes.any,
-  show: PropTypes.bool,
+  isDismissable: PropTypes.bool,
+  isVisible: PropTypes.bool,
+  type: PropTypes.oneOf([
+    'notification',
+    'success',
+    'warning',
+    'error',
+  ]),
   onClick: PropTypes.func,
   onDismiss: PropTypes.func,
 };
 
 Alert.defaultProps = {
   className: null,
-  componentCSSClassName: 'alert',
-  dismissable: false,
   dismissIcon: String.fromCharCode(10761),
-  show: false,
+  type: 'notification',
+  isVisible: true,
   onClick: null,
   onDismiss: null,
 };
