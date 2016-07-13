@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 
 class Checkbox extends Component {
 
@@ -15,51 +16,51 @@ class Checkbox extends Component {
 
   onFocus(event) {
     if (this.props.onFocus) {
-      this.props.onFocus(this.props.id, event.target.checked, event);
+      this.props.onFocus(event);
     }
   }
 
   onBlur(event) {
     if (this.props.onBlur) {
-      this.props.onBlur(this.props.id, event.target.checked, event);
+      this.props.onBlur(event);
     }
   }
 
   onChange(event) {
     if (this.props.onChange) {
-      this.props.onChange(this.props.id, event.target.checked, event);
+      this.props.onChange(event);
     }
   }
 
   onKeyUp(event) {
     if (this.props.onKeyUp) {
-      this.props.onKeyUp(this.props.id, event.target.checked, event);
+      this.props.onKeyUp(event);
     }
   }
 
   onKeyDown(event) {
     if (this.props.onKeyDown) {
-      this.props.onKeyDown(this.props.id, this.props.checked, event);
+      this.props.onKeyDown(event);
     }
   }
 
   onKeyPress(event) {
     if (this.props.onKeyPress) {
-      this.props.onKeyPress(this.props.id, this.props.checked, event);
+      this.props.onKeyPress(event);
     }
   }
 
   render() {
-    let classes = [
-      this.props.componentCSSClassName,
-      this.props.className,
-    ].join(' ').trim();
+    const checkboxClasses = {
+      checkbox: true,
+      [`${this.props.className}`]: this.props.className,
+    };
 
     return (
       <input
         {...this.props}
         checked={this.props.checked}
-        className={classes}
+        className={classNames(checkboxClasses)}
         disabled={this.props.disabled}
         id={this.props.id}
         name={this.props.name}
@@ -81,7 +82,6 @@ class Checkbox extends Component {
 Checkbox.propTypes = {
   checked: PropTypes.bool.isRequired,
   className: PropTypes.string,
-  componentCSSClassName: PropTypes.string,
   disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,
   name: PropTypes.oneOfType([
@@ -101,7 +101,6 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   checked: false,
   className: null,
-  componentCSSClassName: 'checkbox',
   disabled: false,
   name: null,
   value: undefined,
