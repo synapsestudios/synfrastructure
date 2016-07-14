@@ -18,7 +18,6 @@ class PasswordInput extends Component {
   }
 
   shouldRevealPassword() {
-    console.log('hit');
     // always trust prop before state
     return typeof this.props.revealPassword === 'undefined' ?
       this.state.revealPassword : this.props.revealPassword;
