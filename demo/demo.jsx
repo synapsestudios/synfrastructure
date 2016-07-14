@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import AlertDocs from './AlertDocs';
 import ButtonDocs from './ButtonDocs';
-import CheckboxDocs from './CheckboxDocs';
 import IconDocs from './IconDocs';
+import CheckboxDocs from './CheckboxDocs';
 import RadioDocs from './RadioDocs';
+import InputDocs from './InputDocs';
 
 import Button from '../src/button';
 import Input from '../src/input';
@@ -82,19 +83,10 @@ class Demo extends Component {
       <div className="demo__wrapper a--appear">
         <AlertDocs />
         <ButtonDocs />
+        <IconDocs />
         <CheckboxDocs />
         <RadioDocs />
-        <IconDocs />
-        <div className="section">
-          <h1 className="h1">Input Component</h1>
-          <Input id="example1" />
-        </div>
-        <div className="section">
-          <h1 className="h1">Label Component</h1>
-          <Label htmlFor="example2" text="This Is a Label">
-            <Input id="example2" placeholder="A label wraps around me" />
-          </Label>
-        </div>
+        <InputDocs />
         <div className="section">
           <h1 className="h1">Textarea Component</h1>
           <Textarea id="example3" />
@@ -145,28 +137,6 @@ class Demo extends Component {
             ]}
           />
         </div>
-
-        <div className="section">
-          <h1 className="h1">Input Component Validated (arrays)</h1>
-          <Validation
-            errors={['this is an error message', 'another error']}
-            successMessages={['this is a success message', 'another success']}
-            warnings={['this is a warning message', 'another warning']}
-          >
-            <Input id="example5" />
-          </Validation>
-        </div>
-        <div className="section">
-          <h1 className="h1">Input Component Validated (strings)</h1>
-          <Validation
-            errors="this is an error"
-            successMessages="this is a success"
-            warnings="this is a warning"
-          >
-            <Input id="example5" />
-          </Validation>
-        </div>
-
         {this.renderModal()}
         <div className="section">
           <h1 className="h1">Grid System</h1>
