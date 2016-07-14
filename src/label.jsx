@@ -1,19 +1,20 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 
 class Label extends Component {
 
   render() {
-    const classes = [
-      this.props.componentCSSClassName,
-      this.props.className,
-    ].join(' ').trim();
+    const labelClasses = {
+      label: true,
+      [`${this.props.className}`]: this.props.className,
+    };
 
     const LabelComponent = React.createElement(
       'label',
       {
         ...this.props,
         htmlFor: this.props.htmlFor,
-        className: classes,
+        className: classNames(labelClasses),
       },
       [this.props.text, this.props.children]
     );

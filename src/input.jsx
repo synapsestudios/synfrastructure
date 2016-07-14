@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 
 class Input extends Component {
 
@@ -14,71 +15,53 @@ class Input extends Component {
   }
 
   onFocus(event) {
-    const currentValue = event.currentTarget.value;
-
     if (this.props.onFocus) {
-      this.props.onFocus(currentValue, event);
+      this.props.onFocus(event);
     }
   }
 
   onBlur(event) {
-    const currentValue = event.currentTarget.value;
-
     if (this.props.onBlur) {
-      this.props.onBlur(currentValue, event);
+      this.props.onBlur(event);
     }
   }
 
   onChange(event) {
-    const currentValue = event.currentTarget.value;
-
     if (this.props.onChange) {
-      this.props.onChange(currentValue, event);
+      this.props.onChange(event);
     }
   }
 
   onKeyUp(event) {
-    const currentValue = event.currentTarget.value;
-
     if (this.props.onKeyUp) {
-      this.props.onKeyUp(currentValue, event);
+      this.props.onKeyUp(event);
     }
   }
 
   onKeyDown(event) {
-    const currentValue = event.currentTarget.value;
-
     if (this.props.onKeyDown) {
-      this.props.onKeyDown(currentValue, event);
+      this.props.onKeyDown(event);
     }
   }
 
   onKeyPress(event) {
-    const currentValue = event.currentTarget.value;
-
     if (this.props.onKeyPress) {
-      this.props.onKeyPress(currentValue, event);
+      this.props.onKeyPress(event);
     }
   }
 
   render() {
-    const classes = [
-      this.props.componentCSSClassName,
-      `${this.props.componentCSSClassName}--${this.props.type}`,
-      this.props.className,
-    ].join(' ').trim();
+    const inputClasses = {
+      input: true,
+      [`input--${this.props.type}`]: this.props.type,
+      [`input--${this.props.disabled}`]: this.props.disabled,
+      [`${this.props.className}`]: this.props.className,
+    };
 
     return (
       <input
         {...this.props}
-        className={classes}
-        disabled={this.props.disabled}
-        id={this.props.id}
-        name={this.props.name}
-        placeholder={this.props.placeholder}
-        tabIndex={this.props.tabIndex}
-        type={this.props.type}
-        value={this.props.value}
+        className={classNames(inputClasses)}
         onFocus={this.onFocus}
         onBlur={this.onBlur}
         onChange={this.onChange}
@@ -93,7 +76,6 @@ class Input extends Component {
 
 Input.propTypes = {
   className: PropTypes.string,
-  componentCSSClassName: PropTypes.string,
   disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,
   name: PropTypes.string,
@@ -125,7 +107,6 @@ Input.propTypes = {
 
 Input.defaultProps = {
   className: null,
-  componentCSSClassName: 'input',
   disabled: false,
   placeholder: null,
   type: 'text',

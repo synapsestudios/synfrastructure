@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import Icon from './icon';
 import EyeOpenIcon from './icons/eye-open';
 import EyeClosedIcon from './icons/eye-closed';
+import Input from './input';
 
 class PasswordInput extends Component {
 
@@ -17,6 +18,7 @@ class PasswordInput extends Component {
   }
 
   shouldRevealPassword() {
+    console.log('hit');
     // always trust prop before state
     return typeof this.props.revealPassword === 'undefined' ?
       this.state.revealPassword : this.props.revealPassword;
@@ -49,11 +51,10 @@ class PasswordInput extends Component {
 
   render() {
     return (
-      <div>
-        <input
-          type={this.shouldRevealPassword() ? 'text' : 'password'}
-          className="input"
+      <div className="input__password-reveal--wrapper">
+        <Input
           {...this.props}
+          type={this.shouldRevealPassword() ? 'text' : 'password'}
         />
         {this.renderPasswordRevealIcon()}
       </div>
