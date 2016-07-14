@@ -1,19 +1,21 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 
 function Icon(props) {
-  const colorThemeClass = props.colorTheme ? `icon--${props.colorTheme}` : null;
-  const rotationClass = `icon--rotate-${props.rotate}`;
-  const sizeClass = props.size ? `icon--${props.size}` : null;
-  const classes = [
-    'icon',
-    props.className,
-    colorThemeClass,
-    rotationClass,
-    sizeClass,
-  ].join(' ').trim();
+  const iconClasses = {
+    icon: true,
+    [`icon--${props.colorTheme}`]: props.colorTheme,
+    [`icon--rotate-${props.rotate}`]: props.rotate,
+    [`icon--size--${props.size}`]: props.size,
+    [`icon--theme--${props.colorTheme}`]: props.colorTheme,
+    [`${props.className}`]: props.className,
+  };
 
   return (
-    <span className={classes} onClick={props.onClick}>
+    <span
+      className={classNames(iconClasses)}
+      onClick={props.onClick}
+    >
       {props.children}
     </span>
   );
@@ -28,10 +30,12 @@ Icon.propTypes = {
     'primary',
     'secondary',
     'tertiary',
+    'alt-primary',
+    'alt-secondary',
+    'alt-tertiary',
     'status--success',
     'status--warning',
     'status--error',
-    null,
   ]),
   rotate: PropTypes.oneOf([
     0,
@@ -41,20 +45,20 @@ Icon.propTypes = {
     270,
   ]),
   size: PropTypes.oneOf([
-    'x-small',
+    'xsmall',
     'small',
+    'medium',
     'large',
-    'x-large',
-    null,
+    'xlarge',
   ]),
   onClick: PropTypes.func,
 };
 
 Icon.defaultProps = {
   className: null,
-  colorTheme: null,
+  colorTheme: 'black',
   rotate: 0,
-  size: null,
+  size: 'medium',
   onClick: null,
 };
 
