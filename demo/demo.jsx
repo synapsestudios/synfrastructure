@@ -3,6 +3,7 @@ import AlertDocs from './AlertDocs';
 import ButtonDocs from './ButtonDocs';
 import CheckboxDocs from './CheckboxDocs';
 import IconDocs from './IconDocs';
+import RadioDocs from './RadioDocs';
 
 import Button from '../src/button';
 import Input from '../src/input';
@@ -82,6 +83,7 @@ class Demo extends Component {
         <AlertDocs />
         <ButtonDocs />
         <CheckboxDocs />
+        <RadioDocs />
         <IconDocs />
         <div className="section">
           <h1 className="h1">Input Component</h1>

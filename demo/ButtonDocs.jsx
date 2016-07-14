@@ -5,7 +5,7 @@ function ButtonDocs() {
   return (
     <div className="section">
       <h1 className="h1">Button Component</h1>
-      <h4 className="h4">Sizes</h4>
+      <h2 className="h2">Sizes</h2>
       <div>
         <Button size="xsmall">
           This is a xsmall Button
@@ -31,7 +31,7 @@ function ButtonDocs() {
           This is a xlarge Button
         </Button>
       </div>
-      <h4 className="h4">Color Themes</h4>
+      <h2 className="h2">Color Themes</h2>
       <Button
         size="medium"
         colorTheme="primary"
