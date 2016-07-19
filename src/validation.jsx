@@ -1,6 +1,7 @@
-import React                      from 'react';
-import CreateFragment             from 'react-addons-create-fragment';
+import React from 'react';
+import CreateFragment from 'react-addons-create-fragment';
 import SynfrastructureHelperMixin from '../mixins/synfrastructure-helper-mixin';
+import cloneDeep from 'lodash/cloneDeep';
 
 let Validation = React.createClass({
 
@@ -107,8 +108,15 @@ let Validation = React.createClass({
             this.props.className
         ].join(' ').trim();
 
+        const validationProps = cloneDeep(this.props);
+        delete validationProps.validation;
+        delete validationProps.componentCSSClassName;
+        delete validationProps.renderMessages;
+        delete validationProps.messageContainer;
+        delete validationProps.messageContainerProps;
+
         return (
-            <div {...this.props} className={classes}>
+            <div {...validationProps} className={classes}>
                 {this.renderValidationContent()}
             </div>
         );

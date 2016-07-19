@@ -1,4 +1,5 @@
-import React      from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 
 let Tooltip = React.createClass({

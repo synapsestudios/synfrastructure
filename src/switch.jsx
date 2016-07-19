@@ -1,4 +1,5 @@
 import React from 'react';
+import cloneDeep from 'lodash/cloneDeep';
 
 let Switch = React.createClass({
 
@@ -34,9 +35,8 @@ let Switch = React.createClass({
             componentCSSClassName : 'switch',
             switchTextOn          : 'on',
             switchTextOff         : 'off',
-            checked               : null,
-            defaultChecked        : false,
-            value                 : null,
+            checked               : false,
+            value                 : undefined,
             onFocus               : null,
             onBlur                : null,
             onChange              : null,
@@ -96,16 +96,20 @@ let Switch = React.createClass({
             this.props.className
         ].join(' ');
 
+        const switchProps = cloneDeep(this.props);
+        delete switchProps.componentCSSClassName;
+        delete switchProps.switchTextOn;
+        delete switchProps.switchTextOff;
+
         return (
             <div className={classes}>
                 <input
-                    {...this.props}
+                    {...switchProps}
                     className      = {this.props.componentCSSClassName + '__checkbox'}
                     id             = {this.props.id}
                     name           = {this.props.name}
                     type           = 'checkbox'
                     checked        = {this.props.checked}
-                    defaultChecked = {this.props.checked}
                     value          = {this.props.value}
                     onFocus        = {this.onFocus}
                     onBlur         = {this.onBlur}

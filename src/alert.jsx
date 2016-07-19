@@ -1,4 +1,5 @@
 import React from 'react';
+import cloneDeep from 'lodash/cloneDeep';
 
 let Alert = React.createClass({
 
@@ -68,10 +69,19 @@ let Alert = React.createClass({
             this.props.className
         ].join(' ');
 
+        const alertProps = cloneDeep(this.props);
+        delete alertProps.foo;
+        delete alertProps.message;
+        delete alertProps.componentCSSClassName;
+        delete alertProps.canDismiss;
+        delete alertProps.dismissIcon;
+        delete alertProps.onDismiss;
+        delete alertProps.show;
+
         AlertComponent = React.createElement(
             'div',
             {
-                ...this.props,
+                ...alertProps,
                 className : alertClasses,
                 onClick   : this.props.onClick
             },

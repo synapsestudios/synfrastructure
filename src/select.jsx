@@ -1,7 +1,8 @@
-import React             from 'react';
-import map               from 'lodash/collection/map';
-import findWhere         from 'lodash/collection/findWhere';
-import FormInputMixin    from '../mixins/form-input-mixin';
+import React from 'react';
+import cloneDeep from 'lodash/cloneDeep';
+import map from 'lodash/map';
+import find from 'lodash/find';
+import FormInputMixin from '../mixins/form-input-mixin';
 
 let Select = React.createClass({
 
@@ -58,7 +59,7 @@ let Select = React.createClass({
             return this.props.value;
         }
 
-        selectedOption = findWhere(this.props.options, {selected : true});
+        selectedOption = find(this.props.options, {selected : true});
 
         if (! selectedOption) {
             return null;
@@ -123,9 +124,15 @@ let Select = React.createClass({
             customSelect
         ].join(' ');
 
+        const selectProps = cloneDeep(this.props);
+        delete selectProps.options;
+        delete selectProps.componentCSSClassName;
+        delete selectProps.componentWrapCSSClassName;
+        delete selectProps.customIcon;
+
         return (
             <select
-                {...this.props}
+                {...selectProps}
                 disabled   = {this.props.disabled}
                 className  = {classes}
                 id         = {this.props.id}
