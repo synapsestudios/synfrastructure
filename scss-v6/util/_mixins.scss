@@ -1,0 +1,57 @@
+/*
+  @mixin clearfix
+  Clear containers with floated elements
+
+  Example Usage in SASS:
+    .element {
+        @include clearfix();
+    }
+  Example Output in CSS:
+    .element::after { clear: both; content: ""; display: table; }
+*/
+
+@mixin clearfix {
+    &::after {
+        clear   : both;
+        content : "";
+        display : table;
+    }
+}
+
+
+/*
+  @mixin ellipses
+  Truncates text and adds an ellipsis to represent overflow
+
+  Example Usage in SASS:
+    .element {
+        @include ellipses();
+    }
+  Example Output in CSS:
+    .element { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; word-wrap: normal; }
+*/
+
+@mixin ellipses {
+    text-overflow : ellipsis;
+    white-space   : nowrap;
+    overflow      : hidden;
+    word-wrap     : normal;
+}
+
+
+/*
+  @mixin no-flicker
+  CSS hack to fix blurry & mis-rendered elements that have been transformed
+
+  Example Usage in SASS:
+    .element {
+        @include no-flicker();
+    }
+  Example Output in CSS:
+    .element { backface-visibility: hidden; transform: translate3d(0, 0, 0); }
+*/
+
+@mixin no-flicker() {
+    backface-visibility : hidden;
+    transform           : translate3d(0, 0, 0);
+}

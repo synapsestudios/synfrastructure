@@ -1,0 +1,21 @@
+/*
+  @mixin min-screen and max-screen
+  Two simple mixins for using min-screen and max-screen media queries.
+
+  Example Usage in SASS:
+    @include min-screen($media-medium) { ... }
+  Example Output in CSS:
+    @media screen and (min-width: 62em) { ... }
+*/
+
+@mixin min-screen($res) {
+  @media screen and (min-width: $res) {
+    @content;
+  }
+}
+
+@mixin max-screen($res) {
+  @media screen and (max-width: $res) {
+    @content;
+  }
+}
