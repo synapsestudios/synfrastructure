@@ -1,0 +1,28 @@
+/*
+  @function tint
+  Adds percentage of white to lighten a color
+
+  Example Usage in SASS:
+    .example { background-color: tint($black, 90%); }
+  Example Output in CSS:
+    .example { background-color: #e6e6e6; }
+*/
+
+@function tint($color, $percent){
+  @return mix(white, $color, $percent);
+}
+
+
+/*
+  @function shade
+  Adds percentage of black to darken a color
+
+  Example Usage in SASS:
+    .example { color: shade($white, 90%); }
+  Example Output in CSS:
+    .example { color: #1a1a1a; }
+*/
+
+@function shade($color, $percent){
+  @return mix(black, $color, $percent);
+}
