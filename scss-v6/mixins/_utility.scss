@@ -1,6 +1,6 @@
 /*
   @mixin clearfix
-  Clear containers with floated elements
+  Clears containers with floated elements
 
   Example Usage in SASS:
     .element {
@@ -41,7 +41,7 @@
 
 /*
   @mixin no-flicker
-  CSS hack to fix blurry & mis-rendered elements that have been transformed
+  Fixes blurry & mis-rendered elements that have been transformed
 
   Example Usage in SASS:
     .element {
