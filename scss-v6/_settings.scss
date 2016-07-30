@@ -1,0 +1,35 @@
+// @vars
+// SYNFRASTRUCTURE SETTINGS
+//
+@import "functions/rem-calc";
+
+$include-component-classes : false !default;
+$include-html-classes      : true  !default;
+
+// This is the default html and body font-size for the base rem value.
+$rem-base : 16px !default;
+
+// Font-size base
+$font-size-base : rem-calc(16) !default;
+
+// Base line height
+$line-height-base : 1.5 !default;
+
+// Media Sizes
+$media-xsmall : 30em !default; // 480px
+$media-small  : 48em !default; // 768px
+$media-medium : 62em !default; // 992px
+$media-large  : 75em !default; // 1200px
+
+// Margin utility helpers
+$max-margin-spacing        : 30 !default; // Ex: max l--m-30
+$margin-spacing-threshhold : 3  !default; // Ex: l--m-0, l--m-3, l--m-6
+
+// Padding utility helpers
+$max-padding-spacing        : 30 !default; // Ex: max l--p-30
+$padding-spacing-threshhold : 3  !default; // Ex: l--p-0, l--p-3, l--p-6
+
+// Color vars
+$white     : #fff    !default;
+$black     : #000    !default;
+$syn-color : #25c0d7 !default;

@@ -1,0 +1,126 @@
+@import "../mixins/_utilities";
+
+// Since the typical default browser font-size is 16px, that makes the calculation for grid sizes easy.
+// If you want your base font-size to be different and not have it affect the grid breakpoints,
+// set $rem-base to $base-font-size and make sure $base-font-size is a px value.
+$base-font-size : 100% !default;
+
+// $base-line-height is 24px while $base-font-size is 16px
+$base-line-height : 150% !default;
+
+// We use these to control various global styles
+$body-bg          : #fff !default;
+$body-font-color  : #222 !default;
+$body-font-family : "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$body-font-weight : normal !default;
+$body-font-style  : normal !default;
+
+// We use this to control font-smoothing
+$font-smoothing : antialiased !default;
+
+// We use these to control text direction settings
+$text-direction     : ltr !default;
+$default-float      : left !default;
+$opposite-direction : right !default;
+
+@if $text-direction == ltr {
+    $default-float      : left;
+    $opposite-direction : right;
+} @else {
+    $default-float      : right;
+    $opposite-direction : left;
+}
+
+// We use these as default colors throughout
+$primary-color   : #008CBA !default;
+$secondary-color : #e7e7e7 !default;
+$alert-color     : #f04124 !default;
+$success-color   : #43AC6A !default;
+$warning-color   : #f08a24 !default;
+$info-color      : #a0d3e8 !default;
+
+$include-html-global-classes : $include-html-classes !default;
+
+//We use this as cursors values for enabling the option of having custom cursors in the whole site's stylesheet
+$cursor-auto      : auto !default;
+$cursor-crosshair : crosshair !default;
+$cursor-default   : default !default;
+$cursor-disabled  : not-allowed !default;
+$cursor-pointer   : pointer !default;
+$cursor-help      : help !default;
+$cursor-text      : text !default;
+
+  @if $include-html-global-classes {
+
+    // Set box-sizing globally to handle padding and border widths
+    *,
+    *:before,
+    *:after {
+        box-sizing : border-box;
+    }
+
+    html,
+    body { font-size: $base-font-size; }
+
+    // Default body styles
+    body {
+        position    : relative;
+        background  : $body-bg;
+        color       : $body-font-color;
+        padding     : 0;
+        margin      : 0;
+        font-family : $body-font-family;
+        font-weight : $body-font-weight;
+        font-style  : $body-font-style;
+        line-height : 1; // Set to $base-line-height to take on browser default of 150%
+        position    : relative;
+        cursor      : $cursor-default;
+    }
+
+  a:hover { cursor: $cursor-pointer; }
+
+    // Grid Defaults to get images and embeds to work properly
+    img,
+    object,
+    embed { max-width: 100%; height: auto; }
+
+    object,
+    embed { height: 100%; }
+
+    img { -ms-interpolation-mode: bicubic; }
+
+    #map_canvas,
+    .map_canvas,
+    .mqa-display {
+        img,
+        embed,
+        object {
+            max-width : none !important;
+        }
+    }
+
+    // Miscellaneous useful HTML classes
+    .left         { float: left !important; }
+    .right        { float: right !important; }
+    .clearfix     { @include clearfix; }
+    .text-left    { text-align: left !important; }
+    .text-right   { text-align: right !important; }
+    .text-center  { text-align: center !important; }
+    .text-justify { text-align: justify !important; }
+    .hide         { display: none; }
+
+    img {
+      display        : inline-block;
+      vertical-align : middle;
+    }
+
+    textarea {
+        height     : auto;
+        min-height : 50px;
+    }
+
+    select {
+        width : 100%;
+    }
+
+}
