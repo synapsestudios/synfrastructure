@@ -5,6 +5,7 @@ import IconDocs from './IconDocs';
 import CheckboxDocs from './CheckboxDocs';
 import RadioDocs from './RadioDocs';
 import InputDocs from './InputDocs';
+import GridDocs from './GridDocs';
 
 import Button from '../src/button';
 import Input from '../src/input';
@@ -27,14 +28,10 @@ class Demo extends Component {
 
     this.state = {
       modalView: false,
-      switch1: true,
-      switch2: false,
     };
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.toggleSwitch1 = this.toggleSwitch1.bind(this);
-    this.toggleSwitch2 = this.toggleSwitch2.bind(this);
   }
 
   openModal() {
@@ -46,18 +43,6 @@ class Demo extends Component {
   closeModal() {
     this.setState({
       modalView: false,
-    });
-  }
-
-  toggleSwitch1() {
-    this.setState({
-      switch1: !this.state.switch1,
-    });
-  }
-
-  toggleSwitch2() {
-    this.setState({
-      switch2: !this.state.switch2,
     });
   }
 
@@ -87,91 +72,8 @@ class Demo extends Component {
         <CheckboxDocs />
         <RadioDocs />
         <InputDocs />
-        <div className="section">
-          <h1 className="h1">Textarea Component</h1>
-          <Textarea id="example3" />
-        </div>
-        <div className="section">
-          <Select
-            id="example4"
-            options={[
-              {
-                text: 'Option 1',
-                value: 'option-1',
-                selected: true,
-              },
-              {
-                text: 'Option 2',
-                value: 'option-2',
-                selected: false,
-              },
-              {
-                text: 'Option 3',
-                value: 'option-3',
-                selected: false,
-              },
-            ]}
-          />
-        </div>
-        <div className="section">
-          <Select
-            id="example5"
-            customIcon={String.fromCharCode(9660)}
-            componentWrapCSSClassName="super-custom__wrapper"
-            options={[
-              {
-                text: 'Option 1',
-                value: 'option-1',
-                selected: true,
-              },
-              {
-                text: 'Option 2',
-                value: 'option-2',
-                selected: false,
-              },
-              {
-                text: 'Option 3',
-                value: 'option-3',
-                selected: false,
-              },
-            ]}
-          />
-        </div>
+        <GridDocs />
         {this.renderModal()}
-        <div className="section">
-          <h1 className="h1">Grid System</h1>
-          <div className="row around-small">
-            <div className="small-4">
-              <div className="box blue">small-4</div>
-            </div>
-            <div className="small-2">
-              <div className="box red">small-2</div>
-            </div>
-            <div className="small-2">
-              <div className="box yellow">small-2</div>
-            </div>
-          </div>
-        </div>
-        <div className="section">
-          <h1 className="h1">Switches</h1>
-          <Switch
-            id="switch-input"
-            label="Example Switch Off"
-            name="single-switch-on"
-            value={this.state.switch1}
-            checked={this.state.switch1}
-            onClick={this.toggleSwitch1}
-          />
-          <Switch
-            id="switch-input-on"
-            label="Example Switch On"
-            name="single-switch"
-            value={this.state.switch2}
-            checked={this.state.switch2}
-            onClick={this.toggleSwitch2}
-          />
-        </div>
-
         <div className="section">
           <h1 className="h1">Tooltips</h1>
           <div className="row">

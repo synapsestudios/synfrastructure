@@ -21,12 +21,11 @@
     text-align    : center;
 }
 
-.row {
-    background : #ddd;
-}
-
 .box {
     padding : 10px;
+    background : $syn-color;
+    margin : rem-calc(4) 0;
+    color : $white;
 }
 
 @include min-screen($media-small) {
