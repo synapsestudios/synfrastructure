@@ -28,6 +28,10 @@
     color : $white;
 }
 
+.l--modal-revealed {
+    overflow: hidden;
+}
+
 @include min-screen($media-small) {
     .blue {
         background : blue;
