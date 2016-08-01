@@ -17,6 +17,7 @@
 @import "mixins/utilities";
 
 // Utilities
+@import "utilities/colors";
 @import "utilities/global";
 @import "utilities/grid";
 @import "utilities/margin";
@@ -24,3 +25,11 @@
 @import "utilities/timing";
 
 // TODO: Components conditional
+$include-component-classes : true;
+@import "components/alerts";
+@import "components/buttons";
+@import "components/inputs";
+@import "components/labels";
+@import "components/modals";
+@import "components/switches";
+@import "components/tooltips";

@@ -22,20 +22,20 @@ class AlertDocs extends Component {
     return (
       <div className="section">
         <h1 className="h1">Alert Component</h1>
-        <Alert type="notification">
+        <Alert theme="info">
           This is an information alert
         </Alert>
-        <Alert type="success">
+        <Alert theme="success">
           This is an success alert
         </Alert>
-        <Alert type="warning">
+        <Alert theme="warning">
           This is an warning alert
         </Alert>
-        <Alert type="error">
+        <Alert theme="error">
           This is an error alert
         </Alert>
         <Alert
-          type="notification"
+          theme="info"
           isVisible={this.state.showNotification}
           onDismiss={() => this.hideNotification()}
         >

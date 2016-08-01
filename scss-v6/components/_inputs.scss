@@ -1,0 +1,344 @@
+// Bring in default settings
+@import "../../scss/settings";
+
+// ? export default classes
+$include-form-input-component-classes : $include-component-classes !default;
+
+//
+// @vars
+// default input
+$form-input-display       : block             !default;
+$form-input-width         : 100%              !default;
+$form-input-height        : rem-calc(45)      !default;
+$form-input-margin        : rem-calc(0 0 15)  !default;
+$form-input-padding       : rem-calc(15)    !default;
+$form-input-bx-shadow     : none              !default;
+$form-input-border-style  : 1px solid         !default;
+$form-input-border-color  : tint($black, 70%) !default;
+$form-input-border-radius : 2px               !default;
+$form-input-bg            : $white            !default;
+$form-input-bg-img        : none              !default;
+$form-input-font-family   : inherit           !default;
+$form-input-font-size     : 16px              !default;
+$form-input-line-height   : 1                 !default;
+$form-input-font-color    : tint($black, 50%) !default;
+$form-input-text-shadow   : none              !default;
+$form-input-normalize     : false             !default;
+
+// placeholder
+$form-input-placeholder-font-family : $form-input-font-family !default;
+$form-input-placeholder-font-size   : $form-input-font-size   !default;
+$form-input-placeholder-line-height : $form-input-line-height !default;
+$form-input-placeholder-font-color  : tint($black, 85%)       !default;
+$form-input-placeholder-text-shadow : $form-input-text-shadow !default;
+
+// disabled
+$form-input-disabled-style        : 1px solid         !default;
+$form-input-disabled-border-color : tint($black, 80%) !default;
+$form-input-disabled-bg           : tint($white, 10%) !default;
+$form-input-disabled-bg-img       : none              !default;
+$form-input-disabled-cursor       : not-allowed       !default;
+$form-input-disabled-font-color   : tint($black, 50%) !default;
+
+// selects
+$form-input-select-display       : block                                        !default;
+$form-input-select-width         : 100%                                         !default;
+$form-input-select-height        : $form-input-height                           !default;
+$form-input-select-margin        : $form-input-margin                           !default;
+$form-input-select-padding-value : $form-input-padding                          !default;
+$form-input-select-padding       : rem-calc(0 $form-input-select-padding-value) !default;
+$form-input-select-bx-shadow     : none                                         !default;
+$form-input-select-border-style  : $form-input-border-style                     !default;
+$form-input-select-border-color  : $form-input-border-color                     !default;
+$form-input-select-border-radius : $form-input-border-radius                    !default;
+$form-input-select-bg            : $form-input-bg                               !default;
+$form-input-select-bg-img        : $form-input-bg-img                           !default;
+$form-input-select-font-family   : $form-input-font-family                      !default;
+$form-input-select-font-size     : $form-input-font-size                        !default;
+$form-input-select-line-height   : $form-input-line-height                      !default;
+$form-input-select-font-color    : $form-input-font-color                       !default;
+$form-input-select-text-shadow   : $form-input-text-shadow                      !default;
+$form-input-select-normalize     : false                                        !default;
+
+// @MIXIN
+// Normalize inputs
+@mixin form-input-normalize {
+    -webkit-appearance : none;
+    -moz-appearance    : none;
+    text-indent        : 1px;
+    text-overflow      : '';
+}
+
+// @MIXIN
+// Add layout styles
+@mixin form-input-layout(
+    $display : $form-input-display,
+    $margin  : $form-input-margin
+) {
+    display : $display;
+    margin  : $margin;
+}
+
+// @MIXIN
+// Size of input
+@mixin form-input-size(
+    $width   : $form-input-width,
+    $height  : $form-input-height,
+    $padding : $form-input-padding
+) {
+    width   : $width;
+    height  : $height;
+    padding : $padding;
+}
+
+
+// @MIXIN
+// Input typography
+@mixin form-input-typography(
+    $font-family : $form-input-font-family,
+    $font-size   : $form-input-font-size,
+    $line-height : $form-input-line-height,
+    $font-color  : $form-input-font-color,
+    $text-shadow : $form-input-text-shadow
+) {
+    font-family : $font-family;
+    font-size   : $font-size;
+    line-height : $line-height;
+    color       : $font-color;
+    text-shadow : $text-shadow;
+}
+
+// @MIXIN
+// Add specified input styles
+@mixin form-input-style(
+    $box-shadow       : $form-input-bx-shadow,
+    $border-style     : $form-input-border-style,
+    $border-color     : $form-input-border-color,
+    $border-radius    : $form-input-border-radius,
+    $background-color : $form-input-bg,
+    $background-image : $form-input-bg-img
+) {
+    box-shadow       : $box-shadow;
+    border           : $border-style;
+    border-color     : $border-color;
+    background-color : $form-input-bg;
+    border-radius    : $border-radius;
+    background-image : $form-input-bg-img;
+}
+
+// @MIXIN
+// Create a default form input component
+@mixin form-input(
+    $display          : $form-input-display,
+    $width            : $form-input-width,
+    $height           : $form-input-height,
+    $margin           : $form-input-margin,
+    $padding          : $form-input-padding,
+    $box-shadow       : $form-input-bx-shadow,
+    $border-style     : $form-input-border-style,
+    $border-color     : $form-input-border-color,
+    $border-radius    : $form-input-border-radius,
+    $background-color : $form-input-bg,
+    $background-image : $form-input-bg-img,
+    $font-family      : $form-input-font-family,
+    $font-size        : $form-input-font-size,
+    $line-height      : $form-input-line-height,
+    $font-color       : $form-input-font-color,
+    $text-shadow      : $form-input-text-shadow,
+    $normalize        : $form-input-normalize
+) {
+    @if $normalize {
+        @include form-input-normalize;
+    }
+    @include form-input-layout(
+        $display,
+        $margin
+    );
+    @include form-input-size(
+        $width,
+        $height,
+        $padding
+    );
+    @include form-input-typography(
+        $font-family,
+        $font-size,
+        $line-height,
+        $font-color,
+        $text-shadow
+    );
+    @include form-input-style(
+        $box-shadow,
+        $border-style,
+        $border-color,
+        $border-radius,
+        $background-color,
+        $background-image
+    );
+}
+
+@mixin select-input(
+    $display          : $form-input-select-display,
+    $width            : $form-input-select-width,
+    $height           : $form-input-select-height,
+    $margin           : $form-input-select-margin,
+    $padding          : $form-input-select-padding,
+    $box-shadow       : $form-input-select-bx-shadow,
+    $border-style     : $form-input-select-border-style,
+    $border-color     : $form-input-select-border-color,
+    $border-radius    : $form-input-select-border-radius,
+    $background-color : $form-input-select-bg,
+    $background-image : $form-input-select-bg-img,
+    $font-family      : $form-input-select-font-family,
+    $font-size        : $form-input-select-font-size,
+    $line-height      : $form-input-select-line-height,
+    $font-color       : $form-input-select-font-color,
+    $text-shadow      : $form-input-select-text-shadow,
+    $normalize        : $form-input-select-normalize
+    ) {
+    @if $normalize {
+        @include form-input-normalize;
+    }
+    @include form-input-layout(
+        $display,
+        $margin
+    );
+    @include form-input-size(
+        $width,
+        $height,
+        $padding
+    );
+    @include form-input-typography(
+        $font-family,
+        $font-size,
+        $line-height,
+        $font-color,
+        $text-shadow
+    );
+    @include form-input-style(
+        $box-shadow,
+        $border-style,
+        $border-color,
+        $border-radius,
+        $background-color,
+        $background-image
+    );
+}
+
+// export these default classes
+// if set to true
+// check synfrastructure settings
+@if $include-form-input-component-classes {
+
+    .input,
+    .textarea,
+    .select {
+        @include form-input;
+
+        // placeholder styles
+        @include placeholder {
+            @include form-input-typography(
+                $font-family : $form-input-placeholder-font-family,
+                $font-size   : $form-input-placeholder-font-size,
+                $line-height : $form-input-placeholder-line-height,
+                $font-color  : $form-input-placeholder-font-color,
+                $text-shadow : $form-input-placeholder-text-shadow
+            );
+        }
+
+        // focus styles
+        &:focus {
+            outline : none;
+        }
+
+        // disabled field styles
+        &:disabled,
+        &[disabled] {
+            border           : $form-input-disabled-style;
+            border-color     : $form-input-disabled-border-color;
+            background-color : $form-input-disabled-bg;
+            background-image : $form-input-disabled-bg-img;
+            cursor           : $form-input-disabled-cursor;
+            @include form-input-typography(
+                $font-color : $form-input-disabled-font-color
+            );
+
+        }
+
+    }
+
+    .input,
+    .textarea {
+        @include form-input-normalize;
+    }
+
+    // textarea specific styles
+    // 1. override input height
+    // 2. cannot be resized past
+    //    container width
+    .textarea {
+        max-width : 100%; // 2.
+        height    : auto; // 1.
+
+        // modifier to prevent resize
+        &.textarea--no-resize {
+            resize : none;
+        }
+
+    }
+
+    // select element
+    // 1. prevent text clipping
+    .select {
+        padding    : $form-input-select-padding;
+        background : shade($form-input-bg, 5%);
+    }
+
+    // Custom Select Component
+    // If custom icon is passed into component
+    // 1. Wrapper
+    // 2. Custom Select
+    // 3. Custom Icon
+
+    /* 1 */
+    .select--custom--wrap {
+        position      : relative;
+        overflow      : hidden;
+        margin        : $form-input-margin;
+        background    : $form-input-bg;
+    }
+
+    /* 2 */
+    .select--custom {
+        position       : relative;
+            z-index    : 2;
+        width          : 100%;
+        margin-bottom  : 0;
+        padding-right  : $form-input-select-padding-value * 2;
+        padding-left   : $form-input-select-padding-value;
+        overflow       : hidden;
+        background     : transparent !important;
+
+        @include form-input-normalize;
+
+        &::-ms-expand {
+            display : none;
+        }
+
+    }
+
+    /* 3 */
+    .select--custom--icon {
+        position    : absolute;
+            top     : 50%;
+            right   : $form-input-select-padding-value;
+            z-index : 1;
+        margin-top  : rem-calc(-5);
+
+        .icon {
+            fill : $form-input-font-color;
+        }
+
+    }
+
+}
+

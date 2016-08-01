@@ -25,7 +25,7 @@ class Alert extends Component {
 
     const alertClasses = {
       alert: true,
-      [`alert--${this.props.type}`]: true,
+      [`alert--${this.props.theme}`]: true,
       [`${this.props.className}`]: this.props.className,
     };
 
@@ -50,8 +50,8 @@ Alert.propTypes = {
   dismissIcon: PropTypes.any,
   isDismissable: PropTypes.bool,
   isVisible: PropTypes.bool,
-  type: PropTypes.oneOf([
-    'notification',
+  theme: PropTypes.oneOf([
+    'info',
     'success',
     'warning',
     'error',
@@ -63,7 +63,7 @@ Alert.propTypes = {
 Alert.defaultProps = {
   className: null,
   dismissIcon: String.fromCharCode(10761),
-  type: 'notification',
+  theme: 'info',
   isVisible: true,
   onClick: null,
   onDismiss: null,

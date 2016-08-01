@@ -1,0 +1,136 @@
+// Bring in default settings
+@import "../../scss/settings";
+
+// ? export default classes
+$include-label-component-classes : $include-component-classes !default;
+
+// @Vars
+// label variables
+$label-display     : block              !default;
+$label-margin      : rem-calc(0 0 15 0) !default;
+$label-padding     : 0                  !default;
+$label-bx-shadow   : none               !default;
+$label-bdr-style   : none               !default;
+$label-bdr-color   : transparent        !default;
+$label-bdr-rad     : 0                  !default;
+$label-bg          : none               !default;
+$label-bg-img      : transparent        !default;
+$label-font-family : inherit            !default;
+$label-font-size   : rem-calc(16)       !default;
+$label-font-color  : gray               !default;
+$label-text-shadow : none               !default;
+$label-transition  : none               !default;
+
+// @MIXIN
+// Add specified label styles
+@mixin label-layout(
+    $display : $label-display,
+    $margin  : $label-margin
+) {
+    display : $display;
+    margin  : $margin;
+}
+
+// @MIXIN
+// Size label and font
+@mixin label-size(
+    $padding   : $label-padding,
+    $font-size : $label-font-size
+) {
+    padding   : $padding;
+    font-size : $font-size;
+}
+
+// @MIXIN
+// Add specified label styles
+@mixin label-typography(
+    $font-family : $label-font-family,
+    $font-size   : $label-font-size,
+    $font-color  : $label-font-color,
+    $text-shadow : $label-text-shadow
+) {
+    font-family : $font-family;
+    font-size   : $font-size;
+    color       : $font-color;
+    text-shadow : $text-shadow;
+}
+
+// @MIXIN
+// Add specified label styles
+@mixin label-style(
+    $box-shadow       : $label-bx-shadow,
+    $border-style     : $label-bdr-style,
+    $border-color     : $label-bdr-color,
+    $border-radius    : $label-bdr-rad,
+    $background-color : $label-bg,
+    $background-image : $label-bg-img,
+    $transition       : $label-transition
+) {
+    box-shadow        : $box-shadow;
+    border            : $border-style;
+    border-color      : $border-color;
+    border-radius     : $border-radius;
+    background-color  : $background-color;
+    background-image  : $background-image;
+    transition        : $transition;
+}
+
+// @MIXIN
+// Create a default label component
+@mixin label(
+    $display          : $label-display,
+    $margin           : $label-margin,
+    $padding          : $label-padding,
+    $box-shadow       : $label-bx-shadow,
+    $border-style     : $label-bdr-style,
+    $border-color     : $label-bdr-color,
+    $border-radius    : $label-bdr-rad,
+    $background-color : $label-bg,
+    $background-image : $label-bg-img,
+    $font-family      : $label-font-family,
+    $font-size        : $label-font-size,
+    $font-color       : $label-font-color,
+    $text-shadow      : $label-text-shadow,
+    $transition       : $label-transition
+) {
+    @include label-layout(
+        $display,
+        $margin
+    );
+    @include label-size(
+        $padding,
+        $font-size
+    );
+    @include label-typography(
+        $font-family,
+        $font-size,
+        $font-color,
+        $text-shadow
+    );
+    @include label-style(
+        $box-shadow,
+        $border-style,
+        $border-color,
+        $border-radius,
+        $background-color,
+        $background-image
+    );
+
+}
+
+// export these default classes
+// if set to true
+// check synfrastructure settings
+@if $include-label-component-classes {
+
+    .label {
+        @include label;
+
+        // add cursor to labels linked to inputs
+        &[for] {
+            cursor : pointer;
+        }
+
+    }
+
+}

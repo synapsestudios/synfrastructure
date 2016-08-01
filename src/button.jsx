@@ -8,7 +8,7 @@ class Button extends Component {
       button: true,
       'button--disabled': this.props.disabled,
       [`button--size--${this.props.size}`]: this.props.size,
-      [`button--theme--${this.props.colorTheme}`]: this.props.colorTheme,
+      [`button--theme--${this.props.theme}`]: this.props.theme,
       [`button--display--${this.props.display}`]: this.props.display,
       [`${this.props.className}`]: this.props.className,
     };
@@ -32,18 +32,16 @@ class Button extends Component {
 Button.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
-  colorTheme: PropTypes.oneOf([
+  theme: PropTypes.oneOf([
     'black',
     'white',
     'primary',
     'secondary',
     'tertiary',
-    'alt-primary',
-    'alt-secondary',
-    'alt-tertiary',
     'status--success',
     'status--warning',
     'status--error',
+    'status--info',
   ]),
   disabled: PropTypes.bool,
   display: PropTypes.oneOf([
@@ -70,7 +68,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   className: null,
-  colorTheme: 'primary',
+  theme: 'primary',
   disabled: false,
   element: 'button',
   size: 'medium',

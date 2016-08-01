@@ -1,0 +1,150 @@
+// Bring in default settings
+@import "../../scss/settings";
+
+// ? export default classes
+$include-modal-component-classes : $include-component-classes !default;
+
+$modal-hidden-index     : -10;
+$modal-revealed-index   : 20;
+$modal-background-dark  : #444444;
+$modal-background-light : #fefefe;
+$modal-transition       : opacity 250ms ease;
+$modal-theme-dark       : rgba($modal-background-dark, .95);
+$modal-theme-light      : rgba($modal-background-light, .95);
+
+$modal-content-margin              : 0;
+$modal-content-transform--inactive : translate(-50%, -50%) scale(.5, .5);
+$modal-content-transform--active   : translate(-50%, -50%) scale(1, 1);
+$modal-content-transition          : transform 200ms $ease-in-out-quad;
+$modal-content-width-small         : 50%;
+$modal-content-margin-small        : rem-calc(60) auto rem-calc(30);
+$modal-content-padding-small       : rem-calc(20);
+$modal-content-background-small    : $white;
+
+// @MIXIN
+// Add modal container styles
+@mixin modal-container(
+    $z-index    : $modal-hidden-index,
+    $transition : $modal-transition
+) {
+    position    : fixed;
+        top     : 0;
+        right   : 0;
+        bottom  : 0;
+        left    : 0;
+        z-index : $z-index;
+    opacity     : 0;
+    visibility  : hidden;
+    overflow    : auto;
+    transition  : $transition;
+}
+
+// @MIXIN
+// Add modal container styles
+@mixin modal-container(
+    $z-index    : $modal-hidden-index,
+    $transition : $modal-transition
+) {
+    position    : fixed;
+        top     : 0;
+        right   : 0;
+        bottom  : 0;
+        left    : 0;
+        z-index : $z-index;
+    opacity     : 0;
+    visibility  : hidden;
+    overflow    : auto;
+    transition  : $transition;
+}
+
+@mixin modal-container-reveal(
+    $z-index : $modal-revealed-index
+) {
+    z-index    : $z-index;
+    opacity    : 1;
+    visibility : visible;
+}
+
+@mixin modal-content(
+    $min-width  : $modal-content-width-small,
+    $margin     : $modal-content-margin-small,
+    $padding    : $modal-content-padding-small,
+    $background : $modal-content-background-small
+) {
+    min-width  : $min-width ;
+    margin     : $margin;
+    padding    : $padding;
+    background : $background;
+}
+
+@mixin modal-mask(
+    $position : absolute,
+    $top      : 0,
+    $right    : 0,
+    $bottom   : 0,
+    $left     : 0,
+    $z-index  : 1
+) {
+    position : $position;
+    top      : $top;
+    right    : $right;
+    bottom   : $bottom;
+    left     : $left;
+    z-index  : $z-index;
+}
+
+
+// export these default classes
+// if set to true
+// check synfrastructure settings
+@if $include-modal-component-classes {
+
+    .modal {
+        @include modal-container;
+
+        &.modal--reveal {
+            @include modal-container-reveal;
+        }
+
+    }
+
+    .modal__content {
+        @include modal-content;
+
+        @include min-screen($media-small) {
+            position    : absolute;
+                top     : 50%;
+                left    : 50%;
+                z-index : $modal-revealed-index;
+            margin      : $modal-content-margin;
+            transform   : $modal-content-transform--inactive;
+            transition  : $modal-content-transition;
+        }
+
+        .modal--reveal & {
+
+            @include min-screen($media-small) {
+                transform : $modal-content-transform--active;
+            }
+
+        }
+
+    }
+
+    .modal--dark {
+        background : $modal-theme-dark;
+    }
+
+    .modal--light {
+        background : $modal-theme-light;
+    }
+
+    .modal--transparent {
+        background : transparent;
+    }
+
+    .modal__mask {
+        @include modal-mask;
+    }
+
+}

@@ -1,0 +1,36 @@
+/*
+  Color variables
+*/
+
+// B&W
+$white : #fff;
+$black : #000;
+
+// Grayscale
+$gray--025 : tint($black, 98%) !default;
+$gray--050 : tint($black, 95%) !default;
+$gray--100 : tint($black, 90%) !default;
+$gray--200 : tint($black, 80%) !default;
+$gray--300 : tint($black, 70%) !default;
+$gray--400 : tint($black, 60%) !default;
+$gray--500 : tint($black, 50%) !default;
+$gray--600 : tint($black, 40%) !default;
+$gray--700 : tint($black, 30%) !default;
+$gray--800 : tint($black, 20%) !default;
+$gray--900 : tint($black, 10%) !default;
+
+// Thematic colors
+$primary   : #00558b !default;
+$secondary : #f1f1f1 !default;
+$tertiary  : #279F5A !default;
+
+// Status colors
+$status--info    : #4183D7 !default;
+$status--success : #43AC6A !default;
+$status--warning : #F08A24 !default;
+$status--error   : #F04124 !default;
+
+// Typography
+$display-color        : $gray--700 !default;
+$display-color--light : $gray--500 !default;
+$body-color           : $gray--800 !default;
