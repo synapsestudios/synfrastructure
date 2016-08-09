@@ -1,7 +1,7 @@
 // Bring in default settings
 @import "../../scss/settings";
 
-$tooltip-background-color      : $syn-color     !default;
+$tooltip-background-color      : $primary     !default;
 $tooltip-text-color            : $white         !default;
 $tooltip-padding               : rem-calc(8 21) !default;
 $tooltip-border-radius         : rem-calc(3)    !default;

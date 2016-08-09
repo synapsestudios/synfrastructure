@@ -14,9 +14,9 @@ $alert-margin      : rem-calc(0 0 15 0)          !default;
 $alert-padding     : rem-calc(15)                !default;
 $alert-bx-shadow   : none                        !default;
 $alert-bdr-style   : 1px solid                   !default;
-$alert-bdr-color   : $syn-color                  !default;
+$alert-bdr-color   : $primary                  !default;
 $alert-bdr-rad     : rem-calc(3)                 !default;
-$alert-bg          : $syn-color                  !default;
+$alert-bg          : $primary                  !default;
 $alert-bg-img      : transparent                 !default;
 $alert-font-family : inherit                     !default;
 $alert-font-size   : rem-calc(16)                !default;
@@ -133,22 +133,32 @@ $alert-dismiss-right-position : rem-calc(15)       !default;
     );
 }
 
-// export these default classes
-// if set to true
-// check synfrastructure settings
-@if $include-alert-component-classes {
+.alert {
+    @include alert;
+}
 
-    .alert {
-        @include alert;
-    }
+.alert__dismiss {
+    position      : absolute;
+        top       : 50%;
+        right     : $alert-dismiss-right-position;
+        transform : translateY(-50%);
+    font-size     : $alert-dismiss-font-size;
+    text-shadow   : $alert-dismiss-text-shadow;
+}
 
-    .alert__dismiss {
-        position      : absolute;
-            top       : 50%;
-            right     : $alert-dismiss-right-position;
-            transform : translateY(-50%);
-        font-size     : $alert-dismiss-font-size;
-        text-shadow   : $alert-dismiss-text-shadow;
-    }
+// status-types
+.alert--info {
+    background-color : $status--info;
+}
 
+.alert--success {
+    background-color : $status--success;
+}
+
+.alert--warning {
+    background-color : $status--warning;
+}
+
+.alert--error {
+    background-color : $status--error;
 }

@@ -1,4 +1,4 @@
-@import '../scss-v6/_synfrastructure';
+@import '../scss/_synfrastructure';
 
 .demo__wrapper {
     max-width : 960px;
@@ -23,7 +23,7 @@
 
 .box {
     padding : 10px;
-    background : $syn-color;
+    background : $primary;
     margin : rem-calc(4) 0;
     color : $white;
 }

@@ -1,0 +1,66 @@
+@import "../mixins/_utilities";
+
+@if $include-html-classes {
+
+    // Set box-sizing globally to handle padding and border widths
+    *,
+    *:before,
+    *:after {
+        box-sizing : border-box;
+    }
+
+    html,
+    body { font-size: $base-font-size; }
+
+    // Default body styles
+    body {
+        position    : relative;
+        background  : $body-bg;
+        color       : $body-font-color;
+        padding     : 0;
+        margin      : 0;
+        font-family : $body-font-family;
+        font-weight : $body-font-weight;
+        font-style  : $body-font-style;
+        line-height : $base-line-height;
+        position    : relative;
+        cursor      : $cursor-default;
+    }
+
+    a:hover { cursor: $cursor-pointer; }
+
+    // Grid Defaults to get images and embeds to work properly
+    img,
+    object,
+    embed { max-width: 100%; height: auto; }
+
+    object,
+    embed { height: 100%; }
+
+    img { -ms-interpolation-mode: bicubic; }
+
+    // Miscellaneous useful HTML classes
+    .left         { float: left !important; }
+    .right        { float: right !important; }
+    .clearfix     { @include clearfix; }
+    .text-left    { text-align: left !important; }
+    .text-right   { text-align: right !important; }
+    .text-center  { text-align: center !important; }
+    .text-justify { text-align: justify !important; }
+    .hide         { display: none; }
+
+    img {
+      display        : inline-block;
+      vertical-align : middle;
+    }
+
+    textarea {
+        height     : auto;
+        min-height : 50px;
+    }
+
+    select {
+        width : 100%;
+    }
+
+}

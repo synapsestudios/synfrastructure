@@ -5,13 +5,11 @@
 
 // @vars
 // directional values
-$directions                 : top right bottom left;
-$max-padding-spacing        : 30 !default;
-$padding-spacing-threshhold : 3 !default;
-$padding-spacing-buffer     : $max-padding-spacing * $padding-spacing-threshhold;
+$directions             : top right bottom left;
+$padding-spacing-buffer : $max-padding-spacing * $padding-spacing-threshhold;
 
 // Padding Function
-// Outputs .l--p-x {padding:2px & even #s through padding:10px}
+// Outputs .l--p-x {padding: 2px and all evens through padding: 24px (default)}
 @for $i from 0 through $max-padding-spacing {
     $value : (($padding-spacing-buffer / $max-padding-spacing) * $i) * 1;
 
@@ -22,10 +20,10 @@ $padding-spacing-buffer     : $max-padding-spacing * $padding-spacing-threshhold
 }
 
 // Single Side Padding Function
-// Outputs .l--p-top-x {padding-top:2px & even #s through padding-top:20px}
-// Outputs .l--p-right-x {padding-right:2px & even #s through padding-right:20px}
-// Outputs .l--p-bottom-x {padding-bottom:2px & even #s through padding-bottom:20px}
-// Outputs .l--p-left-x {padding-left:2px & even #s through padding-left:20px}
+// Outputs .l--p-top-x {padding-top: 2px and all evens through padding-top: 24px (default)}
+// Outputs .l--p-right-x {padding-right: 2px and all evens through padding-right: 24px (default)}
+// Outputs .l--p-bottom-x {padding-bottom: 2px and all evens through padding-bottom: 24px (default)}
+// Outputs .l--p-left-x {padding-left: 2px and all evens through padding-left: 24px (default)}
 @each $direction in $directions {
 
     @for $i from 0 through $max-padding-spacing {

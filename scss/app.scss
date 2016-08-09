@@ -1,15 +1,1 @@
-@charset "UTF-8";
-
 @import "synfrastructure";
-
-/**** Uncomment to show default component stylings ****/
-$include-component-classes : true;
-
-@import "components/alerts";
-@import "components/buttons";
-@import "components/inputs";
-@import "components/labels";
-@import "components/modals";
-@import "components/switches";
-@import "components/tooltips";
-

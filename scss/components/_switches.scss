@@ -2,7 +2,7 @@
 @import "../../scss/settings";
 
 $switch-color--default   : tint($black, 50%)  !default;
-$switch-color--on        : $syn-color         !default;
+$switch-color--on        : $primary         !default;
 $switch-color--off       : #D94444            !default;
 $switch-border-size      : 1px                !default;
 $switch-border-color     : transparent        !default;

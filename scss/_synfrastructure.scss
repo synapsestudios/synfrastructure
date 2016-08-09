@@ -1,32 +1,28 @@
-// make sure the charset is set appropriately
 @charset "UTF-8";
 
-// import default settings
-@import "settings";
-
 // Eric Meyer's Reset
-// http://meyerweb.com/eric/tools/css/reset/
 @import "reset";
 
-// import base from Foundation 5.5
-// http://foundation.zurb.com/docs/
-@import "foundation/flex-video";
-@import "foundation/functions";
-@import "foundation/global";
+// Default Settings
+@import "settings";
 
-// import grid systems
-@import "grid/grid-mixins";
-@import "grid/grid";
+// Mixins
+@import "mixins/grid";
+@import "mixins/media-queries";
+@import "mixins/placeholder";
+@import "mixins/utilities";
 
-// imports from Bourbon
-// http://bourbon.io/docs/
-@import "bourbon/timing-functions";
-@import "bourbon/placeholder";
-@import "bourbon/tint-shade";
+// Utility Classes
+@import "utilities/global";
+@import "utilities/grid";
+@import "utilities/margin";
+@import "utilities/padding";
 
-// utils
-@import "util/mixins";
-@import "util/media-queries";
-@import "util/utilities";
-@import "util/margin";
-@import "util/padding";
+// Component Classes
+@import "components/alerts";
+@import "components/buttons";
+@import "components/inputs";
+@import "components/labels";
+@import "components/modals";
+@import "components/switches";
+@import "components/tooltips";

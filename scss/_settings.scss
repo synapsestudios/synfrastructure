@@ -1,34 +1,76 @@
-// @vars
+//
 // SYNFRASTRUCTURE SETTINGS
 //
-@import "foundation/functions";
+@import "functions/rem-calc";
+@import "functions/tint-shade";
 
-$include-component-classes : false !default;
+$include-component-classes : true !default;
 $include-html-classes      : true  !default;
 
-// This is the default html and body font-size for the base rem value.
-$rem-base : 16px !default;
+/*
+*   Colors
+*/
+$white : #fff    !default;
+$black : #000    !default;
 
-// Font-size base
-$font-size-base : rem-calc(16) !default;
+$gray--025 : tint($black, 98%) !default;
+$gray--050 : tint($black, 95%) !default;
+$gray--100 : tint($black, 90%) !default;
+$gray--200 : tint($black, 80%) !default;
+$gray--300 : tint($black, 70%) !default;
+$gray--400 : tint($black, 60%) !default;
+$gray--500 : tint($black, 50%) !default;
+$gray--600 : tint($black, 40%) !default;
+$gray--700 : tint($black, 30%) !default;
+$gray--800 : tint($black, 20%) !default;
+$gray--900 : tint($black, 10%) !default;
 
-// Base line height
-$line-height-base : 1.5 !default;
+$primary   : #00558b !default;
+$secondary : #f1f1f1 !default;
+$tertiary  : #279F5A !default;
 
-// Media Sizes
+$status--info    : #4183D7 !default;
+$status--success : #43AC6A !default;
+$status--warning : #F08A24 !default;
+$status--error   : #F04124 !default;
+
+
+/*
+*   Globals
+*/
+$rem-base         : 16px !default;
+$base-font-size   : rem-calc(16) !default;
+$base-line-height : 1.5 !default;
+
+$body-bg          : $white !default;
+$body-font-color  : $gray--800 !default;
+$body-font-family : "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$body-font-weight : normal !default;
+$body-font-style  : normal !default;
+
+$font-smoothing : antialiased !default;
+
+$cursor-auto      : auto !default;
+$cursor-crosshair : crosshair !default;
+$cursor-default   : default !default;
+$cursor-disabled  : not-allowed !default;
+$cursor-pointer   : pointer !default;
+$cursor-help      : help !default;
+$cursor-text      : text !default;
+
+
+/*
+*   Media Queries
+*/
 $media-xsmall : 30em !default; // 480px
 $media-small  : 48em !default; // 768px
 $media-medium : 62em !default; // 992px
 $media-large  : 75em !default; // 1200px
 
-// Media Query Ranges
-$small-range   : (0, #{$media-xsmall})                      !default;
-$medium-range  : (#{$media-xsmall + .063em}, #{$media-small}) !default;
-$large-range   : (#{$media-small + .063em}, #{$media-medium}) !default;
-$xlarge-range  : (#{$media-medium + .063em}, #{$media-large}) !default;
-$xxlarge-range : (#{$media-large + .063em})                   !default;
 
-// Flexbox Grid Settings
+/*
+*   Flexbox Grid
+*/
 $column-count    : 12 !default;
 $column-selector : '.' !default;
 $offset-modifier : 'offset' !default;
@@ -43,17 +85,12 @@ $viewport-sm : $media-small !default;
 $viewport-md : $media-medium !default;
 $viewport-lg : $media-large !default;
 
-$container-sm : #{$media-small} + $gutter-width !default;
-$container-md : #{$media-medium} + $gutter-width !default;
-$container-lg : #{$media-large} + $gutter-width !default;
-
 $xs : 'xsmall' !default;
 $sm : 'small'  !default;
 $md : 'medium' !default;
 $lg : 'large'  !default;
 
-// Removed to match 'size-x' syntax
-$block-delimiter    : '' !default;
+$block-delimiter    : '' !default; // Removed to match 'size-x' syntax
 $element-delimiter  : '-' !default;
 $modifier-delimiter : '-' !default;
 
@@ -68,15 +105,47 @@ $queries: (
 $column-properties : 'flex-basis', 'max-width' !default;
 $offset-properties : 'margin-left' !default;
 
-// Margin utility helpers
-$max-margin-spacing        : 30 !default; // Ex: max l--m-30
-$margin-spacing-threshhold : 3  !default; // Ex: l--m-0, l--m-3, l--m-6
 
-// Padding utility helpers
-$max-padding-spacing        : 30 !default; // Ex: max l--p-30
-$padding-spacing-threshhold : 3  !default; // Ex: l--p-0, l--p-3, l--p-6
+/*
+*   Margins
+*/
+$max-margin-spacing        : 24 !default; // Ex: max l--m-24
+$margin-spacing-threshhold : 2  !default; // Ex: l--m-0, l--m-2, l--m-4
 
-// Color vars
-$white     : #fff    !default;
-$black     : #000    !default;
-$syn-color : #25c0d7 !default;
+
+/*
+*   Paddings
+*/
+$max-padding-spacing        : 24 !default; // Ex: max l--p-24
+$padding-spacing-threshhold : 2  !default; // Ex: l--p-0, l--p-2, l--p-4
+
+
+/*
+*   Timing
+*/
+$ease-in-quad  : cubic-bezier(.550, .085, .680, .530) !default;
+$ease-in-cubic : cubic-bezier(.550, .055, .675, .190) !default;
+$ease-in-quart : cubic-bezier(.895, .030, .685, .220) !default;
+$ease-in-quint : cubic-bezier(.755, .050, .855, .060) !default;
+$ease-in-sine  : cubic-bezier(.470, .000, .745, .715) !default;
+$ease-in-expo  : cubic-bezier(.950, .050, .795, .035) !default;
+$ease-in-circ  : cubic-bezier(.600, .040, .980, .335) !default;
+$ease-in-back  : cubic-bezier(.600, -.280, .735, .045) !default;
+
+$ease-out-quad  : cubic-bezier(.250, .460, .450, .940) !default;
+$ease-out-cubic : cubic-bezier(.215, .610, .355, 1) !default;
+$ease-out-quart : cubic-bezier(.165, .840, .440, 1) !default;
+$ease-out-quint : cubic-bezier(.230, 1, .320, 1) !default;
+$ease-out-sine  : cubic-bezier(.390, .575, .565, 1) !default;
+$ease-out-expo  : cubic-bezier(.190, 1, .220, 1) !default;
+$ease-out-circ  : cubic-bezier(.075, .820, .165, 1) !default;
+$ease-out-back  : cubic-bezier(.175, .885, .320, 1.275) !default;
+
+$ease-in-out-quad  : cubic-bezier(.455, .030, .515, .955) !default;
+$ease-in-out-cubic : cubic-bezier(.645, .045, .355, 1) !default;
+$ease-in-out-quart : cubic-bezier(.770, .000, .175, 1) !default;
+$ease-in-out-quint : cubic-bezier(.860, .000, .070, 1) !default;
+$ease-in-out-sine  : cubic-bezier(.445, .050, .550, .950) !default;
+$ease-in-out-expo  : cubic-bezier(1, .000, .000, 1) !default;
+$ease-in-out-circ  : cubic-bezier(.785, .135, .150, .860) !default;
+$ease-in-out-back  : cubic-bezier(.680, -.550, .265, 1.550) !default;
