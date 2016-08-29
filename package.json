@@ -1,6 +1,6 @@
 {
   "name": "synfrastructure",
-  "version": "4.4.0",
+  "version": "4.5.0",
   "description": "A collection of highly reusable React components paired with sass utilities and mixins for speedy UI development",
   "author": "Synapse Studios",
   "license": "MIT",
@@ -32,12 +32,14 @@
     "demo": "rm -rf ./demo-build/* && ./node_modules/webpack/bin/webpack.js --config webpack.config.demo.js && node ./demo-server.js",
     "build": "rm -f ./dist/*  && ./node_modules/babel/bin/babel.js src --loose --out-dir dist"
   },
+  "peerDependencies": {
+    "react": ">=0.14.4",
+    "react-dom": ">=0.14.4",
+    "react-addons-create-fragment": ">=0.14.4"
+  },
   "dependencies": {
     "classnames": "2.2.0",
     "lodash": "4.13.1",
-    "react": "^15.2.1",
-    "react-dom": "^15.2.1",
-    "react-addons-create-fragment": "^15.2.1"
   },
   "devDependencies": {
     "autoprefixer": "6.0.3",
