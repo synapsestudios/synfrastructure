@@ -1,4 +1,5 @@
 import React from 'react';
+import cloneDeep from 'lodash/cloneDeep';
 
 let Button = React.createClass({
 
@@ -53,10 +54,14 @@ let Button = React.createClass({
             this.props.children
         );
 
+        const buttonProps = cloneDeep(this.props);
+        delete buttonProps.element;
+        delete buttonProps.componentCSSClassName;
+
         Component = React.createElement(
             this.props.element,
             {
-                ...this.props,
+                ...buttonProps,
                 className : classes,
                 onClick   : this.props.onClick,
                 disabled  : this.props.disabled,

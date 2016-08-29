@@ -8,6 +8,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -79,7 +83,7 @@ var Tooltip = _react2['default'].createClass({
             tipHeight = undefined,
             offset = undefined;
 
-        node = ReactDOM.findDOMNode(this);
+        node = _reactDom2['default'].findDOMNode(this);
         tipWidth = node.clientWidth;
         tipHeight = node.clientHeight;
         offset = { x: 0, y: 0 };
@@ -145,7 +149,7 @@ var Tooltip = _react2['default'].createClass({
             } else if (this.state.effect === "fixed") {
                 var targetTop = error.target.getBoundingClientRect().top;
                 var targetLeft = error.target.getBoundingClientRect().left;
-                var node = ReactDOM.findDOMNode(this);
+                var node = _reactDom2['default'].findDOMNode(this);
                 var tipWidth = node.clientWidth;
                 var tipHeight = node.clientHeight;
                 var targetWidth = error.target.clientWidth;

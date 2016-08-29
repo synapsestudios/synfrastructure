@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _lodashCloneDeep = require('lodash/cloneDeep');
+
+var _lodashCloneDeep2 = _interopRequireDefault(_lodashCloneDeep);
+
 var _mixinsFormInputMixin = require('../mixins/form-input-mixin');
 
 var _mixinsFormInputMixin2 = _interopRequireDefault(_mixinsFormInputMixin);
@@ -41,7 +45,7 @@ var Input = _react2['default'].createClass({
         return {
             componentCSSClassName: 'input',
             placeholder: null,
-            value: null,
+            value: undefined,
             onFocus: null,
             onBlur: null,
             onChange: null,
@@ -57,7 +61,10 @@ var Input = _react2['default'].createClass({
     render: function render() {
         var classes = [this.props.componentCSSClassName, this.props.componentCSSClassName + '--' + this.props.type, this.props.className].join(' ');
 
-        return _react2['default'].createElement('input', _extends({}, this.props, {
+        var inputProps = _lodashCloneDeep2['default'](this.props);
+        delete inputProps.componentCSSClassName;
+
+        return _react2['default'].createElement('input', _extends({}, inputProps, {
             className: classes,
             id: this.props.id,
             name: this.props.name,

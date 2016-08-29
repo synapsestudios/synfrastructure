@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _lodashCloneDeep = require('lodash/cloneDeep');
+
+var _lodashCloneDeep2 = _interopRequireDefault(_lodashCloneDeep);
+
 var Button = _react2['default'].createClass({
 
     displayName: 'SynfrastructureButton',
@@ -46,7 +50,11 @@ var Button = _react2['default'].createClass({
 
         ComponentChildren = _react2['default'].createElement('span', { className: childClassName }, this.props.children);
 
-        Component = _react2['default'].createElement(this.props.element, _extends({}, this.props, {
+        var buttonProps = _lodashCloneDeep2['default'](this.props);
+        delete buttonProps.element;
+        delete buttonProps.componentCSSClassName;
+
+        Component = _react2['default'].createElement(this.props.element, _extends({}, buttonProps, {
             className: classes,
             onClick: this.props.onClick,
             disabled: this.props.disabled,

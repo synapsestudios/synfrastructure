@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _lodashCloneDeep = require('lodash/cloneDeep');
+
+var _lodashCloneDeep2 = _interopRequireDefault(_lodashCloneDeep);
+
 var Label = _react2['default'].createClass({
 
     displayName: 'SynfrastructureFormLabel',
@@ -33,7 +37,11 @@ var Label = _react2['default'].createClass({
 
         classes = [this.props.componentCSSClassName, this.props.className].join(' ');
 
-        Component = _react2['default'].createElement('label', _extends({}, this.props, {
+        var labelProps = _lodashCloneDeep2['default'](this.props);
+        delete labelProps.text;
+        delete labelProps.componentCSSClassName;
+
+        Component = _react2['default'].createElement('label', _extends({}, labelProps, {
             htmlFor: this.props.htmlFor,
             className: classes
         }), [this.props.text, this.props.children]);

@@ -1,4 +1,5 @@
 import React from 'react';
+import cloneDeep from 'lodash/cloneDeep';
 
 let Checkbox = React.createClass({
 
@@ -31,7 +32,7 @@ let Checkbox = React.createClass({
             disabled              : false,
             componentCSSClassName : 'checkbox',
             checked               : false,
-            value                 : null,
+            value                 : undefined,
             onFocus               : null,
             onBlur                : null,
             onChange              : null,
@@ -91,9 +92,12 @@ let Checkbox = React.createClass({
             this.props.className
         ].join(' ');
 
+        const checkboxProps = cloneDeep(this.props);
+        delete checkboxProps.componentCSSClassName;
+
         return (
             <input
-                {...this.props}
+                {...checkboxProps}
                 className   = {classes}
                 id          = {this.props.id}
                 name        = {this.props.name}

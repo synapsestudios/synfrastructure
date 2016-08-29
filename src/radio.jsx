@@ -1,4 +1,5 @@
 import React from 'react';
+import cloneDeep from 'lodash/cloneDeep';
 
 let Radio = React.createClass({
 
@@ -30,7 +31,7 @@ let Radio = React.createClass({
             disabled              : false,
             componentCSSClassName : 'radio',
             checked               : false,
-            value                 : null,
+            value                 : undefined,
             onFocus               : null,
             onBlur                : null,
             onChange              : null,
@@ -90,9 +91,12 @@ let Radio = React.createClass({
             this.props.className
         ].join(' ');
 
+        const radioProps = cloneDeep(this.props);
+        delete radioProps.componentCSSClassName;
+
         return (
             <input
-                {...this.props}
+                {...radioProps}
                 className   = {classes}
                 id          = {this.props.id}
                 name        = {this.props.name}

@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _lodashCloneDeep = require('lodash/cloneDeep');
+
+var _lodashCloneDeep2 = _interopRequireDefault(_lodashCloneDeep);
+
 var Alert = _react2['default'].createClass({
 
     displayName: 'SynfrastructureAlert',
@@ -73,7 +77,16 @@ var Alert = _react2['default'].createClass({
 
         alertClasses = [this.props.componentCSSClassName, this.props.className].join(' ');
 
-        AlertComponent = _react2['default'].createElement('div', _extends({}, this.props, {
+        var alertProps = _lodashCloneDeep2['default'](this.props);
+        delete alertProps.foo;
+        delete alertProps.message;
+        delete alertProps.componentCSSClassName;
+        delete alertProps.canDismiss;
+        delete alertProps.dismissIcon;
+        delete alertProps.onDismiss;
+        delete alertProps.show;
+
+        AlertComponent = _react2['default'].createElement('div', _extends({}, alertProps, {
             className: alertClasses,
             onClick: this.props.onClick
         }), this.renderAlertChildren());

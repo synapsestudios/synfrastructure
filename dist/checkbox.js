@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _lodashCloneDeep = require('lodash/cloneDeep');
+
+var _lodashCloneDeep2 = _interopRequireDefault(_lodashCloneDeep);
+
 var Checkbox = _react2['default'].createClass({
 
     displayName: 'SynfrastructureCheckbox',
@@ -37,7 +41,7 @@ var Checkbox = _react2['default'].createClass({
             disabled: false,
             componentCSSClassName: 'checkbox',
             checked: false,
-            value: null,
+            value: undefined,
             onFocus: null,
             onBlur: null,
             onChange: null,
@@ -87,7 +91,10 @@ var Checkbox = _react2['default'].createClass({
     render: function render() {
         var classes = [this.props.componentCSSClassName, this.props.className].join(' ');
 
-        return _react2['default'].createElement('input', _extends({}, this.props, {
+        var checkboxProps = _lodashCloneDeep2['default'](this.props);
+        delete checkboxProps.componentCSSClassName;
+
+        return _react2['default'].createElement('input', _extends({}, checkboxProps, {
             className: classes,
             id: this.props.id,
             name: this.props.name,

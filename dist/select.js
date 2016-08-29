@@ -10,13 +10,17 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _lodashCollectionMap = require('lodash/collection/map');
+var _lodashCloneDeep = require('lodash/cloneDeep');
 
-var _lodashCollectionMap2 = _interopRequireDefault(_lodashCollectionMap);
+var _lodashCloneDeep2 = _interopRequireDefault(_lodashCloneDeep);
 
-var _lodashCollectionFindWhere = require('lodash/collection/findWhere');
+var _lodashMap = require('lodash/map');
 
-var _lodashCollectionFindWhere2 = _interopRequireDefault(_lodashCollectionFindWhere);
+var _lodashMap2 = _interopRequireDefault(_lodashMap);
+
+var _lodashFind = require('lodash/find');
+
+var _lodashFind2 = _interopRequireDefault(_lodashFind);
 
 var _mixinsFormInputMixin = require('../mixins/form-input-mixin');
 
@@ -73,7 +77,7 @@ var Select = _react2['default'].createClass({
             return this.props.value;
         }
 
-        selectedOption = _lodashCollectionFindWhere2['default'](this.props.options, { selected: true });
+        selectedOption = _lodashFind2['default'](this.props.options, { selected: true });
 
         if (!selectedOption) {
             return null;
@@ -87,7 +91,7 @@ var Select = _react2['default'].createClass({
             return null;
         }
 
-        return _lodashCollectionMap2['default'](this.props.options, function (option, index) {
+        return _lodashMap2['default'](this.props.options, function (option, index) {
             return _react2['default'].createElement(
                 'option',
                 {
@@ -129,9 +133,15 @@ var Select = _react2['default'].createClass({
 
         classes = [this.props.componentCSSClassName, this.props.className, customSelect].join(' ');
 
+        var selectProps = _lodashCloneDeep2['default'](this.props);
+        delete selectProps.options;
+        delete selectProps.componentCSSClassName;
+        delete selectProps.componentWrapCSSClassName;
+        delete selectProps.customIcon;
+
         return _react2['default'].createElement(
             'select',
-            _extends({}, this.props, {
+            _extends({}, selectProps, {
                 disabled: this.props.disabled,
                 className: classes,
                 id: this.props.id,

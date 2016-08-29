@@ -5,6 +5,7 @@ import Input      from '../src/input';
 import Textarea   from '../src/textarea';
 import Select     from '../src/select';
 import Checkbox   from '../src/checkbox';
+import Radio      from '../src/radio';
 import Label      from '../src/label';
 import Validation from '../src/validation';
 import Modal      from '../src/modal';
@@ -119,6 +120,14 @@ let Demo = React.createClass({
                     <Checkbox
                         id      = 'example6'
                         name    = 'checkbox-example6'
+                        checked = {true}
+                    />
+                </div>
+                <div className='section'>
+                    <h1 className='h1'>Radio Inputs</h1>
+                    <Radio
+                        id      = 'radio-example'
+                        name    = 'radio-example'
                         checked = {true}
                     />
                 </div>

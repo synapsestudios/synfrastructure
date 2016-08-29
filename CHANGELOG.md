@@ -1,3 +1,8 @@
+## [v4.3.1](https://github.com/synapsestudios/synfrastructure/compare/v4.1.3...v4.3.1) - 2016-04-21
+- [BREAKING] Removed legacy grid
+- There were some incompabatilites that never arose
+- Import grids and use their mixins to include them
+
 ## [v4.1.3](https://github.com/synapsestudios/synfrastructure/compare/v4.1.1...v4.1.3) - 2016-03-31
 - Allow disabled select options
 

@@ -20,9 +20,7 @@ For using the complete SASS library, include `app.scss` in your project's settin
 
 To include the React Component base styles, make sure `$include-component-classes` equals `true` in your project's settings file.
 
-### Using the Grid
-There are two grids in synfrastructure. The default grid is based off Flexbox. You can use the legacy Foundation-based grid by setting the `$legacy-grid` flag to `true`.
-
+### Grid
 ##### Syntax
 ```
 <div class='row'>

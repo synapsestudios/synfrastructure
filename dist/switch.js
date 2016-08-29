@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _lodashCloneDeep = require('lodash/cloneDeep');
+
+var _lodashCloneDeep2 = _interopRequireDefault(_lodashCloneDeep);
+
 var Switch = _react2['default'].createClass({
 
     displayName: 'Synfrastructure-Switch',
@@ -40,9 +44,8 @@ var Switch = _react2['default'].createClass({
             componentCSSClassName: 'switch',
             switchTextOn: 'on',
             switchTextOff: 'off',
-            checked: null,
-            defaultChecked: false,
-            value: null,
+            checked: false,
+            value: undefined,
             onFocus: null,
             onBlur: null,
             onChange: null,
@@ -92,16 +95,20 @@ var Switch = _react2['default'].createClass({
     render: function render() {
         var classes = [this.props.componentCSSClassName, this.props.className].join(' ');
 
+        var switchProps = _lodashCloneDeep2['default'](this.props);
+        delete switchProps.componentCSSClassName;
+        delete switchProps.switchTextOn;
+        delete switchProps.switchTextOff;
+
         return _react2['default'].createElement(
             'div',
             { className: classes },
-            _react2['default'].createElement('input', _extends({}, this.props, {
+            _react2['default'].createElement('input', _extends({}, switchProps, {
                 className: this.props.componentCSSClassName + '__checkbox',
                 id: this.props.id,
                 name: this.props.name,
                 type: 'checkbox',
                 checked: this.props.checked,
-                defaultChecked: this.props.checked,
                 value: this.props.value,
                 onFocus: this.onFocus,
                 onBlur: this.onBlur,
