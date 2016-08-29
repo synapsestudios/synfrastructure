@@ -33,12 +33,14 @@
     "build": "rm -rf ./dist/*  && ./node_modules/babel/bin/babel.js src --loose --out-dir dist",
     "prepublish": "npm run build"
   },
+  "peerDependencies": {
+    "react": ">=0.14.4",
+    "react-dom": ">=0.14.4",
+    "react-addons-create-fragment": ">=0.14.4"
+  },
   "dependencies": {
     "classnames": "2.2.3",
-    "lodash": "4.11.1",
-    "react": "^15.0.1",
-    "react-addons-create-fragment": "^15.0.1",
-    "react-dom": "^15.0.1"
+    "lodash": "4.11.1"
   },
   "devDependencies": {
     "autoprefixer": "6.3.6",
