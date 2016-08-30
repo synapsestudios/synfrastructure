@@ -1,5 +1,5 @@
 import React from 'react';
-import cloneDeep from 'lodash/cloneDeep';
+import clone from 'lodash/clone';
 
 let Switch = React.createClass({
 
@@ -96,7 +96,7 @@ let Switch = React.createClass({
             this.props.className
         ].join(' ');
 
-        const switchProps = cloneDeep(this.props);
+        const switchProps = clone(this.props);
         delete switchProps.componentCSSClassName;
         delete switchProps.switchTextOn;
         delete switchProps.switchTextOff;

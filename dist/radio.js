@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _lodashCloneDeep = require('lodash/cloneDeep');
+var _lodashClone = require('lodash/clone');
 
-var _lodashCloneDeep2 = _interopRequireDefault(_lodashCloneDeep);
+var _lodashClone2 = _interopRequireDefault(_lodashClone);
 
 var Radio = _react2['default'].createClass({
 
@@ -90,7 +90,7 @@ var Radio = _react2['default'].createClass({
     render: function render() {
         var classes = [this.props.componentCSSClassName, this.props.className].join(' ');
 
-        var radioProps = _lodashCloneDeep2['default'](this.props);
+        var radioProps = _lodashClone2['default'](this.props);
         delete radioProps.componentCSSClassName;
 
         return _react2['default'].createElement('input', _extends({}, radioProps, {

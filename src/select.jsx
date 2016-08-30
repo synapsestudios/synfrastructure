@@ -1,5 +1,5 @@
 import React from 'react';
-import cloneDeep from 'lodash/cloneDeep';
+import clone from 'lodash/clone';
 import map from 'lodash/map';
 import find from 'lodash/find';
 import FormInputMixin from '../mixins/form-input-mixin';
@@ -124,7 +124,7 @@ let Select = React.createClass({
             customSelect
         ].join(' ');
 
-        const selectProps = cloneDeep(this.props);
+        const selectProps = clone(this.props);
         delete selectProps.options;
         delete selectProps.componentCSSClassName;
         delete selectProps.componentWrapCSSClassName;

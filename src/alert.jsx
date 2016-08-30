@@ -1,5 +1,5 @@
 import React from 'react';
-import cloneDeep from 'lodash/cloneDeep';
+import clone from 'lodash/clone';
 
 let Alert = React.createClass({
 
@@ -69,7 +69,7 @@ let Alert = React.createClass({
             this.props.className
         ].join(' ');
 
-        const alertProps = cloneDeep(this.props);
+        const alertProps = clone(this.props);
         delete alertProps.foo;
         delete alertProps.message;
         delete alertProps.componentCSSClassName;

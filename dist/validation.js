@@ -18,9 +18,9 @@ var _mixinsSynfrastructureHelperMixin = require('../mixins/synfrastructure-helpe
 
 var _mixinsSynfrastructureHelperMixin2 = _interopRequireDefault(_mixinsSynfrastructureHelperMixin);
 
-var _lodashCloneDeep = require('lodash/cloneDeep');
+var _lodashClone = require('lodash/clone');
 
-var _lodashCloneDeep2 = _interopRequireDefault(_lodashCloneDeep);
+var _lodashClone2 = _interopRequireDefault(_lodashClone);
 
 var Validation = _react2['default'].createClass({
 
@@ -100,7 +100,7 @@ var Validation = _react2['default'].createClass({
 
         classes = [this.props.componentCSSClassName, showClass, statusClass, this.props.className].join(' ').trim();
 
-        var validationProps = _lodashCloneDeep2['default'](this.props);
+        var validationProps = _lodashClone2['default'](this.props);
         delete validationProps.validation;
         delete validationProps.componentCSSClassName;
         delete validationProps.renderMessages;

@@ -1,5 +1,5 @@
 import React from 'react';
-import cloneDeep from 'lodash/cloneDeep';
+import clone from 'lodash/clone';
 
 let Label = React.createClass({
 
@@ -29,7 +29,7 @@ let Label = React.createClass({
             this.props.className
         ].join(' ');
 
-        const labelProps = cloneDeep(this.props);
+        const labelProps = clone(this.props);
         delete labelProps.text;
         delete labelProps.componentCSSClassName;
 

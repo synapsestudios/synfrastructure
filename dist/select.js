@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _lodashCloneDeep = require('lodash/cloneDeep');
+var _lodashClone = require('lodash/clone');
 
-var _lodashCloneDeep2 = _interopRequireDefault(_lodashCloneDeep);
+var _lodashClone2 = _interopRequireDefault(_lodashClone);
 
 var _lodashMap = require('lodash/map');
 
@@ -133,7 +133,7 @@ var Select = _react2['default'].createClass({
 
         classes = [this.props.componentCSSClassName, this.props.className, customSelect].join(' ');
 
-        var selectProps = _lodashCloneDeep2['default'](this.props);
+        var selectProps = _lodashClone2['default'](this.props);
         delete selectProps.options;
         delete selectProps.componentCSSClassName;
         delete selectProps.componentWrapCSSClassName;

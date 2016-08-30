@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _lodashCloneDeep = require('lodash/cloneDeep');
+var _lodashClone = require('lodash/clone');
 
-var _lodashCloneDeep2 = _interopRequireDefault(_lodashCloneDeep);
+var _lodashClone2 = _interopRequireDefault(_lodashClone);
 
 var Switch = _react2['default'].createClass({
 
@@ -95,7 +95,7 @@ var Switch = _react2['default'].createClass({
     render: function render() {
         var classes = [this.props.componentCSSClassName, this.props.className].join(' ');
 
-        var switchProps = _lodashCloneDeep2['default'](this.props);
+        var switchProps = _lodashClone2['default'](this.props);
         delete switchProps.componentCSSClassName;
         delete switchProps.switchTextOn;
         delete switchProps.switchTextOff;

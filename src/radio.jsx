@@ -1,5 +1,5 @@
 import React from 'react';
-import cloneDeep from 'lodash/cloneDeep';
+import clone from 'lodash/clone';
 
 let Radio = React.createClass({
 
@@ -91,7 +91,7 @@ let Radio = React.createClass({
             this.props.className
         ].join(' ');
 
-        const radioProps = cloneDeep(this.props);
+        const radioProps = clone(this.props);
         delete radioProps.componentCSSClassName;
 
         return (

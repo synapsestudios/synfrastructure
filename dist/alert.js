@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _lodashCloneDeep = require('lodash/cloneDeep');
+var _lodashClone = require('lodash/clone');
 
-var _lodashCloneDeep2 = _interopRequireDefault(_lodashCloneDeep);
+var _lodashClone2 = _interopRequireDefault(_lodashClone);
 
 var Alert = _react2['default'].createClass({
 
@@ -77,7 +77,7 @@ var Alert = _react2['default'].createClass({
 
         alertClasses = [this.props.componentCSSClassName, this.props.className].join(' ');
 
-        var alertProps = _lodashCloneDeep2['default'](this.props);
+        var alertProps = _lodashClone2['default'](this.props);
         delete alertProps.foo;
         delete alertProps.message;
         delete alertProps.componentCSSClassName;

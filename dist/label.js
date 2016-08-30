@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _lodashCloneDeep = require('lodash/cloneDeep');
+var _lodashClone = require('lodash/clone');
 
-var _lodashCloneDeep2 = _interopRequireDefault(_lodashCloneDeep);
+var _lodashClone2 = _interopRequireDefault(_lodashClone);
 
 var Label = _react2['default'].createClass({
 
@@ -37,7 +37,7 @@ var Label = _react2['default'].createClass({
 
         classes = [this.props.componentCSSClassName, this.props.className].join(' ');
 
-        var labelProps = _lodashCloneDeep2['default'](this.props);
+        var labelProps = _lodashClone2['default'](this.props);
         delete labelProps.text;
         delete labelProps.componentCSSClassName;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import cloneDeep from 'lodash/cloneDeep';
+import clone from 'lodash/clone';
 import FormInputMixin from '../mixins/form-input-mixin';
 
 let Input = React.createClass({
@@ -65,7 +65,7 @@ let Input = React.createClass({
             this.props.className
         ].join(' ');
 
-        const inputProps = cloneDeep(this.props);
+        const inputProps = clone(this.props);
         delete inputProps.componentCSSClassName;
 
         return (

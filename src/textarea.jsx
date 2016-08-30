@@ -1,5 +1,5 @@
 import React from 'react';
-import cloneDeep from 'lodash/cloneDeep';
+import clone from 'lodash/clone';
 import FormInputMixin from '../mixins/form-input-mixin';
 
 let TextArea = React.createClass({
@@ -63,7 +63,7 @@ let TextArea = React.createClass({
             this.props.className
         ].join(' ');
 
-        const textareaProps = cloneDeep(this.props);
+        const textareaProps = clone(this.props);
         delete textareaProps.componentCSSClassName;
         delete textareaProps.resize;
 

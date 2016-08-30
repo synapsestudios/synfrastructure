@@ -10,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _lodashCloneDeep = require('lodash/cloneDeep');
+var _lodashClone = require('lodash/clone');
 
-var _lodashCloneDeep2 = _interopRequireDefault(_lodashCloneDeep);
+var _lodashClone2 = _interopRequireDefault(_lodashClone);
 
 var _mixinsFormInputMixin = require('../mixins/form-input-mixin');
 
@@ -71,7 +71,7 @@ var TextArea = _react2['default'].createClass({
 
         classes = [this.props.componentCSSClassName, this.props.componentCSSClassName + '--' + this.props.type, resizeClass, this.props.className].join(' ');
 
-        var textareaProps = _lodashCloneDeep2['default'](this.props);
+        var textareaProps = _lodashClone2['default'](this.props);
         delete textareaProps.componentCSSClassName;
         delete textareaProps.resize;
 
