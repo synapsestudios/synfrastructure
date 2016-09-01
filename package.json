@@ -38,10 +38,7 @@
     "react-dom": ">=0.14.4",
     "react-addons-create-fragment": ">=0.14.4"
   },
-  "dependencies": {
-    "classnames": "2.2.3",
-    "lodash": "4.11.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "autoprefixer": "6.3.6",
     "babel": "5.8.23",

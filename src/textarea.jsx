@@ -33,7 +33,7 @@ let TextArea = React.createClass({
             componentCSSClassName : 'textarea',
             placeholder           : null,
             style                 : null,
-            value                 : null,
+            value                 : '',
             rows                  : 4,
             resize                : true,
             onFocus               : null,
@@ -64,7 +64,6 @@ let TextArea = React.createClass({
 
         return (
             <textarea
-                {...this.props}
                 className   = {classes}
                 id          = {this.props.id}
                 name        = {this.props.name}

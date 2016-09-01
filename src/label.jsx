@@ -31,7 +31,6 @@ let Label = React.createClass({
         Component = React.createElement(
             'label',
             {
-                ...this.props,
                 htmlFor   : this.props.htmlFor,
                 className : classes
             },

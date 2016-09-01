@@ -71,7 +71,6 @@ let Alert = React.createClass({
         AlertComponent = React.createElement(
             'div',
             {
-                ...this.props,
                 className : alertClasses,
                 onClick   : this.props.onClick
             },

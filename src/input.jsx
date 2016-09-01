@@ -43,7 +43,7 @@ let Input = React.createClass({
         return {
             componentCSSClassName : 'input',
             placeholder           : null,
-            value                 : null,
+            value                 : '',
             onFocus               : null,
             onBlur                : null,
             onChange              : null,
@@ -66,7 +66,6 @@ let Input = React.createClass({
 
         return (
             <input
-                {...this.props}
                 className   = {classes}
                 id          = {this.props.id}
                 name        = {this.props.name}

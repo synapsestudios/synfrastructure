@@ -1,6 +1,4 @@
 import React      from 'react';
-import classNames from 'classnames';
-import className  from '../util/className';
 
 let Modal = React.createClass({
 
@@ -39,7 +37,8 @@ let Modal = React.createClass({
             return null;
         }
 
-        visible ? className.addClass(document.body, 'l--modal-revealed') : className.removeClass(document.body, 'l--modal-revealed');
+        visible ? document.body.classList.add('l--modal-revealed') :
+          document.body.classList.remove('l--modal-revealed');
     },
 
     renderModalMask()
@@ -59,29 +58,25 @@ let Modal = React.createClass({
 
     render()
     {
-        let componentClasses,
-            colorThemeClasses,
-            contentClasses;
+        const { children, className, colorTheme, reveal } = this.props;
+        const componentClasses = ['modal'];
 
-        colorThemeClasses = this.props.colorTheme ?
-        'modal--' + this.props.colorTheme : null;
+        if (reveal) {
+            componentClasses.push('modal--reveal');
+        }
 
-        componentClasses = {
-            'modal'         : true,
-            'modal--reveal' : this.props.reveal
-        };
+        if (className) {
+            componentClasses.push(className);
+        }
 
-        componentClasses[colorThemeClasses]    = colorThemeClasses;
-        componentClasses[this.props.className] = this.props.className;
-
-        contentClasses = {
-            'modal__content' : true
-        };
+        if (colorTheme) {
+            componentClasses.push(`modal--${colorTheme}`);
+        }
 
         return (
-            <div className={classNames(componentClasses)}>
-                <div className={classNames(contentClasses)}>
-                    {this.props.children}
+            <div className={componentClasses.join(' ')}>
+                <div className='modal__content'>
+                    {children}
                 </div>
                 {this.renderModalMask()}
             </div>

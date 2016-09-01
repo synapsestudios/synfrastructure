@@ -1,5 +1,4 @@
 import React      from 'react';
-import classNames from 'classnames';
 import ReactDOM   from 'react-dom';
 
 let Tooltip = React.createClass({
@@ -196,17 +195,19 @@ let Tooltip = React.createClass({
 
     render()
     {
-        let tooltipClass = classNames(
-            'tooltip',
-            {'tooltip--show'   : this.state.show},
-            {'tooltip__top'    : this.state.place === 'top'},
-            {'tooltip__bottom' : this.state.place === 'bottom'},
-            {'tooltip__left'   : this.state.place === 'left'},
-            {'tooltip__right'  : this.state.place === 'right'}
-        );
+        const { show, place, placeholder } = this.state;
+        const tooltipClassName = ['tooltip'];
+
+        if (show) {
+            tooltipClassName.push('tooltip--show');
+        }
+
+        if (place) {
+            tooltipClassName.push(`tooltip__${place}`);
+        }
 
         return (
-            <span className={tooltipClass} data-id="tooltip">{this.state.placeholder}</span>
+            <span className={tooltipClassName.join(' ')} data-id="tooltip">{placeholder}</span>
         )
     },
 
