@@ -1,4 +1,13 @@
-## [v5.3.0](https://github.com/synapsestudios/synfrastructure/compare/v5.1,0...v5.3.0) - 2016-04-21
+## [v6.0.0](https://github.com/synapsestudios/synfrastructure/compare/v5.4.0...v6.0.0) - 2016-08-31
+- Removed the ability to arbitrarily pass props with the spread operator since React 15.x throws warnings about unexpected attributes
+- Removes jshint linter config in favor of eslint
+- Removes lodash and classnames in favor of native JavaScript (may break in IE < 9 unless `Array.prototype.map` is polyfilled)
+- Changes default `value` prop from `null` to `''` for React 15.x compatibility
+
+## [v5.4.0](https://github.com/synapsestudios/synfrastructure/compare/v5.3.0...v5.4.0) - 2016-08-29
+- Makes `react`, `react-dom` and `react-addons-create-fragment` peerDependencies so that Synfrastructure may be bundled with React 0.14.x or 15.x
+
+## [v5.3.0](https://github.com/synapsestudios/synfrastructure/compare/v5.1.0...v5.3.0) - 2016-04-21
 - [BREAKING] Remove legacy Grid
 - Remove scss animation utilities
 

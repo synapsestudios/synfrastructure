@@ -1,3 +1,16 @@
+# v6.0.0
+
+## Arbitrary Props
+If your app relied on arbitrary props not specified in the Synfrastructure component's `propTypes` to be passed through to the underlying HTML element, you may need to provide this component in your application instead.
+
+## `map()`
+If your app supported IE < 9 you may need to polyfill `Array.prototype.map`
+
+# v5.4.0
+
+## Peer dependencies
+`react-addons-create-fragment` is now a required peer dependency
+
 # v5.0.0
 
 ## Validation Component
