@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import classNames from 'classnames';
 import Icon from './icon';
 import EyeOpenIcon from './icons/eye-open';
 import EyeClosedIcon from './icons/eye-closed';
@@ -61,7 +60,6 @@ export default React.createClass({
                 <input
                     type = {this.shouldRevealPassword() ? 'text' : 'password'}
                     className = 'input'
-                    {...this.props}
                 />
                 {this.renderPasswordRevealIcon()}
             </div>

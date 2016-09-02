@@ -1,12 +1,9 @@
 import React                      from 'react';
 import CreateFragment             from 'react-addons-create-fragment';
-import SynfrastructureHelperMixin from '../mixins/synfrastructure-helper-mixin';
 
 let Validation = React.createClass({
 
     displayName : 'Synfrastructure-Validation',
-
-    mixins : [SynfrastructureHelperMixin],
 
     propTypes : {
         componentCSSClassName : React.PropTypes.string,
@@ -39,6 +36,17 @@ let Validation = React.createClass({
             messageContainerProps : null,
             validation            : null
         };
+    },
+
+    mergeAttributes(attr1, attr2)
+    {
+        var newAttributes = {},
+            attrname;
+
+        for (attrname in attr1) { newAttributes[attrname] = attr1[attrname]; }
+        for (attrname in attr2) { newAttributes[attrname] = attr2[attrname]; }
+
+        return newAttributes;
     },
 
     renderMessage(messages, messageType)
@@ -127,7 +135,7 @@ let Validation = React.createClass({
         ].join(' ').trim();
 
         return (
-            <div {...this.props} className={classes}>
+            <div className={classes}>
                 {this.renderValidationContent()}
             </div>
         );

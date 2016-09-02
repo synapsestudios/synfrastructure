@@ -1,6 +1,4 @@
 import React from 'react';
-import map from 'lodash/map';
-import find from 'lodash/find';
 import FormInputMixin from '../mixins/form-input-mixin';
 
 let Select = React.createClass({
@@ -52,19 +50,17 @@ let Select = React.createClass({
 
     getSelectedValue()
     {
-        let selectedOption;
-
         if (this.props.value) {
             return this.props.value;
         }
 
-        selectedOption = find(this.props.options, {selected : true});
+        const selectedOption = this.props.options.findIndex(option => !! option.selected);
 
-        if (! selectedOption) {
+        if (selectedOption < 0) {
             return null;
         }
 
-        return selectedOption.value;
+        return this.props.options[selectedOption].value;
     },
 
     renderSelectOptions()
@@ -73,17 +69,15 @@ let Select = React.createClass({
             return null;
         }
 
-        return map(this.props.options, (option, index) => {
-            return (
-                <option
-                    value    = {option.value}
-                    key      = {option.text}
-                    disabled = {option.disabled || false}
-                >
-                    {option.text}
-                </option>
-            );
-        });
+        return this.props.options.map((option, index) => (
+            <option
+                value    = {option.value}
+                key      = {option.text}
+                disabled = {option.disabled || false}
+            >
+                {option.text}
+            </option>
+        ));
     },
 
     renderCustomSelect()
@@ -125,7 +119,6 @@ let Select = React.createClass({
 
         return (
             <select
-                {...this.props}
                 disabled   = {this.props.disabled}
                 className  = {classes}
                 id         = {this.props.id}

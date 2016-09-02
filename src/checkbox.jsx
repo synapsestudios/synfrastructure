@@ -31,7 +31,7 @@ let Checkbox = React.createClass({
             disabled              : false,
             componentCSSClassName : 'checkbox',
             checked               : false,
-            value                 : null,
+            value                 : '',
             onFocus               : null,
             onBlur                : null,
             onChange              : null,
@@ -93,7 +93,6 @@ let Checkbox = React.createClass({
 
         return (
             <input
-                {...this.props}
                 className   = {classes}
                 id          = {this.props.id}
                 name        = {this.props.name}

@@ -92,7 +92,6 @@ let Radio = React.createClass({
 
         return (
             <input
-                {...this.props}
                 className   = {classes}
                 id          = {this.props.id}
                 name        = {this.props.name}

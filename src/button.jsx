@@ -56,7 +56,6 @@ let Button = React.createClass({
         Component = React.createElement(
             this.props.element,
             {
-                ...this.props,
                 className : classes,
                 onClick   : this.props.onClick,
                 disabled  : this.props.disabled,

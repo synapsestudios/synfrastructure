@@ -99,13 +99,11 @@ let Switch = React.createClass({
         return (
             <div className={classes}>
                 <input
-                    {...this.props}
                     className      = {this.props.componentCSSClassName + '__checkbox'}
                     id             = {this.props.id}
                     name           = {this.props.name}
                     type           = 'checkbox'
                     checked        = {this.props.checked}
-                    defaultChecked = {this.props.checked}
                     value          = {this.props.value}
                     onFocus        = {this.onFocus}
                     onBlur         = {this.onBlur}
