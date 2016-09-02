@@ -7,7 +7,7 @@ let Label = React.createClass({
     propTypes : {
         htmlFor               : React.PropTypes.string.isRequired,
         componentCSSClassName : React.PropTypes.string,
-        text                  : React.PropTypes.string
+        text                  : React.PropTypes.any
     },
 
     getDefaultProps()
