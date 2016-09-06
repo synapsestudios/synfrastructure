@@ -39,7 +39,7 @@ let Select = React.createClass({
         return {
             componentCSSClassName : 'select',
             customIcon            : null,
-            value                 : null,
+            value                 : '',
             onFocus               : null,
             onBlur                : null,
             onChange              : null,
@@ -62,7 +62,7 @@ let Select = React.createClass({
         selectedOption = find(this.props.options, {selected : true});
 
         if (! selectedOption) {
-            return null;
+            return '';
         }
 
         return selectedOption.value;

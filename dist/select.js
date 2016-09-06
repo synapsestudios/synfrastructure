@@ -58,7 +58,7 @@ var Select = _react2['default'].createClass({
         return {
             componentCSSClassName: 'select',
             customIcon: null,
-            value: null,
+            value: '',
             onFocus: null,
             onBlur: null,
             onChange: null,
@@ -80,7 +80,7 @@ var Select = _react2['default'].createClass({
         selectedOption = _lodashFind2['default'](this.props.options, { selected: true });
 
         if (!selectedOption) {
-            return null;
+            return '';
         }
 
         return selectedOption.value;
