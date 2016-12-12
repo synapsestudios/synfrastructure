@@ -57,7 +57,7 @@ let Select = React.createClass({
         const selectedOption = this.props.options.findIndex(option => !! option.selected);
 
         if (selectedOption < 0) {
-            return null;
+            return '';
         }
 
         return this.props.options[selectedOption].value;
