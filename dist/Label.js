@@ -25,6 +25,7 @@ function Label(props) {
 
   _react2.default.Children.forEach(props.children, function (child) {
     if (child.type === _Radio2.default || child.type === _Checkbox2.default) {
+      newProps.className = newProps.className ? newProps.className + ' toggle' : 'toggle';
       newProps.tabIndex = child.props.tabIndex || '0';
       newProps.onKeyDown = function (e) {
         if (e.keyCode === 32) {

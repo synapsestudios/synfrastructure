@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 
 class Toggle extends Component {
   static propTypes = {
@@ -11,12 +12,17 @@ class Toggle extends Component {
 
   render() {
     const { checkedIcon, uncheckedIcon, ...passthroughProps } = this.props;
+    const toggleClasses = {
+      'toggle-icon': true,
+      'toggle-icon--checked': passthroughProps.checked,
+      [`toggle-icon--${passthroughProps.type}`]: passthroughProps.type,
+    }
     return (
       <div>
-        <span>
+        <input { ...passthroughProps } style={{ display: 'none' }} />
+        <span className={classNames(toggleClasses)}>
           {passthroughProps.checked ? checkedIcon : uncheckedIcon}
         </span>
-        <input { ...passthroughProps } />
       </div>
     );
   }

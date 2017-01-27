@@ -7,6 +7,8 @@ function Label(props) {
 
   React.Children.forEach(props.children, child => {
     if (child.type === Radio || child.type === Checkbox) {
+      newProps.className = newProps.className ?
+        `${newProps.className} toggle` : 'toggle';
       newProps.tabIndex = child.props.tabIndex || '0';
       newProps.onKeyDown = e => {
         if (e.keyCode === 32) {
