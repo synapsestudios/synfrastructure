@@ -29,7 +29,7 @@ var uncheckedIcon = _react2.default.createElement(
 );
 
 function Checkbox(props) {
-  return _react2.default.createElement(_Toggle2.default, _extends({}, props, { type: 'checkbox', checkedIcon: checkedIcon, uncheckedIcon: uncheckedIcon }));
+  return _react2.default.createElement(_Toggle2.default, _extends({ type: 'checkbox', checkedIcon: checkedIcon, uncheckedIcon: uncheckedIcon }, props));
 }
 
 exports.default = Checkbox;

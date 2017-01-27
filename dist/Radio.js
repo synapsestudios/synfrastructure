@@ -29,7 +29,7 @@ var uncheckedIcon = _react2.default.createElement(
 );
 
 function Radio(props) {
-  return _react2.default.createElement(_Toggle2.default, _extends({}, props, { type: 'radio', checkedIcon: checkedIcon, uncheckedIcon: uncheckedIcon }));
+  return _react2.default.createElement(_Toggle2.default, _extends({ type: 'radio', checkedIcon: checkedIcon, uncheckedIcon: uncheckedIcon }, props));
 }
 
 exports.default = Radio;
