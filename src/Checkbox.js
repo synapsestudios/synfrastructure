@@ -15,7 +15,7 @@ const uncheckedIcon = (
 
 function Checkbox(props) {
   return (
-    <Toggle { ...props } type="checkbox" checkedIcon={checkedIcon} uncheckedIcon={uncheckedIcon} />
+    <Toggle type="checkbox" checkedIcon={checkedIcon} uncheckedIcon={uncheckedIcon} { ...props } />
   );
 }
 

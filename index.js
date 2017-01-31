@@ -1,7 +1,7 @@
 module.exports = {
-  AbstractToggle: require('./dist/AbstractToggle'),
-  Checkbox: require('./dist/Checkbox'),
-  Label: require('./dist/Label'),
-  Modal: require('./dist/Modal'),
-  Radio: require('./dist/Radio'),
+  Checkbox: require('./dist/Checkbox').default,
+  Label: require('./dist/Label').default,
+  Modal: require('./dist/Modal').default,
+  Radio: require('./dist/Radio').default,
+  Toggle: require('./dist/Toggle').default,
 };

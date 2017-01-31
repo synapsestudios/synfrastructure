@@ -15,7 +15,7 @@ const uncheckedIcon = (
 
 function Radio(props) {
   return (
-    <Toggle { ...props } type="radio" checkedIcon={checkedIcon} uncheckedIcon={uncheckedIcon} />
+    <Toggle type="radio" checkedIcon={checkedIcon} uncheckedIcon={uncheckedIcon} { ...props } />
   );
 }
 
