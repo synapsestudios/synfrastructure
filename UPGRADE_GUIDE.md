@@ -1,3 +1,7 @@
+# v7.0.0
+
+This is a rewrite. Proceed at your own risk.
+
 # v6.0.0
 
 ## Arbitrary Props

@@ -1,3 +1,6 @@
+## [v7.0.0](https://github.com/synapsestudios/synfrastructure/compare/v6.0.0...v7.0.0) - 2017-01-25
+- Rewrote Synfrastructure to limit scope to reusable components
+
 ## [v6.0.0](https://github.com/synapsestudios/synfrastructure/compare/v5.4.0...v6.0.0) - 2016-08-31
 - Removed the ability to arbitrarily pass props with the spread operator since React 15.x throws warnings about unexpected attributes
 - Removes jshint linter config in favor of eslint
