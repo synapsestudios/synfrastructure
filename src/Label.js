@@ -6,7 +6,7 @@ function Label(props) {
   const newProps = { ...props };
 
   React.Children.forEach(props.children, child => {
-    if (child.type === Radio || child.type === Checkbox) {
+    if (child && (child.type === Radio || child.type === Checkbox)) {
       newProps.className = newProps.className ?
         `${newProps.className} toggle` : 'toggle';
       newProps.tabIndex = child.props.tabIndex || '0';
