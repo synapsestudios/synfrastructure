@@ -8,14 +8,14 @@ class Modal extends Component {
     closeButton: PropTypes.node,
     isVisible: PropTypes.bool,
     onClose: PropTypes.func.isRequired,
-  }
+  };
 
   static defaultProps = {
     className: null,
     closeButton: <button type="button">Close</button>,
     isVisible: false,
     onClose: null,
-  }
+  };
 
   componentDidMount() {
     if (this.props.isVisible) {
@@ -53,12 +53,10 @@ class Modal extends Component {
     return (
       <div className={classNames(modalClasses)}>
         <div className="modal__children">
-          {
-            React.cloneElement(this.props.closeButton, {
-              className: 'modal__close',
-              onClick: this.props.onClose,
-            })
-          }
+          {React.cloneElement(this.props.closeButton, {
+            className: 'modal__close',
+            onClick: this.props.onClose,
+          })}
           {this.props.children}
         </div>
         <button className="modal__overlay" onClick={this.props.onClose} />

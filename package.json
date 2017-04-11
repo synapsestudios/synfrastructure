@@ -30,22 +30,26 @@
   "scripts": {
     "demo": "webpack-dev-server --config webpack.config.demo.js",
     "build": "rm -rf ./dist/*  && ./node_modules/babel-cli/bin/babel.js src --loose --out-dir dist --presets react,es2015,stage-0",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "start": "npm run start-demo",
+    "start-demo": "start-storybook -p 9009 -s demo",
+    "build-demo": "build-storybook -s demo -o .out",
+    "deploy-demo": "npm run build && storybook-to-ghpages"
   },
   "peerDependencies": {
+    "classnames": ">=2.2.0",
     "react": ">=0.14.4",
-    "react-dom": ">=0.14.4",
-    "classnames": ">=2.2.0"
+    "react-dom": ">=0.14.4"
   },
   "devDependencies": {
+    "@kadira/storybook": "^2.21.0",
+    "@kadira/storybook-deployer": "^1.2.0",
     "babel-cli": "6.22.2",
     "babel-eslint": "7.0.0",
     "babel-loader": "6.2.10",
     "babel-preset-es2015": "6.22.0",
     "babel-preset-react": "6.22.0",
-    "babel-preset-react-hmre": "1.1.1",
     "babel-preset-stage-0": "6.22.0",
-    "css-loader": "0.26.1",
     "eslint": "3.8.1",
     "eslint-config-react-app": "0.5.0",
     "eslint-loader": "1.6.1",
@@ -53,9 +57,7 @@
     "eslint-plugin-import": "2.0.1",
     "eslint-plugin-jsx-a11y": "2.2.3",
     "eslint-plugin-react": "6.4.1",
-    "file-loader": "0.9.0",
-    "style-loader": "0.13.1",
-    "webpack": "2.2.0",
-    "webpack-dev-server": "2.2.0"
+    "lint-staged": "^3.4.0",
+    "prettier": "^0.22.0"
   }
 }
